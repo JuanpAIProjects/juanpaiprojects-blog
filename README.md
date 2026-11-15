@@ -161,6 +161,7 @@ El sitio ya está desplegado: repo en GitHub conectado a Netlify, publish direct
 
 ## Notas técnicas
 
+- Analítica de visitas: Cloudflare Web Analytics (gratis; la cuenta la creó Juanpa el 15 nov 2026 porque el registro de Cloudflare bloquea navegadores automatizados). El beacon va justo antes de `</body>` en TODAS las páginas HTML y en `posts/plantilla-post.html`, para que cada post nuevo nazca medido. No quitarlo al editar páginas. El token del snippet es público por diseño (va en el HTML visible).
 - El sitio funciona sin JavaScript para leer un post (cada post es HTML completo); el JS pinta las listas desde los JSON, la barra de progreso, los botones de compartir y las animaciones de aparición.
 - Las animaciones de aparición solo ocultan contenido si hay JS activo (clase `con-js` en `<html>`, puesta por un script mínimo en el `<head>`); con `prefers-reduced-motion` todo aparece sin movimiento.
 - La marca de cabecera es un recorte CSS del logo: si algún día se regenera `assets/img/logo.jpg` con otra composición, hay que re-medir la zona del foco y ajustar `.marca-logo img` en `estilos.css`.
