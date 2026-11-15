@@ -11,7 +11,7 @@ Blog estático de **Juanpai Projects**: noticias verificadas de IA, finanzas y t
 
 ```
 index.html                  Inicio: hero, banda de Última hora, post destacado, recientes,
-                            secciones Instagram y X, captura de correo
+                            secciones Instagram y X, suscripción por correo (Brevo)
 archivo.html                Archivo de posts agrupado por mes (se pinta desde posts.json)
 sobre-mi.html               Página "Sobre mí"
 posts/
@@ -55,7 +55,7 @@ La identidad sale **del logotipo**, no de una plantilla: el diseño anterior (fo
 
 - **Barra de progreso de lectura** fija arriba en cada post (gradiente teal → verde → coral, la mueve `main.js`).
 - **Botones de compartir** en cada post: X, WhatsApp, Facebook, copiar enlace y botón nativo con Web Share API cuando el dispositivo lo soporta. `main.js` arma las URLs con la dirección y el título reales de la página.
-- **Captura de correo con Netlify Forms**: sección invertida teal "El post del día, en tu correo" en el inicio y en el CTA de cada post. El formulario se llama `suscripcion` (`data-netlify="true"`, con honeypot); las suscripciones se consultan en el panel de Netlify (Forms → suscripcion). Es maqueta estándar de Netlify Forms, sin backend propio.
+- **Suscripción por correo con Brevo**: el blog también es un periódico por correo. El formulario (sección invertida teal "El periódico, en tu correo" en el inicio y en el CTA de cada post) es el formulario de Brevo, vestido con la identidad del blog mediante overrides en `estilos.css` sobre las clases `sib-*` (la hoja `sib-styles.css` de Brevo se carga antes que `estilos.css`; los paneles de éxito/error son los de Brevo y los muestra su `main.js`). Envía por POST al endpoint de sibforms y guarda los contactos en la lista **Blog — Suscriptores**, con dos atributos que elige el lector: `FRECUENCIA` (`1` = Diario, el post completo cada mañana; `2` = Semanal, el resumen de la semana los lunes) y `ULTIMAHORA` (`1` = quiere también las noticias de última hora verificadas). El radio **Diario va preseleccionado** (`checked` en el HTML). **Netlify Forms ya no se usa**: el formulario `suscripcion` de Netlify quedó retirado del HTML.
 - **Datos estructurados JSON-LD**: `WebSite` en el inicio y `BlogPosting` en cada post (viene en la plantilla).
 - **Tiempo de lectura** visible en destacado, recientes, archivo y posts (campo `lectura` de `posts.json`).
 - **Micro-animaciones** de aparición al hacer scroll (`IntersectionObserver`, clase `.revelar`), respetando `prefers-reduced-motion`; si no hay JS, el contenido se ve completo igual.
@@ -142,7 +142,7 @@ La pieza del día llega en versión newsletter (5 secciones: dato, herramienta, 
    - Contenido: `{{DATO}}` (qué pasó + por qué importa), `{{HERRAMIENTA}}`, `{{PROMPT_INTRO}}`, `{{PROMPT}}`, `{{CIERRE}}`, `{{FRASE_CIERRE}}` (la pregunta o frase final que va en la cita grande).
    - La sección 4 de la pieza ("visual sugerido") es metadato de producción para Instagram: **no** va en el artículo del blog.
    - Si un párrafo es largo, se puede partir en dos `<p>` dentro de la misma sección.
-   - La barra de progreso, los botones de compartir y el formulario de suscripción del CTA vienen en la plantilla y funcionan solos: no llevan marcadores ni hay que tocarlos.
+   - La barra de progreso, los botones de compartir y el formulario de suscripción (Brevo) del CTA vienen en la plantilla y funcionan solos: no llevan marcadores ni hay que tocarlos.
 3. **Actualizar `posts.json`.** Agregar la entrada nueva **hasta arriba** del arreglo (el primero es el destacado del inicio), con su campo `tipo` y su `lectura` (ej. `"2 min"`). La `url` es la ruta relativa: `posts/AAAA-MM-DD-slug.html`.
 4. **Actualizar `sitemap.xml`.** Agregar un `<url>` con la URL absoluta del post (`https://juanpaiprojects.netlify.app/posts/AAAA-MM-DD-slug.html`) y `lastmod` con la fecha del post. Actualizar también el `lastmod` de la portada y del archivo.
 5. **Registrar el Instagram del día en `ig.json`.** Cuando el carrusel del día esté publicado en @juanpaiprojects, agregar su entrada **hasta arriba** de `publicaciones` con la URL real del post de Instagram y, si se tiene a la mano, la URL pública de la primera foto en el campo `imagen`.
@@ -153,7 +153,7 @@ Verificación rápida antes de dar por publicado: abrir el HTML nuevo y confirma
 
 ## Despliegue
 
-El sitio ya está desplegado: repo en GitHub conectado a Netlify, publish directory `.` y sin comando de build (ver `netlify.toml`). Cada push despliega solo. El formulario `suscripcion` lo detecta Netlify Forms automáticamente en el HTML desplegado; no requiere configuración extra.
+El sitio ya está desplegado: repo en GitHub conectado a Netlify, publish directory `.` y sin comando de build (ver `netlify.toml`). Cada push despliega solo. La suscripción por correo la opera Brevo (ver "Piezas de engagement"); Netlify solo sirve el sitio y ya no captura correos.
 
 **(Futuro) Dominio propio**: cuando exista un dominio (ej. juanpaiprojects.com), conectarlo en Netlify y buscar y reemplazar `https://juanpaiprojects.netlify.app` por el dominio final en todo el repo (canonical, Open Graph, JSON-LD, `sitemap.xml`, `robots.txt`).
 

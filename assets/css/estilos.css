@@ -627,6 +627,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   font-family: var(--titular);
   font-size: clamp(1.6rem, 3vw, 2.1rem);
   font-weight: 800;
+  text-transform: uppercase;
   line-height: 1.12;
   letter-spacing: -0.01em;
   margin-bottom: 0.8rem;
@@ -634,45 +635,166 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 .suscripcion-texto p { color: var(--sobre-tinta); max-width: 420px; }
 
-.suscripcion-form .oculto {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+/* ---------- Formulario de suscripción (Brevo) ----------
+   La captura vive en Brevo (lista "Blog — Suscriptores", atributos
+   FRECUENCIA y ULTIMAHORA). sib-styles.css se carga ANTES que este
+   archivo y aquí solo se viste el formulario con la identidad del
+   blog: tarjeta crema sobre la sección teal, tinta teal, botón
+   verde, coral solo en detalles (asteriscos y errores).
+   Los paneles de éxito/error son los de Brevo: ocultos por defecto;
+   su main.js los muestra agregando la clase --active. */
+
+:where(.sib-form-message-panel) { display: none; }
+:where(.sib-form-message-panel .sib-notification__icon) { width: 20px; height: 20px; }
+
+.brevo .sib-form {
+  background: transparent;
+  font-family: var(--sans);
+  font-size: 1rem;
+  padding: 0;
+  text-align: left;
 }
 
-.suscripcion-label {
-  display: block;
+.brevo .sib-form-message-panel {
+  border-radius: 12px;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+.brevo #error-message {
+  color: #7A1508;
+  background: #FBE9E2;
+  border-color: var(--coral);
+}
+
+.brevo #success-message {
+  color: var(--verde-oscuro);
+  background: #E7F1E4;
+  border-color: var(--verde);
+}
+
+.brevo #sib-container {
+  background: var(--crema);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
+  max-width: 100%;
+  padding: 1.5rem 1.6rem;
+  text-align: left;
+}
+
+.brevo #sib-form > div { margin-bottom: 1.05rem; }
+.brevo #sib-form > div:last-of-type { margin-bottom: 0; }
+
+.brevo .sib-form-block { padding: 0; }
+
+.brevo .brevo-titulo p {
+  font-family: var(--titular);
+  font-size: 1.28rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  color: var(--tinta);
+}
+
+.brevo .sib-text-form-block p { color: var(--tinta-suave); font-size: 0.95rem; }
+
+.brevo .entry__label {
+  font-family: var(--sans);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--sobre-tinta);
-  margin-bottom: 0.6rem;
+  color: var(--tinta);
+  margin-bottom: 0.55rem;
 }
 
-.suscripcion-fila { display: flex; gap: 0.7rem; }
+.brevo .entry__label::after { color: var(--coral); }
 
-.suscripcion-fila input[type="email"] {
-  flex: 1;
-  min-width: 0;
+.brevo .entry__choice { font-family: var(--sans); margin-bottom: 0.35rem; }
+
+.brevo .entry__choice label {
+  cursor: pointer;
+  color: var(--tinta);
+  font-size: 1rem;
+}
+
+.brevo .entry__choice p { display: inline; }
+
+.brevo .checkbox,
+.brevo .radio-button {
+  border-color: var(--tinta-tenue);
+  background: #FFFDF6;
+}
+
+.brevo .input_replaced:checked + .radio-button { border-color: var(--verde); }
+.brevo .input_replaced:checked + .radio-button::before { background: var(--verde); }
+
+.brevo .input_replaced:checked + .checkbox_tick_positive {
+  background: var(--verde);
+  border-color: var(--verde);
+}
+
+.brevo .input_replaced:focus + .checkbox,
+.brevo .input_replaced:focus + .radio-button,
+.brevo .input_replaced:active + .checkbox,
+.brevo .input_replaced:active + .radio-button {
+  box-shadow: 0 0 0 2px rgba(29, 106, 74, 0.35);
+}
+
+.brevo .entry__field {
+  background: #FFFDF6;
+  border: 2px solid var(--borde);
+  border-radius: 999px;
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0.15rem 0.4rem;
+}
+
+.brevo .entry__field:focus-within {
+  border-color: var(--verde);
+  box-shadow: 0 0 0 2px rgba(29, 106, 74, 0.25);
+}
+
+.brevo .input {
   font-family: var(--sans);
   font-size: 1rem;
   color: var(--tinta);
-  background: var(--crema);
-  border: 2px solid transparent;
+  width: 100%;
+}
+
+.brevo .input::placeholder {
+  color: var(--tinta-tenue);
+  font-family: var(--sans);
+  text-align: left;
+}
+
+.brevo .entry__specification { font-size: 0.82rem; color: var(--tinta-tenue); }
+
+.brevo .entry__error { color: var(--coral); font-size: 0.85rem; }
+
+.brevo .sib-form-block__button {
+  background: var(--verde);
+  color: #FFF8EC;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   border-radius: 999px;
-  padding: 0.8rem 1.25rem;
+  padding: 0.8rem 1.7rem;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.suscripcion-fila input[type="email"]::placeholder { color: var(--tinta-tenue); }
-
-.suscripcion-nota {
-  font-size: 0.85rem;
-  color: var(--sobre-tinta-tenue);
-  margin-top: 0.8rem;
+.brevo .sib-form-block__button:hover {
+  background: var(--verde-oscuro);
+  transform: translateY(-1px);
 }
+
+.brevo #sib-container a { color: var(--verde); text-decoration: underline; }
 
 /* ---------- Artículo ---------- */
 
@@ -872,18 +994,10 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 .cta-post-botones { display: flex; flex-wrap: wrap; gap: 0.8rem; flex: none; }
 
-.cta-post .suscripcion-form {
+.cta-post .brevo-en-cta {
   border-top: 1px solid rgba(239, 230, 213, 0.22);
   margin-top: 1.8rem;
   padding-top: 1.6rem;
-}
-
-.cta-form-titulo {
-  font-family: var(--titular);
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: var(--crema);
-  margin-bottom: 0.9rem;
 }
 
 .post-nav {
@@ -1070,8 +1184,8 @@ html.con-js .revelar.visible {
   .ultima-hora { flex-wrap: wrap; gap: 0.7rem; }
   .uh-fecha { width: 100%; }
   .suscripcion { padding: 1.8rem 1.4rem; }
-  .suscripcion-fila { flex-direction: column; }
-  .suscripcion-fila .boton { text-align: center; }
+  .brevo #sib-container { padding: 1.25rem 1.1rem; }
+  .brevo .sib-form-block__button { width: 100%; text-align: center; }
   .cta-post { padding: 1.8rem 1.4rem; }
   .cta-post-fila { flex-direction: column; align-items: flex-start; }
 }
