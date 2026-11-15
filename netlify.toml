@@ -1,0 +1,28 @@
+# ============================================================
+# JUANPAI PROJECTS — Blog estático, SIN paso de build.
+# Netlify sirve los archivos tal cual desde la raíz del repo.
+# ============================================================
+
+[build]
+  publish = "."
+  command = ""
+
+# Seguridad básica en todas las rutas
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+# Assets con caché larga (CSS/JS/imágenes cambian poco)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Los índices JSON se actualizan a diario: caché corta
+[[headers]]
+  for = "/*.json"
+  [headers.values]
+    Cache-Control = "public, max-age=300"

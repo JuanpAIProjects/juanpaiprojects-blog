@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  PLANTILLA DE POST — JUANPAI PROJECTS
+  ============================================================
+  El job diario NO usa este archivo en vivo: lo COPIA con el nombre
+  posts/AAAA-MM-DD-slug.html y reemplaza cada marcador {{...}}.
+
+  Marcadores:
+    {{TITULO}}       Título del post (también va en <title> y OG)
+    {{DESCRIPCION}}  Resumen de 1-2 frases (meta description y OG)
+    {{FECHA_ISO}}    Fecha en formato 2026-11-15
+    {{FECHA_LARGA}}  Fecha legible: 15 de noviembre de 2026
+    {{TEMA}}         Tema corto, ej. "IA aplicada", "Finanzas", "Global"
+    {{TIPO}}         Tipo de post: "noticia" o "tip" (ver la nota en
+                     articulo-meta: cambia el distintivo; "noticia"
+                     alimenta la banda de Última hora del inicio)
+    {{LECTURA}}      Tiempo de lectura, ej. "2 min de lectura"
+    {{SLUG}}         Nombre del archivo sin fecha, ej. la-ia-sale-a-bolsa
+                     (la URL canónica se arma como posts/{{FECHA_ISO}}-{{SLUG}}.html)
+
+  Tono (ver README, "Tono editorial"): claridad de parte de noticias
+  en tres pasos — qué pasó, por qué importa, qué hacer — con la voz
+  directa de Juanpa. Si el post es noticia, el dato va verificado
+  contra fuentes serias antes de publicarse.
+
+  Después de crear el HTML hay que:
+    1. Agregar la entrada NUEVA HASTA ARRIBA en posts.json (con su "tipo")
+    2. Agregar la URL en sitemap.xml
+  El detalle completo está en README.md (sección "Publicar un post nuevo").
+  ============================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITULO}} — Juanpai Projects</title>
+  <meta name="description" content="{{DESCRIPCION}}">
+  <link rel="canonical" href="https://juanpaiprojects.netlify.app/posts/{{FECHA_ISO}}-{{SLUG}}.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Juanpai Projects">
+  <meta property="og:title" content="{{TITULO}}">
+  <meta property="og:description" content="{{DESCRIPCION}}">
+  <meta property="og:url" content="https://juanpaiprojects.netlify.app/posts/{{FECHA_ISO}}-{{SLUG}}.html">
+  <meta property="og:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
+  <meta property="og:locale" content="es_MX">
+  <meta property="article:published_time" content="{{FECHA_ISO}}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{TITULO}}">
+  <meta name="twitter:description" content="{{DESCRIPCION}}">
+  <meta name="twitter:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/estilos.css">
+</head>
+<body>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-interna">
+      <a class="marca" href="../index.html">Juanpai <span>Projects</span></a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="../index.html">Inicio</a>
+        <a href="../archivo.html">Archivo</a>
+        <a href="../sobre-mi.html">Sobre mí</a>
+        <a class="nav-ig" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">Instagram</a>
+        <a class="nav-ig" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <article class="articulo">
+      <p class="kicker"><span class="kicker-linea"></span>Juanpai al día</p>
+      <h1>{{TITULO}}</h1>
+      <p class="articulo-meta">
+        <time datetime="{{FECHA_ISO}}">{{FECHA_LARGA}}</time>
+        <!-- Distintivo de tipo: si {{TIPO}} es "noticia", dejar la línea tal cual.
+             Si es "tip", cambiar la clase a "tipo-tip" y el texto a "Tip y análisis". -->
+        · <span class="tipo-chip tipo-noticia">Noticia</span>
+        · <span class="tema-chip">{{TEMA}}</span>
+        · {{LECTURA}}
+      </p>
+
+      <p class="articulo-entradilla">{{DESCRIPCION}}</p>
+
+      <!-- Sección 1: el dato del día (qué pasó + por qué importa) -->
+      <h2><span class="num">01</span>El dato</h2>
+      <p>{{DATO}}</p>
+
+      <!-- Sección 2: herramienta o tip (gratis siempre que se pueda) -->
+      <h2><span class="num">02</span>Herramienta del día</h2>
+      <p>{{HERRAMIENTA}}</p>
+
+      <!-- Sección 3: prompt listo para copiar. Si el post no trae prompt,
+           esta sección puede ser "La idea para copiar" con el mismo bloque. -->
+      <h2><span class="num">03</span>Prompt para copiar</h2>
+      <p>{{PROMPT_INTRO}}</p>
+      <div class="prompt">
+        <div class="prompt-cabecera">
+          <span>Prompt listo para pegar</span>
+          <button class="boton-copiar" type="button" data-copiar="prompt-texto">Copiar</button>
+        </div>
+        <p id="prompt-texto">{{PROMPT}}</p>
+      </div>
+
+      <!-- Sección 4: cierre. La última línea es la cita-cierre (pregunta o frase). -->
+      <h2><span class="num">04</span>Cierre</h2>
+      <p>{{CIERRE}}</p>
+      <p class="cita-cierre">{{FRASE_CIERRE}}</p>
+    </article>
+
+    <aside class="cta-ig">
+      <div>
+        <h3>Esto también sale en Instagram y en X</h3>
+        <p>El resumen en carrusel en Instagram y la versión corta en X, para guardarlo, compartirlo y conversarlo.</p>
+      </div>
+      <a class="boton boton-solido" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">@juanpaiprojects</a>
+      <a class="boton boton-contorno" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
+    </aside>
+
+    <nav class="post-nav" aria-label="Navegación del post">
+      <a href="../archivo.html">← Todos los posts</a>
+      <a href="../index.html">Inicio</a>
+    </nav>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie-grid">
+      <div>
+        <a class="marca" href="../index.html">Juanpai <span>Projects</span></a>
+        <p class="pie-tag">Noticias verificadas e IA aplicada a negocios reales. Un dato, una herramienta y un prompt cada día. Sin humo.</p>
+      </div>
+      <div>
+        <p class="pie-titulo">El blog</p>
+        <nav class="pie-nav" aria-label="Enlaces del pie">
+          <a href="../index.html">Inicio</a>
+          <a href="../archivo.html">Archivo de posts</a>
+          <a href="../sobre-mi.html">Sobre mí</a>
+        </nav>
+      </div>
+      <div class="pie-ig">
+        <p class="pie-titulo">Redes</p>
+        <p>El resumen de cada post sale en carrusel en Instagram y en versión corta en X. La conversación pasa allá.</p>
+        <a class="boton boton-contorno" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
+        <a class="boton boton-contorno" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
+      </div>
+    </div>
+    <div class="contenedor pie-base">
+      <p>© <span id="anio">2026</span> Juanpai Projects. Todos los derechos reservados.</p>
+      <p>Escrito desde proyectos reales, no desde un escritorio de consultoría.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

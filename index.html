@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juanpai Projects — Noticias e IA aplicada a negocios reales</title>
+  <meta name="description" content="Juanpai Projects: noticias verificadas de IA, finanzas y temas globales, e IA aplicada a negocios reales. Cada día: qué pasó, por qué importa y qué hacer. Sin humo.">
+  <link rel="canonical" href="https://juanpaiprojects.netlify.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Juanpai Projects">
+  <meta property="og:title" content="Juanpai Projects — Noticias e IA aplicada a negocios reales">
+  <meta property="og:description" content="Noticias verificadas de IA, finanzas y temas globales, con su consecuencia práctica. Y cada día una herramienta gratis y un prompt listo para copiar.">
+  <meta property="og:url" content="https://juanpaiprojects.netlify.app/">
+  <meta property="og:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Juanpai Projects — Noticias e IA aplicada a negocios reales">
+  <meta name="twitter:description" content="Qué pasó, por qué importa y qué hacer. Noticias verificadas e IA aplicada, cada día. Sin humo.">
+  <meta name="twitter:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-interna">
+      <a class="marca" href="index.html">Juanpai <span>Projects</span></a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="archivo.html">Archivo</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a class="nav-ig" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">Instagram</a>
+        <a class="nav-ig" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero contenedor">
+      <p class="kicker"><span class="kicker-linea"></span>Noticias · IA aplicada · Cada día</p>
+      <h1>Qué pasó, por qué importa y <em>qué hacer</em>.</h1>
+      <p class="lede">Cada día reviso la noticia en IA, finanzas y temas globales, la verifico y te la cuento con su consecuencia práctica. Y de pilón: una herramienta gratis y un prompt listo para copiar, probados en proyectos reales. Dos minutos, sin humo.</p>
+      <div class="hero-acciones">
+        <a class="boton boton-solido" href="#ultimo">Leer el post de hoy</a>
+        <a class="boton boton-contorno" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">Seguir en Instagram</a>
+        <a class="boton boton-contorno" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">Seguir en X</a>
+      </div>
+    </section>
+
+    <!-- Última hora: se pinta desde posts.json (el post tipo "noticia" más reciente) -->
+    <section class="contenedor" aria-label="Última hora" style="padding-bottom: 0.4rem;">
+      <a class="ultima-hora" id="ultima-hora" href="#" hidden>
+        <span class="uh-badge"><span class="uh-punto"></span>Última hora</span>
+        <span class="uh-titulo" id="uh-titulo"></span>
+        <span class="uh-fecha" id="uh-fecha"></span>
+      </a>
+    </section>
+
+    <!-- Post destacado: se pinta desde posts.json (el primero es el más reciente) -->
+    <section class="seccion contenedor" id="ultimo">
+      <div class="seccion-encabezado">
+        <h2>Lo último</h2>
+        <span class="regla"></span>
+        <a class="enlace-suave" href="archivo.html">Ver archivo</a>
+      </div>
+      <article class="destacado" id="post-destacado">
+        <p class="destacado-etiqueta">Post del día</p>
+        <p class="destacado-resumen">Cargando el post más reciente…</p>
+      </article>
+    </section>
+
+    <!-- Recientes: se pintan desde posts.json -->
+    <section class="seccion contenedor">
+      <div class="seccion-encabezado">
+        <h2>Posts recientes</h2>
+        <span class="regla"></span>
+      </div>
+      <div class="lista-posts" id="lista-recientes"></div>
+    </section>
+
+    <!-- Instagram: tarjetas desde ig.json + tarjeta de perfil -->
+    <section class="seccion seccion-ig contenedor">
+      <div class="seccion-encabezado">
+        <h2>En Instagram</h2>
+        <span class="regla"></span>
+        <span class="tema-chip">@juanpaiprojects</span>
+      </div>
+      <p class="seccion-nota">Cada post sale también en carrusel en Instagram y en versión corta en X. Ahí se conversa; aquí se lee completo, con el prompt listo para copiar.</p>
+      <div class="ig-grid" id="ig-grid"></div>
+      <div class="ig-perfil">
+        <div>
+          <h3>@juanpaiprojects</h3>
+          <p>La noticia, la herramienta y el prompt del día, en formato carrusel.</p>
+        </div>
+        <a class="boton boton-solido" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">Ir al perfil</a>
+        <a class="boton boton-contorno" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">Seguir en X</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie-grid">
+      <div>
+        <a class="marca" href="index.html">Juanpai <span>Projects</span></a>
+        <p class="pie-tag">Noticias verificadas e IA aplicada a negocios reales. Un dato, una herramienta y un prompt cada día. Sin humo.</p>
+      </div>
+      <div>
+        <p class="pie-titulo">El blog</p>
+        <nav class="pie-nav" aria-label="Enlaces del pie">
+          <a href="index.html">Inicio</a>
+          <a href="archivo.html">Archivo de posts</a>
+          <a href="sobre-mi.html">Sobre mí</a>
+        </nav>
+      </div>
+      <div class="pie-ig">
+        <p class="pie-titulo">Redes</p>
+        <p>El resumen de cada post sale en carrusel en Instagram y en versión corta en X. La conversación pasa allá.</p>
+        <a class="boton boton-contorno" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
+        <a class="boton boton-contorno" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
+      </div>
+    </div>
+    <div class="contenedor pie-base">
+      <p>© <span id="anio">2026</span> Juanpai Projects. Todos los derechos reservados.</p>
+      <p>Escrito desde proyectos reales, no desde un escritorio de consultoría.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
