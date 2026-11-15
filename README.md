@@ -2,14 +2,16 @@
 
 Blog estático de **Juanpai Projects**: noticias verificadas de IA, finanzas y temas globales, e IA aplicada a negocios reales. HTML/CSS/JS planos, **sin paso de build**: Netlify sirve los archivos tal cual desde la raíz del repo.
 
-- URL provisional: https://juanpaiprojects.netlify.app
+- URL: https://juanpaiprojects.netlify.app (en vivo; Netlify despliega solo con cada push al repo)
 - Instagram: https://www.instagram.com/juanpaiprojects/
+- X: https://x.com/juanpaiprojects
 - Todo el contenido está en español. Sin emojis en el sitio.
 
 ## Estructura
 
 ```
-index.html                  Inicio: hero, banda de Última hora, post destacado, recientes, sección Instagram
+index.html                  Inicio: hero, banda de Última hora, post destacado, recientes,
+                            secciones Instagram y X, captura de correo
 archivo.html                Archivo de posts agrupado por mes (se pinta desde posts.json)
 sobre-mi.html               Página "Sobre mí"
 posts/
@@ -17,15 +19,47 @@ posts/
   AAAA-MM-DD-slug.html      Un archivo por post publicado
 posts.json                  Índice de posts (el sitio lo lee con JS)
 ig.json                     Índice de publicaciones de Instagram para la sección "En Instagram"
+x.json                      Índice de publicaciones de X para la sección "En X"
 assets/
-  css/estilos.css           Estilos (editorial oscuro, acento dorado)
-  js/main.js                Pinta última hora/destacado/recientes/archivo/Instagram y el botón "Copiar"
-  img/logo.jpg              Logotipo de la marca (imagen social / Open Graph)
+  css/estilos.css           Estilos (tema claro editorial, paleta del logo)
+  js/main.js                Pinta última hora/destacado/recientes/archivo/Instagram/X,
+                            progreso de lectura, compartir, aparición al scroll, botón "Copiar"
+  img/logo.jpg              Logotipo de la marca (cabecera, pie, imagen social / Open Graph)
 netlify.toml                Configuración de Netlify (publish ".", sin build)
 sitemap.xml                 Mapa del sitio (actualizar con cada post)
 robots.txt                  Permite todo y apunta al sitemap
-favicon.svg                 Favicon (J dorada sobre fondo oscuro)
+favicon.svg                 Favicon (foco teal sobre crema, dibujado en SVG)
 ```
+
+## Sistema de diseño
+
+La identidad sale **del logotipo**, no de una plantilla: el diseño anterior (fondo oscuro, dorado, serif) quedó retirado por no corresponder a la marca.
+
+**Paleta exacta del logo:**
+
+| Color | Hex | Uso |
+|---|---|---|
+| Crema | `#EFE6D5` | Fondo principal de todo el sitio (es el fondo del logo; la cabecera se funde con él) |
+| Tinta teal | `#00343F` | Texto principal, foco del logo y secciones invertidas (suscripción, CTA de post, pie) |
+| Verde | `#1D6A4A` | Acento principal: botones sólidos, enlaces, rayos del foco, distintivo de tip |
+| Coral | `#D73119` | Solo banda de Última hora, distintivo de noticia y detalles puntuales (números de sección, punta del foco) |
+
+**Tipografía** (Google Fonts, únicas librerías externas del sitio):
+
+- **Archivo** (600–900): titulares, con tracking ajustado y mayúsculas estilo póster donde pega, como el wordmark del logo.
+- **Inter** (400–700): cuerpo y controles.
+
+**La marca nunca va como texto tecleado.** En la cabecera va solo el logo como imagen: CSS recorta la zona del foco con rayos (x 170–885, y 45–620 de la imagen 1024×1024) como marca compacta, sin nada de texto al lado; el enlace lleva `aria-label` accesible. En el pie (fondo teal), el logo completo va dentro de una tarjeta crema redondeada, como badge intencional. El logo completo también es la imagen social (Open Graph) y la foto de "Sobre mí".
+
+**Piezas de engagement** (sin build y sin servicios de pago):
+
+- **Barra de progreso de lectura** fija arriba en cada post (gradiente teal → verde → coral, la mueve `main.js`).
+- **Botones de compartir** en cada post: X, WhatsApp, Facebook, copiar enlace y botón nativo con Web Share API cuando el dispositivo lo soporta. `main.js` arma las URLs con la dirección y el título reales de la página.
+- **Captura de correo con Netlify Forms**: sección invertida teal "El post del día, en tu correo" en el inicio y en el CTA de cada post. El formulario se llama `suscripcion` (`data-netlify="true"`, con honeypot); las suscripciones se consultan en el panel de Netlify (Forms → suscripcion). Es maqueta estándar de Netlify Forms, sin backend propio.
+- **Datos estructurados JSON-LD**: `WebSite` en el inicio y `BlogPosting` en cada post (viene en la plantilla).
+- **Tiempo de lectura** visible en destacado, recientes, archivo y posts (campo `lectura` de `posts.json`).
+- **Micro-animaciones** de aparición al hacer scroll (`IntersectionObserver`, clase `.revelar`), respetando `prefers-reduced-motion`; si no hay JS, el contenido se ve completo igual.
+- Contraste AA: teal sobre crema como texto principal; botones verdes sólidos con texto crema.
 
 ### Los índices JSON
 
@@ -38,16 +72,19 @@ favicon.svg                 Favicon (J dorada sobre fondo oscuro)
   "resumen": "Resumen de 1-2 frases, el mismo de la meta description del post.",
   "url": "posts/2026-11-15-la-ia-sale-a-bolsa.html",
   "tema": "IA aplicada",
-  "tipo": "noticia"
+  "tipo": "noticia",
+  "lectura": "2 min"
 }
 ```
 
 El campo `tipo` distingue los dos tipos de post:
 
-- `"noticia"` — información verificada del día (IA, finanzas, temas globales). Se muestra con distintivo dorado sólido y el post de noticia más reciente aparece además en la **banda de Última hora** del inicio. Si no hay ningún post tipo noticia, la banda no se muestra.
-- `"tip"` — tip o análisis: herramienta, prompt e ideas de IA aplicada. Se muestra con distintivo de borde.
+- `"noticia"` — información verificada del día (IA, finanzas, temas globales). Se muestra con distintivo coral sólido y el post de noticia más reciente aparece además en la **banda de Última hora** del inicio. Si no hay ningún post tipo noticia, la banda no se muestra.
+- `"tip"` — tip o análisis: herramienta, prompt e ideas de IA aplicada. Se muestra con distintivo de borde verde.
 
 El campo `tema` es la etiqueta de tema: "IA aplicada", "Finanzas", "Global", etc.
+
+El campo `lectura` es **opcional**: tiempo estimado como `"2 min"`. Se muestra como "2 min de lectura" en el destacado, en las listas y (vía el marcador `{{LECTURA}}`) en el post. Si falta, no se muestra nada.
 
 `ig.json` alimenta la sección "En Instagram" del inicio. Cada entrada de `publicaciones`:
 
@@ -57,11 +94,32 @@ El campo `tema` es la etiqueta de tema: "IA aplicada", "Finanzas", "Global", etc
   "resumen": "Una línea que invite a verlo.",
   "url": "https://www.instagram.com/p/XXXXXXXXXXX/",
   "fecha": "2026-11-15",
-  "tipo": "Carrusel"
+  "tipo": "Carrusel",
+  "imagen": "https://www.instagram.com/.../foto.jpg"
 }
 ```
 
 (`tipo` puede ser "Carrusel", "Post" o "Historia destacada". Solo se muestran las 6 más recientes; la tarjeta de perfil se muestra siempre.)
+
+El campo `imagen` es **opcional**: URL pública de la foto del post (la primera del carrusel). Si existe, la tarjeta la muestra arriba, sangrando a los bordes; si la imagen falla al cargar, se retira sola y la tarjeta queda de texto. Las entradas sin `imagen` se ven como siempre.
+
+`x.json` alimenta la sección "En X" del inicio. Esquema:
+
+```json
+{
+  "perfil": "https://x.com/juanpaiprojects",
+  "usuario": "@juanpaiprojects",
+  "entradas": [
+    {
+      "fecha": "2026-11-15",
+      "texto": "El texto del post de X, tal cual se publicó.",
+      "url": "https://x.com/juanpaiprojects/status/XXXXXXXXXXX"
+    }
+  ]
+}
+```
+
+Cómo se alimenta: no hay conector de X, así que la versión de X de cada día se prepara en el pipeline diario de publicaciones y Juanpa la pega a mano. Cuando el post de X del día esté publicado, se agrega su entrada **hasta arriba** de `entradas` con la URL real del post; si todavía no se conoce la URL exacta, se usa la del perfil (`https://x.com/juanpaiprojects`). Solo se muestran las 6 más recientes; la tarjeta de "Seguir en X" se muestra siempre.
 
 ## Tono editorial
 
@@ -79,35 +137,32 @@ La pieza del día llega en versión newsletter (5 secciones: dato, herramienta, 
 
 1. **Definir el tipo.** `noticia` si es información verificada del día (IA, finanzas, global); `tip` si es tip/análisis de IA aplicada.
 2. **Crear el HTML del post.** Copiar `posts/plantilla-post.html` a `posts/AAAA-MM-DD-slug.html`, donde el slug es el título en minúsculas, sin acentos, con guiones (ej. `2026-11-16-mi-titulo.html`). Reemplazar todos los marcadores:
-   - `{{TITULO}}`, `{{DESCRIPCION}}` (resumen de 1-2 frases), `{{FECHA_ISO}}` (AAAA-MM-DD), `{{FECHA_LARGA}}` (ej. "16 de noviembre de 2026"), `{{TEMA}}`, `{{LECTURA}}` (ej. "2 min de lectura"), `{{SLUG}}`.
+   - `{{TITULO}}`, `{{DESCRIPCION}}` (resumen de 1-2 frases), `{{FECHA_ISO}}` (AAAA-MM-DD), `{{FECHA_LARGA}}` (ej. "16 de noviembre de 2026"), `{{TEMA}}`, `{{LECTURA}}` (ej. "2 min de lectura"), `{{SLUG}}`. Los marcadores también alimentan el JSON-LD `BlogPosting` de la plantilla.
    - El distintivo de tipo en la meta del artículo: si es `noticia`, dejar la línea de la plantilla tal cual; si es `tip`, cambiar la clase a `tipo-tip` y el texto a "Tip y análisis" (la plantilla trae el comentario que lo indica).
    - Contenido: `{{DATO}}` (qué pasó + por qué importa), `{{HERRAMIENTA}}`, `{{PROMPT_INTRO}}`, `{{PROMPT}}`, `{{CIERRE}}`, `{{FRASE_CIERRE}}` (la pregunta o frase final que va en la cita grande).
    - La sección 4 de la pieza ("visual sugerido") es metadato de producción para Instagram: **no** va en el artículo del blog.
    - Si un párrafo es largo, se puede partir en dos `<p>` dentro de la misma sección.
-3. **Actualizar `posts.json`.** Agregar la entrada nueva **hasta arriba** del arreglo (el primero es el destacado del inicio), con su campo `tipo`. La `url` es la ruta relativa: `posts/AAAA-MM-DD-slug.html`.
+   - La barra de progreso, los botones de compartir y el formulario de suscripción del CTA vienen en la plantilla y funcionan solos: no llevan marcadores ni hay que tocarlos.
+3. **Actualizar `posts.json`.** Agregar la entrada nueva **hasta arriba** del arreglo (el primero es el destacado del inicio), con su campo `tipo` y su `lectura` (ej. `"2 min"`). La `url` es la ruta relativa: `posts/AAAA-MM-DD-slug.html`.
 4. **Actualizar `sitemap.xml`.** Agregar un `<url>` con la URL absoluta del post (`https://juanpaiprojects.netlify.app/posts/AAAA-MM-DD-slug.html`) y `lastmod` con la fecha del post. Actualizar también el `lastmod` de la portada y del archivo.
-5. **Registrar el Instagram del día en `ig.json`.** Cuando el carrusel del día esté publicado en @juanpaiprojects, agregar su entrada **hasta arriba** de `publicaciones` con la URL real del post de Instagram.
-6. **Guardar los cambios en el repo** (commit y push). Netlify despliega solo con cada push; no hay build que esperar.
+5. **Registrar el Instagram del día en `ig.json`.** Cuando el carrusel del día esté publicado en @juanpaiprojects, agregar su entrada **hasta arriba** de `publicaciones` con la URL real del post de Instagram y, si se tiene a la mano, la URL pública de la primera foto en el campo `imagen`.
+6. **Registrar el X del día en `x.json`.** Cuando el post de X esté publicado, agregar su entrada **hasta arriba** de `entradas` con el texto tal cual y su URL (la del post; si no se conoce, la del perfil).
+7. **Guardar los cambios en el repo** (commit y push). Netlify despliega solo con cada push; no hay build que esperar.
 
-Verificación rápida antes de dar por publicado: abrir el HTML nuevo y confirmar que no quedó ningún `{{...}}` sin reemplazar, y validar que `posts.json` e `ig.json` sigan siendo JSON válido.
+Verificación rápida antes de dar por publicado: abrir el HTML nuevo y confirmar que no quedó ningún `{{...}}` sin reemplazar, y validar que `posts.json`, `ig.json` y `x.json` sigan siendo JSON válido.
 
-## Qué falta para desplegar (una sola vez)
+## Despliegue
 
-El sitio está listo; falta conectarlo. Pasos, en orden:
+El sitio ya está desplegado: repo en GitHub conectado a Netlify, publish directory `.` y sin comando de build (ver `netlify.toml`). Cada push despliega solo. El formulario `suscripcion` lo detecta Netlify Forms automáticamente en el HTML desplegado; no requiere configuración extra.
 
-1. **Crear el repo en GitHub** (cuenta JuanpAIProjects): repo nuevo, ej. `juanpaiprojects-blog`, y subir el contenido de esta carpeta como raíz del repo.
-2. **Conectar Netlify**: en Netlify, "Add new site" → "Import an existing project" → elegir el repo. Configuración: build command **vacío** y publish directory **`.`** (ya viene en `netlify.toml`, Netlify lo lee solo).
-3. **Nombre del sitio**: en la configuración del sitio en Netlify, fijar el nombre `juanpaiprojects` para que la URL quede https://juanpaiprojects.netlify.app. Si ese nombre estuviera ocupado, elegir variante y actualizar la base en el paso 4.
-4. **Base provisional**: todas las URLs absolutas (canonical, Open Graph, `sitemap.xml`, `robots.txt`) ya apuntan a `https://juanpaiprojects.netlify.app`. Si el subdominio final fuera otro, buscar y reemplazar esa cadena en todo el repo.
-5. **(Futuro) Dominio propio**: cuando exista un dominio (ej. juanpaiprojects.com), conectarlo en Netlify y repetir el reemplazo de base del paso 4 por el dominio final.
+**(Futuro) Dominio propio**: cuando exista un dominio (ej. juanpaiprojects.com), conectarlo en Netlify y buscar y reemplazar `https://juanpaiprojects.netlify.app` por el dominio final en todo el repo (canonical, Open Graph, JSON-LD, `sitemap.xml`, `robots.txt`).
 
-## Notas de diseño
+## Notas técnicas
 
-- Identidad: editorial oscuro con acento dorado, tipografía Fraunces (titulares) + Inter (texto), cargadas de Google Fonts. Sin librerías ni frameworks.
-- La marca en la cabecera es tipográfica a propósito: el logotipo (foco sobre fondo crema) se usa como imagen social (Open Graph) y en "Sobre mí", donde sí luce sobre su tarjeta.
-- La banda de Última hora usa un distintivo rojo oscuro con punto pulsante: es el código visual universal de "noticia en curso" y se reserva solo para eso; todo lo demás vive en la paleta oscuro/dorado.
-- El sitio funciona sin JavaScript para leer un post (cada post es HTML completo); el JS solo pinta las listas desde los JSON y el botón de copiar el prompt.
+- El sitio funciona sin JavaScript para leer un post (cada post es HTML completo); el JS pinta las listas desde los JSON, la barra de progreso, los botones de compartir y las animaciones de aparición.
+- Las animaciones de aparición solo ocultan contenido si hay JS activo (clase `con-js` en `<html>`, puesta por un script mínimo en el `<head>`); con `prefers-reduced-motion` todo aparece sin movimiento.
+- La marca de cabecera es un recorte CSS del logo: si algún día se regenera `assets/img/logo.jpg` con otra composición, hay que re-medir la zona del foco y ajustar `.marca-logo img` en `estilos.css`.
 
 ## Estrategia de 3 canales
 
-Instagram, X y este blog se mandan tráfico entre sí de forma natural, nunca forzado (regla de Juanpa, 15 nov 2026). El blog enlaza a Instagram y a X (https://x.com/juanpaiprojects) en la navegación, el pie y el cierre de cada post. La versión de X de cada pieza se prepara en el pipeline diario de publicaciones y queda lista para copiar y pegar (no hay conector de X). El caption de Instagram invita al blog o a X solo cuando viene al caso, alternando, nunca en todos los posts.
+Instagram, X y este blog se mandan tráfico entre sí de forma natural, nunca forzado (regla de Juanpa, 15 nov 2026). El blog enlaza a Instagram y a X (https://x.com/juanpaiprojects) en la navegación, el pie y el cierre de cada post, y muestra las publicaciones recientes de ambas redes en el inicio. La versión de X de cada pieza se prepara en el pipeline diario de publicaciones y queda lista para copiar y pegar (no hay conector de X). El caption de Instagram invita al blog o a X solo cuando viene al caso, alternando, nunca en todos los posts.

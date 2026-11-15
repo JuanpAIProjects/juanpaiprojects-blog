@@ -18,16 +18,19 @@
   <meta name="twitter:description" content="Todos los posts de Juanpai Projects, ordenados por fecha.">
   <meta name="twitter:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script>document.documentElement.className += " con-js";</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 <body>
 
   <header class="cabecera">
     <div class="contenedor cabecera-interna">
-      <a class="marca" href="index.html">Juanpai <span>Projects</span></a>
+      <a class="marca" href="index.html" aria-label="Juanpai Projects — Inicio">
+        <span class="marca-logo"><img src="assets/img/logo.jpg" alt="" width="1024" height="1024"></span>
+      </a>
       <nav class="nav" aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
         <a href="archivo.html">Archivo</a>
@@ -42,7 +45,7 @@
     <section class="hero" style="padding-bottom: 2.2rem;">
       <p class="kicker"><span class="kicker-linea"></span>Archivo</p>
       <h1>Todos los <em>posts</em>.</h1>
-      <p class="lede">Un post cada día, ordenados por fecha. Noticias verificadas (distintivo dorado) y tips de IA aplicada, sin relleno.</p>
+      <p class="lede">Un post cada día, ordenados por fecha. Noticias verificadas (distintivo coral) y tips de IA aplicada, sin relleno.</p>
     </section>
 
     <!-- Se pinta desde posts.json, agrupado por mes -->
@@ -54,7 +57,9 @@
   <footer class="pie">
     <div class="contenedor pie-grid">
       <div>
-        <a class="marca" href="index.html">Juanpai <span>Projects</span></a>
+        <a class="pie-logo" href="index.html" aria-label="Juanpai Projects — Inicio">
+          <img src="assets/img/logo.jpg" alt="Logotipo de Juanpai Projects" width="1024" height="1024">
+        </a>
         <p class="pie-tag">Noticias verificadas e IA aplicada a negocios reales. Un dato, una herramienta y un prompt cada día. Sin humo.</p>
       </div>
       <div>
@@ -68,8 +73,8 @@
       <div class="pie-ig">
         <p class="pie-titulo">Redes</p>
         <p>El resumen de cada post sale en carrusel en Instagram y en versión corta en X. La conversación pasa allá.</p>
-        <a class="boton boton-contorno" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
-        <a class="boton boton-contorno" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
       </div>
     </div>
     <div class="contenedor pie-base">

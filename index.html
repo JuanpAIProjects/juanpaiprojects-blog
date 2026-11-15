@@ -18,16 +18,34 @@
   <meta name="twitter:description" content="Qué pasó, por qué importa y qué hacer. Noticias verificadas e IA aplicada, cada día. Sin humo.">
   <meta name="twitter:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script>document.documentElement.className += " con-js";</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/estilos.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Juanpai Projects",
+    "url": "https://juanpaiprojects.netlify.app/",
+    "inLanguage": "es-MX",
+    "description": "Noticias verificadas de IA, finanzas y temas globales, e IA aplicada a negocios reales. Cada día: qué pasó, por qué importa y qué hacer.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Juanpai Projects",
+      "logo": "https://juanpaiprojects.netlify.app/assets/img/logo.jpg"
+    }
+  }
+  </script>
 </head>
 <body>
 
   <header class="cabecera">
     <div class="contenedor cabecera-interna">
-      <a class="marca" href="index.html">Juanpai <span>Projects</span></a>
+      <a class="marca" href="index.html" aria-label="Juanpai Projects — Inicio">
+        <span class="marca-logo"><img src="assets/img/logo.jpg" alt="" width="1024" height="1024"></span>
+      </a>
       <nav class="nav" aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
         <a href="archivo.html">Archivo</a>
@@ -51,8 +69,10 @@
       </div>
     </section>
 
+    <div class="contenedor"><div class="regla-marca" aria-hidden="true"></div></div>
+
     <!-- Última hora: se pinta desde posts.json (el post tipo "noticia" más reciente) -->
-    <section class="contenedor" aria-label="Última hora" style="padding-bottom: 0.4rem;">
+    <section class="contenedor" aria-label="Última hora" style="padding-top: 2.2rem;">
       <a class="ultima-hora" id="ultima-hora" href="#" hidden>
         <span class="uh-badge"><span class="uh-punto"></span>Última hora</span>
         <span class="uh-titulo" id="uh-titulo"></span>
@@ -61,7 +81,7 @@
     </section>
 
     <!-- Post destacado: se pinta desde posts.json (el primero es el más reciente) -->
-    <section class="seccion contenedor" id="ultimo">
+    <section class="seccion contenedor revelar" id="ultimo">
       <div class="seccion-encabezado">
         <h2>Lo último</h2>
         <span class="regla"></span>
@@ -74,7 +94,7 @@
     </section>
 
     <!-- Recientes: se pintan desde posts.json -->
-    <section class="seccion contenedor">
+    <section class="seccion contenedor revelar">
       <div class="seccion-encabezado">
         <h2>Posts recientes</h2>
         <span class="regla"></span>
@@ -83,7 +103,7 @@
     </section>
 
     <!-- Instagram: tarjetas desde ig.json + tarjeta de perfil -->
-    <section class="seccion seccion-ig contenedor">
+    <section class="seccion contenedor revelar">
       <div class="seccion-encabezado">
         <h2>En Instagram</h2>
         <span class="regla"></span>
@@ -91,13 +111,55 @@
       </div>
       <p class="seccion-nota">Cada post sale también en carrusel en Instagram y en versión corta en X. Ahí se conversa; aquí se lee completo, con el prompt listo para copiar.</p>
       <div class="ig-grid" id="ig-grid"></div>
-      <div class="ig-perfil">
+      <div class="perfil-strip">
         <div>
           <h3>@juanpaiprojects</h3>
           <p>La noticia, la herramienta y el prompt del día, en formato carrusel.</p>
         </div>
-        <a class="boton boton-solido" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">Ir al perfil</a>
-        <a class="boton boton-contorno" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">Seguir en X</a>
+        <div class="perfil-botones">
+          <a class="boton boton-solido" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">Ir al perfil</a>
+          <a class="boton boton-contorno" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">Seguir en X</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- X: tarjetas desde x.json -->
+    <section class="seccion contenedor revelar">
+      <div class="seccion-encabezado">
+        <h2>En X</h2>
+        <span class="regla"></span>
+        <span class="tema-chip">@juanpaiprojects</span>
+      </div>
+      <p class="seccion-nota">La versión corta de cada día: el dato en pocas líneas, para leer de pasada y compartir rápido.</p>
+      <div class="x-grid" id="x-grid"></div>
+      <div class="perfil-strip">
+        <div>
+          <h3>@juanpaiprojects en X</h3>
+          <p>Noticias de IA y finanzas en corto, el mismo día que salen aquí.</p>
+        </div>
+        <div class="perfil-botones">
+          <a class="boton boton-solido" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">Seguir en X</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suscripción por correo (Netlify Forms) -->
+    <section class="seccion contenedor revelar">
+      <div class="suscripcion">
+        <div class="suscripcion-texto">
+          <h2>El post del día, en tu correo</h2>
+          <p>Cada mañana, el post completo en tu bandeja: el dato verificado, la herramienta gratis y el prompt listo para copiar. Sin tener que acordarte de entrar.</p>
+        </div>
+        <form class="suscripcion-form" name="suscripcion" method="POST" data-netlify="true" netlify-honeypot="campo-extra">
+          <input type="hidden" name="form-name" value="suscripcion">
+          <p class="oculto"><label>No llenes este campo: <input name="campo-extra"></label></p>
+          <label class="suscripcion-label" for="correo-index">Tu correo</label>
+          <div class="suscripcion-fila">
+            <input id="correo-index" type="email" name="email" required placeholder="tunombre@correo.com" autocomplete="email">
+            <button class="boton boton-solido" type="submit">Suscribirme</button>
+          </div>
+          <p class="suscripcion-nota">Un correo al día. Sin spam y sin vender tu correo a nadie; date de baja cuando quieras.</p>
+        </form>
       </div>
     </section>
   </main>
@@ -105,7 +167,9 @@
   <footer class="pie">
     <div class="contenedor pie-grid">
       <div>
-        <a class="marca" href="index.html">Juanpai <span>Projects</span></a>
+        <a class="pie-logo" href="index.html" aria-label="Juanpai Projects — Inicio">
+          <img src="assets/img/logo.jpg" alt="Logotipo de Juanpai Projects" width="1024" height="1024">
+        </a>
         <p class="pie-tag">Noticias verificadas e IA aplicada a negocios reales. Un dato, una herramienta y un prompt cada día. Sin humo.</p>
       </div>
       <div>
@@ -119,8 +183,8 @@
       <div class="pie-ig">
         <p class="pie-titulo">Redes</p>
         <p>El resumen de cada post sale en carrusel en Instagram y en versión corta en X. La conversación pasa allá.</p>
-        <a class="boton boton-contorno" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
-        <a class="boton boton-contorno" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
       </div>
     </div>
     <div class="contenedor pie-base">

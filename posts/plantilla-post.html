@@ -7,8 +7,8 @@
   posts/AAAA-MM-DD-slug.html y reemplaza cada marcador {{...}}.
 
   Marcadores:
-    {{TITULO}}       Título del post (también va en <title> y OG)
-    {{DESCRIPCION}}  Resumen de 1-2 frases (meta description y OG)
+    {{TITULO}}       Título del post (también va en <title>, OG y JSON-LD)
+    {{DESCRIPCION}}  Resumen de 1-2 frases (meta description, OG y JSON-LD)
     {{FECHA_ISO}}    Fecha en formato 2026-11-15
     {{FECHA_LARGA}}  Fecha legible: 15 de noviembre de 2026
     {{TEMA}}         Tema corto, ej. "IA aplicada", "Finanzas", "Global"
@@ -19,13 +19,25 @@
     {{SLUG}}         Nombre del archivo sin fecha, ej. la-ia-sale-a-bolsa
                      (la URL canónica se arma como posts/{{FECHA_ISO}}-{{SLUG}}.html)
 
+  Piezas automáticas (NO llevan marcadores, no tocar):
+    - Barra de progreso de lectura (#progreso): la mueve main.js.
+    - Botones de compartir (.compartir): main.js arma las URLs de
+      X, WhatsApp y Facebook con la URL y el título reales de la
+      página; el botón "Compartir" nativo solo aparece si el
+      dispositivo soporta Web Share API.
+    - CTA final (.cta-post): botones a Instagram y X + formulario
+      de suscripción por correo (Netlify Forms, nombre "suscripcion").
+    - JSON-LD BlogPosting: usa {{TITULO}}, {{DESCRIPCION}} y
+      {{FECHA_ISO}}; se reemplazan junto con el resto.
+
   Tono (ver README, "Tono editorial"): claridad de parte de noticias
   en tres pasos — qué pasó, por qué importa, qué hacer — con la voz
   directa de Juanpa. Si el post es noticia, el dato va verificado
   contra fuentes serias antes de publicarse.
 
   Después de crear el HTML hay que:
-    1. Agregar la entrada NUEVA HASTA ARRIBA en posts.json (con su "tipo")
+    1. Agregar la entrada NUEVA HASTA ARRIBA en posts.json (con su "tipo"
+       y, si se quiere, su "lectura", ej. "2 min")
     2. Agregar la URL en sitemap.xml
   El detalle completo está en README.md (sección "Publicar un post nuevo").
   ============================================================
@@ -50,16 +62,39 @@
   <meta name="twitter:description" content="{{DESCRIPCION}}">
   <meta name="twitter:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <script>document.documentElement.className += " con-js";</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/estilos.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{TITULO}}",
+    "description": "{{DESCRIPCION}}",
+    "image": "https://juanpaiprojects.netlify.app/assets/img/logo.jpg",
+    "datePublished": "{{FECHA_ISO}}",
+    "inLanguage": "es-MX",
+    "mainEntityOfPage": "https://juanpaiprojects.netlify.app/posts/{{FECHA_ISO}}-{{SLUG}}.html",
+    "author": { "@type": "Person", "name": "Juanpa" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Juanpai Projects",
+      "logo": "https://juanpaiprojects.netlify.app/assets/img/logo.jpg"
+    }
+  }
+  </script>
 </head>
 <body>
 
+  <div class="progreso" id="progreso" aria-hidden="true"></div>
+
   <header class="cabecera">
     <div class="contenedor cabecera-interna">
-      <a class="marca" href="../index.html">Juanpai <span>Projects</span></a>
+      <a class="marca" href="../index.html" aria-label="Juanpai Projects — Inicio">
+        <span class="marca-logo"><img src="../assets/img/logo.jpg" alt="" width="1024" height="1024"></span>
+      </a>
       <nav class="nav" aria-label="Navegación principal">
         <a href="../index.html">Inicio</a>
         <a href="../archivo.html">Archivo</a>
@@ -111,13 +146,38 @@
       <p class="cita-cierre">{{FRASE_CIERRE}}</p>
     </article>
 
-    <aside class="cta-ig">
-      <div>
-        <h3>Esto también sale en Instagram y en X</h3>
-        <p>El resumen en carrusel en Instagram y la versión corta en X, para guardarlo, compartirlo y conversarlo.</p>
+    <!-- Compartir: main.js arma las URLs con la dirección y el título reales -->
+    <div class="compartir" aria-label="Compartir este post">
+      <span class="compartir-titulo">Compartir</span>
+      <button class="compartir-btn" type="button" data-compartir="nativo" hidden>Compartir</button>
+      <button class="compartir-btn" type="button" data-compartir="x">X</button>
+      <button class="compartir-btn" type="button" data-compartir="whatsapp">WhatsApp</button>
+      <button class="compartir-btn" type="button" data-compartir="facebook">Facebook</button>
+      <button class="compartir-btn" type="button" data-compartir="copiar">Copiar enlace</button>
+    </div>
+
+    <aside class="cta-post">
+      <div class="cta-post-fila">
+        <div>
+          <h3>Esto también sale en Instagram y en X</h3>
+          <p>El resumen en carrusel en Instagram y la versión corta en X, para guardarlo, compartirlo y conversarlo.</p>
+        </div>
+        <div class="cta-post-botones">
+          <a class="boton boton-claro" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">@juanpaiprojects</a>
+          <a class="boton boton-claro" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
+        </div>
       </div>
-      <a class="boton boton-solido" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">@juanpaiprojects</a>
-      <a class="boton boton-contorno" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
+      <form class="suscripcion-form" name="suscripcion" method="POST" data-netlify="true" netlify-honeypot="campo-extra">
+        <input type="hidden" name="form-name" value="suscripcion">
+        <p class="oculto"><label>No llenes este campo: <input name="campo-extra"></label></p>
+        <p class="cta-form-titulo">El post del día, en tu correo</p>
+        <label class="suscripcion-label" for="correo-post">Tu correo</label>
+        <div class="suscripcion-fila">
+          <input id="correo-post" type="email" name="email" required placeholder="tunombre@correo.com" autocomplete="email">
+          <button class="boton boton-solido" type="submit">Suscribirme</button>
+        </div>
+        <p class="suscripcion-nota">Un correo al día, con el post completo. Sin spam; date de baja cuando quieras.</p>
+      </form>
     </aside>
 
     <nav class="post-nav" aria-label="Navegación del post">
@@ -129,7 +189,9 @@
   <footer class="pie">
     <div class="contenedor pie-grid">
       <div>
-        <a class="marca" href="../index.html">Juanpai <span>Projects</span></a>
+        <a class="pie-logo" href="../index.html" aria-label="Juanpai Projects — Inicio">
+          <img src="../assets/img/logo.jpg" alt="Logotipo de Juanpai Projects" width="1024" height="1024">
+        </a>
         <p class="pie-tag">Noticias verificadas e IA aplicada a negocios reales. Un dato, una herramienta y un prompt cada día. Sin humo.</p>
       </div>
       <div>
@@ -143,8 +205,8 @@
       <div class="pie-ig">
         <p class="pie-titulo">Redes</p>
         <p>El resumen de cada post sale en carrusel en Instagram y en versión corta en X. La conversación pasa allá.</p>
-        <a class="boton boton-contorno" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
-        <a class="boton boton-contorno" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
       </div>
     </div>
     <div class="contenedor pie-base">
