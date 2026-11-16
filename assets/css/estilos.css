@@ -283,6 +283,68 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 .hero-acciones { display: flex; flex-wrap: wrap; gap: 0.9rem; }
 
+/* ---------- Foco animado del héroe (solo portada) ----------
+   El foco de la marca «prende» al cargar: aparece el halo, los
+   rayitos entran escalonados y queda un pulso de brillo tranquilo
+   (~4 s). Solo CSS, sin JS ni librerías. Con reduced-motion el
+   foco queda estático y encendido (además de la regla global). */
+.foco-anim { margin-bottom: 1.1rem; }
+
+.foco-anim-svg { display: block; width: 92px; height: 92px; overflow: visible; }
+
+.foco-anim-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: foco-anim-prende 0.9s ease-out 0.1s both;
+}
+
+.foco-anim-pulso {
+  opacity: 0;
+  animation: foco-anim-pulso 4s ease-in-out 1.15s infinite;
+}
+
+.foco-anim-rayo {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: foco-anim-rayo 0.45s ease-out both;
+}
+
+.foco-anim-rayo-c { animation-delay: 0.3s; }
+.foco-anim-rayo-i1, .foco-anim-rayo-d1 { animation-delay: 0.45s; }
+.foco-anim-rayo-i2, .foco-anim-rayo-d2 { animation-delay: 0.6s; }
+
+.foco-anim-bombilla { animation: foco-anim-brillo 4s ease-in-out 1.15s infinite; }
+
+@keyframes foco-anim-prende {
+  from { opacity: 0; transform: scale(0.82); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes foco-anim-pulso {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.55; }
+}
+
+@keyframes foco-anim-rayo {
+  from { opacity: 0; transform: scale(0.3); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes foco-anim-brillo {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(29, 106, 74, 0)); }
+  50% { filter: drop-shadow(0 0 5px rgba(29, 106, 74, 0.38)); }
+}
+
+@media (max-width: 620px) {
+  .foco-anim-svg { width: 76px; height: 76px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .foco-anim-halo, .foco-anim-pulso, .foco-anim-rayo, .foco-anim-bombilla { animation: none; }
+  .foco-anim-halo, .foco-anim-rayo { opacity: 1; }
+  .foco-anim-pulso { opacity: 0; }
+}
+
 /* Regla tricolor de la marca (teal, verde, coral: los colores del foco) */
 .regla-marca {
   height: 5px;
