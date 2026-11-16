@@ -18,6 +18,10 @@
     {{LECTURA}}      Tiempo de lectura, ej. "2 min de lectura"
     {{SLUG}}         Nombre del archivo sin fecha, ej. la-ia-sale-a-bolsa
                      (la URL canónica se arma como posts/{{FECHA_ISO}}-{{SLUG}}.html)
+    {{AUDIO_DURACION}} Duración del audio narrado del post, ej. "2 min 51 s".
+                     El bloque «Escucha este post» va tras la entradilla y
+                     apunta a assets/audio/{{FECHA_ISO}}-{{SLUG}}.mp3. Si el
+                     post no lleva audio, se borra el bloque completo.
 
   Piezas automáticas (NO llevan marcadores, no tocar):
     - Barra de progreso de lectura (#progreso): la mueve main.js.
@@ -123,6 +127,12 @@
       </p>
 
       <p class="articulo-entradilla">{{DESCRIPCION}}</p>
+
+      <div style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+        <p style="color:#EFE6D5;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;font-size:.95rem;">Escucha este post</p>
+        <p style="color:#EFE6D5;opacity:.85;margin:0 0 10px;font-size:.9rem;">La versión en audio, narrada · {{AUDIO_DURACION}}</p>
+        <audio controls preload="metadata" style="width:100%;" src="../assets/audio/{{FECHA_ISO}}-{{SLUG}}.mp3"></audio>
+      </div>
 
       <!-- Sección 1: el dato del día (qué pasó + por qué importa) -->
       <h2><span class="num">01</span>El dato</h2>
