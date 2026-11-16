@@ -28,6 +28,17 @@
                      assets/video/{{FECHA_ISO}}-{{SLUG}}.mp4, con póster
                      assets/video/{{FECHA_ISO}}-{{SLUG}}-cover.jpg. Si el
                      post no lleva video, se borra el bloque completo.
+    {{SEGMENTO_TITULO}} / {{SEGMENTO_TEXTO}}
+                     Bloque «Segmento del día» al final del cuerpo del
+                     post, antes de la sección de suscripción. Lo llena
+                     el job con el segmento del día del archivo de
+                     publicaciones (rotación de juanpaiprojects: dato
+                     curioso, tip exprés, efeméride «un día como hoy» o
+                     chiste tech el domingo) y el encabezado cambia según
+                     el tipo: «Dato curioso», «Tip del día», «Un día como
+                     hoy» o «Para cerrar con una sonrisa» (el chiste). Si
+                     un día no hay segmento, se borra el bloque completo
+                     (misma regla que audio y video).
 
   Piezas automáticas (NO llevan marcadores, no tocar):
     - Barra de progreso de lectura (#progreso): la mueve main.js.
@@ -170,6 +181,15 @@
       <h2><span class="num">04</span>Cierre</h2>
       <p>{{CIERRE}}</p>
       <p class="cita-cierre">{{FRASE_CIERRE}}</p>
+
+      <!-- Segmento del día: el job lo llena con {{SEGMENTO_TITULO}} y
+           {{SEGMENTO_TEXTO}} desde el archivo de publicaciones del día.
+           Si un día no hay segmento, se borra este bloque completo
+           (misma regla que los bloques de audio y video). -->
+      <div style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+        <p style="color:#EFE6D5;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;font-size:.95rem;">{{SEGMENTO_TITULO}}</p>
+        <p style="color:#EFE6D5;opacity:.9;margin:0;font-size:1rem;">{{SEGMENTO_TEXTO}}</p>
+      </div>
     </article>
 
     <!-- Compartir: main.js arma las URLs con la dirección y el título reales -->
