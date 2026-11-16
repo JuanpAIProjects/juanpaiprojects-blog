@@ -22,6 +22,12 @@
                      El bloque «Escucha este post» va tras la entradilla y
                      apunta a assets/audio/{{FECHA_ISO}}-{{SLUG}}.mp3. Si el
                      post no lleva audio, se borra el bloque completo.
+    {{VIDEO_DURACION}} Duración del reel del post, ej. "35 s".
+                     El bloque «Míralo en video» va justo DESPUÉS del bloque
+                     «Escucha este post» y apunta a
+                     assets/video/{{FECHA_ISO}}-{{SLUG}}.mp4, con póster
+                     assets/video/{{FECHA_ISO}}-{{SLUG}}-cover.jpg. Si el
+                     post no lleva video, se borra el bloque completo.
 
   Piezas automáticas (NO llevan marcadores, no tocar):
     - Barra de progreso de lectura (#progreso): la mueve main.js.
@@ -132,6 +138,12 @@
         <p style="color:#EFE6D5;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;font-size:.95rem;">Escucha este post</p>
         <p style="color:#EFE6D5;opacity:.85;margin:0 0 10px;font-size:.9rem;">La versión en audio, narrada · {{AUDIO_DURACION}}</p>
         <audio controls preload="metadata" style="width:100%;" src="../assets/audio/{{FECHA_ISO}}-{{SLUG}}.mp3"></audio>
+      </div>
+
+      <div style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+        <p style="color:#EFE6D5;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;font-size:.95rem;">Míralo en video</p>
+        <p style="color:#EFE6D5;opacity:.85;margin:0 0 10px;font-size:.9rem;">El reel del post, en vertical · {{VIDEO_DURACION}}</p>
+        <video controls preload="metadata" playsinline poster="../assets/video/{{FECHA_ISO}}-{{SLUG}}-cover.jpg" src="../assets/video/{{FECHA_ISO}}-{{SLUG}}.mp4" style="width:100%;border-radius:10px;"></video>
       </div>
 
       <!-- Sección 1: el dato del día (qué pasó + por qué importa) -->
