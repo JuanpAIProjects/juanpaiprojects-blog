@@ -58,6 +58,7 @@
         <a class="nav-inicio" href="../index.html">Inicio</a>
         <a href="../archivo.html">Archivo</a>
         <a href="../sobre-mi.html">Sobre mí</a>
+        <a href="../empieza-aqui.html">Empieza aquí</a>
         <a href="../index.html#suscripcion">Newsletter</a>
         <a class="nav-social" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener" aria-label="Instagram — @juanpaiprojects"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.25"/><circle cx="17.35" cy="6.65" r="0.5" fill="currentColor" stroke="none"/></svg></a>
         <a class="nav-social" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener" aria-label="X — @juanpaiprojects"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
@@ -79,30 +80,52 @@
 
       <p class="articulo-entradilla">Meituan liberó LongCat 2.5, un modelo abierto para agentes entrenado solo con hardware chino que quedó a un paso del mejor modelo cerrado del mundo. Y el tutorial del día convierte un artefacto de Claude en un panel vivo que se actualiza solo, gratis con Composio.</p>
 
-      <div style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+      <div style="background:#FBF7EE;border:2px solid #00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+        <p style="color:#00343F;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px;font-size:.95rem;">En 30 segundos</p>
+        <ul style="margin:0;padding-left:20px;line-height:1.55;">
+          <li><strong>Qué pasó:</strong> Meituan liberó LongCat 2.5, un modelo abierto para agentes entrenado solo con hardware chino: marcó 88.4 en Terminal Bench y quedó justo detrás de Claude Opus 5, el mejor modelo cerrado del mundo.</li>
+          <li><strong>Por qué importa:</strong> El bloqueo de chips ya produjo un competidor que no depende de Nvidia. Depender de un solo proveedor —de chips o de modelos— ya es un riesgo con nombre propio, y mañana Nvidia presenta resultados con directora interina.</li>
+          <li><strong>Qué hacer:</strong> Ten un plan B abierto ya probado (LongCat 2.5 es abierto y se puede probar gratis) y convierte tus artefactos de Claude en paneles vivos que se actualizan solos con Composio, con la Aplicable de hoy.</li>
+        </ul>
+      </div>
+
+      <nav style="border:1.5px solid #00343F;border-radius:14px;padding:14px 18px;margin:24px 0;" aria-label="Índice del post">
+        <p style="color:#00343F;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px;font-size:.9rem;">En este post</p>
+        <ul style="margin:0;padding-left:20px;line-height:1.7;">
+          <li><a href="#el-dato">El dato</a></li>
+          <li><a href="#herramienta">Herramienta del día</a></li>
+          <li><a href="#para-copiar">Para copiar y aplicar</a></li>
+          <li><a href="#audio">Escucha este post</a></li>
+          <li><a href="#video">Míralo en video</a></li>
+          <li><a href="#cierre">Cierre</a></li>
+          <li><a href="#segmento">Segmento del día</a></li>
+        </ul>
+      </nav>
+
+      <div id="audio" style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
         <p style="color:#EFE6D5;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;font-size:.95rem;">Escucha este post</p>
         <p style="color:#EFE6D5;opacity:.85;margin:0 0 10px;font-size:.9rem;">La versión en audio, narrada · 2 min 38 s</p>
         <audio controls preload="metadata" style="width:100%;" src="../assets/audio/2026-11-16-china-ia-sin-nvidia.mp3"></audio>
       </div>
 
-      <div style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+      <div id="video" style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
         <p style="color:#EFE6D5;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;font-size:.95rem;">Míralo en video</p>
         <p style="color:#EFE6D5;opacity:.85;margin:0 0 10px;font-size:.9rem;">El reel del post, en vertical · 27 s</p>
         <video controls preload="metadata" playsinline poster="../assets/video/2026-11-16-china-ia-sin-nvidia-cover2.jpg" src="../assets/video/2026-11-16-china-ia-sin-nvidia.mp4" style="width:100%;border-radius:10px;"></video>
       </div>
 
       <!-- Sección 1: el dato del día (qué pasó + por qué importa) -->
-      <h2><span class="num">01</span>El dato</h2>
+      <h2 id="el-dato"><span class="num">01</span>El dato</h2>
       <p>Meituan, el gigante chino de entregas, liberó LongCat 2.5: un modelo abierto para agentes, con un billón seiscientos mil millones de parámetros, entrenado sin una sola tarjeta de Nvidia, solo con hardware chino. En Terminal Bench, la prueba de agentes, marcó 88.4 y quedó justo detrás de Claude Opus 5, el mejor modelo cerrado. Y es abierto: cualquiera puede descargarlo y correrlo.</p><p>El contexto es la presión sobre Nvidia. Washington acusa que chips prohibidos llegaron a China por intermediarios —una empresa vinculada habría movido casi 12,000 millones de dólares en pedidos entre 2024 y 2025—, el Congreso quiere endurecer las exportaciones con apoyo de los dos partidos y el secretario del Tesoro, Scott Bessent, le dio diez días a la junta para responder y pidió un director que venga de fuera. Mañana martes, al cierre, Nvidia presenta resultados con directora interina: su primera prueba sin el fundador al frente.</p>
 
       <!-- Sección 2: herramienta o tip (gratis siempre que se pueda) -->
-      <h2><span class="num">02</span>Herramienta del día</h2>
+      <h2 id="herramienta"><span class="num">02</span>Herramienta del día</h2>
       <p><strong>Composio, con plan gratis.</strong> El tutorial de hoy de Café con IA convierte un artefacto de Claude en un panel profesional que guarda y actualiza sus datos solo, usando Composio como puente entre el artefacto y tus herramientas.</p><p>La diferencia es simple: un artefacto normal es una foto —muestra los datos del día en que lo creaste y envejece—; conectado, se vuelve un panel vivo que se refresca solo. El paso a paso: crea el artefacto con los números que quieres ver, conéctalo con Composio a la fuente de cada número (tu hoja de cálculo, tu correo, tu sistema) y pide actualización automática con historial. Si una fuente falla, el panel muestra el último dato bueno con su fecha, nunca un hueco en blanco.</p>
 
       <!-- Sección 3: el texto para copiar y aplicar. Si el post no trae
            texto para copiar, esta sección puede ser "La idea para copiar"
            con el mismo bloque. -->
-      <h2><span class="num">03</span>Para copiar y aplicar</h2>
+      <h2 id="para-copiar"><span class="num">03</span>Para copiar y aplicar</h2>
       <p>Prompt listo para copiar y pegar, para diseñar tu panel vivo antes de conectarlo:</p>
       <div class="prompt">
         <div class="prompt-cabecera">
@@ -113,7 +136,7 @@
       </div>
 
       <!-- Sección 4: cierre. La última línea es la cita-cierre (pregunta o frase). -->
-      <h2><span class="num">04</span>Cierre</h2>
+      <h2 id="cierre"><span class="num">04</span>Cierre</h2>
       <p>Quédate con el 88.4. Un modelo abierto, entrenado sin el hardware que le prohibieron usar, quedó a un paso del mejor modelo cerrado del planeta. El bloqueo no dejó de doler, pero ya produjo su efecto contrario: un competidor que no depende de la pila de nadie. Mañana, los resultados de Nvidia dirán si el negocio aguanta el golpe político; la lección de hoy no espera al reporte: quien controla los chips controla la IA, y depender de un solo proveedor —de chips o de modelos— ya es un riesgo con nombre propio. La acción que nace del propio dato: LongCat 2.5 es abierto y se puede probar gratis; tener un plan B abierto dejó de ser paranoia.</p>
       <p class="cita-cierre">El bloqueo quería frenar a China. Terminó entrenando a su competencia.</p>
 
@@ -122,7 +145,11 @@
            Si un día no hay segmento, se borra este bloque completo
            (misma regla que los bloques de audio y video). -->
       <p>La versión corta de esto, cifra por cifra, está en mi hilo de hoy en X: ahí la conversación sigue.</p>
-      <div style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+      <div style="border-left:4px solid #1D6A4A;padding:4px 0 4px 16px;margin:24px 0;">
+        <p style="font-style:italic;margin:0 0 6px;line-height:1.6;">Yo me quedo con el 88.4 por algo práctico: lo lograron con el hardware que sí les dejaron usar, no con el que querían. En mis proyectos pasa igual — el plan B no se improvisa el día que el proveedor falla; se prueba antes, con calma, y se deja listo.</p>
+        <p style="font-family:Archivo,Arial,sans-serif;font-weight:800;color:#00343F;margin:0;">— Juanpa</p>
+      </div>
+      <div id="segmento" style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
         <p style="color:#EFE6D5;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;font-size:.95rem;">Dato curioso</p>
         <p style="color:#EFE6D5;opacity:.9;margin:0;font-size:1rem;">Los pulpos tienen tres corazones, y dos de ellos dejan de latir cuando nadan. Por eso prefieren caminar por el fondo a nadar: nadar los cansa.</p>
       </div>
@@ -178,7 +205,7 @@
                 </div>
                 <div class="sib-form-block">
                   <div class="sib-text-form-block">
-                    <p>Elige cómo quieres recibirlo: diario, con el post completo cada mañana, o semanal, con el resumen de la semana los lunes. Y activa si quieres las noticias de última hora (breaking news): solo las mayores, verificadas.</p>
+                    <p>Al suscribirte recibes cada mañana el dato completo con su Aplicable del día: el paso a paso listo para copiar y aplicar que trae cada post. Elige cómo quieres recibirlo: diario, con el post completo cada mañana, o semanal, con el resumen de la semana los lunes. Y activa si quieres las noticias de última hora (breaking news): solo las mayores, verificadas.</p>
                   </div>
                 </div>
                 <div class="sib-radiobutton-group sib-form-block" data-required="true">

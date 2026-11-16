@@ -39,6 +39,23 @@
                      hoy» o «Para cerrar con una sonrisa» (el chiste). Si
                      un día no hay segmento, se borra el bloque completo
                      (misma regla que audio y video).
+    {{TLDR_1}} / {{TLDR_2}} / {{TLDR_3}}
+                     Caja «En 30 segundos» justo después de la
+                     entradilla: tres viñetas — qué pasó, por qué
+                     importa, qué hacer — destiladas de la pieza del
+                     día. La llena el job (PAQUETE BLOG-NEWSLETTER
+                     16 NOV 2026).
+    {{NOTA_AUTOR}}   Nota firmada «— Juanpa» antes del segmento de
+                     cierre: 2-3 líneas en primera persona que el job
+                     redacta desde el dato más fuerte de la pieza, sin
+                     frases motivacionales ni cringe. Si un día no sale
+                     natural, se borra el bloque completo (misma regla
+                     que el segmento).
+                     El índice «En este post» (tras la caja de 30
+                     segundos) enlaza a los id de cada bloque: #el-dato,
+                     #herramienta, #para-copiar, #audio, #video,
+                     #cierre, #segmento. El job deja solo los enlaces
+                     de las secciones que ese día existan.
 
   Piezas automáticas (NO llevan marcadores, no tocar):
     - Barra de progreso de lectura (#progreso): la mueve main.js.
@@ -124,6 +141,7 @@
         <a class="nav-inicio" href="../index.html">Inicio</a>
         <a href="../archivo.html">Archivo</a>
         <a href="../sobre-mi.html">Sobre mí</a>
+        <a href="../empieza-aqui.html">Empieza aquí</a>
         <a href="../index.html#suscripcion">Newsletter</a>
         <a class="nav-social" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener" aria-label="Instagram — @juanpaiprojects"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.25"/><circle cx="17.35" cy="6.65" r="0.5" fill="currentColor" stroke="none"/></svg></a>
         <a class="nav-social" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener" aria-label="X — @juanpaiprojects"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
@@ -146,30 +164,56 @@
 
       <p class="articulo-entradilla">{{DESCRIPCION}}</p>
 
-      <div style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+      <!-- En 30 segundos: el job llena {{TLDR_1..3}} con qué pasó, por qué
+           importa y qué hacer, destilado de la pieza del día. -->
+      <div style="background:#FBF7EE;border:2px solid #00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+        <p style="color:#00343F;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px;font-size:.95rem;">En 30 segundos</p>
+        <ul style="margin:0;padding-left:20px;line-height:1.55;">
+          <li><strong>Qué pasó:</strong> {{TLDR_1}}</li>
+          <li><strong>Por qué importa:</strong> {{TLDR_2}}</li>
+          <li><strong>Qué hacer:</strong> {{TLDR_3}}</li>
+        </ul>
+      </div>
+
+      <!-- Índice del post: el job deja solo los enlaces de las secciones
+           que ese día existan (audio, video y segmento son opcionales). -->
+      <nav style="border:1.5px solid #00343F;border-radius:14px;padding:14px 18px;margin:24px 0;" aria-label="Índice del post">
+        <p style="color:#00343F;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px;font-size:.9rem;">En este post</p>
+        <ul style="margin:0;padding-left:20px;line-height:1.7;">
+          <li><a href="#el-dato">El dato</a></li>
+          <li><a href="#herramienta">Herramienta del día</a></li>
+          <li><a href="#para-copiar">Para copiar y aplicar</a></li>
+          <li><a href="#audio">Escucha este post</a></li>
+          <li><a href="#video">Míralo en video</a></li>
+          <li><a href="#cierre">Cierre</a></li>
+          <li><a href="#segmento">Segmento del día</a></li>
+        </ul>
+      </nav>
+
+      <div id="audio" style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
         <p style="color:#EFE6D5;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;font-size:.95rem;">Escucha este post</p>
         <p style="color:#EFE6D5;opacity:.85;margin:0 0 10px;font-size:.9rem;">La versión en audio, narrada · {{AUDIO_DURACION}}</p>
         <audio controls preload="metadata" style="width:100%;" src="../assets/audio/{{FECHA_ISO}}-{{SLUG}}.mp3"></audio>
       </div>
 
-      <div style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+      <div id="video" style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
         <p style="color:#EFE6D5;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;font-size:.95rem;">Míralo en video</p>
         <p style="color:#EFE6D5;opacity:.85;margin:0 0 10px;font-size:.9rem;">El reel del post, en vertical · {{VIDEO_DURACION}}</p>
         <video controls preload="metadata" playsinline poster="../assets/video/{{FECHA_ISO}}-{{SLUG}}-cover.jpg" src="../assets/video/{{FECHA_ISO}}-{{SLUG}}.mp4" style="width:100%;border-radius:10px;"></video>
       </div>
 
       <!-- Sección 1: el dato del día (qué pasó + por qué importa) -->
-      <h2><span class="num">01</span>El dato</h2>
+      <h2 id="el-dato"><span class="num">01</span>El dato</h2>
       <p>{{DATO}}</p>
 
       <!-- Sección 2: herramienta o tip (gratis siempre que se pueda) -->
-      <h2><span class="num">02</span>Herramienta del día</h2>
+      <h2 id="herramienta"><span class="num">02</span>Herramienta del día</h2>
       <p>{{HERRAMIENTA}}</p>
 
       <!-- Sección 3: el texto para copiar y aplicar. Si el post no trae
            texto para copiar, esta sección puede ser "La idea para copiar"
            con el mismo bloque. -->
-      <h2><span class="num">03</span>Para copiar y aplicar</h2>
+      <h2 id="para-copiar"><span class="num">03</span>Para copiar y aplicar</h2>
       <p>{{PROMPT_INTRO}}</p>
       <div class="prompt">
         <div class="prompt-cabecera">
@@ -180,15 +224,24 @@
       </div>
 
       <!-- Sección 4: cierre. La última línea es la cita-cierre (pregunta o frase). -->
-      <h2><span class="num">04</span>Cierre</h2>
+      <h2 id="cierre"><span class="num">04</span>Cierre</h2>
       <p>{{CIERRE}}</p>
       <p class="cita-cierre">{{FRASE_CIERRE}}</p>
+
+      <!-- Nota firmada: el job la redacta en {{NOTA_AUTOR}} desde el dato
+           más fuerte de la pieza (2-3 líneas, primera persona, sin frases
+           motivacionales). Si un día no sale natural, se borra este bloque
+           completo (misma regla que el segmento). -->
+      <div style="border-left:4px solid #1D6A4A;padding:4px 0 4px 16px;margin:24px 0;">
+        <p style="font-style:italic;margin:0 0 6px;line-height:1.6;">{{NOTA_AUTOR}}</p>
+        <p style="font-family:Archivo,Arial,sans-serif;font-weight:800;color:#00343F;margin:0;">— Juanpa</p>
+      </div>
 
       <!-- Segmento del día: el job lo llena con {{SEGMENTO_TITULO}} y
            {{SEGMENTO_TEXTO}} desde el archivo de publicaciones del día.
            Si un día no hay segmento, se borra este bloque completo
            (misma regla que los bloques de audio y video). -->
-      <div style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+      <div id="segmento" style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
         <p style="color:#EFE6D5;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;font-size:.95rem;">{{SEGMENTO_TITULO}}</p>
         <p style="color:#EFE6D5;opacity:.9;margin:0;font-size:1rem;">{{SEGMENTO_TEXTO}}</p>
       </div>
@@ -244,7 +297,7 @@
                 </div>
                 <div class="sib-form-block">
                   <div class="sib-text-form-block">
-                    <p>Elige cómo quieres recibirlo: diario, con el post completo cada mañana, o semanal, con el resumen de la semana los lunes. Y activa si quieres las noticias de última hora (breaking news): solo las mayores, verificadas.</p>
+                    <p>Al suscribirte recibes cada mañana el dato completo con su Aplicable del día: el paso a paso listo para copiar y aplicar que trae cada post. Elige cómo quieres recibirlo: diario, con el post completo cada mañana, o semanal, con el resumen de la semana los lunes. Y activa si quieres las noticias de última hora (breaking news): solo las mayores, verificadas.</p>
                   </div>
                 </div>
                 <div class="sib-radiobutton-group sib-form-block" data-required="true">
