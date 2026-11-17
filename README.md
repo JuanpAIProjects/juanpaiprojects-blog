@@ -5,6 +5,9 @@ Blog estático de **Juanpai Projects**: noticias verificadas de IA, finanzas y t
 - URL: https://juanpaiprojects.netlify.app (en vivo; Netlify despliega solo con cada push al repo)
 - Instagram: https://www.instagram.com/juanpaiprojects/
 - X: https://x.com/juanpaiprojects
+- TikTok: https://www.tiktok.com/@juanpaiprojects
+- YouTube: https://www.youtube.com/@juanpaiprojects
+- Facebook: https://www.facebook.com/100573032979969
 - Todo el contenido está en español. Sin emojis en el sitio.
 
 ## Estructura
@@ -170,3 +173,6 @@ El sitio ya está desplegado: repo en GitHub conectado a Netlify, publish direct
 ## Estrategia de 3 canales
 
 Instagram, X y este blog se mandan tráfico entre sí de forma natural, nunca forzado (regla de Juanpa, 15 nov 2026). El blog enlaza a Instagram y a X (https://x.com/juanpaiprojects) en la navegación, el pie y el cierre de cada post, y muestra las publicaciones recientes de ambas redes en el inicio. La versión de X de cada pieza se prepara en el pipeline diario de publicaciones y queda lista para copiar y pegar (no hay conector de X). El caption de Instagram invita al blog o a X solo cuando viene al caso, alternando, nunca en todos los posts.
+
+
+> **Actualización (16 nov 2026):** la estrategia se amplió. X, TikTok y YouTube Shorts ya publican automático vía Buffer (la versión de X ya no se pega a mano) y las superficies oficiales son seis: blog, Instagram, X, TikTok, YouTube y Facebook (espejo de Instagram). El tráfico cruzado natural entre canales se mantiene como regla.
