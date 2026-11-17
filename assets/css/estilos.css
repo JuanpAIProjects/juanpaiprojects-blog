@@ -690,6 +690,61 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 .perfil-botones { display: flex; flex-wrap: wrap; gap: 0.8rem; flex: none; }
 
+/* ---------- En todas partes (sección social única de la portada) ----------
+   Tira con la última pieza de cada red y, debajo, el detalle por red
+   en desplegables cerrados por defecto (progressive disclosure): la
+   portada respira y el detalle completo sigue a un toque. Las tarjetas
+   se pintan desde ig.json, x.json, tiktok.json y youtube.json. */
+
+.redes-tira {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
+.redes-tira:empty { display: none; }
+
+.red-detalle {
+  background: var(--crema-2);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  margin-bottom: 1.1rem;
+  box-shadow: 0 4px 16px rgba(0, 52, 63, 0.05);
+}
+
+.red-detalle summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.5rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--titular);
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--tinta);
+}
+
+.red-detalle summary::-webkit-details-marker { display: none; }
+
+.red-detalle summary::after {
+  content: "▾";
+  color: var(--verde);
+  font-size: 1.15rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.red-detalle[open] summary::after { transform: rotate(180deg); }
+
+.red-detalle-cuerpo { padding: 0 1.5rem 1.5rem; }
+
+.red-detalle-cuerpo .seccion-nota { margin-top: 0; }
+
 /* ---------- Suscripción (sección invertida teal) ---------- */
 
 .suscripcion {
@@ -934,6 +989,42 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   letter-spacing: 0.08em;
 }
 
+/* Índice del post plegado: desplegable cerrado por defecto tras la
+   caja «En 30 segundos», para que el texto empiece antes en móvil. */
+.post-indice {
+  border: 1.5px solid var(--tinta);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin: 24px 0;
+}
+
+.post-indice summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--titular);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.9rem;
+  color: var(--tinta);
+}
+
+.post-indice summary::-webkit-details-marker { display: none; }
+
+.post-indice summary::after {
+  content: "▾";
+  color: var(--verde);
+  transition: transform 0.2s ease;
+}
+
+.post-indice[open] summary::after { transform: rotate(180deg); }
+
+.post-indice ul { margin: 8px 0 0; padding-left: 20px; line-height: 1.7; }
+
 .articulo p { color: var(--tinta-suave); margin-bottom: 1.15rem; }
 .articulo p strong { color: var(--tinta); }
 .articulo a { color: var(--verde); font-weight: 600; }
@@ -1080,6 +1171,25 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   margin-top: 1.8rem;
   padding-top: 1.6rem;
 }
+
+/* Compartir dentro de la tarjeta de cierre del post: «Esto también
+   sale en…» y Compartir forman UN solo bloque social, seguido del
+   formulario de suscripción. */
+.cta-post .compartir {
+  max-width: none;
+  margin: 1.8rem 0 0;
+  border-top: 1px solid rgba(239, 230, 213, 0.22);
+  padding-top: 1.5rem;
+}
+
+.cta-post .compartir-titulo { color: var(--crema); }
+
+.cta-post .compartir-btn {
+  color: var(--crema);
+  border-color: rgba(239, 230, 213, 0.55);
+}
+
+.cta-post .compartir-btn:hover { background: var(--crema); color: var(--tinta); }
 
 .post-nav {
   max-width: 46rem;
@@ -1238,6 +1348,7 @@ html.con-js .revelar.visible {
 
 @media (max-width: 920px) {
   .ig-grid, .x-grid { grid-template-columns: 1fr 1fr; }
+  .redes-tira { grid-template-columns: 1fr 1fr; }
   .pie-grid { grid-template-columns: 1fr 1fr; }
   .sobre-grid { grid-template-columns: 1fr; }
   .sobre-foto { max-width: 320px; }
@@ -1265,6 +1376,9 @@ html.con-js .revelar.visible {
   .post-fila { grid-template-columns: 1fr; gap: 0.4rem; padding: 1.2rem 0.4rem; }
   .post-resumen { white-space: normal; }
   .ig-grid, .x-grid { grid-template-columns: 1fr; }
+  .redes-tira { grid-template-columns: 1fr; }
+  .red-detalle summary { padding: 1rem 1.2rem; }
+  .red-detalle-cuerpo { padding: 0 1.2rem 1.2rem; }
   .perfil-strip { flex-direction: column; align-items: flex-start; }
   .pie-grid { grid-template-columns: 1fr; gap: 1.8rem; }
   .articulo { padding-top: 2.4rem; }
@@ -1276,6 +1390,14 @@ html.con-js .revelar.visible {
   .brevo .sib-form-block__button { width: 100%; text-align: center; }
   .cta-post { padding: 1.8rem 1.4rem; }
   .cta-post-fila { flex-direction: column; align-items: flex-start; }
+}
+
+/* En pantallas muy chicas (<480 px) los iconos sociales salen del
+   header para que la navegación respire: las redes siguen en la
+   sección social de la portada y en el pie de todas las páginas.
+   En escritorio el header no cambia. */
+@media (max-width: 479px) {
+  .nav a.nav-social { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

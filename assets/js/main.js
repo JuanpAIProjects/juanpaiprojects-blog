@@ -1,8 +1,9 @@
 /* ============================================================
    JUANPAI PROJECTS — Blog
-   Lee posts.json, ig.json y x.json y pinta: banda de última hora,
-   destacado, recientes, archivo por mes, tarjetas de Instagram
-   y tarjetas de X. Además: barra de progreso de lectura,
+   Lee posts.json, ig.json, x.json, tiktok.json y youtube.json y pinta:
+   banda de última hora, destacado, recientes, archivo por mes, la
+   tira «En todas partes» (la última pieza de cada red) y el detalle
+   por red en desplegables. Además: barra de progreso de lectura,
    botones de compartir, aparición al hacer scroll y el botón
    "Copiar" del prompt. Sin build, JS plano.
    Ver README.md para el flujo de publicación.
@@ -260,6 +261,55 @@
     }).join("");
   }
 
+  // Tira «En todas partes» de la portada: la última pieza de cada red
+  // (Instagram, X, TikTok, YouTube) en una sola fila mixta. Se repinta
+  // conforme llega cada JSON; el detalle completo de cada red vive en
+  // los desplegables de la misma sección (ig-grid, x-grid, tk-grid,
+  // yt-grid), que pintan las funciones de arriba sin cambios.
+  var datosTira = {};
+
+  function tarjetaTiraIG(pub) {
+    var imagen = pub.imagen
+      ? '<img class="ig-imagen" src="' + esc(pub.imagen) + '" alt="' + esc(pub.titulo) +
+        '" loading="lazy" onerror="this.remove()">'
+      : "";
+    return (
+      '<a class="ig-tarjeta" href="' + esc(pub.url) + '" target="_blank" rel="noopener">' +
+        imagen +
+        '<span class="tema-chip">Instagram</span>' +
+        '<span class="ig-titulo">' + esc(pub.titulo) + "</span>" +
+        '<span class="ig-resumen">' + esc(pub.resumen) + "</span>" +
+        '<span class="ig-meta">' + esc(fechaCorta(pub.fecha)) + " · Ver en Instagram →</span>" +
+      "</a>"
+    );
+  }
+
+  function tarjetaTiraX(entrada) {
+    var imagen = entrada.imagen
+      ? '<img class="ig-imagen" src="' + esc(entrada.imagen) + '" alt="" loading="lazy" onerror="this.remove()">'
+      : "";
+    return (
+      '<a class="x-tarjeta" href="' + esc(entrada.url) + '" target="_blank" rel="noopener">' +
+        imagen +
+        '<span class="tema-chip">X</span>' +
+        '<span class="x-texto">' + esc(entrada.texto) + "</span>" +
+        '<span class="ig-meta">' + esc(fechaCorta(entrada.fecha)) + " · Ver en X →</span>" +
+      "</a>"
+    );
+  }
+
+  function pintarTira() {
+    var el = document.getElementById("redes-tira");
+    if (!el) return;
+    var tarjetas = [];
+    var ig = datosTira.ig, x = datosTira.x, tk = datosTira.tk, yt = datosTira.yt;
+    if (ig && ig.publicaciones && ig.publicaciones.length) tarjetas.push(tarjetaTiraIG(ig.publicaciones[0]));
+    if (x && x.entradas && x.entradas.length) tarjetas.push(tarjetaTiraX(x.entradas[0]));
+    if (tk && tk.videos && tk.videos.length) tarjetas.push(tarjetaVideo(tk.videos[0], "TikTok", "Ver en TikTok →"));
+    if (yt && yt.videos && yt.videos.length) tarjetas.push(tarjetaVideo(yt.videos[0], "YouTube", "Ver en YouTube →"));
+    el.innerHTML = tarjetas.join("");
+  }
+
   function activarCopiar() {
     var botones = document.querySelectorAll("[data-copiar]");
     Array.prototype.forEach.call(botones, function (boton) {
@@ -358,19 +408,27 @@
     }
 
     if (document.getElementById("ig-grid")) {
-      cargarJSON("ig.json").then(pintarInstagram).catch(function () { /* la tarjeta de perfil sigue visible */ });
+      cargarJSON("ig.json").then(function (d) {
+        pintarInstagram(d); datosTira.ig = d; pintarTira();
+      }).catch(function () { /* la tarjeta de perfil sigue visible */ });
     }
 
     if (document.getElementById("x-grid")) {
-      cargarJSON("x.json").then(pintarX).catch(function () { /* la sección queda sin tarjetas */ });
+      cargarJSON("x.json").then(function (d) {
+        pintarX(d); datosTira.x = d; pintarTira();
+      }).catch(function () { /* la sección queda sin tarjetas */ });
     }
 
     if (document.getElementById("tk-grid")) {
-      cargarJSON("tiktok.json").then(pintarTikTok).catch(function () { /* sin tarjetas de TikTok */ });
+      cargarJSON("tiktok.json").then(function (d) {
+        pintarTikTok(d); datosTira.tk = d; pintarTira();
+      }).catch(function () { /* sin tarjetas de TikTok */ });
     }
 
     if (document.getElementById("yt-grid")) {
-      cargarJSON("youtube.json").then(pintarYouTube).catch(function () { /* sin video de YouTube */ });
+      cargarJSON("youtube.json").then(function (d) {
+        pintarYouTube(d); datosTira.yt = d; pintarTira();
+      }).catch(function () { /* sin video de YouTube */ });
     }
   }
 
