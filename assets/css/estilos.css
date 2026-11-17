@@ -1283,3 +1283,21 @@ html.con-js .revelar.visible {
   * { transition: none !important; animation: none !important; }
   html.con-js .revelar { opacity: 1; transform: none; }
 }
+
+/* ---------- Video (TikTok / YouTube) ---------- */
+
+/* Reproductor vertical del Short más reciente: se ve y se reproduce en el blog. */
+.yt-embed {
+  max-width: 300px;
+  margin: 0 auto 1.4rem;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--radio);
+  overflow: hidden;
+  background: var(--teal, #00343F);
+  box-shadow: var(--sombra);
+}
+.yt-embed:empty { display: none; }
+.yt-embed iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* Portada vertical en las tarjetas de video. */
+.ig-imagen-vertical { aspect-ratio: 4 / 5; }
