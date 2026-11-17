@@ -1,1 +1,16 @@
-{"entradas": [{"fecha": "2026-11-16", "texto": "China entrenó a su agente de IA más fuerte sin una sola tarjeta de Nvidia. LongCat-2.5, de Meituan: 1.6 billones de parámetros, hardware chino y liberado abierto. En Terminal Bench marcó 88.4, justo detrás de Claude Opus 5.", "url": "https://x.com/juanpaiprojects"}, {"fecha": "2026-11-15", "texto": "El jueves la IA sale a bolsa. Anthropic, la empresa detrás de Claude, sale a bolsa este jueves: 825 millones de acciones entre 70 y 78 dólares, símbolo ANT, y el libro ya va 6 veces sobresuscrito.", "url": "https://x.com/juanpaiprojects"}], "perfil": "https://x.com/juanpaiprojects", "usuario": "@juanpaiprojects"}
+{
+ "entradas": [
+  {
+   "fecha": "2026-11-16",
+   "texto": "China entrenó a su agente de IA más fuerte sin una sola tarjeta de Nvidia. LongCat-2.5, de Meituan: 1.6 billones de parámetros, hardware chino y liberado abierto. En Terminal Bench marcó 88.4, justo detrás de Claude Opus 5.",
+   "url": "https://x.com/1411751252334051329/status/2122492316967407624"
+  },
+  {
+   "fecha": "2026-11-15",
+   "texto": "El jueves la IA sale a bolsa. Anthropic, la empresa detrás de Claude, sale a bolsa este jueves: 825 millones de acciones entre 70 y 78 dólares, símbolo ANT, y el libro ya va 6 veces sobresuscrito.",
+   "url": "https://x.com/juanpaiprojects"
+  }
+ ],
+ "perfil": "https://x.com/juanpaiprojects",
+ "usuario": "@juanpaiprojects"
+}

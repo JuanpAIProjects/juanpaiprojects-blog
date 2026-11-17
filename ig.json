@@ -1,1 +1,20 @@
-{"perfil": "https://www.instagram.com/juanpaiprojects/", "publicaciones": [{"titulo": "El jueves la IA sale a bolsa. Y tu contestador todavía suena a 1998", "resumen": "Anthropic sale a bolsa el jueves, y el tip gratis para que tu buzón de voz suene a 2026 en cinco minutos con Google AI Studio.", "url": "https://www.instagram.com/p/Dfxj1Pzk0of/", "fecha": "2026-11-15", "tipo": "Carrusel"}], "usuario": "@juanpaiprojects"}
+{
+ "perfil": "https://www.instagram.com/juanpaiprojects/",
+ "publicaciones": [
+  {
+   "titulo": "China entrenó a su agente más fuerte sin una sola tarjeta de Nvidia",
+   "resumen": "LongCat-2.5, de Meituan: 1.6 billones de parámetros entrenados con hardware chino y liberado abierto; marcó 88.4 en Terminal Bench, justo detrás de Claude Opus 5. Tip gratis del día: Composio conecta tu panel de Claude y se actualiza solo.",
+   "url": "https://www.instagram.com/reel/Df0DcFPPnat/",
+   "fecha": "2026-11-16",
+   "tipo": "Reel"
+  },
+  {
+   "titulo": "El jueves la IA sale a bolsa. Y tu contestador todavía suena a 1998",
+   "resumen": "Anthropic sale a bolsa el jueves, y el tip gratis para que tu buzón de voz suene a 2026 en cinco minutos con Google AI Studio.",
+   "url": "https://www.instagram.com/p/Dfxj1Pzk0of/",
+   "fecha": "2026-11-15",
+   "tipo": "Carrusel"
+  }
+ ],
+ "usuario": "@juanpaiprojects"
+}
