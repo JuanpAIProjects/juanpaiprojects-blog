@@ -14,18 +14,18 @@ Blog estático de **Juanpai Projects**: noticias verificadas de IA, finanzas y t
 
 ```
 index.html                  Inicio: hero, banda de Última hora, post destacado, recientes,
-                            secciones Instagram y X, suscripción por correo (Brevo)
+                            sección social «En todas partes», suscripción por correo (Brevo)
 archivo.html                Archivo de posts agrupado por mes (se pinta desde posts.json)
 sobre-mi.html               Página "Sobre mí"
 posts/
   plantilla-post.html       Plantilla para crear posts nuevos (NO se enlaza en el sitio)
   AAAA-MM-DD-slug.html      Un archivo por post publicado
 posts.json                  Índice de posts (el sitio lo lee con JS)
-ig.json                     Índice de publicaciones de Instagram para la sección "En Instagram"
-x.json                      Índice de publicaciones de X para la sección "En X"
+ig.json                     Índice de publicaciones de Instagram para «En todas partes»
+x.json                      Índice de publicaciones de X para «En todas partes»
 assets/
   css/estilos.css           Estilos (tema claro editorial, paleta del logo)
-  js/main.js                Pinta última hora/destacado/recientes/archivo/Instagram/X,
+  js/main.js                Pinta última hora/destacado/recientes/archivo, la tira «En todas partes» y el detalle por red,
                             progreso de lectura, compartir, aparición al scroll, botón "Copiar"
   img/logo.jpg              Logotipo de la marca (cabecera, pie, imagen social / Open Graph)
 netlify.toml                Configuración de Netlify (publish ".", sin build)
@@ -91,7 +91,7 @@ El campo `tema` es la etiqueta de tema: "IA aplicada", "Finanzas", "Global", etc
 
 El campo `lectura` es **opcional**: tiempo estimado como `"2 min"`. Se muestra como "2 min de lectura" en el destacado, en las listas y (vía el marcador `{{LECTURA}}`) en el post. Si falta, no se muestra nada.
 
-`ig.json` alimenta la sección "En Instagram" del inicio. Cada entrada de `publicaciones`:
+`ig.json` alimenta la tira «En todas partes» y el desplegable de Instagram del inicio. Cada entrada de `publicaciones`:
 
 ```json
 {
@@ -108,7 +108,7 @@ El campo `lectura` es **opcional**: tiempo estimado como `"2 min"`. Se muestra c
 
 El campo `imagen` es **opcional**: URL pública de la foto del post (la primera del carrusel). Si existe, la tarjeta la muestra arriba, sangrando a los bordes; si la imagen falla al cargar, se retira sola y la tarjeta queda de texto. Las entradas sin `imagen` se ven como siempre.
 
-`x.json` alimenta la sección "En X" del inicio. Esquema:
+`x.json` alimenta la tira «En todas partes» y el desplegable de X del inicio. Esquema:
 
 ```json
 {
