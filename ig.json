@@ -2,6 +2,14 @@
  "perfil": "https://www.instagram.com/juanpaiprojects/",
  "publicaciones": [
   {
+   "titulo": "108 mil millones en un trimestre. Y por primera vez, sin su fundador",
+   "resumen": "Nvidia presenta su tercer trimestre sin Jensen Huang: la vara es su guía de 108,000 millones de dólares y margen bruto de 74%, y la guía de enero será la primera escrita por Colette Kress.",
+   "url": "https://www.instagram.com/reel/Df2j0KDzMeB/",
+   "fecha": "2026-11-17",
+   "tipo": "Reel",
+   "imagen": "assets/video/2026-11-17-nvidia-primer-reporte-sin-huang-cover.jpg"
+  },
+  {
    "titulo": "China entrenó a su agente más fuerte sin una sola tarjeta de Nvidia",
    "resumen": "LongCat-2.5, de Meituan: 1.6 billones de parámetros entrenados con hardware chino y liberado abierto; marcó 88.4 en Terminal Bench, justo detrás de Claude Opus 5. Tip gratis del día: Composio conecta tu panel de Claude y se actualiza solo.",
    "url": "https://www.instagram.com/reel/Df0DcFPPnat/",
