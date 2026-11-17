@@ -170,7 +170,7 @@ El sitio ya está desplegado: repo en GitHub conectado a Netlify, publish direct
 - Las animaciones de aparición solo ocultan contenido si hay JS activo (clase `con-js` en `<html>`, puesta por un script mínimo en el `<head>`); con `prefers-reduced-motion` todo aparece sin movimiento.
 - La marca de cabecera es un recorte CSS del logo: si algún día se regenera `assets/img/logo.jpg` con otra composición, hay que re-medir la zona del foco y ajustar `.marca-logo img` en `estilos.css`.
 
-## Estrategia de 3 canales
+## Estrategia de canales
 
 Instagram, X y este blog se mandan tráfico entre sí de forma natural, nunca forzado (regla de Juanpa, 15 nov 2026). El blog enlaza a Instagram y a X (https://x.com/juanpaiprojects) en la navegación, el pie y el cierre de cada post, y muestra las publicaciones recientes de ambas redes en el inicio. La versión de X de cada pieza se prepara en el pipeline diario de publicaciones y queda lista para copiar y pegar (no hay conector de X). El caption de Instagram invita al blog o a X solo cuando viene al caso, alternando, nunca en todos los posts.
 
