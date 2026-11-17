@@ -1,1 +1,44 @@
-[{"fecha": "2026-11-16", "titulo": "China entrenó su IA más fuerte sin una sola tarjeta de Nvidia", "resumen": "Meituan liberó LongCat 2.5, un modelo abierto para agentes entrenado solo con hardware chino que quedó a un paso del mejor modelo cerrado del mundo. Y el tutorial del día convierte un artefacto de Claude en un panel vivo que se actualiza solo, gratis con Composio.", "url": "posts/2026-11-16-china-ia-sin-nvidia.html", "tema": "IA y chips", "tipo": "noticia", "lectura": "3 min", "audio": "assets/audio/2026-11-16-china-ia-sin-nvidia.mp3", "audioDuracion": "2 min 38 s", "video": "assets/video/2026-11-16-china-ia-sin-nvidia.mp4", "videoCover": "assets/video/2026-11-16-china-ia-sin-nvidia-cover2.jpg", "videoDuracion": "27 s"}, {"fecha": "2026-11-15", "lectura": "2 min", "resumen": "Anthropic, la empresa detrás de Claude, hace la salida a bolsa más grande de la historia. Y tu negocio puede sonar a 2026 en cinco minutos, gratis: un buzón de voz hecho con Google AI Studio y el prompt exacto para escribir el guion.", "tema": "IA aplicada", "tipo": "noticia", "titulo": "El jueves la IA sale a bolsa. Y tu contestador todavía suena a 1998", "url": "posts/2026-11-15-la-ia-sale-a-bolsa.html", "audio": "assets/audio/2026-11-15-la-ia-sale-a-bolsa.mp3", "audioDuracion": "2 min 51 s", "video": "assets/video/juanpaiprojects-reel-v2.mp4", "videoCover": "assets/video/2026-11-15-la-ia-sale-a-bolsa-cover.jpg", "videoDuracion": "35 s"}]
+[
+ {
+  "fecha": "2026-11-17",
+  "titulo": "108 mil millones en un trimestre. Y por primera vez, sin su fundador",
+  "resumen": "Nvidia presenta su tercer trimestre sin Jensen Huang: la vara es su guía de 108,000 millones de dólares y margen bruto de 74%, y la guía de enero será la primera escrita por Colette Kress. Con la predicción para votar y el paso a paso en Gemini gratis para leer el reporte en cuanto salga.",
+  "url": "posts/2026-11-17-nvidia-primer-reporte-sin-huang.html",
+  "tema": "IA y mercados",
+  "tipo": "noticia",
+  "lectura": "2 min",
+  "audio": "assets/audio/2026-11-17-nvidia-primer-reporte-sin-huang.mp3",
+  "audioDuracion": "3 min 10 s",
+  "video": "assets/video/2026-11-17-nvidia-primer-reporte-sin-huang.mp4",
+  "videoCover": "assets/video/2026-11-17-nvidia-primer-reporte-sin-huang-cover.jpg",
+  "videoDuracion": "36 s"
+ },
+ {
+  "fecha": "2026-11-16",
+  "titulo": "China entrenó su IA más fuerte sin una sola tarjeta de Nvidia",
+  "resumen": "Meituan liberó LongCat 2.5, un modelo abierto para agentes entrenado solo con hardware chino que quedó a un paso del mejor modelo cerrado del mundo. Y el tutorial del día convierte un artefacto de Claude en un panel vivo que se actualiza solo, gratis con Composio.",
+  "url": "posts/2026-11-16-china-ia-sin-nvidia.html",
+  "tema": "IA y chips",
+  "tipo": "noticia",
+  "lectura": "3 min",
+  "audio": "assets/audio/2026-11-16-china-ia-sin-nvidia.mp3",
+  "audioDuracion": "2 min 38 s",
+  "video": "assets/video/2026-11-16-china-ia-sin-nvidia.mp4",
+  "videoCover": "assets/video/2026-11-16-china-ia-sin-nvidia-cover2.jpg",
+  "videoDuracion": "27 s"
+ },
+ {
+  "fecha": "2026-11-15",
+  "lectura": "2 min",
+  "resumen": "Anthropic, la empresa detrás de Claude, hace la salida a bolsa más grande de la historia. Y tu negocio puede sonar a 2026 en cinco minutos, gratis: un buzón de voz hecho con Google AI Studio y el prompt exacto para escribir el guion.",
+  "tema": "IA aplicada",
+  "tipo": "noticia",
+  "titulo": "El jueves la IA sale a bolsa. Y tu contestador todavía suena a 1998",
+  "url": "posts/2026-11-15-la-ia-sale-a-bolsa.html",
+  "audio": "assets/audio/2026-11-15-la-ia-sale-a-bolsa.mp3",
+  "audioDuracion": "2 min 51 s",
+  "video": "assets/video/juanpaiprojects-reel-v2.mp4",
+  "videoCover": "assets/video/2026-11-15-la-ia-sale-a-bolsa-cover.jpg",
+  "videoDuracion": "35 s"
+ }
+]
