@@ -3,6 +3,13 @@
  "perfil": "https://www.youtube.com/@juanpaiprojects",
  "videos": [
   {
+   "fecha": "2026-11-17",
+   "titulo": "Nvidia: 108,000 millones en un trimestre, sin su fundador",
+   "url": "https://www.youtube.com/shorts/wlS--VKzRHw",
+   "videoId": "wlS--VKzRHw",
+   "imagen": "assets/img/2026-11-17-juanpaiprojects-reel-cover.jpg"
+  },
+  {
    "fecha": "2026-11-16",
    "titulo": "China entrenó a su agente de IA más fuerte sin una sola tarjeta de Nvidia",
    "url": "https://www.youtube.com/watch?v=bASLjed1AJQ",
