@@ -66,34 +66,6 @@
   <main>
     <!-- Hero -->
     <section class="hero contenedor">
-      <!-- Foco de la marca, SVG inline fiel al icono oficial: se «prende»
-           al cargar (halo + rayitos escalonados + pulso tranquilo, solo CSS).
-           El PNG sigue como favicon/icono de app; esto vive solo en el héroe. -->
-      <div class="foco-anim" aria-hidden="true">
-        <svg class="foco-anim-svg" viewBox="0 0 64 64" width="92" height="92" focusable="false">
-          <defs>
-            <radialGradient id="foco-anim-brillo" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#1D6A4A" stop-opacity="0.30"/>
-              <stop offset="55%" stop-color="#1D6A4A" stop-opacity="0.13"/>
-              <stop offset="100%" stop-color="#1D6A4A" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <circle class="foco-anim-halo" cx="32" cy="25" r="23" fill="url(#foco-anim-brillo)"/>
-          <circle class="foco-anim-pulso" cx="32" cy="25" r="23" fill="url(#foco-anim-brillo)"/>
-          <g stroke="#1D6A4A" stroke-width="3.5" stroke-linecap="round">
-            <line class="foco-anim-rayo foco-anim-rayo-c" x1="32" y1="9.5" x2="32" y2="3.5"/>
-            <line class="foco-anim-rayo foco-anim-rayo-i1" x1="22" y1="12.7" x2="18.5" y2="7.8"/>
-            <line class="foco-anim-rayo foco-anim-rayo-d1" x1="42" y1="12.7" x2="45.5" y2="7.8"/>
-            <line class="foco-anim-rayo foco-anim-rayo-i2" x1="15.8" y1="20.4" x2="10.2" y2="18.2"/>
-            <line class="foco-anim-rayo foco-anim-rayo-d2" x1="48.2" y1="20.4" x2="53.8" y2="18.2"/>
-          </g>
-          <g class="foco-anim-bombilla">
-            <path d="M32 13.5a13.5 13.5 0 0 1 7.9 24.4c-.9.65-1.4 1.4-1.7 2.4l-.35 1.45H26.15l-.35-1.45c-.3-1-.85-1.75-1.7-2.4A13.5 13.5 0 0 1 32 13.5z" fill="#00343F"/>
-            <rect x="25.4" y="44.2" width="13.2" height="3.8" rx="1.9" fill="#1D6A4A"/>
-            <path d="M26.4 50.6h11.2a5.6 5.6 0 0 1-11.2 0z" fill="#D73119"/>
-          </g>
-        </svg>
-      </div>
       <p class="kicker"><span class="kicker-linea"></span>Noticias · IA aplicada · Cada día</p>
       <h1>Qué pasó, por qué importa y <em>qué hacer</em>.</h1>
       <p class="lede">Cada día verifico la noticia en IA, finanzas y temas globales y te la cuento con su consecuencia práctica. De pilón, una herramienta gratis con el paso a paso listo para aplicar, probada en proyectos reales. Dos minutos, sin humo. Con el contexto que los medios técnicos dan por sabido, explicado en una línea y sin tecnicismos: nivel experto, lenguaje humano.</p>
