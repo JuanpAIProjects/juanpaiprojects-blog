@@ -1,8 +1,10 @@
 /* ============================================================
    JUANPAI PROJECTS — Blog
    Lee posts.json, ig.json, x.json, tiktok.json, youtube.json,
-   ultima-hora.json y en-desarrollo.json y pinta:
-   banda de última hora, destacado, recientes, archivo por mes, la
+   ultima-hora.json, en-desarrollo.json y seguimientos.json y pinta:
+   banda de última hora, la tarjeta «En desarrollo», la sección
+   «Seguimiento» dentro de los posts cuya historia siguió, destacado,
+   recientes, archivo por mes, la
    tira «En todas partes» (la última pieza de cada red) y el detalle
    por red en desplegables. Además: barra de progreso de lectura,
    botones de compartir, aparición al hacer scroll y el botón
@@ -210,6 +212,60 @@
       }
       caja.hidden = false;
     }).catch(function () { caja.hidden = true; });
+  }
+
+  // Sección «Seguimiento» dentro de cada post: si la historia de un post
+  // siguió desarrollándose después de publicarlo, sus actualizaciones
+  // viven en seguimientos.json (las anexa el job de breaking con cada
+  // seguimiento verificado) y se pintan aquí, justo antes de «Sigue
+  // leyendo». Sin entradas para ese post, la sección no aparece: el
+  // seguimiento que se promete es el que existe de verdad.
+  function pintarSeguimiento() {
+    var nav = document.getElementById("sigue-leyendo");
+    if (!nav || !nav.parentNode) return;
+    var m = window.location.pathname.match(/posts\/([^\/]+)\.html$/);
+    if (!m) return;
+    cargarJSON("seguimientos.json").then(function (d) {
+      var s = d && d[m[1]];
+      var acts = s && Array.isArray(s.actualizaciones) ? s.actualizaciones.slice(-8).reverse() : [];
+      if (!acts.length) return;
+      var sec = document.createElement("section");
+      sec.className = "seguimiento";
+      sec.id = "seguimiento";
+      var cab = document.createElement("div");
+      cab.className = "ed-cabecera";
+      var badge = document.createElement("span");
+      badge.className = "ed-badge";
+      var punto = document.createElement("span");
+      punto.className = "uh-punto";
+      badge.appendChild(punto);
+      badge.appendChild(document.createTextNode("Seguimiento"));
+      cab.appendChild(badge);
+      var ult = document.createElement("span");
+      ult.className = "ed-actualizado";
+      ult.textContent = "Última actualización " + fechaCorta(acts[0].fecha) + (acts[0].hora ? " · " + acts[0].hora : "");
+      cab.appendChild(ult);
+      sec.appendChild(cab);
+      var intro = document.createElement("p");
+      intro.className = "seg-intro";
+      intro.textContent = "Esta historia siguió después de publicado el post. Aquí va lo nuevo, en orden, solo con datos verificados:";
+      sec.appendChild(intro);
+      var ul = document.createElement("ul");
+      ul.className = "ed-lista";
+      for (var i = 0; i < acts.length; i++) {
+        var li = document.createElement("li");
+        var h = document.createElement("span");
+        h.className = "ed-hora";
+        h.textContent = (acts[i].fecha ? fechaCorta(acts[i].fecha) + " · " : "") + (acts[i].hora || "");
+        var tx = document.createElement("span");
+        tx.textContent = acts[i].texto || "";
+        li.appendChild(h);
+        li.appendChild(tx);
+        ul.appendChild(li);
+      }
+      sec.appendChild(ul);
+      nav.parentNode.insertBefore(sec, nav);
+    }).catch(function () {});
   }
 
   function pintarDestacado(post) {
@@ -517,6 +573,7 @@
     var hayArchivo = document.getElementById("archivo-lista");
     pintarUltimaHora();
     pintarEnDesarrollo();
+    pintarSeguimiento();
     if (hayInicio || hayArchivo) {
       cargarJSON("posts.json").then(function (posts) {
         posts = Array.isArray(posts) ? posts : [];

@@ -533,6 +533,20 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .ed-tambien-lista a.ed-t-titulo:hover { color: var(--verde); }
 .ed-tambien-lista .ed-t-estado { color: var(--tinta-suave); }
 
+/* ---------- Seguimiento dentro del post ---------- */
+
+.seguimiento {
+  background: var(--crema-2);
+  border: 1px solid var(--borde);
+  border-left: 5px solid var(--verde);
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem 1.2rem;
+  margin: 2.2rem 0 0.4rem;
+  box-shadow: 0 4px 18px rgba(0, 52, 63, 0.06);
+}
+
+.seg-intro { margin-top: 0.2rem; color: var(--tinta-suave); line-height: 1.5; }
+
 .meta {
   font-size: 0.88rem;
   color: var(--tinta-tenue);
@@ -688,6 +702,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   margin: -1.5rem -1.5rem 0.1rem;
   aspect-ratio: 16 / 10;
   object-fit: cover;
+  object-position: center 10%;
   background: var(--crema-3);
 }
 
@@ -730,7 +745,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 .perfil-strip p { color: var(--tinta-suave); font-size: 0.96rem; }
 
-.perfil-botones { display: flex; flex-wrap: wrap; gap: 0.8rem; flex: none; }
+.perfil-botones { display: flex; flex-wrap: wrap; gap: 0.8rem; flex: 1 1 auto; min-width: 0; }
 
 /* ---------- En todas partes (sección social única de la portada) ----------
    Tira con la última pieza de cada red y, debajo, el detalle por red
@@ -1206,7 +1221,11 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 .cta-post p { color: var(--sobre-tinta); font-size: 0.95rem; }
 
-.cta-post-botones { display: flex; flex-wrap: wrap; gap: 0.8rem; flex: none; }
+.cta-post-fila > div { min-width: 0; }
+
+.cta-post-botones { display: flex; flex-wrap: wrap; gap: 0.8rem; flex: 1 1 15rem; min-width: 0; }
+
+.cta-post-botones .boton { white-space: nowrap; }
 
 .cta-post .brevo-en-cta {
   border-top: 1px solid rgba(239, 230, 213, 0.22);
