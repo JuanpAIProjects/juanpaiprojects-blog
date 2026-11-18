@@ -1,90 +1,5 @@
 <!DOCTYPE html>
-<!--
-  ============================================================
-  PLANTILLA DE POST — JUANPAI PROJECTS
-  ============================================================
-  El job diario NO usa este archivo en vivo: lo COPIA con el nombre
-  posts/AAAA-MM-DD-slug.html y reemplaza cada marcador {{...}}.
 
-  Marcadores:
-    108 mil millones en un trimestre. Y por primera vez, sin su fundador       Título del post (también va en <title>, OG y JSON-LD)
-    Nvidia reporta hoy sus resultados sin Jensen Huang: a las 3:20 de la tarde, hora de México, presenta su tercer trimestre contra su propia guía de 108,000 millones de dólares y margen bruto de 74%, y la guía de enero será la primera escrita por completo bajo Colette Kress.  Resumen de 1-2 frases (meta description, OG y JSON-LD)
-    2026-11-17    Fecha en formato 2026-11-15
-    17 de noviembre de 2026  Fecha legible: 15 de noviembre de 2026
-    IA y mercados         Tema corto, ej. "IA aplicada", "Finanzas", "Global"
-    noticia         Tipo de post: "noticia" o "tip" (ver la nota en
-                     articulo-meta: cambia el distintivo; "noticia"
-                     alimenta la banda de Última hora del inicio)
-    2 min de lectura      Tiempo de lectura, ej. "2 min de lectura"
-    nvidia-primer-reporte-sin-huang         Nombre del archivo sin fecha, ej. la-ia-sale-a-bolsa
-                     (la URL canónica se arma como posts/2026-11-17-nvidia-primer-reporte-sin-huang.html)
-    3 min 10 s Duración del audio narrado del post, ej. "2 min 51 s".
-                     El bloque «Escucha este post» va tras la entradilla y
-                     apunta a assets/audio/2026-11-17-nvidia-primer-reporte-sin-huang.mp3. Si el
-                     post no lleva audio, se borra el bloque completo.
-    36 s Duración del reel del post, ej. "35 s".
-                     El bloque «Míralo en video» va justo DESPUÉS del bloque
-                     «Escucha este post» y apunta a
-                     assets/video/2026-11-17-nvidia-primer-reporte-sin-huang.mp4, con póster
-                     assets/video/2026-11-17-nvidia-primer-reporte-sin-huang-cover.jpg. Si el
-                     post no lleva video, se borra el bloque completo.
-    Tip del día / Hoy 3:20 p.m. sale el reporte de Nvidia. Tip exprés: no leas las 30 páginas. Pega el comunicado en Gemini gratis y pídele solo tres cifras contra su vara: ingresos contra 108,000 millones, margen contra 74% y la guía nueva de enero. Dos minutos y tienes el dato.
-                     Bloque «Segmento del día» al final del cuerpo del
-                     post, antes de la sección de suscripción. Lo llena
-                     el job con el segmento del día del archivo de
-                     publicaciones (rotación de juanpaiprojects: dato
-                     curioso, tip exprés, efeméride «un día como hoy» o
-                     chiste tech el domingo) y el encabezado cambia según
-                     el tipo: «Dato curioso», «Tip del día», «Un día como
-                     hoy» o «Para cerrar con una sonrisa» (el chiste). Si
-                     un día no hay segmento, se borra el bloque completo
-                     (misma regla que audio y video).
-    Hoy a las 3:20 de la tarde Nvidia reporta su tercer trimestre sin su fundador: la vara es su guía propia de 108,000 millones de dólares (±2%) y margen bruto de 74%, sin ingresos de centros de datos de China. / El trimestre cerró el 25 de octubre, antes de la renuncia de Huang, así que esos números son su pasado; la guía de enero será el primer compromiso escrito por Colette Kress, su directora de finanzas desde 2013, hoy interina. / Pega el comunicado en Gemini gratis con el paso a paso de hoy y compara tres cifras: ingresos contra la guía, margen contra 74% y la guía nueva. Y deja tu voto en la predicción.
-                     Caja «En 30 segundos» justo después de la
-                     entradilla: tres viñetas — qué pasó, por qué
-                     importa, qué hacer — destiladas de la pieza del
-                     día. La llena el job (PAQUETE BLOG-NEWSLETTER
-                     16 NOV 2026).
-    Yo me quedo con la separación de fechas, porque cambia la lectura completa: el trimestre cerró el 25 de octubre y la renuncia fue el 12 de noviembre, así que hoy no hay forma justa de atribuirle esos números a Kress. Lo suyo empieza en la guía de enero, y ahí voy a mirar primero.   Nota firmada «— Juanpa» antes del segmento de
-                     cierre: 2-3 líneas en primera persona que el job
-                     redacta desde el dato más fuerte de la pieza, sin
-                     frases motivacionales ni cringe. Si un día no sale
-                     natural, se borra el bloque completo (misma regla
-                     que el segmento).
-                     El índice «En este post» va plegado en un
-                     desplegable cerrado tras la caja de 30 segundos y
-                     enlaza a los id de cada bloque: #el-dato,
-                     #herramienta, #para-copiar, #audio, #video,
-                     #cierre, #segmento. El job deja solo los enlaces
-                     de las secciones que ese día existan.
-
-  Piezas automáticas (NO llevan marcadores, no tocar):
-    - Barra de progreso de lectura (#progreso): la mueve main.js.
-    - Botones de compartir (.compartir): main.js arma las URLs de
-      X, WhatsApp y Facebook con la URL y el título reales de la
-      página; el botón "Compartir" nativo solo aparece si el
-      dispositivo soporta Web Share API.
-    - Cierre final (.cta-post): UN solo bloque social — «Esto también
-      sale en…» con los botones a las 5 redes y la fila de Compartir —
-      seguido del formulario de suscripción por correo de Brevo
-      (lista "Blog — Suscriptores", atributos FRECUENCIA y ULTIMAHORA;
-      se viste desde estilos.css y lo envía el main.js de Brevo,
-      cargado al final de la página).
-    - JSON-LD BlogPosting: usa 108 mil millones en un trimestre. Y por primera vez, sin su fundador, Nvidia reporta hoy sus resultados sin Jensen Huang: a las 3:20 de la tarde, hora de México, presenta su tercer trimestre contra su propia guía de 108,000 millones de dólares y margen bruto de 74%, y la guía de enero será la primera escrita por completo bajo Colette Kress. y
-      2026-11-17; se reemplazan junto con el resto.
-
-  Tono (ver README, "Tono editorial"): claridad de parte de noticias
-  en tres pasos — qué pasó, por qué importa, qué hacer — con la voz
-  directa de Juanpa. Si el post es noticia, el dato va verificado
-  contra fuentes serias antes de publicarse.
-
-  Después de crear el HTML hay que:
-    1. Agregar la entrada NUEVA HASTA ARRIBA en posts.json (con su "tipo"
-       y, si se quiere, su "lectura", ej. "2 min")
-    2. Agregar la URL en sitemap.xml
-  El detalle completo está en README.md (sección "Publicar un post nuevo").
-  ============================================================
--->
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -97,13 +12,13 @@
   <meta property="og:title" content="108 mil millones en un trimestre. Y por primera vez, sin su fundador">
   <meta property="og:description" content="Nvidia reporta hoy sus resultados sin Jensen Huang: a las 3:20 de la tarde, hora de México, presenta su tercer trimestre contra su propia guía de 108,000 millones de dólares y margen bruto de 74%, y la guía de enero será la primera escrita por completo bajo Colette Kress.">
   <meta property="og:url" content="https://juanpaiprojects.netlify.app/posts/2026-11-17-nvidia-primer-reporte-sin-huang.html">
-  <meta property="og:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
+  <meta property="og:image" content="https://juanpaiprojects.netlify.app/assets/video/2026-11-17-nvidia-primer-reporte-sin-huang-cover.jpg">
   <meta property="og:locale" content="es_MX">
   <meta property="article:published_time" content="2026-11-17">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="108 mil millones en un trimestre. Y por primera vez, sin su fundador">
   <meta name="twitter:description" content="Nvidia reporta hoy sus resultados sin Jensen Huang: a las 3:20 de la tarde, hora de México, presenta su tercer trimestre contra su propia guía de 108,000 millones de dólares y margen bruto de 74%, y la guía de enero será la primera escrita por completo bajo Colette Kress.">
-  <meta name="twitter:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
+  <meta name="twitter:image" content="https://juanpaiprojects.netlify.app/assets/video/2026-11-17-nvidia-primer-reporte-sin-huang-cover.jpg">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icono-app.png">
   <script>document.documentElement.className += " con-js";</script>
@@ -111,14 +26,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
-  <link rel="stylesheet" href="../assets/css/estilos.css?v=5">
+  <link rel="stylesheet" href="../assets/css/estilos.css?v=7">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "108 mil millones en un trimestre. Y por primera vez, sin su fundador",
     "description": "Nvidia reporta hoy sus resultados sin Jensen Huang: a las 3:20 de la tarde, hora de México, presenta su tercer trimestre contra su propia guía de 108,000 millones de dólares y margen bruto de 74%, y la guía de enero será la primera escrita por completo bajo Colette Kress.",
-    "image": "https://juanpaiprojects.netlify.app/assets/img/logo.jpg",
+    "image": "https://juanpaiprojects.netlify.app/assets/video/2026-11-17-nvidia-primer-reporte-sin-huang-cover.jpg",
     "datePublished": "2026-11-17",
     "inLanguage": "es-MX",
     "mainEntityOfPage": "https://juanpaiprojects.netlify.app/posts/2026-11-17-nvidia-primer-reporte-sin-huang.html",
@@ -138,7 +53,7 @@
   <header class="cabecera">
     <div class="contenedor cabecera-interna">
       <a class="marca" href="../index.html" aria-label="Juanpai Projects — Inicio">
-        <span class="marca-logo"><img src="../assets/img/logo.jpg" alt="" width="1024" height="1024"></span>
+        <span class="marca-logo"><img src="../assets/img/logo-sm.jpg" alt="" width="1024" height="1024"></span>
       </a>
       <nav class="nav" aria-label="Navegación principal">
         <a class="nav-inicio" href="../index.html">Inicio</a>
@@ -161,8 +76,8 @@
       <h1>108 mil millones en un trimestre. Y por primera vez, sin su fundador</h1>
       <p class="articulo-meta">
         <time datetime="2026-11-17">17 de noviembre de 2026</time>
-        <!-- Distintivo de tipo: si noticia es "noticia", dejar la línea tal cual.
-             Si es "tip", cambiar la clase a "tipo-tip" y el texto a "Tip y análisis". -->
+        · Por Juanpa
+        
         · <span class="tipo-chip tipo-noticia">Noticia</span>
         · <span class="tema-chip">IA y mercados</span>
         · 2 min de lectura
@@ -170,8 +85,7 @@
 
       <p class="articulo-entradilla">Nvidia reporta hoy sus resultados sin Jensen Huang: a las 3:20 de la tarde, hora de México, presenta su tercer trimestre contra su propia guía de 108,000 millones de dólares y margen bruto de 74%, y la guía de enero será la primera escrita por completo bajo Colette Kress.</p>
 
-      <!-- En 30 segundos: el job llena {{TLDR_1..3}} con qué pasó, por qué
-           importa y qué hacer, destilado de la pieza del día. -->
+      
       <div style="background:#FBF7EE;border:2px solid #00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
         <p style="color:#00343F;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px;font-size:.95rem;">En 30 segundos</p>
         <ul style="margin:0;padding-left:20px;line-height:1.55;">
@@ -181,8 +95,7 @@
         </ul>
       </div>
 
-      <!-- Índice del post: el job deja solo los enlaces de las secciones
-           que ese día existan (audio, video y segmento son opcionales). -->
+      
       <details class="post-indice">
         <summary>En este post</summary>
         <ul>
@@ -208,17 +121,15 @@
         <video controls preload="metadata" playsinline poster="../assets/video/2026-11-17-nvidia-primer-reporte-sin-huang-cover.jpg" src="../assets/video/2026-11-17-nvidia-primer-reporte-sin-huang.mp4" style="width:100%;border-radius:10px;"></video>
       </div>
 
-      <!-- Sección 1: el dato del día (qué pasó + por qué importa) -->
+      
       <h2 id="el-dato"><span class="num">01</span>El dato</h2>
       <p>Hoy a las 3:20 de la tarde, hora de México, Nvidia presenta los resultados de su tercer trimestre fiscal 2027, el primero sin Jensen Huang, el cofundador que dirigió la empresa durante 33 años y renunció el 12 de noviembre. La vara la puso la propia Nvidia en agosto: ingresos de 108,000 millones de dólares, más o menos 2%, con margen bruto de 74% y sin contar ingresos de cómputo de centros de datos de China. El consenso de analistas espera un poco más, cerca de 109,000 millones, contra 57,000 millones del mismo trimestre del año pasado: casi el doble en un año.</p><p>El detalle que ordena todo lo demás: el trimestre reportado cerró el 25 de octubre, antes de la renuncia, así que los números son de la era Huang; lo que se escribe hoy por primera vez bajo el nuevo liderazgo es la guía del siguiente trimestre. Quien presenta es Colette Kress, la directora financiera de Nvidia desde 2013 que quedó como directora ejecutiva interina y sigue llevando las finanzas. Y llega en el peor clima posible: ayer el Nasdaq entró en corrección, con una caída de más de 10% desde su máximo del 6 de octubre, el índice de chips perdió 5.3% en un día y Nvidia cerró en 156.14 dólares, su mínimo de un año, abajo 4.12% en la sesión. Para aterrizarlo: 108,000 millones de dólares en tres meses es más de lo que valen la mayoría de las empresas completas que cotizan en la bolsa mexicana.</p><p>El marco completo tampoco ayuda. La bolsa de Estados Unidos cotiza con un Shiller PE, el precio contra las ganancias históricas, cercano a 39.95, contra un promedio histórico de 17.45: en esa zona no basta con crecer, hay que crecer perfecto. SemiAnalysis, la firma de análisis de semiconductores más seguida del sector, recortó 28% su pronóstico de gasto en aceleradores para 2028. Estados Unidos ahora exige licencia también para el cómputo de inteligencia artificial que se alquila remoto desde la nube hacia China, y esta mañana se supo que Nvidia creó un comité de su junta para vigilar seguridad nacional y controles de exportación. Si tienes un negocio, esto te pega directo: Nvidia es la empresa que le pone precio a toda la inteligencia artificial que usas.</p>
 
-      <!-- Sección 2: herramienta o tip (gratis siempre que se pueda) -->
+      
       <h2 id="herramienta"><span class="num">02</span>Herramienta del día</h2>
       <p>La Aplicable de hoy no es un modelo nuevo: esta mañana no hubo cambio de líder en los benchmarks verificados, con Gemini 4 Carbon al frente en texto y Claude Fable 5.2 en el índice de Artificial Analysis. La Aplicable es el método para leer el reporte en cuanto salga, gratis: Gemini, en su nivel gratuito, alcanza y sobra para el trabajo completo de hoy. A las 3:20 de la tarde se publica el comunicado; en vez de leer 30 páginas o esperar el resumen de alguien más, pegas el texto en Gemini con el paso a paso de la siguiente sección y en dos minutos tienes las tres cifras que importan contra su vara, sin humo. Gratis de verdad: el nivel gratuito permite hacer hoy el trabajo completo que se promete, no solo probarlo.</p>
 
-      <!-- Sección 3: el texto para copiar y aplicar. Si el post no trae
-           texto para copiar, esta sección puede ser "La idea para copiar"
-           con el mismo bloque. -->
+      
       <h2 id="para-copiar"><span class="num">03</span>Para copiar y aplicar</h2>
       <p>Paso a paso: 1) A las 3:20 p.m. abre el comunicado de resultados de Nvidia (investor.nvidia.com) y copia el texto completo. 2) Pégalo en Gemini, nivel gratuito, con este texto. 3) Compara la salida contra la vara: guía propia de 108,000 millones ±2%, margen bruto de 74% y la guía nueva para el trimestre de enero.</p>
       <div class="prompt">
@@ -229,7 +140,7 @@
         <p id="prompt-texto">Actúa como analista financiero directo, sin humo. Te pego el comunicado de resultados de Nvidia de hoy: [pega aquí el texto completo]. Haz solo esto: 1) Ingresos del trimestre contra la guía que la empresa dio (108,000 millones de dólares, ±2%): di la cifra exacta y si la superó, quedó dentro o quedó debajo. 2) Margen bruto reportado contra el 74% guiado. 3) La guía NUEVA para el siguiente trimestre, textual, y compárala contra los 108,000 millones de este trimestre. 4) Cualquier mención a China, controles de exportación o centros de datos, en una línea cada una. 5) Cierra con un veredicto de tres líneas: qué fue lo más fuerte, qué fue lo más débil y qué pregunta quedó abierta. No uses ninguna cifra que no esté en el texto que te pegué.</p>
       </div>
 
-      <!-- Sección 4: cierre. La última línea es la cita-cierre (pregunta o frase). -->
+      
 
       <div style="background:#FBF7EE;border:2px solid #1D6A4A;border-radius:14px;padding:16px 18px;margin:24px 0;">
         <p style="color:#00343F;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px;font-size:.95rem;">La predicción</p>
@@ -243,32 +154,27 @@
       <p>Hoy no se califica el trimestre que ya pasó: se califica la primera guía escrita sin Huang. Si Kress guía fuerte para enero, la historia de la inteligencia artificial se sostiene con ingresos; si retira la guía, el mercado va a cobrar la incertidumbre, no el pasado. Por eso, de todo lo que salga a las 3:20, la línea que manda no es el ingreso de octubre: es lo que la empresa se atreva a firmar para enero.</p>
       <p class="cita-cierre">Hoy no se califica el pasado. Se califica la primera guía escrita sin Huang.</p>
 
-      <!-- Nota firmada: el job la redacta en Yo me quedo con la separación de fechas, porque cambia la lectura completa: el trimestre cerró el 25 de octubre y la renuncia fue el 12 de noviembre, así que hoy no hay forma justa de atribuirle esos números a Kress. Lo suyo empieza en la guía de enero, y ahí voy a mirar primero. desde el dato
-           más fuerte de la pieza (2-3 líneas, primera persona, sin frases
-           motivacionales). Si un día no sale natural, se borra este bloque
-           completo (misma regla que el segmento). -->
+      
 <p>El resumen visual de esto, con la vara y la corrección en pantalla, está en el reel de hoy en Instagram.</p>
       <div style="border-left:4px solid #1D6A4A;padding:4px 0 4px 16px;margin:24px 0;">
         <p style="font-style:italic;margin:0 0 6px;line-height:1.6;">Yo me quedo con la separación de fechas, porque cambia la lectura completa: el trimestre cerró el 25 de octubre y la renuncia fue el 12 de noviembre, así que hoy no hay forma justa de atribuirle esos números a Kress. Lo suyo empieza en la guía de enero, y ahí voy a mirar primero.</p>
         <p style="font-family:Archivo,Arial,sans-serif;font-weight:800;color:#00343F;margin:0;">— Juanpa</p>
       </div>
 
-      <!-- Segmento del día: el job lo llena con Tip del día y
-           Hoy 3:20 p.m. sale el reporte de Nvidia. Tip exprés: no leas las 30 páginas. Pega el comunicado en Gemini gratis y pídele solo tres cifras contra su vara: ingresos contra 108,000 millones, margen contra 74% y la guía nueva de enero. Dos minutos y tienes el dato. desde el archivo de publicaciones del día.
-           Si un día no hay segmento, se borra este bloque completo
-           (misma regla que los bloques de audio y video). -->
+      
       <div id="segmento" style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
         <p style="color:#EFE6D5;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;font-size:.95rem;">Tip del día</p>
         <p style="color:#EFE6D5;opacity:.9;margin:0;font-size:1rem;">Hoy 3:20 p.m. sale el reporte de Nvidia. Tip exprés: no leas las 30 páginas. Pega el comunicado en Gemini gratis y pídele solo tres cifras contra su vara: ingresos contra 108,000 millones, margen contra 74% y la guía nueva de enero. Dos minutos y tienes el dato.</p>
       </div>
     </article>
+      <nav class="sigue-leyendo" id="sigue-leyendo" aria-label="Sigue leyendo"></nav>
 
 
     <aside class="cta-post">
       <div class="cta-post-fila">
         <div>
           <h3>Esto también sale en Instagram, X, TikTok, YouTube y Facebook</h3>
-          <p>El resumen en carrusel en Instagram, la versión corta en X y el video en TikTok y YouTube — Facebook lo espeja completo — para guardarlo, compartirlo y conversarlo.</p>
+          <p>El resumen en carrusel en Instagram, la versión corta en X y el video en TikTok y YouTube — Facebook lo publica completo — para guardarlo, compartirlo y conversarlo.</p>
         </div>
         <div class="cta-post-botones">
           <a class="boton boton-claro" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">@juanpaiprojects</a>
@@ -278,8 +184,7 @@
           <a class="boton boton-claro" href="https://www.facebook.com/100573032979969" target="_blank" rel="noopener">Facebook · Juanpaiprojects</a>
         </div>
       </div>
-      <!-- Compartir, dentro del mismo bloque social: main.js arma
-           las URLs con la dirección y el título reales de la página -->
+      
       <div class="compartir" aria-label="Compartir este post">
         <span class="compartir-titulo">Compartir</span>
         <button class="compartir-btn" type="button" data-compartir="nativo" hidden>Compartir</button>
@@ -288,9 +193,10 @@
         <button class="compartir-btn" type="button" data-compartir="facebook">Facebook</button>
         <button class="compartir-btn" type="button" data-compartir="copiar">Copiar enlace</button>
       </div>
-      <!-- Formulario de Brevo (lista "Blog — Suscriptores"); se viste con estilos.css -->
+      
       <div class="brevo brevo-en-cta">
         <div class="sib-form">
+          <p class="form-nota">Al suscribirte aceptas el <a href="../aviso-privacidad.html">aviso de privacidad</a>.</p>
           <div id="sib-form-container" class="sib-form-container">
             <div id="error-message" class="sib-form-message-panel">
               <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
@@ -395,7 +301,7 @@
     <div class="contenedor pie-grid">
       <div>
         <a class="pie-logo" href="../index.html" aria-label="Juanpai Projects — Inicio">
-          <img src="../assets/img/logo.jpg" alt="Logotipo de Juanpai Projects" width="1024" height="1024">
+          <img src="../assets/img/logo-sm.jpg" alt="Logotipo de Juanpai Projects" width="1024" height="1024">
         </a>
         <p class="pie-tag">Noticias verificadas e IA aplicada a negocios reales. Un dato, una herramienta y el paso a paso para aplicarla, cada día. Sin humo.</p>
       </div>
@@ -406,11 +312,12 @@
           <a href="../archivo.html">Archivo de posts</a>
           <a href="../sobre-mi.html">Sobre mí</a>
           <a href="../asi-verificamos.html">Así verificamos</a>
+          <a href="../aviso-privacidad.html">Aviso de privacidad</a>
         </nav>
       </div>
       <div class="pie-ig">
         <p class="pie-titulo">Redes</p>
-        <p>El contenido de cada día sale en Instagram, en versión corta en X y en video en TikTok y YouTube; Facebook lo espeja completo. La conversación pasa allá.</p>
+        <p>El contenido de cada día sale en Instagram, en versión corta en X y en video en TikTok y YouTube; Facebook lo publica completo. La conversación pasa allá.</p>
         <a class="boton boton-claro" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
         <a class="boton boton-claro" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
       </div>
@@ -421,8 +328,8 @@
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=4"></script>
-  <!-- Brevo: textos de validación y envío del formulario de suscripción -->
+  <script src="../assets/js/main.js?v=7"></script>
+  
   <script>
     window.REQUIRED_CODE_ERROR_MESSAGE = 'Elige un código de país';
     window.LOCALE = 'es';
@@ -443,6 +350,6 @@
     var AUTOHIDE = Boolean(0);
   </script>
   <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "40091d6c8845470e86cf89aa213bc673"}'></script><!-- End Cloudflare Web Analytics -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "40091d6c8845470e86cf89aa213bc673"}'></script>
 </body>
 </html>

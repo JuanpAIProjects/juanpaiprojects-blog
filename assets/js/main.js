@@ -445,6 +445,31 @@
     actualizar();
   }
 
+  // «Sigue leyendo» al final del post: enlaza al post anterior y al
+  // siguiente según el orden de posts.json (más reciente primero).
+  function pintarSigueLeyendo(posts) {
+    var nav = document.getElementById("sigue-leyendo");
+    if (!nav || !posts || !posts.length) return;
+    var ruta = window.location.pathname;
+    var idx = -1;
+    for (var i = 0; i < posts.length; i++) {
+      if (ruta.indexOf(posts[i].url) !== -1) { idx = i; break; }
+    }
+    if (idx === -1) return;
+    var hay = false;
+    var html = "<p class=\"sigue-titulo\">Sigue leyendo</p><div class=\"sigue-enlaces\">";
+    if (idx + 1 < posts.length) {
+      hay = true;
+      html += "<a class=\"sigue-link\" href=\"../" + posts[idx + 1].url + "\"><span class=\"sigue-dir\">← Anterior</span><span class=\"sigue-nombre\">" + esc(posts[idx + 1].titulo) + "</span></a>";
+    }
+    if (idx - 1 >= 0) {
+      hay = true;
+      html += "<a class=\"sigue-link sigue-der\" href=\"../" + posts[idx - 1].url + "\"><span class=\"sigue-dir\">Siguiente →</span><span class=\"sigue-nombre\">" + esc(posts[idx - 1].titulo) + "</span></a>";
+    }
+    html += "</div>";
+    if (hay) nav.innerHTML = html;
+  }
+
   // Aparición suave al hacer scroll (respeta prefers-reduced-motion).
   function activarRevelar() {
     var els = document.querySelectorAll(".revelar");
@@ -483,6 +508,12 @@
         if (hayInicio) { pintarDestacado(posts[0]); pintarRecientes(posts); }
         if (hayArchivo) pintarArchivo(posts);
       }).catch(function () { /* si falla, las secciones quedan con su texto base */ });
+    }
+
+    if (document.getElementById("sigue-leyendo")) {
+      cargarJSON("posts.json").then(function (posts) {
+        pintarSigueLeyendo(Array.isArray(posts) ? posts : []);
+      }).catch(function () { /* sin encadenado si falla la carga */ });
     }
 
     if (document.getElementById("ig-grid")) {
