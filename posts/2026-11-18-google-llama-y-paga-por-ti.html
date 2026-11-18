@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  PLANTILLA DE POST — JUANPAI PROJECTS
+  ============================================================
+  El job diario NO usa este archivo en vivo: lo COPIA con el nombre
+  posts/AAAA-MM-DD-slug.html y reemplaza cada marcador {{...}}.
+
+  Marcadores:
+    Google ya llama y paga por ti. En México todavía no es gratis       Título del post (también va en <title>, OG y JSON-LD)
+    Qué es Gemini Tasks: el agente de Google que llama a negocios, entra a webs y cierra compras ya es gratis en solo 6 países, y México no está en la lista; aquí la alternativa gratis de hoy es Qwen Chat, con el paso a paso para delegarle tu próxima comparación de compras.  Resumen de 1-2 frases (meta description, OG y JSON-LD)
+    2026-11-18    Fecha en formato 2026-11-15
+    18 de noviembre de 2026  Fecha legible: 15 de noviembre de 2026
+    IA aplicada         Tema corto, ej. "IA aplicada", "Finanzas", "Global"
+    {{TIPO}}         Tipo de post: "noticia" o "tip" (ver la nota en
+                     articulo-meta: cambia el distintivo; "noticia"
+                     alimenta la banda de Última hora del inicio)
+    2 min de lectura      Tiempo de lectura, ej. "2 min de lectura"
+    google-llama-y-paga-por-ti         Nombre del archivo sin fecha, ej. la-ia-sale-a-bolsa
+                     (la URL canónica se arma como posts/2026-11-18-google-llama-y-paga-por-ti.html)
+    3 min 24 s Duración del audio narrado del post, ej. "2 min 51 s".
+                     El bloque «Escucha este post» va tras la entradilla y
+                     apunta a assets/audio/2026-11-18-google-llama-y-paga-por-ti.mp3. Si el
+                     post no lleva audio, se borra el bloque completo.
+    42 s Duración del reel del post, ej. "35 s".
+                     El bloque «Míralo en video» va justo DESPUÉS del bloque
+                     «Escucha este post» y apunta a
+                     assets/video/2026-11-18-google-llama-y-paga-por-ti.mp4, con póster
+                     assets/video/2026-11-18-google-llama-y-paga-por-ti-cover.jpg. Si el
+                     post no lleva video, se borra el bloque completo.
+    Dato curioso / Ashton Kutcher, el actor que cofundó la firma Sound Ventures, apostó temprano por Anthropic, la empresa detrás de Claude: su firma metió 435 millones de dólares entre 2023 y las rondas siguientes, cuando Anthropic valía cerca de 5 mil millones. Esa participación, de cerca de 0.5%, hoy vale en papel cerca de 7 mil millones a la valuación del IPO, unas 16 veces lo invertido. Ojo con el matiz: es la posición de la firma, con dinero de sus inversionistas, no dinero personal de Kutcher, y él salió de Sound Ventures en 2026 para lanzar su propia firma; la participación se quedó en Sound. Mañana Anthropic debuta en Nasdaq como ANT, con rango de 70 a 78 dólares, y hoy en la tarde se fija su precio.
+                     Bloque «Segmento del día» al final del cuerpo del
+                     post, antes de la sección de suscripción. Lo llena
+                     el job con el segmento del día del archivo de
+                     publicaciones (rotación de juanpaiprojects: dato
+                     curioso, tip exprés, efeméride «un día como hoy» o
+                     chiste tech el domingo) y el encabezado cambia según
+                     el tipo: «Dato curioso», «Tip del día», «Un día como
+                     hoy» o «Para cerrar con una sonrisa» (el chiste). Si
+                     un día no hay segmento, se borra el bloque completo
+                     (misma regla que audio y video).
+    Google liberó gratis Tasks, el modo agente de Gemini, el 17 de noviembre: ya no solo responde, ejecuta encargos en segundo plano, y en Estados Unidos llama a negocios y cierra compras con Google Pay. / Lo gratis arranca en solo 6 países —Estados Unidos, Canadá, Australia, India, Japón y Corea del Sur— y México no está: aquí Tasks sigue detrás de Google AI Pro o Ultra. / Delega hoy lo que sí es gratis en México: la investigación de tu próxima compra, en Qwen Chat, con el prompt completo de este post.
+                     Caja «En 30 segundos» justo después de la
+                     entradilla: tres viñetas — qué pasó, por qué
+                     importa, qué hacer — destiladas de la pieza del
+                     día. La llena el job (PAQUETE BLOG-NEWSLETTER
+                     16 NOV 2026).
+    Yo me quedo con el mapa, no con el titular: «gratis» era cierto y, al mismo tiempo, aquí no aplicaba. Antes de emocionarme con el siguiente agente que salga, mi primera revisión ya es otra: país y plan primero, función después.   Nota firmada «— Juanpa» antes del segmento de
+                     cierre: 2-3 líneas en primera persona que el job
+                     redacta desde el dato más fuerte de la pieza, sin
+                     frases motivacionales ni cringe. Si un día no sale
+                     natural, se borra el bloque completo (misma regla
+                     que el segmento).
+                     El índice «En este post» va plegado en un
+                     desplegable cerrado tras la caja de 30 segundos y
+                     enlaza a los id de cada bloque: #el-dato,
+                     #herramienta, #para-copiar, #audio, #video,
+                     #cierre, #segmento. El job deja solo los enlaces
+                     de las secciones que ese día existan.
+
+  Piezas automáticas (NO llevan marcadores, no tocar):
+    - Barra de progreso de lectura (#progreso): la mueve main.js.
+    - Botones de compartir (.compartir): main.js arma las URLs de
+      X, WhatsApp y Facebook con la URL y el título reales de la
+      página; el botón "Compartir" nativo solo aparece si el
+      dispositivo soporta Web Share API.
+    - Cierre final (.cta-post): UN solo bloque social — «Esto también
+      sale en…» con los botones a las 5 redes y la fila de Compartir —
+      seguido del formulario de suscripción por correo de Brevo
+      (lista "Blog — Suscriptores", atributos FRECUENCIA y ULTIMAHORA;
+      se viste desde estilos.css y lo envía el main.js de Brevo,
+      cargado al final de la página).
+    - JSON-LD BlogPosting: usa Google ya llama y paga por ti. En México todavía no es gratis, Qué es Gemini Tasks: el agente de Google que llama a negocios, entra a webs y cierra compras ya es gratis en solo 6 países, y México no está en la lista; aquí la alternativa gratis de hoy es Qwen Chat, con el paso a paso para delegarle tu próxima comparación de compras. y
+      2026-11-18; se reemplazan junto con el resto.
+
+  Tono (ver README, "Tono editorial"): claridad de parte de noticias
+  en tres pasos — qué pasó, por qué importa, qué hacer — con la voz
+  directa de Juanpa. Si el post es noticia, el dato va verificado
+  contra fuentes serias antes de publicarse.
+
+  Después de crear el HTML hay que:
+    1. Agregar la entrada NUEVA HASTA ARRIBA en posts.json (con su "tipo"
+       y, si se quiere, su "lectura", ej. "2 min")
+    2. Agregar la URL en sitemap.xml
+  El detalle completo está en README.md (sección "Publicar un post nuevo").
+  ============================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google ya llama y paga por ti. En México todavía no es gratis — Juanpai Projects</title>
+  <meta name="description" content="Qué es Gemini Tasks: el agente de Google que llama a negocios, entra a webs y cierra compras ya es gratis en solo 6 países, y México no está en la lista; aquí la alternativa gratis de hoy es Qwen Chat, con el paso a paso para delegarle tu próxima comparación de compras.">
+  <link rel="canonical" href="https://juanpaiprojects.netlify.app/posts/2026-11-18-google-llama-y-paga-por-ti.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Juanpai Projects">
+  <meta property="og:title" content="Google ya llama y paga por ti. En México todavía no es gratis">
+  <meta property="og:description" content="Qué es Gemini Tasks: el agente de Google que llama a negocios, entra a webs y cierra compras ya es gratis en solo 6 países, y México no está en la lista; aquí la alternativa gratis de hoy es Qwen Chat, con el paso a paso para delegarle tu próxima comparación de compras.">
+  <meta property="og:url" content="https://juanpaiprojects.netlify.app/posts/2026-11-18-google-llama-y-paga-por-ti.html">
+  <meta property="og:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
+  <meta property="og:locale" content="es_MX">
+  <meta property="article:published_time" content="2026-11-18">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Google ya llama y paga por ti. En México todavía no es gratis">
+  <meta name="twitter:description" content="Qué es Gemini Tasks: el agente de Google que llama a negocios, entra a webs y cierra compras ya es gratis en solo 6 países, y México no está en la lista; aquí la alternativa gratis de hoy es Qwen Chat, con el paso a paso para delegarle tu próxima comparación de compras.">
+  <meta name="twitter:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icono-app.png">
+  <script>document.documentElement.className += " con-js";</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+  <link rel="stylesheet" href="../assets/css/estilos.css?v=5">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Google ya llama y paga por ti. En México todavía no es gratis",
+    "description": "Qué es Gemini Tasks: el agente de Google que llama a negocios, entra a webs y cierra compras ya es gratis en solo 6 países, y México no está en la lista; aquí la alternativa gratis de hoy es Qwen Chat, con el paso a paso para delegarle tu próxima comparación de compras.",
+    "image": "https://juanpaiprojects.netlify.app/assets/img/logo.jpg",
+    "datePublished": "2026-11-18",
+    "inLanguage": "es-MX",
+    "mainEntityOfPage": "https://juanpaiprojects.netlify.app/posts/2026-11-18-google-llama-y-paga-por-ti.html",
+    "author": { "@type": "Person", "name": "Juanpa" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Juanpai Projects",
+      "logo": "https://juanpaiprojects.netlify.app/assets/img/logo.jpg"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div class="progreso" id="progreso" aria-hidden="true"></div>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-interna">
+      <a class="marca" href="../index.html" aria-label="Juanpai Projects — Inicio">
+        <span class="marca-logo"><img src="../assets/img/logo.jpg" alt="" width="1024" height="1024"></span>
+      </a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="nav-inicio" href="../index.html">Inicio</a>
+        <a href="../archivo.html">Archivo</a>
+        <a href="../sobre-mi.html">Sobre mí</a>
+        <a href="../empieza-aqui.html">Empieza aquí</a>
+        <a href="../index.html#suscripcion">Newsletter</a>
+        <a class="nav-social" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener" aria-label="Instagram — @juanpaiprojects"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.25"/><circle cx="17.35" cy="6.65" r="0.5" fill="currentColor" stroke="none"/></svg></a>
+        <a class="nav-social" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener" aria-label="X — @juanpaiprojects"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
+        <a class="nav-social" href="https://www.tiktok.com/@juanpaiprojects" target="_blank" rel="noopener" aria-label="TikTok — @juanpaiprojects"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
+        <a class="nav-social" href="https://www.youtube.com/@juanpaiprojects" target="_blank" rel="noopener" aria-label="YouTube — @juanpaiprojects"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg></a>
+        <a class="nav-social" href="https://www.facebook.com/100573032979969" target="_blank" rel="noopener" aria-label="Facebook — Juanpaiprojects"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.8V24C19.62 23.1 24 18.1 24 12.07z"/></svg></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <article class="articulo">
+      <p class="kicker"><span class="kicker-linea"></span>Juanpai al día</p>
+      <h1>Google ya llama y paga por ti. En México todavía no es gratis</h1>
+      <p class="articulo-meta">
+        <time datetime="2026-11-18">18 de noviembre de 2026</time>
+        <!-- Distintivo de tipo: si {{TIPO}} es "noticia", dejar la línea tal cual.
+             Si es "tip", cambiar la clase a "tipo-tip" y el texto a "Tip y análisis". -->
+        · <span class="tipo-chip tipo-noticia">Noticia</span>
+        · <span class="tema-chip">IA aplicada</span>
+        · 2 min de lectura
+      </p>
+
+      <p class="articulo-entradilla">Qué es Gemini Tasks: el agente de Google que llama a negocios, entra a webs y cierra compras ya es gratis en solo 6 países, y México no está en la lista; aquí la alternativa gratis de hoy es Qwen Chat, con el paso a paso para delegarle tu próxima comparación de compras.</p>
+
+      <!-- En 30 segundos: el job llena {{TLDR_1..3}} con qué pasó, por qué
+           importa y qué hacer, destilado de la pieza del día. -->
+      <div style="background:#FBF7EE;border:2px solid #00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+        <p style="color:#00343F;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px;font-size:.95rem;">En 30 segundos</p>
+        <ul style="margin:0;padding-left:20px;line-height:1.55;">
+          <li><strong>Qué pasó:</strong> Google liberó gratis Tasks, el modo agente de Gemini, el 17 de noviembre: ya no solo responde, ejecuta encargos en segundo plano, y en Estados Unidos llama a negocios y cierra compras con Google Pay.</li>
+          <li><strong>Por qué importa:</strong> Lo gratis arranca en solo 6 países —Estados Unidos, Canadá, Australia, India, Japón y Corea del Sur— y México no está: aquí Tasks sigue detrás de Google AI Pro o Ultra.</li>
+          <li><strong>Qué hacer:</strong> Delega hoy lo que sí es gratis en México: la investigación de tu próxima compra, en Qwen Chat, con el prompt completo de este post.</li>
+        </ul>
+      </div>
+
+      <!-- Índice del post: el job deja solo los enlaces de las secciones
+           que ese día existan (audio, video y segmento son opcionales). -->
+      <details class="post-indice">
+        <summary>En este post</summary>
+        <ul>
+          <li><a href="#el-dato">El dato</a></li>
+          <li><a href="#herramienta">Herramienta del día</a></li>
+          <li><a href="#para-copiar">Para copiar y aplicar</a></li>
+          <li><a href="#audio">Escucha este post</a></li>
+          <li><a href="#video">Míralo en video</a></li>
+          <li><a href="#cierre">Cierre</a></li>
+          <li><a href="#segmento">Segmento del día</a></li>
+        </ul>
+      </details>
+
+      <div id="audio" style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+        <p style="color:#EFE6D5;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;font-size:.95rem;">Escucha este post</p>
+        <p style="color:#EFE6D5;opacity:.85;margin:0 0 10px;font-size:.9rem;">La versión en audio, narrada · 3 min 24 s</p>
+        <audio controls preload="metadata" style="width:100%;" src="../assets/audio/2026-11-18-google-llama-y-paga-por-ti.mp3"></audio>
+      </div>
+
+      <div id="video" style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+        <p style="color:#EFE6D5;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;font-size:.95rem;">Míralo en video</p>
+        <p style="color:#EFE6D5;opacity:.85;margin:0 0 10px;font-size:.9rem;">El reel del post, en vertical · 42 s</p>
+        <video controls preload="metadata" playsinline poster="../assets/video/2026-11-18-google-llama-y-paga-por-ti-cover.jpg" src="../assets/video/2026-11-18-google-llama-y-paga-por-ti.mp4" style="width:100%;border-radius:10px;"></video>
+      </div>
+
+      <!-- Sección 1: el dato del día (qué pasó + por qué importa) -->
+      <h2 id="el-dato"><span class="num">01</span>El dato</h2>
+      <p>Google anunció el 17 de noviembre que Tasks, el modo agente de Gemini, su asistente de inteligencia artificial, pasa a ser gratis. Ya no es un chat que responde: es un agente que ejecuta encargos de varios pasos en segundo plano y avisa cuando termina. Trabaja con Gemini 4 Hydrogen, el modelo rápido de Google presentado el 12 de noviembre, dentro de una máquina virtual aislada por cuenta. En Estados Unidos puede llamar a negocios por teléfono, entrar a sitios web con tus credenciales guardadas cuando tú lo autorizas, comparar productos y cerrar compras con Google Pay. También acepta encargos reenviando un correo o por mensaje de texto. Antes, esta función se llamaba Gemini Spark, el agente personal que Google presentó en mayo, y vivía detrás de la suscripción de pago.</p><p>La letra pequeña, verificada hoy contra el anuncio oficial y su página de ayuda: lo gratis arranca en solo 6 países (Estados Unidos, Canadá, Australia, India, Japón y Corea del Sur), para cuentas personales de mayores de 18 años, con el historial activado, y las funciones más fuertes, llamadas y pagos, arrancan solo en Estados Unidos y en inglés. Las cuentas de trabajo y de escuela quedan fuera por ahora. Las tres franjas, tal como quedaron verificadas hoy, son estas: gratis en esos 6 países; de pago con Google AI Pro o Ultra, los planes de pago de Google, en el resto del mundo donde Gemini existe, México incluido; y no disponible ni pagando en el Espacio Económico Europeo, Reino Unido, Suiza y Nigeria. Para aterrizarlo: el titular dice «gratis para cientos de millones», y es cierto, pero el mapa deja fuera a casi todo el público que lee esto en español.</p><p>El contraste del día ayuda a medir el momento: hoy a la 1:00 de la tarde, hora de México, salen las minutas de la Reserva Federal, el banco central de Estados Unidos, y en la tarde Anthropic, la empresa detrás de Claude, fija el precio de su salida a bolsa; mañana debuta en el Nasdaq. La industria se está moviendo a agentes que ejecutan y a precios públicos, al mismo tiempo.</p>
+
+      <!-- Sección 2: herramienta o tip (gratis siempre que se pueda) -->
+      <h2 id="herramienta"><span class="num">02</span>Herramienta del día</h2>
+      <p>La Aplicable de hoy no es Tasks, y se dice así de claro: una capacidad que en México no se puede accionar hoy gratis no va como Aplicable, va como noticia, que es lo que es la sección anterior. La Aplicable real para México, gratis de verdad y verificada hoy, es Qwen Chat (chat.qwen.ai), el asistente de Alibaba, la empresa china de comercio electrónico y nube: es gratis sin plan de pago encima, trae búsqueda web, Deep Research, su modo de investigación en varios pasos que entrega un informe, y modo agente con cuenta gratuita. Su modelo Qwen3.8-Max lidera hoy el tablero de búsqueda de LM Arena, el ranking público que compara modelos de inteligencia artificial, con 1260 puntos, según el research de IA de esta mañana. No llama por teléfono ni paga por ti, y no se promete que lo haga: lo que sí hace hoy, completo y sin pagar, es el trabajo de varios pasos que sí le puedes delegar ya a un agente: investigar, comparar con fuentes y entregar una tabla lista para decidir. Ese es el trabajo completo que esta Aplicable promete, y ese sí se cumple hoy en México.</p>
+
+      <!-- Sección 3: el texto para copiar y aplicar. Si el post no trae
+           texto para copiar, esta sección puede ser "La idea para copiar"
+           con el mismo bloque. -->
+      <h2 id="para-copiar"><span class="num">03</span>Para copiar y aplicar</h2>
+      <p>Paso a paso: 1) Entra a chat.qwen.ai y crea tu cuenta gratuita (el modo agente y subir archivos piden cuenta; sin cuenta solo tienes chat, búsqueda y Deep Research). 2) Activa Deep Research o el modo agente. 3) Pega este prompt cambiando los corchetes por tu caso y deja que trabaje en varios pasos. 4) Revisa las fuentes que cita antes de decidir: el agente investiga, la decisión sigue siendo tuya.</p>
+      <div class="prompt">
+        <div class="prompt-cabecera">
+          <span>Prompt listo para pegar</span>
+          <button class="boton-copiar" type="button" data-copiar="prompt-texto">Copiar</button>
+        </div>
+        <p id="prompt-texto">Actúa como investigador de compras para un negocio pequeño, directo y con fuentes. Necesito comparar [producto o servicio] para mi negocio en [ciudad]. Haz el trabajo en varios pasos y no me des una sola recomendación sin evidencia: 1) Busca al menos 5 opciones reales que se vendan o contraten en México, con su precio actual y su enlace. 2) Compara solo lo comparable: precio total con envío o instalación, garantía, tiempo de entrega y qué incluye y qué no. 3) Marca con una línea cualquier dato que no pudiste verificar y dime de qué fuente salió cada precio. 4) Entrégame una tabla final y un veredicto de tres líneas: cuál comprarías con un presupuesto de [monto], cuál descartas primero y por qué, y qué pregunta falta responder antes de pagar. No inventes precios ni existencias: si un dato no está en una fuente, déjalo en blanco y dilo.</p>
+      </div>
+
+      <!-- Sección 4: cierre. La última línea es la cita-cierre (pregunta o frase). -->
+      <h2 id="cierre"><span class="num">04</span>Cierre</h2>
+      <p>El salto no es que la IA responda mejor: es que ya ejecuta. Y la primera habilidad de esta etapa no es usar el agente más famoso, es leer en qué país y con qué plan sí trabaja gratis hoy.</p><p>La versión corta de esto, con las tres franjas en una línea cada una, está en mi hilo de hoy en X: ahí la conversación sigue.</p>
+      <p class="cita-cierre">El salto no es que la IA responda mejor: es que ya ejecuta.</p>
+
+      <!-- Nota firmada: el job la redacta en Yo me quedo con el mapa, no con el titular: «gratis» era cierto y, al mismo tiempo, aquí no aplicaba. Antes de emocionarme con el siguiente agente que salga, mi primera revisión ya es otra: país y plan primero, función después. desde el dato
+           más fuerte de la pieza (2-3 líneas, primera persona, sin frases
+           motivacionales). Si un día no sale natural, se borra este bloque
+           completo (misma regla que el segmento). -->
+      <div style="border-left:4px solid #1D6A4A;padding:4px 0 4px 16px;margin:24px 0;">
+        <p style="font-style:italic;margin:0 0 6px;line-height:1.6;">Yo me quedo con el mapa, no con el titular: «gratis» era cierto y, al mismo tiempo, aquí no aplicaba. Antes de emocionarme con el siguiente agente que salga, mi primera revisión ya es otra: país y plan primero, función después.</p>
+        <p style="font-family:Archivo,Arial,sans-serif;font-weight:800;color:#00343F;margin:0;">— Juanpa</p>
+      </div>
+
+      <!-- Segmento del día: el job lo llena con Dato curioso y
+           Ashton Kutcher, el actor que cofundó la firma Sound Ventures, apostó temprano por Anthropic, la empresa detrás de Claude: su firma metió 435 millones de dólares entre 2023 y las rondas siguientes, cuando Anthropic valía cerca de 5 mil millones. Esa participación, de cerca de 0.5%, hoy vale en papel cerca de 7 mil millones a la valuación del IPO, unas 16 veces lo invertido. Ojo con el matiz: es la posición de la firma, con dinero de sus inversionistas, no dinero personal de Kutcher, y él salió de Sound Ventures en 2026 para lanzar su propia firma; la participación se quedó en Sound. Mañana Anthropic debuta en Nasdaq como ANT, con rango de 70 a 78 dólares, y hoy en la tarde se fija su precio. desde el archivo de publicaciones del día.
+           Si un día no hay segmento, se borra este bloque completo
+           (misma regla que los bloques de audio y video). -->
+      <div id="segmento" style="background:#00343F;border-radius:14px;padding:16px 18px;margin:24px 0;">
+        <p style="color:#EFE6D5;font-family:Archivo,Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;font-size:.95rem;">Dato curioso</p>
+        <p style="color:#EFE6D5;opacity:.9;margin:0;font-size:1rem;">Ashton Kutcher, el actor que cofundó la firma Sound Ventures, apostó temprano por Anthropic, la empresa detrás de Claude: su firma metió 435 millones de dólares entre 2023 y las rondas siguientes, cuando Anthropic valía cerca de 5 mil millones. Esa participación, de cerca de 0.5%, hoy vale en papel cerca de 7 mil millones a la valuación del IPO, unas 16 veces lo invertido. Ojo con el matiz: es la posición de la firma, con dinero de sus inversionistas, no dinero personal de Kutcher, y él salió de Sound Ventures en 2026 para lanzar su propia firma; la participación se quedó en Sound. Mañana Anthropic debuta en Nasdaq como ANT, con rango de 70 a 78 dólares, y hoy en la tarde se fija su precio.</p>
+      </div>
+    </article>
+
+
+    <aside class="cta-post">
+      <div class="cta-post-fila">
+        <div>
+          <h3>Esto también sale en Instagram, X, TikTok, YouTube y Facebook</h3>
+          <p>El resumen en carrusel en Instagram, la versión corta en X y el video en TikTok y YouTube — Facebook lo espeja completo — para guardarlo, compartirlo y conversarlo.</p>
+        </div>
+        <div class="cta-post-botones">
+          <a class="boton boton-claro" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">@juanpaiprojects</a>
+          <a class="boton boton-claro" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
+          <a class="boton boton-claro" href="https://www.tiktok.com/@juanpaiprojects" target="_blank" rel="noopener">TikTok · @juanpaiprojects</a>
+          <a class="boton boton-claro" href="https://www.youtube.com/@juanpaiprojects" target="_blank" rel="noopener">YouTube · @juanpaiprojects</a>
+          <a class="boton boton-claro" href="https://www.facebook.com/100573032979969" target="_blank" rel="noopener">Facebook · Juanpaiprojects</a>
+        </div>
+      </div>
+      <!-- Compartir, dentro del mismo bloque social: main.js arma
+           las URLs con la dirección y el título reales de la página -->
+      <div class="compartir" aria-label="Compartir este post">
+        <span class="compartir-titulo">Compartir</span>
+        <button class="compartir-btn" type="button" data-compartir="nativo" hidden>Compartir</button>
+        <button class="compartir-btn" type="button" data-compartir="x">X</button>
+        <button class="compartir-btn" type="button" data-compartir="whatsapp">WhatsApp</button>
+        <button class="compartir-btn" type="button" data-compartir="facebook">Facebook</button>
+        <button class="compartir-btn" type="button" data-compartir="copiar">Copiar enlace</button>
+      </div>
+      <!-- Formulario de Brevo (lista "Blog — Suscriptores"); se viste con estilos.css -->
+      <div class="brevo brevo-en-cta">
+        <div class="sib-form">
+          <div id="sib-form-container" class="sib-form-container">
+            <div id="error-message" class="sib-form-message-panel">
+              <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                  <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"/>
+                </svg>
+                <span class="sib-form-message-panel__inner-text">No hemos podido validar tu suscripción.</span>
+              </div>
+            </div>
+            <div></div>
+            <div id="success-message" class="sib-form-message-panel">
+              <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                  <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z"/>
+                </svg>
+                <span class="sib-form-message-panel__inner-text">Se ha realizado tu suscripción.</span>
+              </div>
+            </div>
+            <div></div>
+            <div id="sib-container" class="sib-container--large sib-container--vertical">
+              <form id="sib-form" method="POST" action="https://3c274dd5.sibforms.com/serve/MUIFAIzpS0vgMH10VdM-0p9WTkqYSMPckaxtY5KBkFSmyTQvCWQ1eF6zsVoOxk_u6h7rZ-1QYmP4VUiA1AUq1Zk9E8iHsNxQjKIJtsifKVxHrD_yNEMRRAgQBC-V9l0yszlQyc_4iMMXUFOckDIPejb385XbkhRgPJ3XH3-UbMgTNfCLso2IabAN3M6ypQGip7COcQKXmCIID6Da5A==" data-type="subscription">
+                <div class="sib-form-block brevo-titulo">
+                  <p>El dato del día, en tu correo</p>
+                </div>
+                <div class="sib-form-block">
+                  <div class="sib-text-form-block">
+                    <p>Al suscribirte recibes cada mañana el dato completo con su Aplicable del día: el paso a paso listo para copiar y aplicar que trae cada post. Elige cómo quieres recibirlo: diario, con el post completo cada mañana, o semanal, con el resumen de la semana los lunes. Y activa si quieres las noticias de última hora (breaking news): solo las mayores, verificadas.</p>
+                  </div>
+                </div>
+                <div class="sib-radiobutton-group sib-form-block" data-required="true">
+                  <div class="form__entry entry_mcq">
+                    <div class="form__label-row">
+                      <label class="entry__label" for="FRECUENCIA" data-required="*">Frecuencia</label>
+                      <div>
+                        <div class="entry__choice">
+                          <label>
+                            <input type="radio" name="FRECUENCIA" class="input_replaced" value="1" required checked>
+                            <span class="radio-button"></span><span>Diario</span>
+                          </label>
+                        </div>
+                        <div class="entry__choice">
+                          <label>
+                            <input type="radio" name="FRECUENCIA" class="input_replaced" value="2" required>
+                            <span class="radio-button"></span><span>Semanal</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <label class="entry__error entry__error--primary"></label>
+                  </div>
+                </div>
+                <div class="sib-optin sib-form-block">
+                  <div class="form__entry entry_mcq">
+                    <div class="form__label-row">
+                      <label class="entry__label" for="ULTIMAHORA">Última hora</label>
+                      <div class="entry__choice">
+                        <label>
+                          <input type="checkbox" class="input_replaced" value="1" id="ULTIMAHORA" name="ULTIMAHORA">
+                          <span class="checkbox checkbox_tick_positive"></span><span>Quiero también las noticias de última hora verificadas</span>
+                        </label>
+                      </div>
+                    </div>
+                    <label class="entry__error entry__error--primary"></label>
+                  </div>
+                </div>
+                <div class="sib-input sib-form-block">
+                  <div class="form__entry entry_block">
+                    <div class="form__label-row">
+                      <label class="entry__label" for="EMAIL" data-required="*">Tu correo</label>
+                      <div class="entry__field">
+                        <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="email" value="" placeholder="tunombre@correo.com" data-required="true" required>
+                      </div>
+                    </div>
+                    <label class="entry__error entry__error--primary"></label>
+                    <label class="entry__specification">Sin spam y sin vender tu correo a nadie; date de baja cuando quieras.</label>
+                  </div>
+                </div>
+                <div class="sib-form-block">
+                  <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
+                    <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
+                      <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"/>
+                    </svg>
+                    Suscribirme
+                  </button>
+                </div>
+                <input type="text" name="email_address_check" value="" class="input--hidden">
+                <input type="hidden" name="locale" value="es">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <nav class="post-nav" aria-label="Navegación del post">
+      <a href="../archivo.html">← Todos los posts</a>
+      <a href="../index.html">Inicio</a>
+    </nav>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie-grid">
+      <div>
+        <a class="pie-logo" href="../index.html" aria-label="Juanpai Projects — Inicio">
+          <img src="../assets/img/logo.jpg" alt="Logotipo de Juanpai Projects" width="1024" height="1024">
+        </a>
+        <p class="pie-tag">Noticias verificadas e IA aplicada a negocios reales. Un dato, una herramienta y el paso a paso para aplicarla, cada día. Sin humo.</p>
+      </div>
+      <div>
+        <p class="pie-titulo">El blog</p>
+        <nav class="pie-nav" aria-label="Enlaces del pie">
+          <a href="../index.html">Inicio</a>
+          <a href="../archivo.html">Archivo de posts</a>
+          <a href="../sobre-mi.html">Sobre mí</a>
+          <a href="../asi-verificamos.html">Así verificamos</a>
+        </nav>
+      </div>
+      <div class="pie-ig">
+        <p class="pie-titulo">Redes</p>
+        <p>El contenido de cada día sale en Instagram, en versión corta en X y en video en TikTok y YouTube; Facebook lo espeja completo. La conversación pasa allá.</p>
+        <a class="boton boton-claro" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
+      </div>
+    </div>
+    <div class="contenedor pie-base">
+      <p>© <span id="anio">2026</span> Juanpai Projects. Todos los derechos reservados.</p>
+      <p>Escrito desde proyectos reales, no desde un escritorio de consultoría.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js?v=4"></script>
+  <!-- Brevo: textos de validación y envío del formulario de suscripción -->
+  <script>
+    window.REQUIRED_CODE_ERROR_MESSAGE = 'Elige un código de país';
+    window.LOCALE = 'es';
+    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "La información que has proporcionado no es válida. Compruebe el formato del campo e inténtalo de nuevo.";
+    window.REQUIRED_ERROR_MESSAGE = "Este campo no puede quedarse vacío. ";
+    window.GENERIC_INVALID_MESSAGE = "La información que has proporcionado no es válida. Compruebe el formato del campo e inténtalo de nuevo.";
+    window.INVALID_NUMBER = "La información que has proporcionado no es válida. Compruebe el formato del campo e inténtalo de nuevo.";
+    window.INVALID_DATE = "Introduce una fecha válida";
+    window.REQUIRED_MULTISELECT_MESSAGE = 'Selecciona al menos una opción';
+    window.translation = {
+      common: {
+        selectedList: '{quantity} lista seleccionada',
+        selectedLists: '{quantity} listas seleccionadas',
+        selectedOption: '{quantity} seleccionado',
+        selectedOptions: '{quantity} seleccionados'
+      }
+    };
+    var AUTOHIDE = Boolean(0);
+  </script>
+  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "40091d6c8845470e86cf89aa213bc673"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
