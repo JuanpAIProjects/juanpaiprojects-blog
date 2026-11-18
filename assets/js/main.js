@@ -131,12 +131,14 @@
     }).catch(function () { banda.hidden = true; });
   }
 
-  // Tarjeta «En desarrollo»: la historia del día con sus actualizaciones
-  // con hora, desde en-desarrollo.json (lo siembra el generador cada
-  // mañana y lo actualiza el job de breaking con cada desarrollo
-  // verificado). Solo se muestra si el archivo es de HOY en hora de
-  // México; un archivo de otro día no se muestra (nada de historias
-  // viejas disfrazadas de actuales).
+  // Tarjeta «En desarrollo»: la historia del día (destacada) con sus
+  // actualizaciones con hora, más la lista «En seguimiento» con hasta 4
+  // historias vivas del día y su estado en una línea (desde
+  // en-desarrollo.json; lo siembra el generador cada mañana y lo
+  // actualiza el job de breaking con cada desarrollo verificado).
+  // Solo se muestra si el archivo es de HOY en hora de México; un
+  // archivo de otro día no se muestra (nada de historias viejas
+  // disfrazadas de actuales).
   function pintarEnDesarrollo() {
     var caja = document.getElementById("en-desarrollo");
     if (!caja) return;
@@ -171,27 +173,40 @@
         li.appendChild(tx);
         lista.appendChild(li);
       }
-      if (acts.length) {
-        document.getElementById("ed-actualizado").textContent = "Última actualización " + (acts[0].hora || "");
-      }
-      var tamb = Array.isArray(d.tambien) ? d.tambien.slice(0, 2) : [];
-      if (tamb.length) {
+      var seg = Array.isArray(d.seguimiento) ? d.seguimiento.slice(0, 4)
+        : (Array.isArray(d.tambien) ? d.tambien.slice(0, 2) : []);
+      if (seg.length) {
         var tl = document.getElementById("ed-tambien-lista");
-        for (var j = 0; j < tamb.length; j++) {
+        for (var j = 0; j < seg.length; j++) {
           var li2 = document.createElement("li");
+          if (seg[j].hora) {
+            var sh = document.createElement("span");
+            sh.className = "ed-hora";
+            sh.textContent = seg[j].hora;
+            li2.appendChild(sh);
+          }
+          var cuerpo = document.createElement("span");
           var tt = document.createElement("span");
           tt.className = "ed-t-titulo";
-          enlazar(tt, tamb[j].url, tamb[j].titulo || "");
-          li2.appendChild(tt);
-          if (tamb[j].estado) {
+          enlazar(tt, seg[j].url, seg[j].titulo || "");
+          cuerpo.appendChild(tt);
+          if (seg[j].estado) {
             var te = document.createElement("span");
             te.className = "ed-t-estado";
-            te.textContent = " — " + tamb[j].estado;
-            li2.appendChild(te);
+            te.textContent = " — " + seg[j].estado;
+            cuerpo.appendChild(te);
           }
+          li2.appendChild(cuerpo);
           tl.appendChild(li2);
         }
         document.getElementById("ed-tambien").hidden = false;
+      }
+      var ultima = acts.length ? (acts[0].hora || "") : "";
+      for (var k = 0; k < seg.length; k++) {
+        if (seg[k].hora && seg[k].hora > ultima) ultima = seg[k].hora;
+      }
+      if (ultima) {
+        document.getElementById("ed-actualizado").textContent = "Última actualización " + ultima;
       }
       caja.hidden = false;
     }).catch(function () { caja.hidden = true; });

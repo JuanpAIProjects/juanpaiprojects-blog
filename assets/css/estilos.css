@@ -526,7 +526,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 .ed-tambien-lista { list-style: none; }
 
-.ed-tambien-lista li { padding: 0.3rem 0; line-height: 1.45; }
+.ed-tambien-lista li { display: flex; gap: 0.9rem; padding: 0.45rem 0; line-height: 1.45; }
 
 .ed-tambien-lista .ed-t-titulo { font-weight: 700; color: var(--tinta); }
 .ed-tambien-lista a.ed-t-titulo { text-decoration: none; }
