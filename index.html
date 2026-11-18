@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
-  <link rel="stylesheet" href="assets/css/estilos.css?v=5">
+  <link rel="stylesheet" href="assets/css/estilos.css?v=6">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,6 +85,26 @@
         <span class="uh-titulo" id="uh-titulo"></span>
         <span class="uh-fecha" id="uh-fecha"></span>
       </a>
+    </section>
+
+    <!-- En desarrollo: la historia del día con sus actualizaciones con
+         hora, desde en-desarrollo.json (la siembra el generador cada
+         mañana y la actualiza el job de breaking; si no es de hoy, la
+         tarjeta no aparece) -->
+    <section class="contenedor" aria-label="En desarrollo" style="padding-top: 1.1rem;">
+      <div class="en-desarrollo" id="en-desarrollo" hidden>
+        <div class="ed-cabecera">
+          <span class="ed-badge"><span class="uh-punto"></span>En desarrollo</span>
+          <span class="ed-actualizado" id="ed-actualizado"></span>
+        </div>
+        <h3 class="ed-titulo" id="ed-titulo"></h3>
+        <p class="ed-resumen" id="ed-resumen"></p>
+        <ul class="ed-lista" id="ed-lista"></ul>
+        <div class="ed-tambien" id="ed-tambien" hidden>
+          <p class="ed-tambien-titulo">También hoy</p>
+          <ul class="ed-tambien-lista" id="ed-tambien-lista"></ul>
+        </div>
+      </div>
     </section>
 
     <!-- Post destacado: se pinta desde posts.json (el primero es el más reciente) -->
@@ -310,7 +330,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=5"></script>
+  <script src="assets/js/main.js?v=6"></script>
   <!-- Brevo: textos de validación y envío del formulario de suscripción -->
   <script>
     window.REQUIRED_CODE_ERROR_MESSAGE = 'Elige un código de país';

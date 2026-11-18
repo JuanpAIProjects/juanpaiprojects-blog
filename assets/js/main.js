@@ -1,7 +1,7 @@
 /* ============================================================
    JUANPAI PROJECTS — Blog
-   Lee posts.json, ig.json, x.json, tiktok.json, youtube.json y
-   ultima-hora.json y pinta:
+   Lee posts.json, ig.json, x.json, tiktok.json, youtube.json,
+   ultima-hora.json y en-desarrollo.json y pinta:
    banda de última hora, destacado, recientes, archivo por mes, la
    tira «En todas partes» (la última pieza de cada red) y el detalle
    por red en desplegables. Además: barra de progreso de lectura,
@@ -129,6 +129,72 @@
         fechaCorta(d.fecha) + (d.hora ? " · " + d.hora : "");
       banda.hidden = false;
     }).catch(function () { banda.hidden = true; });
+  }
+
+  // Tarjeta «En desarrollo»: la historia del día con sus actualizaciones
+  // con hora, desde en-desarrollo.json (lo siembra el generador cada
+  // mañana y lo actualiza el job de breaking con cada desarrollo
+  // verificado). Solo se muestra si el archivo es de HOY en hora de
+  // México; un archivo de otro día no se muestra (nada de historias
+  // viejas disfrazadas de actuales).
+  function pintarEnDesarrollo() {
+    var caja = document.getElementById("en-desarrollo");
+    if (!caja) return;
+    cargarJSON("en-desarrollo.json").then(function (d) {
+      if (!d || !d.titulo || !d.fecha) { caja.hidden = true; return; }
+      var hoyMX = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Mexico_City" }).format(new Date());
+      if (d.fecha !== hoyMX) { caja.hidden = true; return; }
+      function enlazar(el, url, texto) {
+        if (url) {
+          var a = document.createElement("a");
+          if (/^https?:\/\//.test(url)) { a.href = url; a.target = "_blank"; a.rel = "noopener"; }
+          else { a.href = base() + url; }
+          a.textContent = texto;
+          el.appendChild(a);
+        } else {
+          el.textContent = texto;
+        }
+      }
+      enlazar(document.getElementById("ed-titulo"), d.url, d.titulo);
+      var res = document.getElementById("ed-resumen");
+      if (d.resumen) { res.textContent = d.resumen; } else { res.hidden = true; }
+      var lista = document.getElementById("ed-lista");
+      var acts = Array.isArray(d.actualizaciones) ? d.actualizaciones.slice(-6).reverse() : [];
+      for (var i = 0; i < acts.length; i++) {
+        var li = document.createElement("li");
+        var h = document.createElement("span");
+        h.className = "ed-hora";
+        h.textContent = acts[i].hora || "";
+        var tx = document.createElement("span");
+        tx.textContent = acts[i].texto || "";
+        li.appendChild(h);
+        li.appendChild(tx);
+        lista.appendChild(li);
+      }
+      if (acts.length) {
+        document.getElementById("ed-actualizado").textContent = "Última actualización " + (acts[0].hora || "");
+      }
+      var tamb = Array.isArray(d.tambien) ? d.tambien.slice(0, 2) : [];
+      if (tamb.length) {
+        var tl = document.getElementById("ed-tambien-lista");
+        for (var j = 0; j < tamb.length; j++) {
+          var li2 = document.createElement("li");
+          var tt = document.createElement("span");
+          tt.className = "ed-t-titulo";
+          enlazar(tt, tamb[j].url, tamb[j].titulo || "");
+          li2.appendChild(tt);
+          if (tamb[j].estado) {
+            var te = document.createElement("span");
+            te.className = "ed-t-estado";
+            te.textContent = " — " + tamb[j].estado;
+            li2.appendChild(te);
+          }
+          tl.appendChild(li2);
+        }
+        document.getElementById("ed-tambien").hidden = false;
+      }
+      caja.hidden = false;
+    }).catch(function () { caja.hidden = true; });
   }
 
   function pintarDestacado(post) {
@@ -410,6 +476,7 @@
     var hayInicio = document.getElementById("post-destacado") || document.getElementById("lista-recientes") || document.getElementById("ultima-hora");
     var hayArchivo = document.getElementById("archivo-lista");
     pintarUltimaHora();
+    pintarEnDesarrollo();
     if (hayInicio || hayArchivo) {
       cargarJSON("posts.json").then(function (posts) {
         posts = Array.isArray(posts) ? posts : [];
