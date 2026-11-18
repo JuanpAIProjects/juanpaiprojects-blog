@@ -77,7 +77,8 @@
 
     <div class="contenedor"><div class="regla-marca" aria-hidden="true"></div></div>
 
-    <!-- Última hora: se pinta desde posts.json (el post tipo "noticia" más reciente) -->
+    <!-- Última hora: se pinta desde ultima-hora.json (solo breaking real
+         publicada por el job de breaking; sin breaking, no aparece) -->
     <section class="contenedor" aria-label="Última hora" style="padding-top: 2.2rem;">
       <a class="ultima-hora" id="ultima-hora" href="#" hidden>
         <span class="uh-badge"><span class="uh-punto"></span>Última hora</span>
@@ -309,7 +310,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=4"></script>
+  <script src="assets/js/main.js?v=5"></script>
   <!-- Brevo: textos de validación y envío del formulario de suscripción -->
   <script>
     window.REQUIRED_CODE_ERROR_MESSAGE = 'Elige un código de país';

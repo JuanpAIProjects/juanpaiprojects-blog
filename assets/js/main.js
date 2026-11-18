@@ -1,6 +1,7 @@
 /* ============================================================
    JUANPAI PROJECTS — Blog
-   Lee posts.json, ig.json, x.json, tiktok.json y youtube.json y pinta:
+   Lee posts.json, ig.json, x.json, tiktok.json, youtube.json y
+   ultima-hora.json y pinta:
    banda de última hora, destacado, recientes, archivo por mes, la
    tira «En todas partes» (la última pieza de cada red) y el detalle
    por red en desplegables. Además: barra de progreso de lectura,
@@ -106,19 +107,28 @@
     );
   }
 
-  // Banda de última hora: el post tipo "noticia" más reciente.
-  function pintarUltimaHora(posts) {
+  // Banda de última hora: SOLO breaking real. Se pinta desde
+  // ultima-hora.json, que escribe el job de breaking al publicar una
+  // (titulo, url de destino — el hilo de X o el post del blog —, fecha
+  // y hora). Sin breaking registrada, la banda no aparece: nunca se
+  // rellena con el post del día (decisión de Juanpa, 18 nov 2026).
+  function pintarUltimaHora() {
     var banda = document.getElementById("ultima-hora");
     if (!banda) return;
-    var noticia = null;
-    for (var i = 0; i < posts.length; i++) {
-      if (posts[i].tipo === "noticia") { noticia = posts[i]; break; }
-    }
-    if (!noticia) { banda.hidden = true; return; }
-    banda.href = base() + noticia.url;
-    document.getElementById("uh-titulo").textContent = noticia.titulo;
-    document.getElementById("uh-fecha").textContent = fechaCorta(noticia.fecha);
-    banda.hidden = false;
+    cargarJSON("ultima-hora.json").then(function (d) {
+      if (!d || !d.titulo || !d.url) { banda.hidden = true; return; }
+      if (/^https?:\/\//.test(d.url)) {
+        banda.href = d.url;
+        banda.target = "_blank";
+        banda.rel = "noopener";
+      } else {
+        banda.href = base() + d.url;
+      }
+      document.getElementById("uh-titulo").textContent = d.titulo;
+      document.getElementById("uh-fecha").textContent =
+        fechaCorta(d.fecha) + (d.hora ? " · " + d.hora : "");
+      banda.hidden = false;
+    }).catch(function () { banda.hidden = true; });
   }
 
   function pintarDestacado(post) {
@@ -399,10 +409,11 @@
 
     var hayInicio = document.getElementById("post-destacado") || document.getElementById("lista-recientes") || document.getElementById("ultima-hora");
     var hayArchivo = document.getElementById("archivo-lista");
+    pintarUltimaHora();
     if (hayInicio || hayArchivo) {
       cargarJSON("posts.json").then(function (posts) {
         posts = Array.isArray(posts) ? posts : [];
-        if (hayInicio) { pintarUltimaHora(posts); pintarDestacado(posts[0]); pintarRecientes(posts); }
+        if (hayInicio) { pintarDestacado(posts[0]); pintarRecientes(posts); }
         if (hayArchivo) pintarArchivo(posts);
       }).catch(function () { /* si falla, las secciones quedan con su texto base */ });
     }
