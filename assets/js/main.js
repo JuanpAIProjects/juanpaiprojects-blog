@@ -1,9 +1,11 @@
 /* ============================================================
    JUANPAI PROJECTS — Blog
    Lee posts.json, ig.json, x.json, tiktok.json, youtube.json,
-   ultima-hora.json, en-desarrollo.json y seguimientos.json y pinta:
+   ultima-hora.json, en-desarrollo.json, seguimientos.json y
+   pronosticos.json y pinta:
    banda de última hora, la tarjeta «En desarrollo», la sección
-   «Seguimiento» dentro de los posts cuya historia siguió, destacado,
+   «Seguimiento» dentro de los posts cuya historia siguió, el
+   registro público de pronósticos, destacado,
    recientes, archivo por mes, la
    tira «En todas partes» (la última pieza de cada red) y el detalle
    por red en desplegables. Además: barra de progreso de lectura,
@@ -266,6 +268,88 @@
       sec.appendChild(ul);
       nav.parentNode.insertBefore(sec, nav);
     }).catch(function () {});
+  }
+
+  // Página «Pronósticos a la vista»: el registro público de
+  // calibración de la marca, pintado desde pronosticos.json (el mismo
+  // registro que el generador escribe antes de cada pieza y que la
+  // vanguardia califica cada lunes). Marcador calculado (totales y %
+  // de acierto solo sobre los ya calificados) y lista del más
+  // reciente al más viejo, con probabilidad y nota cuando constan.
+  // Sin datos, la página enseña el trato y un vacío honesto: nunca
+  // una lista inventada.
+  function pintarPronosticos() {
+    var marcador = document.getElementById("pronosticos-marcador");
+    var lista = document.getElementById("pronosticos-lista");
+    if (!marcador || !lista) return;
+    var vacio = document.getElementById("pronosticos-vacio");
+    cargarJSON("pronosticos.json").then(function (d) {
+      var items = (d && Array.isArray(d.pronosticos)) ? d.pronosticos.slice() : [];
+      items.sort(function (a, b) { return String(b.fecha || "").localeCompare(String(a.fecha || "")); });
+      var aciertos = 0, parciales = 0, fallos = 0, pendientes = 0;
+      items.forEach(function (p) {
+        if (p.resultado === "acierto") aciertos++;
+        else if (p.resultado === "parcial") parciales++;
+        else if (p.resultado === "fallo") fallos++;
+        else pendientes++;
+      });
+      var calificados = aciertos + parciales + fallos;
+      var texto = items.length + (items.length === 1 ? " pronóstico publicado" : " pronósticos publicados");
+      if (calificados) {
+        texto += " · " + aciertos + (aciertos === 1 ? " acierto" : " aciertos") +
+          " · " + parciales + (parciales === 1 ? " parcial" : " parciales") +
+          " · " + fallos + (fallos === 1 ? " fallo" : " fallos") +
+          " · acierto en el " + Math.round((aciertos / calificados) * 100) + "% de los calificados";
+        if (pendientes) texto += " · " + pendientes + (pendientes === 1 ? " en espera de calificación" : " en espera de calificación");
+      } else if (items.length) {
+        texto += " · primeras calificaciones: el lunes, contra las métricas medidas";
+      } else {
+        texto = "Todavía no hay pronósticos publicados ni calificados.";
+      }
+      marcador.textContent = texto;
+      var act = document.getElementById("pronosticos-actualizado");
+      if (act && d && d.actualizado) act.textContent = "Actualizado " + fechaCorta(d.actualizado);
+      if (!items.length) {
+        if (vacio) { vacio.textContent = "Todavía no hay pronósticos publicados."; vacio.hidden = false; }
+        return;
+      }
+      if (vacio) vacio.hidden = true;
+      items.forEach(function (p) {
+        var li = document.createElement("li");
+        var h = document.createElement("span");
+        h.className = "ed-hora";
+        h.textContent = p.fecha ? fechaCorta(p.fecha) : "";
+        li.appendChild(h);
+        var cuerpo = document.createElement("span");
+        var t = document.createElement("strong");
+        t.textContent = p.tema || "";
+        cuerpo.appendChild(t);
+        if (p.pronostico) {
+          cuerpo.appendChild(document.createTextNode(" — " + p.pronostico));
+        }
+        if (p.probabilidad != null && p.probabilidad !== "") {
+          cuerpo.appendChild(document.createTextNode(" "));
+          var pb = document.createElement("span");
+          pb.className = "tema-chip";
+          pb.textContent = "Probabilidad: " + p.probabilidad + "%";
+          cuerpo.appendChild(pb);
+        }
+        cuerpo.appendChild(document.createTextNode(" "));
+        var chip = document.createElement("span");
+        if (p.resultado === "acierto") { chip.className = "tipo-chip tipo-tip"; chip.textContent = "Acierto"; }
+        else if (p.resultado === "fallo") { chip.className = "tipo-chip tipo-noticia"; chip.textContent = "Fallo"; }
+        else if (p.resultado === "parcial") { chip.className = "tema-chip"; chip.textContent = "Parcial"; }
+        else { chip.className = "tema-chip"; chip.textContent = "Pendiente"; }
+        cuerpo.appendChild(chip);
+        if (p.nota) {
+          cuerpo.appendChild(document.createTextNode(" " + p.nota));
+        }
+        li.appendChild(cuerpo);
+        lista.appendChild(li);
+      });
+    }).catch(function () {
+      if (vacio) { vacio.textContent = "No se pudo cargar el registro."; vacio.hidden = false; }
+    });
   }
 
   function pintarDestacado(post) {
@@ -574,6 +658,7 @@
     pintarUltimaHora();
     pintarEnDesarrollo();
     pintarSeguimiento();
+    pintarPronosticos();
     if (hayInicio || hayArchivo) {
       cargarJSON("posts.json").then(function (posts) {
         posts = Array.isArray(posts) ? posts : [];
