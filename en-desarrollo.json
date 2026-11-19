@@ -1,1 +1,34 @@
-{"actualizaciones":[{"hora":"13:41","texto":"Hoy, al cierre de los mercados en Estados Unidos, se fija el precio final de la oferta. Mañana jueves es el debut en bolsa, y la cobertura completa va en la pieza del día."},{"hora":"17:09","texto":"Precio fijado: $83 por acción, $5 arriba del tope del rango de $70 a $78, con una valuación cercana a $1.5 billones de dólares. Mañana jueves debuta en el Nasdaq como ANT."}],"fecha":"2026-11-18","resumen":"Anthropic, la empresa de IA detrás de Claude, protagoniza la salida a bolsa más esperada de la era de la IA: el rango guía es de $70 a $78 por acción y valúa a la empresa en cerca de $1.4 billones de dólares. Aquí va el seguimiento, actualización por actualización.","seguimiento":[{"estado":"Ingresos de $115,800 millones de dólares, arriba de lo guiado, con guía de $130,000 millones para el siguiente trimestre; el martes el S&P 500 cayó 1.03% y el mercado sigue haciendo cuentas con el dato.","hora":"13:41","titulo":"Nvidia reportó y el mercado digiere el dato","url":"posts/2026-11-17-nvidia-primer-reporte-sin-huang.html#seguimiento"},{"estado":"Presenta resultados el jueves a las 6:00 am, hora de México: es la señal de consumo más vigilada de la temporada y puede mover a todo el sector.","hora":"15:05","titulo":"Walmart reporta mañana antes de que abran los mercados","url":""}],"titulo":"Anthropic sale a bolsa: hoy se fija el precio y mañana debuta","url":"https://twitter.com/juanpaiprojects/status/2123192603310993418"}
+{
+ "actualizaciones": [
+  {
+   "hora": "13:41",
+   "texto": "Hoy, al cierre de los mercados en Estados Unidos, se fija el precio final de la oferta. Mañana jueves es el debut en bolsa, y la cobertura completa va en la pieza del día."
+  },
+  {
+   "hora": "17:09",
+   "texto": "Precio fijado: $83 por acción, $5 arriba del tope del rango de $70 a $78, con una valuación cercana a $1.5 billones de dólares. Mañana jueves debuta en el Nasdaq como ANT."
+  },
+  {
+   "hora": "20:10",
+   "texto": "Tamaño final confirmado: 980 millones de acciones a $83 captan $81,310 millones, el IPO más grande de la historia, arriba de los $75,000 millones de SpaceX en junio. De las acciones, 956 millones son nuevas: ~$79,400 millones van directo a la empresa. Mañana debuta como ANT."
+  }
+ ],
+ "fecha": "2026-11-18",
+ "resumen": "Anthropic, la empresa de IA detrás de Claude, protagoniza la salida a bolsa más esperada de la era de la IA: el rango guía es de $70 a $78 por acción y valúa a la empresa en cerca de $1.4 billones de dólares. Aquí va el seguimiento, actualización por actualización.",
+ "seguimiento": [
+  {
+   "estado": "Ingresos de $115,800 millones de dólares, arriba de lo guiado, con guía de $130,000 millones para el siguiente trimestre; el martes el S&P 500 cayó 1.03% y el mercado sigue haciendo cuentas con el dato.",
+   "hora": "13:41",
+   "titulo": "Nvidia reportó y el mercado digiere el dato",
+   "url": "posts/2026-11-17-nvidia-primer-reporte-sin-huang.html#seguimiento"
+  },
+  {
+   "estado": "Presenta resultados el jueves a las 6:00 am, hora de México: es la señal de consumo más vigilada de la temporada y puede mover a todo el sector.",
+   "hora": "15:05",
+   "titulo": "Walmart reporta mañana antes de que abran los mercados",
+   "url": ""
+  }
+ ],
+ "titulo": "Anthropic sale a bolsa: hoy se fija el precio y mañana debuta",
+ "url": "https://x.com/1411751252334051329/status/2123238071860593128"
+}
