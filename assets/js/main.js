@@ -6,8 +6,9 @@
    banda de última hora, la tarjeta «En desarrollo», la sección
    «Seguimiento» dentro de los posts cuya historia siguió, el
    registro público de pronósticos, la franja de registro de la
-   portada, destacado, recientes, archivo por mes y la fila compacta
-   «La pieza de hoy, también en…» (la última pieza de cada red).
+   portada, destacado, recientes, archivo por mes y la línea
+   compacta «La pieza de hoy también en…» (iconos que enlazan a
+   la última pieza de cada red).
    Además: barra de progreso de lectura, barra de suscripción en los
    posts, formularios que delegan en el de Brevo, botones de
    compartir, aparición al hacer scroll y el botón "Copiar" del
@@ -454,66 +455,38 @@
     cargarJSON("pronosticos.json").then(function (d) { datos.pron = d; listo(); }).catch(function () { datos.pron = null; listo(); });
   }
 
-  // Fila compacta «La pieza de hoy, también en…» (portada): la última
-  // pieza de cada red en tarjetas chicas estáticas (imagen + red +
-  // tipo o duración), leídas de ig.json, x.json, tiktok.json y
-  // youtube.json. Sin embeds ni desplegables: cada tarjeta enlaza a
-  // la pieza en su red. La duración del video se toma de posts.json
-  // (campo videoDuracion del post de la misma fecha) cuando existe.
-  function tarjetaRed(pub, red, meta) {
-    var imagen = pub.imagen
-      ? '<img class="red-tarjeta-img" src="' + esc(pub.imagen) + '" alt="" loading="lazy" onerror="this.remove()">'
-      : "";
-    var titulo = pub.titulo || pub.texto || "";
-    var claseTitulo = pub.titulo ? "red-tarjeta-titulo" : "red-tarjeta-titulo red-tarjeta-texto";
-    return (
-      '<a class="red-tarjeta" href="' + esc(pub.url) + '" target="_blank" rel="noopener">' +
-        imagen +
-        '<span class="red-tarjeta-red">' + esc(red) + "</span>" +
-        '<span class="' + claseTitulo + '">' + esc(titulo) + "</span>" +
-        '<span class="red-tarjeta-meta">' + esc(meta) + "</span>" +
-      "</a>"
-    );
-  }
-
-  function pintarFilaRedes() {
-    var el = document.getElementById("redes-fila");
-    if (!el) return;
-    var datos = {};
-    function listo() {
-      var tarjetas = [];
-      var duraciones = {};
-      if (Array.isArray(datos.posts)) {
-        datos.posts.forEach(function (post) {
-          if (post.fecha && post.videoDuracion) duraciones[post.fecha] = post.videoDuracion;
-        });
-      }
-      var ig = datos.ig, x = datos.x, tk = datos.tk, yt = datos.yt;
-      if (ig && ig.publicaciones && ig.publicaciones.length) {
-        var pig = ig.publicaciones[0];
-        tarjetas.push(tarjetaRed(pig, "Instagram", (pig.tipo || "Post") + " · " + fechaCorta(pig.fecha)));
-      }
-      if (x && x.entradas && x.entradas.length) {
-        var px = x.entradas[0];
-        tarjetas.push(tarjetaRed(px, "X", "En corto · " + fechaCorta(px.fecha)));
-      }
-      if (tk && tk.videos && tk.videos.length) {
-        var ptk = tk.videos[0];
-        tarjetas.push(tarjetaRed(ptk, "TikTok",
-          (duraciones[ptk.fecha] ? "Video · " + duraciones[ptk.fecha] + " · " : "Video · ") + fechaCorta(ptk.fecha)));
-      }
-      if (yt && yt.videos && yt.videos.length) {
-        var pyt = yt.videos[0];
-        tarjetas.push(tarjetaRed(pyt, "YouTube",
-          (duraciones[pyt.fecha] ? "Short · " + duraciones[pyt.fecha] + " · " : "Short · ") + fechaCorta(pyt.fecha)));
-      }
-      el.innerHTML = tarjetas.join("");
+  // Línea compacta «La pieza de hoy también en…» (portada): los
+  // iconos ya vienen en el HTML enlazando a cada perfil; aquí solo
+  // se apunta el de Instagram, X, TikTok y YouTube a la pieza de
+  // hoy en su red, con la URL de la primera entrada de ig.json,
+  // x.json, tiktok.json y youtube.json (los mismos enlaces que
+  // antes llevaban las tarjetas). Si un JSON no trae pieza o la
+  // carga falla, el icono conserva su enlace al perfil. Facebook
+  // no tiene JSON: su icono siempre enlaza a la Página.
+  function pintarIconosRedes() {
+    var enlaces = {};
+    Array.prototype.forEach.call(document.querySelectorAll(".pieza-iconos a[data-red]"), function (a) {
+      enlaces[a.getAttribute("data-red")] = a;
+    });
+    if (!enlaces.ig && !enlaces.x && !enlaces.tk && !enlaces.yt) return;
+    function aplicar(red, url, nombre) {
+      var a = enlaces[red];
+      if (!a || !url) return;
+      a.href = url;
+      a.setAttribute("aria-label", nombre + " — la pieza de hoy");
     }
-    cargarJSON("ig.json").then(function (d) { datos.ig = d; listo(); }).catch(function () {});
-    cargarJSON("x.json").then(function (d) { datos.x = d; listo(); }).catch(function () {});
-    cargarJSON("tiktok.json").then(function (d) { datos.tk = d; listo(); }).catch(function () {});
-    cargarJSON("youtube.json").then(function (d) { datos.yt = d; listo(); }).catch(function () {});
-    cargarJSON("posts.json").then(function (d) { datos.posts = d; listo(); }).catch(function () {});
+    cargarJSON("ig.json").then(function (d) {
+      if (d && d.publicaciones && d.publicaciones.length) aplicar("ig", d.publicaciones[0].url, "Instagram");
+    }).catch(function () {});
+    cargarJSON("x.json").then(function (d) {
+      if (d && d.entradas && d.entradas.length) aplicar("x", d.entradas[0].url, "X");
+    }).catch(function () {});
+    cargarJSON("tiktok.json").then(function (d) {
+      if (d && d.videos && d.videos.length) aplicar("tk", d.videos[0].url, "TikTok");
+    }).catch(function () {});
+    cargarJSON("youtube.json").then(function (d) {
+      if (d && d.videos && d.videos.length) aplicar("yt", d.videos[0].url, "YouTube");
+    }).catch(function () {});
   }
 
   // Formularios que delegan en el formulario real de Brevo de la
@@ -748,7 +721,7 @@
       }).catch(function () { /* sin encadenado si falla la carga */ });
     }
 
-    if (document.getElementById("redes-fila")) pintarFilaRedes();
+    if (document.querySelector(".pieza-iconos")) pintarIconosRedes();
     if (document.getElementById("franja-registro")) pintarFranjaRegistro();
   }
 

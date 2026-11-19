@@ -759,67 +759,55 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 }
 .fr-enlace:hover { text-decoration: underline; }
 
-/* Fila compacta «La pieza de hoy, también en…»: tarjetas chicas de
-   la última pieza de cada red; en móvil se deslizan en horizontal. */
-.redes-fila {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.1rem;
-}
-
-.redes-fila:empty { display: none; }
-
-.red-tarjeta {
+/* Línea compacta «La pieza de hoy también en…»: solo el texto y
+   los 5 iconos circulares, con el mismo estilo que los de la
+   cabecera (.nav a.nav-social). Sin tarjetas ni portadas
+   repetidas: las redes con su @ viven solo en el pie. */
+.pieza-en {
   display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  background: var(--crema-2);
-  border: 2px solid var(--tinta);
-  border-radius: var(--radio);
-  box-shadow: var(--sombra);
-  padding: 1rem 1.1rem 1.1rem;
-  color: var(--tinta);
-  text-decoration: none;
-  min-width: 0;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.9rem 1.4rem;
+  text-align: center;
 }
 
-.red-tarjeta:hover { transform: translateY(-3px); }
-
-.red-tarjeta-img {
-  width: calc(100% + 2.2rem);
-  max-width: none;
-  margin: -1rem -1.1rem 0.35rem;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: center 10%;
-  background: var(--crema-3);
-  border-radius: 14px 14px 0 0;
-}
-
-.red-tarjeta-red {
+.pieza-en-texto {
   font-family: var(--titular);
   font-weight: 800;
-  font-size: 0.8rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--verde);
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  color: var(--tinta);
 }
 
-.red-tarjeta-titulo {
-  font-family: var(--titular);
-  font-weight: 700;
-  font-size: 1rem;
-  line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.pieza-iconos {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
 }
 
-.red-tarjeta-texto { font-family: inherit; font-weight: 500; font-size: 0.94rem; line-height: 1.45; }
+.pieza-iconos a.icono-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: 1.5px solid var(--tinta);
+  border-radius: 50%;
+  background: var(--crema);
+  color: var(--tinta);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
 
-.red-tarjeta-meta { margin-top: auto; font-size: 0.82rem; font-weight: 700; color: var(--tinta-suave); }
+.pieza-iconos a.icono-red:hover {
+  background: var(--verde);
+  border-color: var(--verde);
+  color: var(--crema);
+}
+
+.pieza-iconos a.icono-red svg { display: block; }
 
 /* Caja de suscripción tras la Aplicable, dentro del post: delega en
    el formulario real del propio post (ver main.js). */
@@ -905,7 +893,16 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   gap: 2.6rem;
   align-items: center;
   box-shadow: var(--sombra);
+  /* Nada del interior puede pintar fuera del cuadro: la tarjeta
+     crema del formulario queda siempre dentro, sin encimarse
+     sobre el borde (visto en la captura del 19 nov 2026). */
+  overflow: hidden;
 }
+
+/* Las columnas no empujan el cuadro más allá de su ancho: sin
+   esto, un hijo de grid con contenido ancho (el formulario de
+   Brevo es inline-block al 100 %) puede desbordar la columna. */
+.suscripcion > * { min-width: 0; }
 
 .suscripcion h2 {
   font-family: var(--titular);
@@ -960,6 +957,9 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 }
 
 .brevo #sib-container {
+  /* sib-styles.css lo trae como inline-block: como bloque ocupa
+     su columna de forma determinista y no se desplaza. */
+  display: block;
   background: var(--crema);
   border: 1px solid var(--borde);
   border-radius: var(--radio);
@@ -1500,7 +1500,6 @@ html.con-js .revelar.visible {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 920px) {
-  .redes-fila { grid-template-columns: 1fr 1fr; }
   .pie-grid { grid-template-columns: 1fr 1fr; }
   .sobre-grid { grid-template-columns: 1fr; }
   .sobre-foto { max-width: 320px; }
@@ -1509,13 +1508,10 @@ html.con-js .revelar.visible {
 
 @media (max-width: 620px) {
   .nav a.nav-boton { padding: 0.4rem 0.7rem; font-size: 0.78rem; }
-  .redes-fila {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 0.4rem;
-  }
-  .red-tarjeta { flex: 0 0 236px; scroll-snap-align: start; }
+  /* La línea de redes se parte en dos renglones si hace falta
+     (texto e iconos), sin desborde horizontal. */
+  .pieza-en { gap: 0.7rem 1rem; }
+  .pieza-iconos a.icono-red { width: 40px; height: 40px; }
   .fr-enlace { margin-left: 0; }
   .barra-correo { font-size: 0.85rem; gap: 0.6rem; padding-left: 0.95rem; }
   body { font-size: 16px; }
