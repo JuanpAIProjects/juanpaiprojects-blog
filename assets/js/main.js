@@ -5,12 +5,13 @@
    pronosticos.json y pinta:
    banda de última hora, la tarjeta «En desarrollo», la sección
    «Seguimiento» dentro de los posts cuya historia siguió, el
-   registro público de pronósticos, destacado,
-   recientes, archivo por mes, la
-   tira «En todas partes» (la última pieza de cada red) y el detalle
-   por red en desplegables. Además: barra de progreso de lectura,
-   botones de compartir, aparición al hacer scroll y el botón
-   "Copiar" del prompt. Sin build, JS plano.
+   registro público de pronósticos, la franja de registro de la
+   portada, destacado, recientes, archivo por mes y la fila compacta
+   «La pieza de hoy, también en…» (la última pieza de cada red).
+   Además: barra de progreso de lectura, barra de suscripción en los
+   posts, formularios que delegan en el de Brevo, botones de
+   compartir, aparición al hacer scroll y el botón "Copiar" del
+   prompt. Sin build, JS plano.
    Ver README.md para el flujo de publicación.
    ============================================================ */
 
@@ -405,145 +406,201 @@
     }).join("");
   }
 
-  function pintarInstagram(ig) {
-    var el = document.getElementById("ig-grid");
-    if (!el) return;
-    var pubs = (ig && ig.publicaciones) || [];
-    if (!pubs.length) { el.innerHTML = ""; return; }
-    // Solo las anteriores: la última (índice 0) ya vive en la tira.
-    el.innerHTML = pubs.slice(1, 7).map(function (pub) {
-      // Campo opcional "imagen": URL pública de la foto del post.
-      // Si la imagen falla al cargar, se retira y la tarjeta queda de texto.
-      var imagen = pub.imagen
-        ? '<img class="ig-imagen" src="' + esc(pub.imagen) + '" alt="' + esc(pub.titulo) +
-          '" loading="lazy" onerror="this.remove()">'
-        : "";
-      return (
-        '<a class="ig-tarjeta" href="' + esc(pub.url) + '" target="_blank" rel="noopener">' +
-          imagen +
-          '<span class="tema-chip">' + esc(pub.tipo || "Post") + "</span>" +
-          '<span class="ig-titulo">' + esc(pub.titulo) + "</span>" +
-          '<span class="ig-resumen">' + esc(pub.resumen) + "</span>" +
-          '<span class="ig-meta">' + esc(fechaCorta(pub.fecha)) + " · Ver en Instagram →</span>" +
-        "</a>"
-      );
-    }).join("");
-  }
-
-  function pintarX(datos) {
-    var el = document.getElementById("x-grid");
-    if (!el) return;
-    var entradas = (datos && datos.entradas) || [];
-    if (!entradas.length) { el.innerHTML = ""; return; }
-    // Solo las anteriores: la última (índice 0) ya vive en la tira.
-    el.innerHTML = entradas.slice(1, 7).map(function (entrada) {
-      var imagen = entrada.imagen
-        ? '<img class="ig-imagen" src="' + esc(entrada.imagen) + '" alt="" loading="lazy" onerror="this.remove()">'
-        : "";
-      return (
-        '<a class="x-tarjeta" href="' + esc(entrada.url) + '" target="_blank" rel="noopener">' +
-          imagen +
-          '<span class="tema-chip">En X</span>' +
-          '<span class="x-texto">' + esc(entrada.texto) + "</span>" +
-          '<span class="ig-meta">' + esc(fechaCorta(entrada.fecha)) + " · Ver en X →</span>" +
-        "</a>"
-      );
-    }).join("");
-  }
-
-
-  function tarjetaVideo(pub, red, cta) {
-    var imagen = pub.imagen
-      ? '<img class="ig-imagen ig-imagen-vertical" src="' + esc(pub.imagen) + '" alt="' + esc(pub.titulo) +
-        '" loading="lazy" onerror="this.remove()">'
-      : "";
-    return (
-      '<a class="ig-tarjeta" href="' + esc(pub.url) + '" target="_blank" rel="noopener">' +
-        imagen +
-        '<span class="tema-chip">' + esc(red) + "</span>" +
-        '<span class="ig-titulo">' + esc(pub.titulo) + "</span>" +
-        '<span class="ig-meta">' + esc(fechaCorta(pub.fecha)) + " · " + esc(cta) + "</span>" +
-      "</a>"
-    );
-  }
-
-  function pintarTikTok(datos) {
-    var el = document.getElementById("tk-grid");
-    if (!el) return;
-    var vids = (datos && datos.videos) || [];
-    if (!vids.length) { el.innerHTML = ""; return; }
-    // Solo los anteriores: el último (índice 0) ya vive en la tira.
-    el.innerHTML = vids.slice(1, 4).map(function (v) {
-      return tarjetaVideo(v, "TikTok", "Ver en TikTok →");
-    }).join("");
-  }
-
-  function pintarYouTube(datos) {
-    var vids = (datos && datos.videos) || [];
-    var emb = document.getElementById("yt-embed");
-    if (emb && vids.length && vids[0].videoId) {
-      emb.innerHTML =
-        '<iframe src="https://www.youtube-nocookie.com/embed/' + esc(vids[0].videoId) +
-        '" title="' + esc(vids[0].titulo) + '" loading="lazy" ' +
-        'allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+  // Franja de registro público (portada): la prueba social falsable
+  // de la marca, pintada desde posts.json y pronosticos.json — días
+  // publicando (fechas distintas de posts.json), nº de pronósticos
+  // del registro y, SOLO cuando ya hay calificaciones, el % de
+  // acierto sobre los calificados (misma cuenta que pronosticos.html).
+  // Cada dato se pinta solo si existe; sin datos, la franja no
+  // aparece. Siempre enlaza al registro público completo.
+  function pintarFranjaRegistro() {
+    var franja = document.getElementById("franja-registro");
+    if (!franja) return;
+    var datos = {};
+    function listo() {
+      if (datos.posts === undefined && datos.pron === undefined) return;
+      var partes = [];
+      if (datos.posts && datos.posts.length) {
+        var fechas = {};
+        datos.posts.forEach(function (post) { if (post.fecha) fechas[post.fecha] = true; });
+        var dias = Object.keys(fechas).length;
+        var primera = datos.posts[datos.posts.length - 1];
+        partes.push('<span class="fr-dato"><strong>' + dias + (dias === 1 ? " día" : " días") +
+          "</strong> publicando a diario" +
+          (primera && primera.fecha ? " desde el " + esc(fechaCorta(primera.fecha)) : "") + "</span>");
+      }
+      if (datos.pron && datos.pron.pronosticos && datos.pron.pronosticos.length) {
+        var items = datos.pron.pronosticos;
+        var n = items.length;
+        partes.push('<span class="fr-dato"><strong>' + n + "</strong> " +
+          (n === 1 ? "pronóstico" : "pronósticos") + " en el registro público</span>");
+        var aciertos = 0, calificados = 0;
+        items.forEach(function (pr) {
+          if (pr.resultado === "acierto") { aciertos++; calificados++; }
+          else if (pr.resultado === "parcial" || pr.resultado === "fallo") { calificados++; }
+        });
+        if (calificados > 0) {
+          partes.push('<span class="fr-dato"><strong>' + Math.round((aciertos / calificados) * 100) +
+            "%</strong> de acierto en " + calificados +
+            (calificados === 1 ? " pronóstico calificado" : " pronósticos calificados") + "</span>");
+        }
+      }
+      if (!partes.length) { franja.hidden = true; return; }
+      partes.push('<a class="fr-enlace" href="' + esc(base() + "pronosticos.html") + '">Ver el registro público \u2192</a>');
+      franja.innerHTML = partes.join("");
+      franja.hidden = false;
     }
-    var el = document.getElementById("yt-grid");
-    if (!el) return;
-    if (!vids.length) { el.innerHTML = ""; return; }
-    // Solo los anteriores: el último (índice 0) ya vive en la tira y en el embed.
-    el.innerHTML = vids.slice(1, 4).map(function (v) {
-      return tarjetaVideo(v, "YouTube Shorts", "Ver en YouTube →");
-    }).join("");
+    cargarJSON("posts.json").then(function (d) { datos.posts = Array.isArray(d) ? d : []; listo(); }).catch(function () { datos.posts = null; listo(); });
+    cargarJSON("pronosticos.json").then(function (d) { datos.pron = d; listo(); }).catch(function () { datos.pron = null; listo(); });
   }
 
-  // Tira «En todas partes» de la portada: la última pieza de cada red
-  // (Instagram, X, TikTok, YouTube) en una sola fila mixta. Se repinta
-  // conforme llega cada JSON; los desplegables de la misma sección
-  // (ig-grid, x-grid, tk-grid, yt-grid) pintan solo las piezas
-  // ANTERIORES (desde la segunda de cada archivo), para que la última
-  // no se repita: vive únicamente aquí y, en YouTube, en el embed.
-  var datosTira = {};
-
-  function tarjetaTiraIG(pub) {
+  // Fila compacta «La pieza de hoy, también en…» (portada): la última
+  // pieza de cada red en tarjetas chicas estáticas (imagen + red +
+  // tipo o duración), leídas de ig.json, x.json, tiktok.json y
+  // youtube.json. Sin embeds ni desplegables: cada tarjeta enlaza a
+  // la pieza en su red. La duración del video se toma de posts.json
+  // (campo videoDuracion del post de la misma fecha) cuando existe.
+  function tarjetaRed(pub, red, meta) {
     var imagen = pub.imagen
-      ? '<img class="ig-imagen" src="' + esc(pub.imagen) + '" alt="' + esc(pub.titulo) +
-        '" loading="lazy" onerror="this.remove()">'
+      ? '<img class="red-tarjeta-img" src="' + esc(pub.imagen) + '" alt="" loading="lazy" onerror="this.remove()">'
       : "";
+    var titulo = pub.titulo || pub.texto || "";
+    var claseTitulo = pub.titulo ? "red-tarjeta-titulo" : "red-tarjeta-titulo red-tarjeta-texto";
     return (
-      '<a class="ig-tarjeta" href="' + esc(pub.url) + '" target="_blank" rel="noopener">' +
+      '<a class="red-tarjeta" href="' + esc(pub.url) + '" target="_blank" rel="noopener">' +
         imagen +
-        '<span class="tema-chip">Instagram</span>' +
-        '<span class="ig-titulo">' + esc(pub.titulo) + "</span>" +
-        '<span class="ig-resumen">' + esc(pub.resumen) + "</span>" +
-        '<span class="ig-meta">' + esc(fechaCorta(pub.fecha)) + " · Ver en Instagram →</span>" +
+        '<span class="red-tarjeta-red">' + esc(red) + "</span>" +
+        '<span class="' + claseTitulo + '">' + esc(titulo) + "</span>" +
+        '<span class="red-tarjeta-meta">' + esc(meta) + "</span>" +
       "</a>"
     );
   }
 
-  function tarjetaTiraX(entrada) {
-    var imagen = entrada.imagen
-      ? '<img class="ig-imagen" src="' + esc(entrada.imagen) + '" alt="" loading="lazy" onerror="this.remove()">'
-      : "";
-    return (
-      '<a class="x-tarjeta" href="' + esc(entrada.url) + '" target="_blank" rel="noopener">' +
-        imagen +
-        '<span class="tema-chip">X</span>' +
-        '<span class="x-texto">' + esc(entrada.texto) + "</span>" +
-        '<span class="ig-meta">' + esc(fechaCorta(entrada.fecha)) + " · Ver en X →</span>" +
-      "</a>"
-    );
-  }
-
-  function pintarTira() {
-    var el = document.getElementById("redes-tira");
+  function pintarFilaRedes() {
+    var el = document.getElementById("redes-fila");
     if (!el) return;
-    var tarjetas = [];
-    var ig = datosTira.ig, x = datosTira.x, tk = datosTira.tk, yt = datosTira.yt;
-    if (ig && ig.publicaciones && ig.publicaciones.length) tarjetas.push(tarjetaTiraIG(ig.publicaciones[0]));
-    if (x && x.entradas && x.entradas.length) tarjetas.push(tarjetaTiraX(x.entradas[0]));
-    if (tk && tk.videos && tk.videos.length) tarjetas.push(tarjetaVideo(tk.videos[0], "TikTok", "Ver en TikTok →"));
-    if (yt && yt.videos && yt.videos.length) tarjetas.push(tarjetaVideo(yt.videos[0], "YouTube", "Ver en YouTube →"));
-    el.innerHTML = tarjetas.join("");
+    var datos = {};
+    function listo() {
+      var tarjetas = [];
+      var duraciones = {};
+      if (Array.isArray(datos.posts)) {
+        datos.posts.forEach(function (post) {
+          if (post.fecha && post.videoDuracion) duraciones[post.fecha] = post.videoDuracion;
+        });
+      }
+      var ig = datos.ig, x = datos.x, tk = datos.tk, yt = datos.yt;
+      if (ig && ig.publicaciones && ig.publicaciones.length) {
+        var pig = ig.publicaciones[0];
+        tarjetas.push(tarjetaRed(pig, "Instagram", (pig.tipo || "Post") + " · " + fechaCorta(pig.fecha)));
+      }
+      if (x && x.entradas && x.entradas.length) {
+        var px = x.entradas[0];
+        tarjetas.push(tarjetaRed(px, "X", "En corto · " + fechaCorta(px.fecha)));
+      }
+      if (tk && tk.videos && tk.videos.length) {
+        var ptk = tk.videos[0];
+        tarjetas.push(tarjetaRed(ptk, "TikTok",
+          (duraciones[ptk.fecha] ? "Video · " + duraciones[ptk.fecha] + " · " : "Video · ") + fechaCorta(ptk.fecha)));
+      }
+      if (yt && yt.videos && yt.videos.length) {
+        var pyt = yt.videos[0];
+        tarjetas.push(tarjetaRed(pyt, "YouTube",
+          (duraciones[pyt.fecha] ? "Short · " + duraciones[pyt.fecha] + " · " : "Short · ") + fechaCorta(pyt.fecha)));
+      }
+      el.innerHTML = tarjetas.join("");
+    }
+    cargarJSON("ig.json").then(function (d) { datos.ig = d; listo(); }).catch(function () {});
+    cargarJSON("x.json").then(function (d) { datos.x = d; listo(); }).catch(function () {});
+    cargarJSON("tiktok.json").then(function (d) { datos.tk = d; listo(); }).catch(function () {});
+    cargarJSON("youtube.json").then(function (d) { datos.yt = d; listo(); }).catch(function () {});
+    cargarJSON("posts.json").then(function (d) { datos.posts = d; listo(); }).catch(function () {});
+  }
+
+  // Formularios que delegan en el formulario real de Brevo de la
+  // página (#sib-form): el del hero de la portada y la caja tras la
+  // Aplicable en los posts. Brevo necesita sus ID únicos por página,
+  // así que su formulario NO se duplica: el formulario chico copia el
+  // correo al campo real, deja la frecuencia en Diario (valor 1) y
+  // pulsa el botón real de envío; el resultado (éxito o error) se ve
+  // en los paneles del formulario real, al que se desplaza la vista.
+  function activarFormulariosDelegados() {
+    var chicos = document.querySelectorAll("form[data-delegar-suscripcion]");
+    if (!chicos.length) return;
+    var formReal = document.getElementById("sib-form");
+    var emailReal = document.getElementById("EMAIL");
+    if (!formReal || !emailReal) return;
+    Array.prototype.forEach.call(chicos, function (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var campo = form.querySelector("[data-email-delegado]");
+        if (!campo || !campo.value) return;
+        emailReal.value = campo.value;
+        var diario = formReal.querySelector('input[name="FRECUENCIA"][value="1"]');
+        if (diario) diario.checked = true;
+        var boton = form.querySelector('button[type="submit"]');
+        if (boton) boton.disabled = true;
+        var enviar = formReal.querySelector('button[type="submit"]');
+        if (enviar) enviar.click();
+        var destino = document.getElementById("sib-form-container") || formReal;
+        setTimeout(function () {
+          destino.scrollIntoView({ behavior: "smooth", block: "center" });
+          if (boton) boton.disabled = false;
+        }, 400);
+      });
+    });
+  }
+
+  // Barra de suscripción de los posts: fina y descartable, aparece
+  // tras leer ~45 % del post y enlaza al formulario del propio post
+  // (#sib-form). Se crea desde JS para que aplique también a los
+  // posts ya publicados, sin remontarlos. Al cerrarla no vuelve en
+  // la misma sesión (sessionStorage). Es el único elemento
+  // persistente de la página y se oculta mientras el formulario
+  // está a la vista.
+  function activarBarraCorreo() {
+    if (window.location.pathname.indexOf("/posts/") === -1) return;
+    var form = document.getElementById("sib-form");
+    if (!form) return;
+    var descartada = false;
+    try { descartada = window.sessionStorage.getItem("barraCorreoCerrada") === "1"; } catch (e) {}
+    if (descartada) return;
+    var barra = document.createElement("div");
+    barra.className = "barra-correo";
+    barra.id = "barra-correo";
+    barra.hidden = true;
+    barra.innerHTML =
+      '<span class="barra-correo-texto">Recíbelo mañana en tu correo — gratis</span>' +
+      '<a class="barra-correo-boton" href="#sib-form">Suscribirme</a>' +
+      '<button class="barra-correo-cerrar" type="button" aria-label="Cerrar aviso">×</button>';
+    document.body.appendChild(barra);
+    var visible = false;
+    var formVisible = false;
+    function actualizar() {
+      if (descartada) { barra.hidden = true; return; }
+      var doc = document.documentElement;
+      var alto = doc.scrollHeight - window.innerHeight;
+      var avance = alto > 0 ? window.scrollY / alto : 0;
+      var debe = avance >= 0.45 && !formVisible;
+      if (debe !== visible) { visible = debe; barra.hidden = !debe; }
+    }
+    window.addEventListener("scroll", actualizar, { passive: true });
+    window.addEventListener("resize", actualizar);
+    var observador = null;
+    if ("IntersectionObserver" in window) {
+      observador = new IntersectionObserver(function (entradas) {
+        formVisible = entradas[0].isIntersecting;
+        actualizar();
+      }, { threshold: 0.05 });
+      observador.observe(form);
+    }
+    barra.querySelector(".barra-correo-cerrar").addEventListener("click", function () {
+      descartada = true;
+      visible = false;
+      barra.hidden = true;
+      try { window.sessionStorage.setItem("barraCorreoCerrada", "1"); } catch (e) {}
+      if (observador) observador.disconnect();
+    });
+    actualizar();
   }
 
   function activarCopiar() {
@@ -607,6 +664,9 @@
 
   // «Sigue leyendo» al final del post: enlaza al post anterior y al
   // siguiente según el orden de posts.json (más reciente primero).
+  // «Sigue leyendo» al final del post: hasta 3 relacionados según el
+  // orden de posts.json (más reciente primero): el anterior, el más
+  // reciente (si no es ya vecino) y el siguiente.
   function pintarSigueLeyendo(posts) {
     var nav = document.getElementById("sigue-leyendo");
     if (!nav || !posts || !posts.length) return;
@@ -616,18 +676,26 @@
       if (ruta.indexOf(posts[i].url) !== -1) { idx = i; break; }
     }
     if (idx === -1) return;
-    var hay = false;
-    var html = "<p class=\"sigue-titulo\">Sigue leyendo</p><div class=\"sigue-enlaces\">";
+    var tarjetas = [];
     if (idx + 1 < posts.length) {
-      hay = true;
-      html += "<a class=\"sigue-link\" href=\"../" + posts[idx + 1].url + "\"><span class=\"sigue-dir\">← Anterior</span><span class=\"sigue-nombre\">" + esc(posts[idx + 1].titulo) + "</span></a>";
+      tarjetas.push({ dir: "\u2190 Anterior", post: posts[idx + 1], der: false });
+    }
+    var ultimo = posts[0];
+    if (idx !== 0 && ultimo !== posts[idx + 1] && ultimo !== posts[idx - 1] && tarjetas.length < 3) {
+      tarjetas.push({ dir: "Lo último", post: ultimo, der: false });
     }
     if (idx - 1 >= 0) {
-      hay = true;
-      html += "<a class=\"sigue-link sigue-der\" href=\"../" + posts[idx - 1].url + "\"><span class=\"sigue-dir\">Siguiente →</span><span class=\"sigue-nombre\">" + esc(posts[idx - 1].titulo) + "</span></a>";
+      tarjetas.push({ dir: "Siguiente \u2192", post: posts[idx - 1], der: true });
     }
+    if (!tarjetas.length) return;
+    var html = "<p class=\"sigue-titulo\">Sigue leyendo</p><div class=\"sigue-enlaces\">";
+    tarjetas.slice(0, 3).forEach(function (t) {
+      html += "<a class=\"sigue-link" + (t.der ? " sigue-der" : "") + "\" href=\"../" + t.post.url +
+        "\"><span class=\"sigue-dir\">" + t.dir + "</span><span class=\"sigue-nombre\">" +
+        esc(t.post.titulo) + "</span></a>";
+    });
     html += "</div>";
-    if (hay) nav.innerHTML = html;
+    nav.innerHTML = html;
   }
 
   // Aparición suave al hacer scroll (respeta prefers-reduced-motion).
@@ -657,6 +725,8 @@
     activarCompartir();
     activarProgreso();
     activarRevelar();
+    activarFormulariosDelegados();
+    activarBarraCorreo();
 
     var hayInicio = document.getElementById("post-destacado") || document.getElementById("lista-recientes") || document.getElementById("ultima-hora");
     var hayArchivo = document.getElementById("archivo-lista");
@@ -678,29 +748,8 @@
       }).catch(function () { /* sin encadenado si falla la carga */ });
     }
 
-    if (document.getElementById("ig-grid")) {
-      cargarJSON("ig.json").then(function (d) {
-        pintarInstagram(d); datosTira.ig = d; pintarTira();
-      }).catch(function () { /* la tarjeta de perfil sigue visible */ });
-    }
-
-    if (document.getElementById("x-grid")) {
-      cargarJSON("x.json").then(function (d) {
-        pintarX(d); datosTira.x = d; pintarTira();
-      }).catch(function () { /* la sección queda sin tarjetas */ });
-    }
-
-    if (document.getElementById("tk-grid")) {
-      cargarJSON("tiktok.json").then(function (d) {
-        pintarTikTok(d); datosTira.tk = d; pintarTira();
-      }).catch(function () { /* sin tarjetas de TikTok */ });
-    }
-
-    if (document.getElementById("yt-grid")) {
-      cargarJSON("youtube.json").then(function (d) {
-        pintarYouTube(d); datosTira.yt = d; pintarTira();
-      }).catch(function () { /* sin video de YouTube */ });
-    }
+    if (document.getElementById("redes-fila")) pintarFilaRedes();
+    if (document.getElementById("franja-registro")) pintarFranjaRegistro();
   }
 
   if (document.readyState === "loading") {

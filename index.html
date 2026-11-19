@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
-  <link rel="stylesheet" href="assets/css/estilos.css?v=10">
+  <link rel="stylesheet" href="assets/css/estilos.css?v=12">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,7 +53,7 @@
         <a href="archivo.html">Archivo</a>
         <a href="sobre-mi.html">Sobre mí</a>
         <a href="empieza-aqui.html">Empieza aquí</a>
-        <a href="#suscripcion">Newsletter</a>
+        <a class="boton boton-solido nav-boton" href="#suscripcion">Suscribirme</a>
         <a class="nav-social" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener" aria-label="Instagram — @juanpaiprojects"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.25"/><circle cx="17.35" cy="6.65" r="0.5" fill="currentColor" stroke="none"/></svg></a>
         <a class="nav-social" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener" aria-label="X — @juanpaiprojects"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
         <a class="nav-social" href="https://www.tiktok.com/@juanpaiprojects" target="_blank" rel="noopener" aria-label="TikTok — @juanpaiprojects"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
@@ -68,16 +68,32 @@
     <section class="hero">
       <div class="contenedor">
       <p class="kicker"><span class="kicker-linea"></span>Noticias · IA aplicada · Cada día</p>
-      <h1>Qué pasó, por qué importa y <em>qué hacer</em>.</h1>
-      <p class="lede">Cada día verifico la noticia en IA, finanzas y temas globales y te la cuento con su consecuencia práctica. De pilón, una herramienta gratis con el paso a paso listo para aplicar, probada en proyectos reales. Dos minutos, sin humo. Con el contexto que los medios técnicos dan por sabido, explicado en una línea y sin tecnicismos: nivel experto, lenguaje humano.</p>
-      <div class="hero-acciones">
-        <a class="boton boton-solido" href="#ultimo">Leer el post de hoy</a>
-        <a class="boton boton-contorno" href="#suscripcion">Recibirlo por correo</a>
-      </div>
+      <h1>IA y dinero en <em>5 minutos</em>: una idea aplicable cada mañana</h1>
+      <p class="lede">Cada mañana verifico la noticia en IA, finanzas y temas globales, te digo por qué importa y te dejo una herramienta gratis con el paso a paso listo para aplicar en tu negocio. Nivel experto, lenguaje humano. Sin humo.</p>
+      <!-- Formulario del hero: NO es un segundo formulario de Brevo.
+           Delega en el formulario real de cierre (#sib-form): main.js
+           copia el correo, deja la frecuencia en Diario y lo envía con
+           ese mecanismo, porque Brevo necesita sus ID únicos por página. -->
+      <form class="hero-form" id="hero-form" data-delegar-suscripcion>
+        <label class="hero-form-etiqueta" for="hero-email">Recíbelo cada mañana, gratis</label>
+        <div class="hero-form-fila">
+          <input type="email" id="hero-email" data-email-delegado autocomplete="email" placeholder="tunombre@correo.com" required>
+          <button class="boton boton-solido" type="submit">Quiero el dato diario</button>
+        </div>
+        <p class="hero-form-nota">Sin spam y sin vender tu correo; date de baja cuando quieras. ¿Prefieres el resumen de los lunes? <a href="#suscripcion">Elige el ritmo en el formulario completo</a>.</p>
+      </form>
+      <p class="hero-leer">¿Primera vez aquí? <a class="enlace-leer" href="#ultimo">Lee primero el post de hoy →</a></p>
       </div>
     </section>
 
     <div class="contenedor"><div class="regla-marca" aria-hidden="true"></div></div>
+
+    <!-- Franja de registro público: se pinta desde pronosticos.json y
+         posts.json (días publicando, nº de pronósticos y, cuando haya
+         calificaciones, el % de acierto). Sin datos, no aparece. -->
+    <section class="contenedor" aria-label="Registro público" style="padding-top: 1.8rem;">
+      <div class="franja-registro" id="franja-registro" hidden></div>
+    </section>
 
     <!-- Última hora: se pinta desde ultima-hora.json (solo breaking real
          publicada por el job de breaking; sin breaking, no aparece) -->
@@ -131,74 +147,19 @@
       <div class="lista-posts" id="lista-recientes"></div>
     </section>
 
-    <!-- En todas partes: UNA sola sección social. Tira con la última
+    <!-- La pieza de hoy, también en…: UNA fila compacta con la última
          pieza de cada red (desde ig.json, x.json, tiktok.json y
-         youtube.json, pintada por main.js) y el detalle por red en
-         desplegables cerrados por defecto (progressive disclosure).
-         El Short más reciente se reproduce embebido (yt-embed). -->
+         youtube.json, pintada por main.js). Sin embeds ni desplegables:
+         cada tarjeta enlaza a la pieza en su red. Los perfiles viven
+         en el pie, como enlaces. -->
     <section class="seccion contenedor revelar" id="redes">
       <div class="seccion-encabezado">
-        <h2>En todas partes</h2>
+        <h2>La pieza de hoy, también en…</h2>
         <span class="regla"></span>
         <span class="tema-chip">@juanpaiprojects</span>
       </div>
       <p class="seccion-nota">Aquí se lee completo, con el paso a paso para aplicarlo. El resumen sale en carrusel en Instagram, en corto en X y en video en TikTok y YouTube; la conversación pasa allá.</p>
-      <div class="yt-embed" id="yt-embed"></div>
-      <div class="redes-tira" id="redes-tira"></div>
-
-      <details class="red-detalle">
-        <summary>Instagram</summary>
-        <div class="red-detalle-cuerpo">
-          <div class="ig-grid" id="ig-grid"></div>
-          <div class="perfil-strip">
-            <div>
-              <h3>@juanpaiprojects</h3>
-              <p>La noticia, la herramienta y el paso a paso del día, en formato carrusel.</p>
-            </div>
-            <div class="perfil-botones">
-              <a class="boton boton-solido" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">Ir al perfil</a>
-              <a class="boton boton-contorno" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">Seguir en X</a>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <details class="red-detalle">
-        <summary>X</summary>
-        <div class="red-detalle-cuerpo">
-          <p class="seccion-nota">La versión corta de cada día: el dato en pocas líneas, para leer de pasada y compartir rápido.</p>
-          <div class="x-grid" id="x-grid"></div>
-          <div class="perfil-strip">
-            <div>
-              <h3>@juanpaiprojects en X</h3>
-              <p>Noticias de IA y finanzas en corto, el mismo día que salen aquí.</p>
-            </div>
-            <div class="perfil-botones">
-              <a class="boton boton-solido" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">Seguir en X</a>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <details class="red-detalle">
-        <summary>Video — TikTok y YouTube</summary>
-        <div class="red-detalle-cuerpo">
-          <p class="seccion-nota">El video de cada día sale en TikTok y en YouTube Shorts. El más reciente se reproduce aquí mismo; los demás abren en tu app.</p>
-          <div class="ig-grid" id="tk-grid"></div>
-          <div class="ig-grid" id="yt-grid"></div>
-          <div class="perfil-strip">
-            <div>
-              <h3>@juanpaiprojects en todas partes</h3>
-              <p>El mismo contenido, en tu red favorita: Instagram, X, TikTok, YouTube y Facebook.</p>
-            </div>
-            <div class="perfil-botones">
-              <a class="boton boton-solido" href="https://www.tiktok.com/@juanpaiprojects" target="_blank" rel="noopener">TikTok</a>
-              <a class="boton boton-contorno" href="https://www.youtube.com/@juanpaiprojects" target="_blank" rel="noopener">YouTube</a>
-              <a class="boton boton-contorno" href="https://www.facebook.com/100573032979969" target="_blank" rel="noopener">Facebook</a>
-            </div>
-          </div>
-        </div>
-      </details>
+      <div class="redes-fila" id="redes-fila"></div>
     </section>
 
 
@@ -337,7 +298,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=11"></script>
+  <script src="assets/js/main.js?v=12"></script>
   <!-- Brevo: textos de validación y envío del formulario de suscripción -->
   <script>
     window.REQUIRED_CODE_ERROR_MESSAGE = 'Elige un código de país';

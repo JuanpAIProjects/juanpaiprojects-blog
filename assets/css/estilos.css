@@ -147,6 +147,11 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 .nav a:hover { color: var(--verde); }
 
+/* El enlace de suscripción de la cabecera es un botón sólido: es la
+   acción principal del sitio y se distingue del resto de la nav. */
+.nav a.nav-boton { color: var(--crema); padding: 0.55rem 1.15rem; }
+.nav a.nav-boton:hover { color: var(--crema); background: var(--verde-oscuro); }
+
 /* Botones sociales del header: círculos con el glifo SVG de cada red,
    mismo tamaño, en la misma fila que la navegación. */
 .nav a.nav-social {
@@ -662,145 +667,231 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   font-style: italic;
 }
 
-/* ---------- Instagram y X ---------- */
 
-.ig-grid, .x-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.1rem;
-  margin-bottom: 1.1rem;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- Portada: suscripción en el hero, franja de registro
+   y fila compacta de redes (rediseño UX, 19 nov 2026) ---------- */
+
+/* El formulario del hero delega en el de cierre (ver main.js): aquí
+   solo vive su presentación. */
+.hero-form { margin-top: 1.9rem; max-width: 34rem; }
+
+.hero-form-etiqueta {
+  display: block;
+  font-family: var(--titular);
+  font-weight: 800;
+  font-size: 1.02rem;
+  margin-bottom: 0.55rem;
 }
 
-.ig-grid:empty, .x-grid:empty { display: none; }
+.hero-form-fila { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
-.ig-tarjeta, .x-tarjeta {
+.hero-form-fila input {
+  flex: 1 1 15rem;
+  min-width: 0;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--tinta);
+  background: var(--crema-2);
+  border: 2px solid var(--tinta);
+  border-radius: 999px;
+  padding: 0.72rem 1.15rem;
+}
+
+.hero-form-fila input:focus-visible {
+  outline: 3px solid var(--verde);
+  outline-offset: 2px;
+}
+
+.hero-form-nota { margin-top: 0.65rem; font-size: 0.88rem; color: var(--tinta-suave); }
+.hero-form-nota a { color: var(--verde); font-weight: 700; }
+
+.hero-leer { margin-top: 1.15rem; font-size: 0.98rem; color: var(--tinta-suave); }
+.enlace-leer { color: var(--verde); font-weight: 700; text-decoration: none; }
+.enlace-leer:hover { text-decoration: underline; }
+
+/* Franja de registro público: los datos verificables de la marca,
+   en una línea, alimentada desde posts.json y pronosticos.json. */
+.franja-registro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.6rem;
+  background: var(--crema-2);
+  border: 2px solid var(--tinta);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 0.95rem 1.4rem;
+}
+
+.franja-registro[hidden] { display: none; }
+
+.fr-dato { font-size: 0.98rem; color: var(--tinta-suave); }
+.fr-dato strong { font-family: var(--titular); font-size: 1.12rem; color: var(--tinta); }
+
+.fr-enlace {
+  margin-left: auto;
+  font-weight: 700;
+  color: var(--verde);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.fr-enlace:hover { text-decoration: underline; }
+
+/* Fila compacta «La pieza de hoy, también en…»: tarjetas chicas de
+   la última pieza de cada red; en móvil se deslizan en horizontal. */
+.redes-fila {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+}
+
+.redes-fila:empty { display: none; }
+
+.red-tarjeta {
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 0.45rem;
   background: var(--crema-2);
-  border: 1px solid var(--borde);
+  border: 2px solid var(--tinta);
   border-radius: var(--radio);
-  padding: 1.5rem;
-  text-decoration: none;
-  box-shadow: 0 4px 16px rgba(0, 52, 63, 0.05);
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.ig-tarjeta:hover, .x-tarjeta:hover {
-  border-color: var(--verde);
-  transform: translateY(-3px);
   box-shadow: var(--sombra);
+  padding: 1rem 1.1rem 1.1rem;
+  color: var(--tinta);
+  text-decoration: none;
+  min-width: 0;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-.ig-tarjeta .tema-chip, .x-tarjeta .tema-chip { align-self: flex-start; }
+.red-tarjeta:hover { transform: translateY(-3px); }
 
-/* Foto opcional de la publicación (campo "imagen" en ig.json).
-   Sangra hasta los bordes de la tarjeta; si falla, JS la retira. */
-.ig-imagen {
-  width: calc(100% + 3rem);
+.red-tarjeta-img {
+  width: calc(100% + 2.2rem);
   max-width: none;
-  margin: -1.5rem -1.5rem 0.1rem;
+  margin: -1rem -1.1rem 0.35rem;
   aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: center 10%;
   background: var(--crema-3);
+  border-radius: 14px 14px 0 0;
 }
 
-.ig-titulo {
+.red-tarjeta-red {
   font-family: var(--titular);
-  font-size: 1.16rem;
-  font-weight: 700;
-  line-height: 1.32;
-}
-
-.ig-resumen { color: var(--tinta-suave); font-size: 0.94rem; flex: 1; }
-
-.ig-meta { font-size: 0.83rem; font-weight: 700; color: var(--verde); }
-
-.x-texto {
-  color: var(--tinta);
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.55;
-  flex: 1;
-}
-
-.perfil-strip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  background: var(--crema-3);
-  border: 1.5px dashed var(--verde);
-  border-radius: var(--radio);
-  padding: 1.7rem 2rem;
-}
-
-.perfil-strip h3 {
-  font-family: var(--titular);
-  font-size: 1.3rem;
   font-weight: 800;
-  margin-bottom: 0.25rem;
-}
-
-.perfil-strip p { color: var(--tinta-suave); font-size: 0.96rem; }
-
-.perfil-botones { display: flex; flex-wrap: wrap; gap: 0.8rem; flex: 1 1 auto; min-width: 0; }
-
-/* ---------- En todas partes (sección social única de la portada) ----------
-   Tira con la última pieza de cada red y, debajo, el detalle por red
-   en desplegables cerrados por defecto (progressive disclosure): la
-   portada respira y el detalle completo sigue a un toque. Las tarjetas
-   se pintan desde ig.json, x.json, tiktok.json y youtube.json. */
-
-.redes-tira {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.1rem;
-  margin-bottom: 1.1rem;
-}
-
-.redes-tira:empty { display: none; }
-
-.red-detalle {
-  background: var(--crema-2);
-  border: 1px solid var(--borde);
-  border-radius: var(--radio);
-  margin-bottom: 1.1rem;
-  box-shadow: 0 4px 16px rgba(0, 52, 63, 0.05);
-}
-
-.red-detalle summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.1rem 1.5rem;
-  cursor: pointer;
-  list-style: none;
-  font-family: var(--titular);
-  font-size: 1.05rem;
-  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
-  color: var(--tinta);
-}
-
-.red-detalle summary::-webkit-details-marker { display: none; }
-
-.red-detalle summary::after {
-  content: "▾";
   color: var(--verde);
-  font-size: 1.15rem;
-  line-height: 1;
-  transition: transform 0.2s ease;
 }
 
-.red-detalle[open] summary::after { transform: rotate(180deg); }
+.red-tarjeta-titulo {
+  font-family: var(--titular);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
-.red-detalle-cuerpo { padding: 0 1.5rem 1.5rem; }
+.red-tarjeta-texto { font-family: inherit; font-weight: 500; font-size: 0.94rem; line-height: 1.45; }
 
-.red-detalle-cuerpo .seccion-nota { margin-top: 0; }
+.red-tarjeta-meta { margin-top: auto; font-size: 0.82rem; font-weight: 700; color: var(--tinta-suave); }
+
+/* Caja de suscripción tras la Aplicable, dentro del post: delega en
+   el formulario real del propio post (ver main.js). */
+.mini-suscripcion {
+  margin: 2.4rem 0;
+  background: var(--crema-2);
+  border: 2px solid var(--tinta);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 1.5rem 1.7rem;
+}
+
+.mini-suscripcion h3 {
+  font-family: var(--titular);
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.mini-suscripcion p { color: var(--tinta-suave); font-size: 0.97rem; margin-bottom: 0.9rem; }
+
+/* Fila de compartir superior del post: solo X, WhatsApp y copiar. */
+.compartir-arriba { margin-top: 1.4rem; }
+
+/* Barra de suscripción de los posts: la crea main.js tras ~45 % de
+   scroll; fina, descartable y solo en /posts/. */
+.barra-correo {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0.9rem;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  max-width: min(92vw, 34rem);
+  background: var(--tinta);
+  color: var(--crema);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0, 52, 63, 0.35);
+  padding: 0.55rem 0.6rem 0.55rem 1.2rem;
+  font-size: 0.92rem;
+}
+
+.barra-correo[hidden] { display: none; }
+
+.barra-correo-texto { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.barra-correo-boton {
+  background: var(--verde);
+  color: var(--crema);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  white-space: nowrap;
+}
+.barra-correo-boton:hover { background: var(--verde-oscuro); }
+
+.barra-correo-cerrar {
+  background: transparent;
+  border: 0;
+  color: var(--crema);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.2rem 0.45rem;
+}
+
+/* Que el formulario de Brevo no quede tapado por la barra de
+   progreso al saltar a él desde la barra de correo o el hero. */
+#sib-form { scroll-margin-top: 96px; }
 
 /* ---------- Suscripción (sección invertida teal) ---------- */
 
@@ -992,9 +1083,10 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 /* ---------- Artículo ---------- */
 
 .articulo {
-  max-width: 46rem;
+  max-width: 43rem;
   margin: 0 auto;
   padding: 3.6rem 0 1rem;
+  font-size: 1.125rem;
 }
 
 .articulo .kicker { margin-bottom: 1.2rem; }
@@ -1158,7 +1250,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 /* ---------- Compartir (posts) ---------- */
 
 .compartir {
-  max-width: 46rem;
+  max-width: 43rem;
   margin: 2.4rem auto 0;
   display: flex;
   align-items: center;
@@ -1195,7 +1287,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 /* ---------- CTA de post (invertida teal) ---------- */
 
 .cta-post {
-  max-width: 46rem;
+  max-width: 43rem;
   margin: 2.6rem auto 0;
   background: var(--tinta);
   color: var(--crema);
@@ -1253,7 +1345,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .cta-post .compartir-btn:hover { background: var(--crema); color: var(--tinta); }
 
 .post-nav {
-  max-width: 46rem;
+  max-width: 43rem;
   margin: 2.2rem auto 3.4rem;
   display: flex;
   justify-content: space-between;
@@ -1408,8 +1500,7 @@ html.con-js .revelar.visible {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 920px) {
-  .ig-grid, .x-grid { grid-template-columns: 1fr 1fr; }
-  .redes-tira { grid-template-columns: 1fr 1fr; }
+  .redes-fila { grid-template-columns: 1fr 1fr; }
   .pie-grid { grid-template-columns: 1fr 1fr; }
   .sobre-grid { grid-template-columns: 1fr; }
   .sobre-foto { max-width: 320px; }
@@ -1417,6 +1508,16 @@ html.con-js .revelar.visible {
 }
 
 @media (max-width: 620px) {
+  .nav a.nav-boton { padding: 0.45rem 0.8rem; font-size: 0.85rem; }
+  .redes-fila {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.4rem;
+  }
+  .red-tarjeta { flex: 0 0 236px; scroll-snap-align: start; }
+  .fr-enlace { margin-left: 0; }
+  .barra-correo { font-size: 0.85rem; gap: 0.6rem; padding-left: 0.95rem; }
   body { font-size: 16px; }
   .contenedor { width: calc(100% - 2.2rem); }
   .cabecera-interna { gap: 0.7rem; padding: 0.6rem 0; }
@@ -1436,11 +1537,6 @@ html.con-js .revelar.visible {
   .destacado { padding: 1.7rem 1.4rem; }
   .post-fila { grid-template-columns: 1fr; gap: 0.4rem; padding: 1.2rem 0.4rem; }
   .post-resumen { white-space: normal; }
-  .ig-grid, .x-grid { grid-template-columns: 1fr; }
-  .redes-tira { grid-template-columns: 1fr; }
-  .red-detalle summary { padding: 1rem 1.2rem; }
-  .red-detalle-cuerpo { padding: 0 1.2rem 1.2rem; }
-  .perfil-strip { flex-direction: column; align-items: flex-start; }
   .pie-grid { grid-template-columns: 1fr; gap: 1.8rem; }
   .articulo { padding-top: 2.4rem; }
   .post-chips { flex-direction: row; align-items: center; }
@@ -1467,23 +1563,7 @@ html.con-js .revelar.visible {
   html.con-js .revelar { opacity: 1; transform: none; }
 }
 
-/* ---------- Video (TikTok / YouTube) ---------- */
 
-/* Reproductor vertical del Short más reciente: se ve y se reproduce en el blog. */
-.yt-embed {
-  max-width: 300px;
-  margin: 0 auto 1.4rem;
-  aspect-ratio: 9 / 16;
-  border-radius: var(--radio);
-  overflow: hidden;
-  background: var(--teal, #00343F);
-  box-shadow: var(--sombra);
-}
-.yt-embed:empty { display: none; }
-.yt-embed iframe { width: 100%; height: 100%; border: 0; display: block; }
-
-/* Portada vertical en las tarjetas de video. */
-.ig-imagen-vertical { aspect-ratio: 4 / 5; }
 
 /* ---------- Sigue leyendo (fin del post; auditoría 18 nov 2026) ---------- */
 .sigue-leyendo { margin: 2.2rem 0 0; }
