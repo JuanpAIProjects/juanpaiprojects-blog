@@ -2,6 +2,14 @@
  "perfil": "https://www.instagram.com/juanpaiprojects/",
  "publicaciones": [
   {
+   "titulo": "81,310 millones en un día: hoy la IA tiene precio de bolsa",
+   "resumen": "Anthropic debuta en Nasdaq como ANT a 83 dólares, arriba del rango de 70 a 78: captó 81,310 millones, la salida a bolsa más grande de la historia. La columna es Darío Amodei, que dejó OpenAI para fundar al rival seguro, con el remate de la participación de FTX.",
+   "url": "https://www.instagram.com/p/Df7lb-CDgf1/",
+   "fecha": "2026-11-19",
+   "tipo": "Carrusel",
+   "imagen": "assets/video/2026-11-19-anthropic-ipo-mas-grande-cover.jpg"
+  },
+  {
    "titulo": "Google ya llama y paga por ti. En México todavía no es gratis",
    "resumen": "Tasks, el modo agente de Gemini, ya es gratis en solo 6 países y México no está en la lista; la alternativa gratis de hoy aquí es Qwen Chat, con búsqueda, Deep Research y modo agente.",
    "url": "https://www.instagram.com/p/Df5I30dExd-/",
