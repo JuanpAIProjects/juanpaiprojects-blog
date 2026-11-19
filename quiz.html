@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué tan expuesto estás a la IA? — El quiz — Juanpai Projects</title>
+  <meta name="description" content="Siete preguntas, dos minutos: descubre tu nivel de exposición a la IA en tu trabajo, tu dinero y tu negocio, con tu lectura frente por frente y una Aplicable para hoy. El resultado se ve en pantalla, sin dar tu correo.">
+  <link rel="canonical" href="https://juanpaiprojects.netlify.app/quiz.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Juanpai Projects">
+  <meta property="og:title" content="¿Qué tan expuesto estás a la IA? — El quiz">
+  <meta property="og:description" content="Tu trabajo, tu dinero y tu negocio ya se están moviendo con la IA. Este quiz te dice cuánto, frente por frente, y te deja una Aplicable para hoy.">
+  <meta property="og:url" content="https://juanpaiprojects.netlify.app/quiz.html">
+  <meta property="og:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="¿Qué tan expuesto estás a la IA? — El quiz">
+  <meta name="twitter:description" content="Siete preguntas y tu nivel de exposición a la IA, frente por frente, con una Aplicable para hoy. Sin dar tu correo.">
+  <meta name="twitter:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icono-app.png">
+  <script>document.documentElement.className += " con-js";</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+  <link rel="stylesheet" href="assets/css/estilos.css?v=10">
+  <style>
+    .quiz { background: var(--crema-2); border: 1px solid var(--borde); border-left: 5px solid var(--verde); border-radius: 12px; padding: 1.5rem 1.6rem 1.6rem; box-shadow: 0 4px 18px rgba(0, 52, 63, 0.06); max-width: 46rem; margin-bottom: 2.6rem; }
+    .quiz-progreso { display: flex; align-items: center; gap: 1rem; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--tinta-tenue); margin-bottom: 1.1rem; }
+    .quiz-barra { flex: 1; height: 8px; background: var(--borde); border-radius: 99px; overflow: hidden; }
+    .quiz-barra-fill { height: 100%; background: var(--verde); border-radius: 99px; transition: width 0.35s ease; }
+    .quiz-frente { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--verde); margin: 0 0 0.45rem; }
+    .quiz-pregunta { font-family: var(--titular); font-size: clamp(1.35rem, 3vw, 1.85rem); font-weight: 800; line-height: 1.22; letter-spacing: -0.01em; margin: 0 0 1.25rem; }
+    .quiz-opciones { display: grid; gap: 0.7rem; }
+    .quiz-opcion { appearance: none; -webkit-appearance: none; width: 100%; text-align: left; font: inherit; font-size: 1rem; line-height: 1.45; color: var(--tinta); background: #FFFDF8; border: 1px solid var(--borde); border-radius: 10px; padding: 0.9rem 1.1rem; cursor: pointer; transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease; }
+    .quiz-opcion:hover { border-color: var(--verde); transform: translateY(-1px); }
+    .quiz-opcion:focus-visible { outline: 3px solid var(--verde); outline-offset: 2px; }
+    .quiz-resultado { max-width: 46rem; margin-bottom: 2.6rem; }
+    .quiz-frentes { display: grid; gap: 0.8rem; margin: 1.4rem 0 1.6rem; }
+    .quiz-frente-fila { display: flex; gap: 0.95rem; align-items: flex-start; background: var(--crema-2); border: 1px solid var(--borde); border-radius: 10px; padding: 0.95rem 1.15rem; }
+    .quiz-frente-fila .qf-nombre { font-weight: 700; display: block; margin-bottom: 0.15rem; }
+    .quiz-frente-fila .qf-linea { color: var(--tinta-suave); line-height: 1.5; }
+    .quiz-chip { flex: none; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.65rem; border-radius: 99px; color: #FFFFFF; margin-top: 0.15rem; }
+    .quiz-chip.bajo { background: var(--verde); }
+    .quiz-chip.medio { background: var(--tinta); }
+    .quiz-chip.alto { background: var(--coral); }
+    .quiz-aplicable { background: var(--crema-2); border: 1px solid var(--borde); border-left: 5px solid var(--verde); border-radius: 12px; padding: 1.2rem 1.4rem 1.3rem; margin-bottom: 1.4rem; }
+    .quiz-aplicable .destacado-etiqueta { margin-bottom: 0.6rem; }
+    .quiz-aplicable p { line-height: 1.6; margin: 0; }
+    .quiz-nota { color: var(--tinta-tenue); font-size: 0.9rem; line-height: 1.55; margin-bottom: 1.6rem; }
+    @media (max-width: 620px) {
+      .quiz { padding: 1.15rem 1.05rem 1.25rem; }
+      .quiz-frente-fila { flex-direction: column; gap: 0.55rem; }
+      .quiz-progreso { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+<header class="cabecera">
+    <div class="contenedor cabecera-interna">
+      <a class="marca" href="index.html" aria-label="Juanpai Projects — Inicio">
+        <span class="marca-logo"><img src="assets/img/logo-sm.jpg" alt="" width="1024" height="1024"></span>
+      </a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="nav-inicio" href="index.html">Inicio</a>
+        <a href="archivo.html">Archivo</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="empieza-aqui.html">Empieza aquí</a>
+        <a href="index.html#suscripcion">Newsletter</a>
+        <a class="nav-social" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener" aria-label="Instagram — @juanpaiprojects"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.25"/><circle cx="17.35" cy="6.65" r="0.5" fill="currentColor" stroke="none"/></svg></a>
+        <a class="nav-social" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener" aria-label="X — @juanpaiprojects"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
+        <a class="nav-social" href="https://www.tiktok.com/@juanpaiprojects" target="_blank" rel="noopener" aria-label="TikTok — @juanpaiprojects"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
+        <a class="nav-social" href="https://www.youtube.com/@juanpaiprojects" target="_blank" rel="noopener" aria-label="YouTube — @juanpaiprojects"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg></a>
+        <a class="nav-social" href="https://www.facebook.com/100573032979969" target="_blank" rel="noopener" aria-label="Facebook — Juanpaiprojects"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.8V24C19.62 23.1 24 18.1 24 12.07z"/></svg></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="hero" style="padding-bottom: 2.4rem;">
+      <p class="kicker"><span class="kicker-linea"></span>Quiz · Tu exposición a la IA</p>
+      <h1>¿Qué tan expuesto estás <em>a la IA?</em></h1>
+      <p class="lede">Siete preguntas, dos minutos. La IA ya está moviendo tu trabajo, tu dinero y tu negocio; la pregunta es cuánto. Al final ves tu nivel aquí mismo, con tu lectura frente por frente y una Aplicable para hoy. Sin dar tu correo y sin letra chica: el resultado no está secuestrado.</p>
+    </section>
+
+    <section class="quiz" id="quiz" aria-live="polite">
+      <div class="quiz-progreso">
+        <span id="quiz-paso">Pregunta 1 de 7</span>
+        <div class="quiz-barra" role="progressbar" aria-label="Progreso del quiz" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" id="quiz-barra"><div class="quiz-barra-fill" id="quiz-fill" style="width: 0%;"></div></div>
+      </div>
+      <p class="quiz-frente" id="quiz-frente">Tu trabajo</p>
+      <h2 class="quiz-pregunta" id="quiz-pregunta">Cargando la primera pregunta…</h2>
+      <div class="quiz-opciones" id="quiz-opciones"></div>
+      <noscript><p>Este quiz necesita JavaScript para mostrarte las preguntas. La versión corta, sin quiz: si hoy no usas IA en tu trabajo, tu exposición inmediata es baja — y tu ventaja es el tiempo para aprender con calma.</p></noscript>
+    </section>
+
+    <section class="quiz-resultado" id="quiz-resultado" hidden></section>
+
+    <!-- Suscripción por correo (Brevo): el mismo bloque del index -->
+    <section class="seccion" id="suscripcion" style="padding-top: 0;">
+      <div class="suscripcion">
+        <div class="suscripcion-texto">
+          <h2>Y mañana, ¿qué se mueve?</h2>
+          <p>El quiz es una foto de hoy. La IA se mueve cada semana, y aquí se sigue a diario: cada mañana, una noticia verificada de IA y dinero con su <strong>Aplicable del día</strong>, el paso a paso listo para copiar y aplicar. Si quieres recibirla en tu correo, suscríbete: <strong>diario</strong>, con el post completo cada mañana, o <strong>semanal</strong>, con el resumen de los lunes. Sin spam.</p>
+        </div>
+        <div class="brevo">
+          <div class="sib-form">
+            <p class="form-nota">Al suscribirte aceptas el <a href="aviso-privacidad.html">aviso de privacidad</a>.</p>
+            <div id="sib-form-container" class="sib-form-container">
+              <div id="error-message" class="sib-form-message-panel">
+                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                  <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                    <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"/>
+                  </svg>
+                  <span class="sib-form-message-panel__inner-text">No hemos podido validar tu suscripción.</span>
+                </div>
+              </div>
+              <div></div>
+              <div id="success-message" class="sib-form-message-panel">
+                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                  <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                    <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z"/>
+                  </svg>
+                  <span class="sib-form-message-panel__inner-text">Se ha realizado tu suscripción.</span>
+                </div>
+              </div>
+              <div></div>
+              <div id="sib-container" class="sib-container--large sib-container--vertical">
+                <form id="sib-form" method="POST" action="https://3c274dd5.sibforms.com/serve/MUIFAIzpS0vgMH10VdM-0p9WTkqYSMPckaxtY5KBkFSmyTQvCWQ1eF6zsVoOxk_u6h7rZ-1QYmP4VUiA1AUq1Zk9E8iHsNxQjKIJtsifKVxHrD_yNEMRRAgQBC-V9l0yszlQyc_4iMMXUFOckDIPejb385XbkhRgPJ3XH3-UbMgTNfCLso2IabAN3M6ypQGip7COcQKXmCIID6Da5A==" data-type="subscription">
+                  <div class="sib-radiobutton-group sib-form-block" data-required="true">
+                    <div class="form__entry entry_mcq">
+                      <div class="form__label-row">
+                        <label class="entry__label" for="FRECUENCIA" data-required="*">Frecuencia</label>
+                        <div>
+                          <div class="entry__choice">
+                            <label>
+                              <input type="radio" name="FRECUENCIA" class="input_replaced" value="1" required checked>
+                              <span class="radio-button"></span><span>Diario</span>
+                            </label>
+                          </div>
+                          <div class="entry__choice">
+                            <label>
+                              <input type="radio" name="FRECUENCIA" class="input_replaced" value="2" required>
+                              <span class="radio-button"></span><span>Semanal</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <label class="entry__error entry__error--primary"></label>
+                    </div>
+                  </div>
+                  <div class="sib-optin sib-form-block">
+                    <div class="form__entry entry_mcq">
+                      <div class="form__label-row">
+                        <label class="entry__label" for="ULTIMAHORA">Última hora</label>
+                        <div class="entry__choice">
+                          <label>
+                            <input type="checkbox" class="input_replaced" value="1" id="ULTIMAHORA" name="ULTIMAHORA">
+                            <span class="checkbox checkbox_tick_positive"></span><span>Quiero también las noticias de última hora verificadas</span>
+                          </label>
+                        </div>
+                      </div>
+                      <label class="entry__error entry__error--primary"></label>
+                    </div>
+                  </div>
+                  <div class="sib-input sib-form-block">
+                    <div class="form__entry entry_block">
+                      <div class="form__label-row">
+                        <label class="entry__label" for="EMAIL" data-required="*">Tu correo</label>
+                        <div class="entry__field">
+                          <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="email" value="" placeholder="tunombre@correo.com" data-required="true" required>
+                        </div>
+                      </div>
+                      <label class="entry__error entry__error--primary"></label>
+                      <label class="entry__specification">Sin spam y sin vender tu correo a nadie; date de baja cuando quieras.</label>
+                    </div>
+                  </div>
+                  <div class="sib-form-block">
+                    <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
+                      <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
+                        <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"/>
+                      </svg>
+                      Suscribirme
+                    </button>
+                  </div>
+                  <input type="text" name="email_address_check" value="" class="input--hidden">
+                  <input type="hidden" name="locale" value="es">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<footer class="pie">
+    <div class="contenedor pie-grid">
+      <div>
+        <a class="pie-logo" href="index.html" aria-label="Juanpai Projects — Inicio">
+          <img src="assets/img/logo-sm.jpg" alt="Logotipo de Juanpai Projects" width="1024" height="1024">
+        </a>
+        <p class="pie-tag">Noticias verificadas e IA aplicada a negocios reales. Un dato, una herramienta y el paso a paso para aplicarla, cada día. Sin humo.</p>
+      </div>
+      <div>
+        <p class="pie-titulo">El blog</p>
+        <nav class="pie-nav" aria-label="Enlaces del pie">
+          <a href="index.html">Inicio</a>
+          <a href="archivo.html">Archivo de posts</a>
+          <a href="sobre-mi.html">Sobre mí</a>
+          <a href="asi-verificamos.html">Así verificamos</a>
+          <a href="aviso-privacidad.html">Aviso de privacidad</a>
+          <a href="pronosticos.html">Pronósticos</a>
+          <a href="quiz.html">Quiz: tu exposición a la IA</a>
+        </nav>
+      </div>
+      <div class="pie-ig">
+        <p class="pie-titulo">Redes</p>
+        <p>El contenido de cada día sale en Instagram, en versión corta en X y en video en TikTok y YouTube; Facebook lo publica completo. La conversación pasa allá.</p>
+        <a class="boton boton-claro" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.tiktok.com/@juanpaiprojects" target="_blank" rel="noopener">TikTok · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.youtube.com/@juanpaiprojects" target="_blank" rel="noopener">YouTube · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.facebook.com/100573032979969" target="_blank" rel="noopener">Facebook · Juanpaiprojects</a>
+      </div>
+    </div>
+    <div class="contenedor pie-base">
+      <p>© <span id="anio">2026</span> Juanpai Projects. Todos los derechos reservados.</p>
+      <p>Escrito desde proyectos reales, no desde un escritorio de consultoría.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=10"></script>
+
+  <script>
+    (function () {
+      var PREGUNTAS = [
+        { f: 0, q: "¿Cuánto de tu trabajo de cada semana ya lo hace — o ya lo podría hacer — una IA hoy?", o: [["Casi nada: mi trabajo es muy manual o muy de trato humano", 0], ["Algunas tareas sueltas, aquí y allá", 1], ["Una parte importante de mi semana", 2]] },
+        { f: 0, q: "Si tu empresa o tu área adopta la IA en serio el próximo año, tu puesto…", o: [["Queda prácticamente igual", 0], ["Cambia en una parte: unas tareas se van, otras llegan", 1], ["Se transforma fuerte — o sobra", 2]] },
+        { f: 0, q: "¿Cada cuándo usas herramientas de IA (ChatGPT, Gemini, Claude, Copilot…) para trabajar?", o: [["Nunca o casi nunca", 0], ["A veces, para cosas puntuales", 1], ["Todos los días: ya es parte de mi flujo", 2]] },
+        { f: 1, q: "¿Cuánto de tu dinero — ahorros, inversiones, fondo de retiro — está en empresas o fondos ligados a tecnología e IA?", o: [["Nada: no invierto, o invierto en otra cosa", 0], ["Una parte", 1], ["La mayoría", 2]] },
+        { f: 1, q: "Si la burbuja de la IA se desinfla mañana, tu bolsillo…", o: [["Ni se entera", 0], ["Lo siente un poco", 1], ["Lo siente fuerte y rápido", 2]] },
+        { f: 2, q: "En tu negocio — o en el de tu empleador — un competidor que automatice con IA antes que ustedes…", o: [["No nos mueve nada", 0], ["Nos quitaría algo de mercado", 1], ["Nos puede sacar del juego", 2]] },
+        { f: 2, q: "¿Cuánto de tu ingreso pasa por plataformas que reescriben sus reglas con IA (buscadores, redes, marketplaces, tu banco, tu software)?", o: [["Casi nada", 0], ["Una parte", 1], ["Prácticamente todo", 2]] }
+      ];
+      var FRENTES = ["Tu trabajo", "Tu dinero", "Tu negocio"];
+      var LINEAS = [
+        ["Tu chamba, hoy, no es lo primero que la IA se lleva.", "Parte de tu semana ya se puede automatizar — y alguien, en algún lugar, ya lo está haciendo.", "Tu trabajo ya cambió o está cambiando: tu ventaja está en manejar la IA mejor que los demás, no en ignorarla."],
+        ["Tu dinero casi no se entera de lo que pase con la IA.", "Una parte de tu dinero ya baila al ritmo de la tecnología, aunque no la veas.", "Si la IA estornuda, tu bolsillo se resfría: conviene saber exactamente por dónde entra el golpe."],
+        ["Tu negocio — o el de tu empleador — compite todavía en el mundo de antes.", "La competencia ya empezó a moverse en este frente; el reloj corre, pero todavía hay tiempo.", "Tu ingreso pasa por plataformas y reglas que la IA reescribe cada pocos meses: es tu frente más expuesto."]
+      ];
+      var NIVELES = [
+        { nombre: "Exposición baja", clase: "bajo",
+          lectura: "Hoy la IA te toca de lejos: ni tu trabajo, ni tu dinero ni tu negocio dependen todavía de ella. Eso no es blindaje, es ventaja de tiempo: puedes aprender con calma mientras otros van a reaccionar con prisa. El riesgo de este nivel no es la IA — es quedarse quieto mientras el piso se mueve despacio.",
+          aplicable: "Haz hoy tu primera prueba seria, y gratis: entra a un asistente de IA con plan gratuito (ChatGPT, Gemini o Qwen) y delégale una investigación real — por ejemplo, comparar 5 opciones de tu próxima compra o de un trámite, pidiéndole fuentes. Diez minutos. La idea no es impresionar a nadie: es ver con tus propios ojos qué ya puede hacer por ti." },
+        { nombre: "En transición", clase: "medio",
+          lectura: "La IA ya te mueve, pero a pedazos: hay frentes donde ya entró y frentes donde todavía no la ves venir. Es el nivel más común — y el más engañoso, porque la exposición crece justo por donde no estás mirando. La buena noticia: en este nivel, un paso bien dado por semana cambia la foto completa en pocos meses.",
+          aplicable: "Elige UNA tarea que repites cada semana — la que más tiempo te quite — y automatízala esta semana con IA, de principio a fin. Una sola, bien hecha. La exposición se trabaja tarea por tarea, no con diez pruebas a medias." },
+        { nombre: "Exposición alta", clase: "alto",
+          lectura: "La IA ya decide buena parte de tu semana y de tu dinero: si mañana cambia una regla, un precio o un algoritmo, lo sientes el mismo día. Este nivel no es malo — suele venir con ventaja sobre los demás — pero se administra: con plan B, con criterio propio y sin depender de una sola herramienta.",
+          aplicable: "Escribe hoy tu plan B: qué harías si tu herramienta principal de IA sube de precio, cambia sus reglas o desaparece mañana. Y prueba esta semana la alternativa gratuita que usarías en su lugar. Quien tiene plan B negocia; quien no, obedece." }
+      ];
+      var paso = document.getElementById("quiz-paso");
+      var barra = document.getElementById("quiz-barra");
+      var fill = document.getElementById("quiz-fill");
+      var frenteEl = document.getElementById("quiz-frente");
+      var preguntaEl = document.getElementById("quiz-pregunta");
+      var opcionesEl = document.getElementById("quiz-opciones");
+      var quizEl = document.getElementById("quiz");
+      var resultadoEl = document.getElementById("quiz-resultado");
+      var idx = 0, puntos = [0, 0, 0];
+
+      function nivelFrente(f, s) {
+        if (f === 0) { return s <= 2 ? 0 : (s <= 4 ? 1 : 2); }
+        return s <= 1 ? 0 : (s <= 3 ? 1 : 2);
+      }
+      function pintar() {
+        var p = PREGUNTAS[idx];
+        paso.textContent = "Pregunta " + (idx + 1) + " de " + PREGUNTAS.length;
+        barra.setAttribute("aria-valuenow", String(idx));
+        fill.style.width = (idx / PREGUNTAS.length * 100) + "%";
+        frenteEl.textContent = FRENTES[p.f];
+        preguntaEl.textContent = p.q;
+        opcionesEl.innerHTML = "";
+        p.o.forEach(function (op) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.className = "quiz-opcion";
+          b.textContent = op[0];
+          b.addEventListener("click", function () {
+            puntos[p.f] += op[1];
+            idx++;
+            if (idx < PREGUNTAS.length) { pintar(); } else { mostrarResultado(); }
+          });
+          opcionesEl.appendChild(b);
+        });
+      }
+      function mostrarResultado() {
+        var total = puntos[0] + puntos[1] + puntos[2];
+        var n = total <= 4 ? 0 : (total <= 9 ? 1 : 2);
+        var N = NIVELES[n];
+        var filas = FRENTES.map(function (nombre, f) {
+          var nf = nivelFrente(f, puntos[f]);
+          var etiqueta = nf === 0 ? "Bajo" : (nf === 1 ? "Medio" : "Alto");
+          var clase = nf === 0 ? "bajo" : (nf === 1 ? "medio" : "alto");
+          return '<div class="quiz-frente-fila"><span class="quiz-chip ' + clase + '">' + etiqueta + '</span><div><span class="qf-nombre">' + nombre + '</span><span class="qf-linea">' + LINEAS[f][nf] + '</span></div></div>';
+        }).join("");
+        resultadoEl.innerHTML =
+          '<div class="destacado" style="margin-bottom: 1.6rem;">' +
+            '<p class="destacado-etiqueta">Tu resultado</p>' +
+            '<h3 style="margin-top: 0;">' + N.nombre + '</h3>' +
+            '<p class="destacado-resumen" style="margin-bottom: 0;">' + N.lectura + '</p>' +
+          '</div>' +
+          '<h2 style="font-family: var(--titular); font-size: 1.3rem; margin: 0 0 0.4rem;">Frente por frente</h2>' +
+          '<div class="quiz-frentes">' + filas + '</div>' +
+          '<div class="quiz-aplicable">' +
+            '<p class="destacado-etiqueta">Tu Aplicable de hoy</p>' +
+            '<p>' + N.aplicable + '</p>' +
+          '</div>' +
+          '<p class="quiz-nota">Este quiz es una foto rápida de 7 preguntas, no un diagnóstico financiero ni laboral: sirve para ubicarte y dar el siguiente paso. Si quieres, repítelo en unos meses y compara tu foto.</p>' +
+          '<p><button type="button" class="boton boton-contorno" id="quiz-reiniciar">Volver a hacer el quiz</button> ' +
+          '<a class="boton boton-solido" href="index.html">Ver el dato de hoy</a></p>';
+        quizEl.hidden = true;
+        resultadoEl.hidden = false;
+        document.getElementById("quiz-reiniciar").addEventListener("click", function () {
+          idx = 0; puntos = [0, 0, 0];
+          resultadoEl.hidden = true;
+          quizEl.hidden = false;
+          pintar();
+          quizEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+        resultadoEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      pintar();
+    })();
+  </script>
+  <!-- Brevo: textos de validación y envío del formulario de suscripción -->
+  <script>
+    window.REQUIRED_CODE_ERROR_MESSAGE = 'Elige un código de país';
+    window.LOCALE = 'es';
+    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "La información que has proporcionado no es válida. Compruebe el formato del campo e inténtalo de nuevo.";
+    window.REQUIRED_ERROR_MESSAGE = "Este campo no puede quedarse vacío. ";
+    window.GENERIC_INVALID_MESSAGE = "La información que has proporcionado no es válida. Compruebe el formato del campo e inténtalo de nuevo.";
+    window.INVALID_NUMBER = "La información que has proporcionado no es válida. Compruebe el formato del campo e inténtalo de nuevo.";
+    window.INVALID_DATE = "Introduce una fecha válida";
+    window.REQUIRED_MULTISELECT_MESSAGE = 'Selecciona al menos una opción';
+    window.translation = {
+      common: {
+        selectedList: '{quantity} lista seleccionada',
+        selectedLists: '{quantity} listas seleccionadas',
+        selectedOption: '{quantity} seleccionado',
+        selectedOptions: '{quantity} seleccionados'
+      }
+    };
+    var AUTOHIDE = Boolean(0);
+  </script>
+  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "40091d6c8845470e86cf89aa213bc673"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
