@@ -2,7 +2,7 @@
  "fecha": "2026-11-19",
  "titulo": "Anthropic debuta hoy en Nasdaq: el IPO más grande de la historia",
  "resumen": "Anthropic, la empresa de IA detrás de Claude, debuta hoy como ANT tras fijar su precio en $83 y captar $81,310 millones: el primer cruce, esperado entre las 10:00 y las 12:00, es el dato que hoy le pone precio a la guerra de la IA.",
- "url": "https://x.com/1411751252334051329/status/2123464317253087556",
+ "url": "https://twitter.com/juanpaiprojects/status/2123554410034769966",
  "actualizaciones": [
   {
    "hora": "10:16",
@@ -11,6 +11,10 @@
   {
    "hora": "11:12",
    "texto": "PRIMER CRUCE CONFIRMADO: ANT abrió en $111.50, +34% sobre los $83 fijados ayer, con el primer cruce a las 11:48 a.m. ET (10:48 a.m. de México). Al precio de apertura, la valuación en base diluida ronda los $2 billones; en los primeros minutos se movieron más de 275 millones de acciones y el precio ya bajaba hacia $105. La predicción de esta cobertura se resolvió: sí, ANT abrió arriba del rango $70–78."
+  },
+  {
+   "hora": "17:10",
+   "texto": "CIERRE DEL DEBUT: ANT cerró en $97.17, +17% sobre los $83 de su salida pero -13% desde su apertura en $111.50 (máximo $115.10, mínimo $92.72). No sostuvo los $100. Wall Street revirtió de +2% en la mañana a -2% al cierre: S&P 500 -2.02% (sexta caída seguida), Nasdaq -2.25% y Dow -2.19%, bajo 50,000."
   }
  ],
  "seguimiento": [
@@ -22,8 +26,8 @@
   },
   {
    "titulo": "Nvidia tras su reporte récord",
-   "estado": "El beat del martes (ingresos de $115,800 millones) se desvaneció en la sesión de ayer: la acción cayó 2.89% y el mercado sigue castigando la falta de CEO permanente.",
-   "hora": "10:16",
+   "estado": "Nvidia siguió cayendo hoy: -3.3% a $145.98 y ya -40% desde su máximo del mes pasado, pese a su reporte récord del martes; el mercado sigue castigando la falta de CEO permanente.",
+   "hora": "17:10",
    "url": "posts/2026-11-17-nvidia-primer-reporte-sin-huang.html#seguimiento"
   },
   {
