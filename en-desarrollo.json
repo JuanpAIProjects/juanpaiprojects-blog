@@ -1,40 +1,32 @@
 {
+ "fecha": "2026-11-19",
+ "titulo": "Anthropic debuta hoy en Nasdaq: el IPO más grande de la historia",
+ "resumen": "Anthropic, la empresa de IA detrás de Claude, debuta hoy como ANT tras fijar su precio en $83 y captar $81,310 millones: el primer cruce, esperado entre las 10:00 y las 12:00, es el dato que hoy le pone precio a la guerra de la IA.",
+ "url": "posts/2026-11-19-anthropic-ipo-mas-grande.html",
  "actualizaciones": [
   {
-   "hora": "13:41",
-   "texto": "Hoy, al cierre de los mercados en Estados Unidos, se fija el precio final de la oferta. Mañana jueves es el debut en bolsa, y la cobertura completa va en la pieza del día."
-  },
-  {
-   "hora": "17:09",
-   "texto": "Precio fijado: $83 por acción, $5 arriba del tope del rango de $70 a $78, con una valuación cercana a $1.5 billones de dólares. Mañana jueves debuta en el Nasdaq como ANT."
-  },
-  {
-   "hora": "20:10",
-   "texto": "Tamaño final confirmado: 980 millones de acciones a $83 captan $81,310 millones, el IPO más grande de la historia, arriba de los $75,000 millones de SpaceX en junio. De las acciones, 956 millones son nuevas: ~$79,400 millones van directo a la empresa. Mañana debuta como ANT."
+   "hora": "10:16",
+   "texto": "Hoy debuta Anthropic en Nasdaq como ANT. El precio ya quedó fijado en $83, arriba del rango de $70 a $78, y el tamaño final es de 980 millones de acciones por $81,310 millones, el IPO más grande de la historia. El primer cruce suele darse entre las 10:00 y las 12:00, hora de México; las indicaciones previas rondan los $99.82. A las 10:30 corre el chequeo de primicia del debut."
   }
  ],
- "fecha": "2026-11-19",
- "resumen": "Anthropic, la empresa de IA detrás de Claude, protagoniza la salida a bolsa más esperada de la era de la IA: el rango guía es de $70 a $78 por acción y valúa a la empresa en cerca de $1.4 billones de dólares. Aquí va el seguimiento, actualización por actualización.",
  "seguimiento": [
   {
-   "estado": "Ingresos de $115,800 millones de dólares, arriba de lo guiado, con guía de $130,000 millones para el siguiente trimestre; el martes el S&P 500 cayó 1.03% y el mercado sigue haciendo cuentas con el dato.",
-   "hora": "13:41",
-   "titulo": "Nvidia reportó y el mercado digiere el dato",
-   "url": "posts/2026-11-17-nvidia-primer-reporte-sin-huang.html#seguimiento"
-  },
-  {
-   "estado": "Presenta resultados el jueves a las 6:00 am, hora de México: es la señal de consumo más vigilada de la temporada y puede mover a todo el sector.",
-   "hora": "15:05",
-   "titulo": "Walmart reporta mañana antes de que abran los mercados",
+   "titulo": "Walmart reportó: dato en línea, sin cobertura",
+   "estado": "Ingresos de $188,840 millones (+5.2%) y EPS ajustado de $0.65, en línea con lo esperado; el reporte salió plano para su condición de cobertura y su seguimiento entra al podcast privado de mañana.",
+   "hora": "10:16",
    "url": ""
   },
   {
-   "estado": "El Taiex cerró -4.4% y su regulador anunció frenos nuevos a las ventas en corto desde el viernes; la prueba sigue en la apertura de Wall Street y el debut de Anthropic de hoy.",
-   "hora": "02:09",
-   "titulo": "Taiwán cae -4.4% y frena las ventas en corto",
-   "url": "https://twitter.com/juanpaiprojects/status/2123328399095550013"
+   "titulo": "Nvidia tras su reporte récord",
+   "estado": "El beat del martes (ingresos de $115,800 millones) se desvaneció en la sesión de ayer: la acción cayó 2.89% y el mercado sigue castigando la falta de CEO permanente.",
+   "hora": "10:16",
+   "url": "posts/2026-11-17-nvidia-primer-reporte-sin-huang.html#seguimiento"
+  },
+  {
+   "titulo": "Taiwán y los frenos a las ventas en corto",
+   "estado": "El Taiex cayó 4.4% y su regulador anunció frenos nuevos desde el viernes; la prueba sigue en la apertura de Wall Street y en el debut de Anthropic de hoy.",
+   "hora": "10:16",
+   "url": ""
   }
- ],
- "titulo": "Anthropic sale a bolsa: hoy se fija el precio y mañana debuta",
- "url": "https://x.com/1411751252334051329/status/2123238071860593128"
+ ]
 }

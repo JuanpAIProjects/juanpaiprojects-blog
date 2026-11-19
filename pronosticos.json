@@ -1,1 +1,18 @@
-{"actualizado":"2026-11-18","pronosticos":[{"fecha":"2026-11-18","pronostico":"1.5× la mediana de Instagram (mediana de carruseles: ~9 vistas; esperado ~14), con los guardados como señal principal. Por qué: la Aplicable es un paso a paso copiable para hoy en México y el dato trae letra pequeña verificable (gratis solo en 6 países), que es lo que se guarda para revisar antes de pagar una suscripción.","resultado":"pendiente","tema":"Google ya llama y paga por ti. En México todavía no es gratis (Gemini Tasks + Aplicable Qwen Chat) — carrusel profundo de Instagram"}]}
+{
+ "actualizado": "2026-11-19",
+ "pronosticos": [
+  {
+   "fecha": "2026-11-18",
+   "pronostico": "1.5× la mediana de Instagram (mediana de carruseles: ~9 vistas; esperado ~14), con los guardados como señal principal. Por qué: la Aplicable es un paso a paso copiable para hoy en México y el dato trae letra pequeña verificable (gratis solo en 6 países), que es lo que se guarda para revisar antes de pagar una suscripción.",
+   "resultado": "pendiente",
+   "tema": "Google ya llama y paga por ti. En México todavía no es gratis (Gemini Tasks + Aplicable Qwen Chat) — carrusel profundo de Instagram"
+  },
+  {
+   "fecha": "2026-11-19",
+   "tema": "Anthropic sale a bolsa: el IPO más grande de la historia le pone precio a la IA (deep dive de cobertura ANT, Darío Amodei al centro y FTX/SBF de remate) — reel de Instagram",
+   "pronostico": "2× la mediana de Instagram (mediana del resumen del 16 nov: ~9 vistas; esperado ~18), con X como red fuerte esperada (hilo con pregunta de predicción) y los comentarios como señal principal.",
+   "resultado": "pendiente",
+   "nota": "Es el debut bursátil más grande de la historia, con precio ya fijado en $83 arriba del rango y la predicción viva desde ayer; la conversación se da hoy, antes y después del primer cruce."
+  }
+ ]
+}
