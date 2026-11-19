@@ -410,7 +410,8 @@
     if (!el) return;
     var pubs = (ig && ig.publicaciones) || [];
     if (!pubs.length) { el.innerHTML = ""; return; }
-    el.innerHTML = pubs.slice(0, 6).map(function (pub) {
+    // Solo las anteriores: la última (índice 0) ya vive en la tira.
+    el.innerHTML = pubs.slice(1, 7).map(function (pub) {
       // Campo opcional "imagen": URL pública de la foto del post.
       // Si la imagen falla al cargar, se retira y la tarjeta queda de texto.
       var imagen = pub.imagen
@@ -434,7 +435,8 @@
     if (!el) return;
     var entradas = (datos && datos.entradas) || [];
     if (!entradas.length) { el.innerHTML = ""; return; }
-    el.innerHTML = entradas.slice(0, 6).map(function (entrada) {
+    // Solo las anteriores: la última (índice 0) ya vive en la tira.
+    el.innerHTML = entradas.slice(1, 7).map(function (entrada) {
       var imagen = entrada.imagen
         ? '<img class="ig-imagen" src="' + esc(entrada.imagen) + '" alt="" loading="lazy" onerror="this.remove()">'
         : "";
@@ -470,7 +472,8 @@
     if (!el) return;
     var vids = (datos && datos.videos) || [];
     if (!vids.length) { el.innerHTML = ""; return; }
-    el.innerHTML = vids.slice(0, 3).map(function (v) {
+    // Solo los anteriores: el último (índice 0) ya vive en la tira.
+    el.innerHTML = vids.slice(1, 4).map(function (v) {
       return tarjetaVideo(v, "TikTok", "Ver en TikTok →");
     }).join("");
   }
@@ -487,16 +490,18 @@
     var el = document.getElementById("yt-grid");
     if (!el) return;
     if (!vids.length) { el.innerHTML = ""; return; }
-    el.innerHTML = vids.slice(0, 3).map(function (v) {
+    // Solo los anteriores: el último (índice 0) ya vive en la tira y en el embed.
+    el.innerHTML = vids.slice(1, 4).map(function (v) {
       return tarjetaVideo(v, "YouTube Shorts", "Ver en YouTube →");
     }).join("");
   }
 
   // Tira «En todas partes» de la portada: la última pieza de cada red
   // (Instagram, X, TikTok, YouTube) en una sola fila mixta. Se repinta
-  // conforme llega cada JSON; el detalle completo de cada red vive en
-  // los desplegables de la misma sección (ig-grid, x-grid, tk-grid,
-  // yt-grid), que pintan las funciones de arriba sin cambios.
+  // conforme llega cada JSON; los desplegables de la misma sección
+  // (ig-grid, x-grid, tk-grid, yt-grid) pintan solo las piezas
+  // ANTERIORES (desde la segunda de cada archivo), para que la última
+  // no se repita: vive únicamente aquí y, en YouTube, en el embed.
   var datosTira = {};
 
   function tarjetaTiraIG(pub) {
