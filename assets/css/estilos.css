@@ -1508,7 +1508,7 @@ html.con-js .revelar.visible {
 }
 
 @media (max-width: 620px) {
-  .nav a.nav-boton { padding: 0.45rem 0.8rem; font-size: 0.85rem; }
+  .nav a.nav-boton { padding: 0.4rem 0.7rem; font-size: 0.78rem; }
   .redes-fila {
     display: flex;
     overflow-x: auto;
