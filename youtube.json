@@ -3,6 +3,13 @@
  "perfil": "https://www.youtube.com/@juanpaiprojects",
  "videos": [
   {
+   "fecha": "2026-11-18",
+   "titulo": "El agente de Google ya paga por ti: México, fuera",
+   "url": "https://www.youtube.com/shorts/7sWrfak0n_4",
+   "videoId": "7sWrfak0n_4",
+   "imagen": "assets/video/2026-11-18-google-llama-y-paga-por-ti-cover.jpg"
+  },
+  {
    "fecha": "2026-11-17",
    "titulo": "Nvidia: 108,000 millones en un trimestre, sin su fundador",
    "url": "https://www.youtube.com/shorts/wlS--VKzRHw",
