@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Juanpalgoritmo — El sistema detrás de Juanpai Projects</title>
+  <meta name="description" content="El paper público del Juanpalgoritmo: el sistema que investiga, produce, publica, mide y se corrige solo en 6 superficies. Arquitectura, reglas, stack y costos reales: $399 MXN al mes. Gratis con tu correo.">
+  <link rel="canonical" href="https://juanpaiprojects.netlify.app/el-juanpalgoritmo.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Juanpai Projects">
+  <meta property="og:title" content="El Juanpalgoritmo — El sistema detrás de Juanpai Projects">
+  <meta property="og:description" content="El paper público del sistema que publica este blog todos los días: arquitectura, reglas, stack y costos reales. Gratis con tu correo.">
+  <meta property="og:url" content="https://juanpaiprojects.netlify.app/el-juanpalgoritmo.html">
+  <meta property="og:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="El Juanpalgoritmo — El sistema detrás de Juanpai Projects">
+  <meta name="twitter:description" content="El paper público del sistema que publica este blog todos los días. Gratis con tu correo.">
+  <meta name="twitter:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icono-app.png">
+  <script>document.documentElement.className += " con-js";</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+  <link rel="stylesheet" href="assets/css/estilos.css?v=10">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Juanpai Projects",
+    "url": "https://juanpaiprojects.netlify.app/",
+    "inLanguage": "es-MX",
+    "description": "Noticias verificadas de IA, finanzas y temas globales, e IA aplicada a negocios reales. Cada día: qué pasó, por qué importa y qué hacer.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Juanpai Projects",
+      "logo": "https://juanpaiprojects.netlify.app/assets/img/logo.jpg"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-interna">
+      <a class="marca" href="index.html" aria-label="Juanpai Projects — Inicio">
+        <span class="marca-logo"><img src="assets/img/logo-sm.jpg" alt="" width="1024" height="1024"></span>
+      </a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="nav-inicio" href="index.html">Inicio</a>
+        <a href="archivo.html">Archivo</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="empieza-aqui.html">Empieza aquí</a>
+        <a href="#suscripcion">Newsletter</a>
+        <a class="nav-social" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener" aria-label="Instagram — @juanpaiprojects"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.25"/><circle cx="17.35" cy="6.65" r="0.5" fill="currentColor" stroke="none"/></svg></a>
+        <a class="nav-social" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener" aria-label="X — @juanpaiprojects"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
+        <a class="nav-social" href="https://www.tiktok.com/@juanpaiprojects" target="_blank" rel="noopener" aria-label="TikTok — @juanpaiprojects"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
+        <a class="nav-social" href="https://www.youtube.com/@juanpaiprojects" target="_blank" rel="noopener" aria-label="YouTube — @juanpaiprojects"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg></a>
+        <a class="nav-social" href="https://www.facebook.com/100573032979969" target="_blank" rel="noopener" aria-label="Facebook — Juanpaiprojects"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.8V24C19.62 23.1 24 18.1 24 12.07z"/></svg></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero: el paper como imán del blog -->
+    <section class="hero">
+      <div class="contenedor">
+      <p class="kicker"><span class="kicker-linea"></span>El sistema detrás de este blog</p>
+      <h1>Todo lo que se publica aquí lo hace un sistema. <em>Este es su plano.</em></h1>
+      <p class="lede">El Juanpalgoritmo investiga, decide, produce, publica, mide y se corrige solo, todos los días, en este blog, Instagram, X, TikTok, YouTube y el newsletter. Su paper público cuenta cómo está armado, con qué reglas trabaja, qué herramientas usa y cuánto cuesta correrlo de verdad. Sin humo: también cuenta lo que no puede hacer.</p>
+      <div class="paper-datos">
+        <span>6 superficies · 1 pieza al día</span>
+        <span>Costo total: $399 MXN al mes</span>
+        <span>Sin 2 fuentes, no se publica</span>
+        <span>Se mide y se corrige cada semana</span>
+      </div>
+      <div class="hero-acciones">
+        <a class="boton boton-solido" href="#suscripcion">Quiero el paper gratis</a>
+        <a class="boton boton-contorno" href="#que-trae">Ver qué trae</a>
+      </div>
+      </div>
+    </section>
+
+    <div class="contenedor"><div class="regla-marca" aria-hidden="true"></div></div>
+
+    <section class="seccion contenedor" id="que-trae">
+      <div class="sobre-texto" style="max-width: 46rem;">
+        <h2>Qué trae el paper</h2>
+        <p>Es el resumen ejecutivo del documento técnico completo: la arquitectura y los principios, sin el paso a paso fino — ese vive en los módulos, cuando abran. Esto es lo que vas a leer:</p>
+        <ul class="paper-lista">
+          <li><strong>Qué es y cómo se organiza:</strong> las seis capas del sistema y cómo fluye una pieza desde la señal hasta la publicación.</li>
+          <li><strong>Las 11 reglas que no se negocian:</strong> verificación, hype real, contexto breve, anti-cringe y la prueba que toda pieza pasa antes de salir.</li>
+          <li><strong>El radar de cuatro señales</strong> y el radar de lo que viene: cómo se elige el tema del día antes de que sea tendencia.</li>
+          <li><strong>El orquestador:</strong> la jerarquía que decide qué se publica cuando el mismo día hay cobertura, secuela, noticia y tendencia.</li>
+          <li><strong>Medición y metacognición:</strong> medianas por red, pronóstico por pieza con su calificación semanal, y la vanguardia que propone los ajustes.</li>
+          <li><strong>Stack y costos reales:</strong> cada herramienta, su plan y su precio. El total es $399 MXN al mes; todo lo demás es capa gratuita.</li>
+          <li><strong>Límites honestos:</strong> lo que el sistema no promete y lo que no puede hacer.</li>
+          <li><strong>Cómo montar el tuyo:</strong> las cinco fases de arranque, en orden.</li>
+        </ul>
+        <p>Y al final, lo que sigue: los módulos en los que el sistema se va a ofrecer por partes, y cómo entra la primera cohorte.</p>
+      </div>
+    </section>
+
+    <!-- Suscripción por correo (Brevo). El enlace «Newsletter» del header apunta a #suscripcion -->
+    <section class="seccion contenedor revelar" id="suscripcion">
+      <div class="suscripcion">
+        <div class="suscripcion-texto">
+          <h2>El paper, con tu correo</h2>
+          <p>Déjame tu correo y <strong>el paper se abre en esta misma página</strong>. Además quedas en la <strong>lista de espera de la cohorte fundadora</strong> de los módulos del Juanpalgoritmo — cuando abra, los de la lista entran primero — y recibes el blog por correo al ritmo que elijas: <strong>diario</strong>, con el post completo cada mañana, o <strong>semanal</strong>, con el resumen de los lunes. Y si quieres, activa también las noticias de <strong>última hora</strong> verificadas.</p>
+        </div>
+        <!-- Formulario de Brevo (lista "Blog — Suscriptores"); se viste con estilos.css -->
+        <div class="brevo">
+          <div class="sib-form">
+            <p class="form-nota">Al suscribirte aceptas el <a href="aviso-privacidad.html">aviso de privacidad</a>.</p>
+            <div id="sib-form-container" class="sib-form-container">
+              <div id="error-message" class="sib-form-message-panel">
+                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                  <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                    <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"/>
+                  </svg>
+                  <span class="sib-form-message-panel__inner-text">No hemos podido validar tu suscripción.</span>
+                </div>
+              </div>
+              <div></div>
+              <div id="success-message" class="sib-form-message-panel">
+                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                  <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                    <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z"/>
+                  </svg>
+                  <span class="sib-form-message-panel__inner-text">Se ha realizado tu suscripción.</span>
+                </div>
+              </div>
+              <div></div>
+              <div id="sib-container" class="sib-container--large sib-container--vertical">
+                <form id="sib-form" method="POST" action="https://3c274dd5.sibforms.com/serve/MUIFAIzpS0vgMH10VdM-0p9WTkqYSMPckaxtY5KBkFSmyTQvCWQ1eF6zsVoOxk_u6h7rZ-1QYmP4VUiA1AUq1Zk9E8iHsNxQjKIJtsifKVxHrD_yNEMRRAgQBC-V9l0yszlQyc_4iMMXUFOckDIPejb385XbkhRgPJ3XH3-UbMgTNfCLso2IabAN3M6ypQGip7COcQKXmCIID6Da5A==" data-type="subscription">
+                  <div class="sib-radiobutton-group sib-form-block" data-required="true">
+                    <div class="form__entry entry_mcq">
+                      <div class="form__label-row">
+                        <label class="entry__label" for="FRECUENCIA" data-required="*">Frecuencia</label>
+                        <div>
+                          <div class="entry__choice">
+                            <label>
+                              <input type="radio" name="FRECUENCIA" class="input_replaced" value="1" required checked>
+                              <span class="radio-button"></span><span>Diario</span>
+                            </label>
+                          </div>
+                          <div class="entry__choice">
+                            <label>
+                              <input type="radio" name="FRECUENCIA" class="input_replaced" value="2" required>
+                              <span class="radio-button"></span><span>Semanal</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <label class="entry__error entry__error--primary"></label>
+                    </div>
+                  </div>
+                  <div class="sib-optin sib-form-block">
+                    <div class="form__entry entry_mcq">
+                      <div class="form__label-row">
+                        <label class="entry__label" for="ULTIMAHORA">Última hora</label>
+                        <div class="entry__choice">
+                          <label>
+                            <input type="checkbox" class="input_replaced" value="1" id="ULTIMAHORA" name="ULTIMAHORA">
+                            <span class="checkbox checkbox_tick_positive"></span><span>Quiero también las noticias de última hora verificadas</span>
+                          </label>
+                        </div>
+                      </div>
+                      <label class="entry__error entry__error--primary"></label>
+                    </div>
+                  </div>
+                  <div class="sib-input sib-form-block">
+                    <div class="form__entry entry_block">
+                      <div class="form__label-row">
+                        <label class="entry__label" for="EMAIL" data-required="*">Tu correo</label>
+                        <div class="entry__field">
+                          <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="email" value="" placeholder="tunombre@correo.com" data-required="true" required>
+                        </div>
+                      </div>
+                      <label class="entry__error entry__error--primary"></label>
+                      <label class="entry__specification">Sin spam y sin vender tu correo a nadie; date de baja cuando quieras.</label>
+                    </div>
+                  </div>
+                  <div class="sib-form-block">
+                    <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
+                      <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
+                        <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"/>
+                      </svg>
+                      Quiero el paper
+                    </button>
+                  </div>
+                  <input type="text" name="email_address_check" value="" class="input--hidden">
+                  <input type="hidden" name="locale" value="es">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Se revela cuando Brevo confirma la suscripción -->
+    <section class="contenedor" id="paper-listo" hidden style="padding-bottom: 2.6rem;">
+      <div class="paper-cta">
+        <div>
+          <p class="kicker">Ya es tuyo</p>
+          <h2>Tu suscripción quedó registrada</h2>
+          <p>El paper se abre con el botón. También quedaste en la lista de espera de la cohorte fundadora de los módulos del Juanpalgoritmo: cuando abra, los de la lista entran primero.</p>
+        </div>
+        <a class="boton boton-solido" href="paper-el-juanpalgoritmo.html">Leer el paper ahora</a>
+      </div>
+    </section>
+
+    <section class="seccion contenedor">
+      <div class="sobre-texto" style="max-width: 46rem;">
+        <h2>¿Y si lo quieres instalado?</h2>
+        <p>Este sistema es el módulo de <strong>Contenido</strong> de <strong>PRISMA OPS</strong>, que convierte el desorden operativo de un negocio en un sistema claro y propio. El mismo sistema con el que se publica Juanpai Projects todos los días puede correr para tu empresa o para ti, instalado y con acompañamiento.</p>
+        <p style="margin-top: 1.2rem;"><a class="boton boton-contorno" href="https://prismaops.netlify.app/sistema-de-contenido" target="_blank" rel="noopener">Ver el sistema en PRISMA</a></p>
+      </div>
+    </section>
+
+    <script>
+      (function () {
+        var listo = document.getElementById('paper-listo');
+        var ok = document.getElementById('success-message');
+        var form = document.getElementById('sib-form');
+        if (!listo || !ok || !form) return;
+        var activo = false;
+        function visible(el) { return !!(el.offsetParent !== null || el.getClientRects().length); }
+        function revisar() {
+          if (!activo) return;
+          if (visible(ok)) {
+            listo.hidden = false;
+            listo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            detener();
+          }
+        }
+        var obs = new MutationObserver(revisar);
+        var t = null;
+        function detener() { obs.disconnect(); if (t) clearInterval(t); }
+        form.addEventListener('submit', function () {
+          activo = true;
+          obs.observe(ok, { attributes: true, attributeFilter: ['style', 'class'] });
+          t = setInterval(revisar, 600);
+          setTimeout(detener, 120000);
+        });
+      })();
+    </script>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie-grid">
+      <div>
+        <a class="pie-logo" href="index.html" aria-label="Juanpai Projects — Inicio">
+          <img src="assets/img/logo-sm.jpg" alt="Logotipo de Juanpai Projects" width="1024" height="1024">
+        </a>
+        <p class="pie-tag">Noticias verificadas e IA aplicada a negocios reales. Un dato, una herramienta y el paso a paso para aplicarla, cada día. Sin humo.</p>
+      </div>
+      <div>
+        <p class="pie-titulo">El blog</p>
+        <nav class="pie-nav" aria-label="Enlaces del pie">
+          <a href="index.html">Inicio</a>
+          <a href="archivo.html">Archivo de posts</a>
+          <a href="el-juanpalgoritmo.html">El Juanpalgoritmo</a>
+          <a href="sobre-mi.html">Sobre mí</a>
+          <a href="asi-verificamos.html">Así verificamos</a>
+          <a href="aviso-privacidad.html">Aviso de privacidad</a>
+        </nav>
+      </div>
+      <div class="pie-ig">
+        <p class="pie-titulo">Redes</p>
+        <p>El contenido de cada día sale en Instagram, en versión corta en X y en video en TikTok y YouTube; Facebook lo publica completo. La conversación pasa allá.</p>
+        <a class="boton boton-claro" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.tiktok.com/@juanpaiprojects" target="_blank" rel="noopener">TikTok · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.youtube.com/@juanpaiprojects" target="_blank" rel="noopener">YouTube · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.facebook.com/100573032979969" target="_blank" rel="noopener">Facebook · Juanpaiprojects</a>
+      </div>
+    </div>
+    <div class="contenedor pie-base">
+      <p>© <span id="anio">2026</span> Juanpai Projects. Todos los derechos reservados.</p>
+      <p>Escrito desde proyectos reales, no desde un escritorio de consultoría.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=9"></script>
+  <!-- Brevo: textos de validación y envío del formulario de suscripción -->
+  <script>
+    window.REQUIRED_CODE_ERROR_MESSAGE = 'Elige un código de país';
+    window.LOCALE = 'es';
+    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "La información que has proporcionado no es válida. Compruebe el formato del campo e inténtalo de nuevo.";
+    window.REQUIRED_ERROR_MESSAGE = "Este campo no puede quedarse vacío. ";
+    window.GENERIC_INVALID_MESSAGE = "La información que has proporcionado no es válida. Compruebe el formato del campo e inténtalo de nuevo.";
+    window.INVALID_NUMBER = "La información que has proporcionado no es válida. Compruebe el formato del campo e inténtalo de nuevo.";
+    window.INVALID_DATE = "Introduce una fecha válida";
+    window.REQUIRED_MULTISELECT_MESSAGE = 'Selecciona al menos una opción';
+    window.translation = {
+      common: {
+        selectedList: '{quantity} lista seleccionada',
+        selectedLists: '{quantity} listas seleccionadas',
+        selectedOption: '{quantity} seleccionado',
+        selectedOptions: '{quantity} seleccionados'
+      }
+    };
+    var AUTOHIDE = Boolean(0);
+  </script>
+  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "40091d6c8845470e86cf89aa213bc673"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
