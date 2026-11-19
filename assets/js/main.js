@@ -275,19 +275,23 @@
   // Página «Pronósticos a la vista»: el registro público de
   // calibración de la marca, pintado desde pronosticos.json (el mismo
   // registro que el generador escribe antes de cada pieza y que la
-  // vanguardia califica cada lunes). Marcador calculado (totales y %
-  // de acierto solo sobre los ya calificados) y lista del más
-  // reciente al más viejo, con probabilidad y nota cuando constan.
+  // vanguardia califica cada lunes). Dos secciones por el campo
+  // «tipo»: predicciones de EVENTOS (con su probabilidad declarada y
+  // su «resolucion» cuando el evento ya pasó) y pronósticos de
+  // CONTENIDO (las entradas sin «tipo» cuentan como contenido).
+  // Marcador calculado por sección (totales y % de acierto solo
+  // sobre los ya calificados) y lista del más reciente al más viejo.
   // Sin datos, la página enseña el trato y un vacío honesto: nunca
   // una lista inventada.
   function pintarPronosticos() {
-    var marcador = document.getElementById("pronosticos-marcador");
-    var lista = document.getElementById("pronosticos-lista");
-    if (!marcador || !lista) return;
-    var vacio = document.getElementById("pronosticos-vacio");
-    cargarJSON("pronosticos.json").then(function (d) {
-      var items = (d && Array.isArray(d.pronosticos)) ? d.pronosticos.slice() : [];
-      items.sort(function (a, b) { return String(b.fecha || "").localeCompare(String(a.fecha || "")); });
+    var marcadorC = document.getElementById("pronosticos-marcador");
+    var listaC = document.getElementById("pronosticos-lista");
+    if (!marcadorC || !listaC) return;
+    var vacioC = document.getElementById("pronosticos-vacio");
+    var marcadorE = document.getElementById("pronosticos-marcador-eventos");
+    var listaE = document.getElementById("pronosticos-lista-eventos");
+    var vacioE = document.getElementById("pronosticos-vacio-eventos");
+    function pintarSeccion(items, marcador, lista, vacio, txt) {
       var aciertos = 0, parciales = 0, fallos = 0, pendientes = 0;
       items.forEach(function (p) {
         if (p.resultado === "acierto") aciertos++;
@@ -296,23 +300,21 @@
         else pendientes++;
       });
       var calificados = aciertos + parciales + fallos;
-      var texto = items.length + (items.length === 1 ? " pronóstico publicado" : " pronósticos publicados");
+      var texto = items.length + " " + (items.length === 1 ? txt.uno + " " + txt.publicado : txt.muchos + " " + txt.publicados);
       if (calificados) {
         texto += " · " + aciertos + (aciertos === 1 ? " acierto" : " aciertos") +
           " · " + parciales + (parciales === 1 ? " parcial" : " parciales") +
           " · " + fallos + (fallos === 1 ? " fallo" : " fallos") +
           " · acierto en el " + Math.round((aciertos / calificados) * 100) + "% de los calificados";
-        if (pendientes) texto += " · " + pendientes + (pendientes === 1 ? " en espera de calificación" : " en espera de calificación");
+        if (pendientes) texto += " · " + pendientes + " en espera de calificación";
       } else if (items.length) {
-        texto += " · primeras calificaciones: el lunes, contra las métricas medidas";
+        texto += txt.sinCalificados;
       } else {
-        texto = "Todavía no hay pronósticos publicados ni calificados.";
+        texto = txt.vacioMarcador;
       }
-      marcador.textContent = texto;
-      var act = document.getElementById("pronosticos-actualizado");
-      if (act && d && d.actualizado) act.textContent = "Actualizado " + fechaCorta(d.actualizado);
+      if (marcador) marcador.textContent = texto;
       if (!items.length) {
-        if (vacio) { vacio.textContent = "Todavía no hay pronósticos publicados."; vacio.hidden = false; }
+        if (vacio) { vacio.textContent = txt.vacioLista; vacio.hidden = false; }
         return;
       }
       if (vacio) vacio.hidden = true;
@@ -343,15 +345,74 @@
         else if (p.resultado === "parcial") { chip.className = "tema-chip"; chip.textContent = "Parcial"; }
         else { chip.className = "tema-chip"; chip.textContent = "Pendiente"; }
         cuerpo.appendChild(chip);
+        if (p.resolucion) {
+          cuerpo.appendChild(document.createTextNode(" Resultado: " + p.resolucion));
+        }
         if (p.nota) {
           cuerpo.appendChild(document.createTextNode(" " + p.nota));
         }
         li.appendChild(cuerpo);
         lista.appendChild(li);
       });
+    }
+    cargarJSON("pronosticos.json").then(function (d) {
+      var items = (d && Array.isArray(d.pronosticos)) ? d.pronosticos.slice() : [];
+      items.sort(function (a, b) { return String(b.fecha || "").localeCompare(String(a.fecha || "")); });
+      var eventos = items.filter(function (p) { return p.tipo === "evento"; });
+      var contenido = items.filter(function (p) { return p.tipo !== "evento"; });
+      var act = document.getElementById("pronosticos-actualizado");
+      if (act && d && d.actualizado) act.textContent = "Actualizado " + fechaCorta(d.actualizado);
+      if (marcadorE && listaE) {
+        pintarSeccion(eventos, marcadorE, listaE, vacioE, {
+          uno: "predicción de evento", muchos: "predicciones de eventos",
+          publicado: "publicada", publicados: "publicadas",
+          sinCalificados: " · primeras calificaciones: el lunes, contra lo que de verdad pasó",
+          vacioMarcador: "Todavía no hay predicciones de eventos publicadas ni calificadas.",
+          vacioLista: "Todavía no hay predicciones de eventos publicadas: la primera entra cuando una cobertura abra una predicción medible."
+        });
+      }
+      pintarSeccion(contenido, marcadorC, listaC, vacioC, {
+        uno: "pronóstico", muchos: "pronósticos",
+        publicado: "publicado", publicados: "publicados",
+        sinCalificados: " · primeras calificaciones: el lunes, contra las métricas medidas",
+        vacioMarcador: "Todavía no hay pronósticos publicados ni calificados.",
+        vacioLista: "Todavía no hay pronósticos publicados."
+      });
     }).catch(function () {
-      if (vacio) { vacio.textContent = "No se pudo cargar el registro."; vacio.hidden = false; }
+      if (vacioC) { vacioC.textContent = "No se pudo cargar el registro."; vacioC.hidden = false; }
+      if (vacioE) { vacioE.textContent = "No se pudo cargar el registro."; vacioE.hidden = false; }
     });
+  }
+
+  // Mini-bloque del registro al final de cada post (lo trae la
+  // plantilla): una línea con el marcador acumulado del registro
+  // público — aciertos de calificados cuando ya los hay; si no,
+  // solo el conteo de pronósticos — y el enlace al registro
+  // completo, pintada desde pronosticos.json (eventos + contenido).
+  // Si no hay ningún pronóstico registrado, el bloque no se pinta.
+  function pintarRegistroMini() {
+    var el = document.getElementById("registro-mini");
+    if (!el) return;
+    cargarJSON("pronosticos.json").then(function (d) {
+      var items = (d && Array.isArray(d.pronosticos)) ? d.pronosticos : [];
+      if (!items.length) return;
+      var aciertos = 0, calificados = 0;
+      items.forEach(function (p) {
+        if (p.resultado === "acierto") { aciertos++; calificados++; }
+        else if (p.resultado === "parcial" || p.resultado === "fallo") { calificados++; }
+      });
+      var texto = "Registro público: " + items.length + (items.length === 1 ? " pronóstico" : " pronósticos");
+      if (calificados) {
+        texto += " · " + aciertos + (aciertos === 1 ? " acierto" : " aciertos") +
+          " de " + calificados + (calificados === 1 ? " calificado" : " calificados");
+      }
+      el.textContent = texto + " — ";
+      var a = document.createElement("a");
+      a.href = base() + "pronosticos.html";
+      a.textContent = "Ver el registro →";
+      el.appendChild(a);
+      el.hidden = false;
+    }).catch(function () {});
   }
 
   function pintarDestacado(post) {
@@ -723,6 +784,7 @@
 
     if (document.querySelector(".pieza-iconos")) pintarIconosRedes();
     if (document.getElementById("franja-registro")) pintarFranjaRegistro();
+    if (document.getElementById("registro-mini")) pintarRegistroMini();
   }
 
   if (document.readyState === "loading") {

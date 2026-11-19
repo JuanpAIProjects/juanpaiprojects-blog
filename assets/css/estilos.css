@@ -152,30 +152,6 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .nav a.nav-boton { color: var(--crema); padding: 0.55rem 1.15rem; }
 .nav a.nav-boton:hover { color: var(--crema); background: var(--verde-oscuro); }
 
-/* Botones sociales del header: círculos con el glifo SVG de cada red,
-   mismo tamaño, en la misma fila que la navegación. */
-.nav a.nav-social {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  flex: none;
-  border: 1.5px solid var(--tinta);
-  border-radius: 50%;
-  background: var(--crema);
-  color: var(--tinta);
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-.nav a.nav-social:hover {
-  background: var(--verde);
-  border-color: var(--verde);
-  color: var(--crema);
-}
-
-.nav a.nav-social svg { display: block; }
-
 /* ---------- Botones y enlaces ---------- */
 
 .boton {
@@ -760,9 +736,8 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .fr-enlace:hover { text-decoration: underline; }
 
 /* Línea compacta «La pieza de hoy también en…»: solo el texto y
-   los 5 iconos circulares, con el mismo estilo que los de la
-   cabecera (.nav a.nav-social). Sin tarjetas ni portadas
-   repetidas: las redes con su @ viven solo en el pie. */
+   los 5 iconos circulares. Sin tarjetas ni portadas repetidas:
+   las redes con su @ viven solo en el pie. */
 .pieza-en {
   display: flex;
   align-items: center;
@@ -1519,13 +1494,11 @@ html.con-js .revelar.visible {
   .cabecera-interna { gap: 0.7rem; padding: 0.6rem 0; }
   .marca-logo { width: 46px; height: 37px; border-radius: 8px; }
   .marca-logo img { width: 65.9px; height: 65.9px; left: -10.9px; top: -2.9px; }
-  /* Header en UNA sola fila: logo, navegación e iconos sociales.
+  /* Header en UNA sola fila: logo y navegación.
      "Inicio" se oculta en móvil: el logo ya enlaza a la portada. */
   .nav { gap: 0.55rem; flex-wrap: nowrap; justify-content: flex-end; }
   .nav a { font-size: 0.65rem; letter-spacing: 0.05em; white-space: nowrap; }
   .nav a.nav-inicio { display: none; }
-  .nav a.nav-social { width: 28px; height: 28px; }
-  .nav a.nav-social svg { width: 15px; height: 15px; }
   /* Sin la regla decorativa, título y chip caben en una línea. */
   .seccion-encabezado { justify-content: space-between; }
   .seccion-encabezado .regla { display: none; }
@@ -1543,14 +1516,6 @@ html.con-js .revelar.visible {
   .brevo .sib-form-block__button { width: 100%; text-align: center; }
   .cta-post { padding: 1.8rem 1.4rem; }
   .cta-post-fila { flex-direction: column; align-items: flex-start; }
-}
-
-/* En pantallas muy chicas (<480 px) los iconos sociales salen del
-   header para que la navegación respire: las redes siguen en la
-   sección social de la portada y en el pie de todas las páginas.
-   En escritorio el header no cambia. */
-@media (max-width: 479px) {
-  .nav a.nav-social { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
