@@ -227,10 +227,12 @@
         var form = document.getElementById('sib-form');
         if (!listo || !ok || !form) return;
         var activo = false;
+        try { if (localStorage.getItem('jpPaper') === '1') { listo.hidden = false; activo = false; } } catch (e) {}
         function visible(el) { return !!(el.offsetParent !== null || el.getClientRects().length); }
         function revisar() {
           if (!activo) return;
           if (visible(ok)) {
+            try { localStorage.setItem('jpPaper', '1'); } catch (e) {}
             listo.hidden = false;
             listo.scrollIntoView({ behavior: 'smooth', block: 'center' });
             detener();
