@@ -3,6 +3,13 @@
  "perfil": "https://www.youtube.com/@juanpaiprojects",
  "videos": [
   {
+   "fecha": "2026-11-19",
+   "titulo": "Anthropic captó 81,310 millones: el IPO récord de la IA",
+   "url": "https://www.youtube.com/shorts/12qolr3FSJQ",
+   "videoId": "12qolr3FSJQ",
+   "imagen": "assets/video/2026-11-19-anthropic-ipo-mas-grande-cover.jpg"
+  },
+  {
    "fecha": "2026-11-18",
    "titulo": "El agente de Google ya paga por ti: México, fuera",
    "url": "https://www.youtube.com/shorts/7sWrfak0n_4",
