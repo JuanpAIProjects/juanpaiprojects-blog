@@ -1,1 +1,30 @@
-{"fecha": "2026-11-20", "titulo": "Asia cierra su peor semana desde 2020: la venta de IA sigue", "resumen": "Al cierre del viernes en Asia, el índice Asia-Pacífico cayó 8.5% en la semana, su peor marca desde marzo de 2020; Taiwán perdió 17.5% en la semana. Ni el IPO récord de Anthropic ni el reporte récord de Nvidia frenaron la venta; la prueba pasa al cierre de Wall Street de hoy.", "url": "posts/2026-11-20-la-fiesta-que-se-volteo.html", "actualizaciones": [{"hora": "10:16", "texto": "Cierres de Asia confirmados por Reuters: Asia-Pacífico -3.3% en el día y -8.5% en la semana; Taiwán -6.2% hoy y -17.5% en la semana (la peor desde 1990), Corea del Sur -5.2% y Japón cerca de -5%. La pieza del día del blog explica la reversión y qué mirar al cierre de Wall Street."}], "seguimiento": [{"titulo": "Anthropic en su segundo día", "estado": "ANT cerró su debut en $97.17 (+17% sobre los $83 fijados) y hoy se vigila si defiende los $83; en premarket caía hacia $88–91.", "hora": "10:16", "url": "posts/2026-11-19-anthropic-ipo-mas-grande.html#seguimiento"}, {"titulo": "Nvidia tras su reporte récord", "estado": "California citó formalmente a Nvidia por la investigación sobre chips e información hacia China; se vigila su respuesta y la declaración de Huang del 1 dic.", "hora": "10:16", "url": "posts/2026-11-17-nvidia-primer-reporte-sin-huang.html#seguimiento"}]}
+{
+ "fecha": "2026-11-20",
+ "titulo": "Asia cierra su peor semana desde 2020: la venta de IA sigue",
+ "resumen": "Al cierre del viernes en Asia, el índice Asia-Pacífico cayó 8.5% en la semana, su peor marca desde marzo de 2020; Taiwán perdió 17.5% en la semana. Ni el IPO récord de Anthropic ni el reporte récord de Nvidia frenaron la venta; la prueba pasa al cierre de Wall Street de hoy.",
+ "url": "posts/2026-11-20-la-fiesta-que-se-volteo.html",
+ "actualizaciones": [
+  {
+   "hora": "10:16",
+   "texto": "Cierres de Asia confirmados por Reuters: Asia-Pacífico -3.3% en el día y -8.5% en la semana; Taiwán -6.2% hoy y -17.5% en la semana (la peor desde 1990), Corea del Sur -5.2% y Japón cerca de -5%. La pieza del día del blog explica la reversión y qué mirar al cierre de Wall Street."
+  },
+  {
+   "hora": "17:10",
+   "texto": "Wall Street confirmó la corrección al cierre: S&P 500 -3.7% (7 caídas seguidas, su peor racha desde febrero de 2020) y Nasdaq -5.28%, que borró sus ganancias de 2026; Anthropic tocó $83.05 y cerró en $88.91, arriba de su precio de salida."
+  }
+ ],
+ "seguimiento": [
+  {
+   "titulo": "Anthropic en su segundo día",
+   "estado": "ANT tocó $83.05 en el día y cerró en $88.91 (-8.5%): defendió los $83 de su precio de salida en su segundo día.",
+   "hora": "17:10",
+   "url": "posts/2026-11-19-anthropic-ipo-mas-grande.html#seguimiento"
+  },
+  {
+   "titulo": "Nvidia tras su reporte récord",
+   "estado": "Nvidia cerró el viernes -13.8% en el desplome de Wall Street; siguen vivas la citación de California y la declaración de Huang del 1 dic.",
+   "hora": "17:10",
+   "url": "posts/2026-11-17-nvidia-primer-reporte-sin-huang.html#seguimiento"
+  }
+ ]
+}

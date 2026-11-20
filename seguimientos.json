@@ -20,6 +20,11 @@
     "fecha": "2026-11-19",
     "hora": "20:09",
     "texto": "California entró al caso: el fiscal general Rob Bonta sirvió una citación investigativa a Nvidia para saber si chips avanzados o información confidencial llegaron a China y si la empresa engañó a inversionistas y al público. Bonta es la máxima autoridad legal de California, el estado donde Nvidia tiene su sede. La citación pide documentos para decidir si hubo violación a la ley estatal; no es un fallo ni una condena. Nvidia no respondió de inmediato y el anuncio salió tras el cierre del mercado."
+   },
+   {
+    "fecha": "2026-11-20",
+    "hora": "17:10",
+    "texto": "El desplome del viernes también pegó a Nvidia: cerró -13.8% en la peor jornada de la semana para los chips, pese a su reporte récord del martes. Reuters reportó que personal de la SEC, el regulador bursátil de Estados Unidos, examina prácticas contables de la empresa; la SEC declinó comentar."
    }
   ]
  },
@@ -34,6 +39,20 @@
     "fecha": "2026-11-19",
     "hora": "17:10",
     "texto": "Cierre del primer día: ANT cerró en $97.17, +17% sobre los $83 de su precio fijado, pero -13% desde su apertura en $111.50 y abajo de los $100. El máximo fue $115.10 y el mínimo $92.72. Wall Street, que subía cerca de +2% en la mañana, cerró en rojo: S&P 500 -2.02% en su sexta caída seguida, Nasdaq -2.25% y Dow -2.19%. El IPO récord no frenó la corrección."
+   },
+   {
+    "fecha": "2026-11-20",
+    "hora": "17:10",
+    "texto": "Segundo día: ANT cayó 8.5% y cerró en $88.91, pero defendió su precio de salida: su mínimo del día fue $83.05, a cinco centavos de los $83 fijados. Nvidia, el fabricante de los chips de IA, cerró -13.8% en el mismo desplome de Wall Street."
+   }
+  ]
+ },
+ "2026-11-20-la-fiesta-que-se-volteo": {
+  "actualizaciones": [
+   {
+    "fecha": "2026-11-20",
+    "hora": "17:10",
+    "texto": "El cierre de Wall Street confirmó lo que Asia anticipó: el S&P 500 cayó 3.7% a 6,910.39 y sumó siete caídas seguidas, su peor racha desde febrero de 2020, cerrando en corrección (más de 10% abajo de su récord del 6 de octubre). El Nasdaq cayó 5.28% y borró sus ganancias de 2026. Anthropic tocó $83.05 en el día y cerró en $88.91: defendió su precio de salida de $83."
    }
   ]
  }
