@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-19",
+ "actualizado": "2026-11-20",
  "pronosticos": [
   {
    "tipo": "contenido",
@@ -15,6 +15,14 @@
    "pronostico": "Pronostiqué que este reel rendía el doble que una pieza típica de la cuenta en Instagram, que la conversación más fuerte se daba en X — ahí la pieza salió con una pregunta para que la gente pronosticara el debut — y que lo que más iba a pesar eran los comentarios.",
    "resultado": "pendiente",
    "nota": "Es el debut bursátil más grande de la historia: el precio se fijó en $83, arriba del rango esperado, y la conversación se dio en vivo, antes y después de la apertura."
+  },
+  {
+   "tipo": "contenido",
+   "fecha": "2026-11-20",
+   "tema": "La fiesta que se volteó: ni el IPO más grande de la historia frenó la venta — carrusel de Instagram",
+   "pronostico": "Pronostiqué que este carrusel rendía mejor que una pieza típica de la cuenta — como 50% más — y que lo importante no serían las vistas, sino los guardados.",
+   "resultado": "pendiente",
+   "nota": "Es el día después del debut bursátil más grande de la historia y la pieza trae dos cosas que se guardan: el checklist de qué mirar en una semana de pánico y el paso a paso completo de una herramienta de soporte gratis y abierta."
   }
  ]
 }
