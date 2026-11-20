@@ -1,5 +1,20 @@
 [
  {
+  "fecha": "2026-11-20",
+  "titulo": "La fiesta que se volteó: ni el IPO más grande de la historia frenó la venta",
+  "resumen": "Cómo proteger tu dinero cuando la bolsa cae: Asia perdió 8.5% en una semana, su peor semana desde 2020 — Taiwán cayó 17.5%, su peor marca desde 1990 — y ni el IPO más grande de la historia frenó la venta: Anthropic abrió en 111.50 y cerró en 97.17. Con la tabla del día, el checklist de la semana de pánico y el paso a paso gratis de InteraOne.",
+  "url": "posts/2026-11-20-la-fiesta-que-se-volteo.html",
+  "tema": "IA y mercados",
+  "tipo": "noticia",
+  "lectura": "2 min",
+  "audio": "assets/audio/2026-11-20-la-fiesta-que-se-volteo.mp3",
+  "audioDuracion": "3 min 36 s",
+  "video": "assets/video/2026-11-20-la-fiesta-que-se-volteo.mp4",
+  "videoCover": "assets/video/2026-11-20-la-fiesta-que-se-volteo-cover.jpg",
+  "videoDuracion": "73 s",
+  "videoTiktok": "assets/video/2026-11-20-la-fiesta-que-se-volteo-tiktok.mp4"
+ },
+ {
   "fecha": "2026-11-19",
   "titulo": "81,310 millones en un día: hoy la IA tiene precio de bolsa",
   "resumen": "Anthropic debuta hoy en el Nasdaq como ANT a 83 dólares, arriba del rango de 70 a 78: captó 81,310 millones de dólares, la salida a bolsa más grande de la historia. La columna es Darío Amodei, que dejó OpenAI para fundar al rival seguro, con la tabla completa de la operación, el remate de FTX y el prompt gratis para leer cualquier debut en 10 minutos.",
