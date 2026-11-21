@@ -11,8 +11,9 @@
    la última pieza de cada red).
    Además: barra de progreso de lectura, barra de suscripción en los
    posts, formularios que delegan en el de Brevo, botones de
-   compartir, aparición al hacer scroll y el botón "Copiar" del
-   prompt. Sin build, JS plano.
+   compartir, aparición al hacer scroll, el botón "Copiar" del
+   prompt y la cabecera en dos estados (expandida arriba, compacta
+   al bajar). Sin build, JS plano.
    Ver README.md para el flujo de publicación.
    ============================================================ */
 
@@ -752,9 +753,28 @@
     Array.prototype.forEach.call(els, function (el) { observador.observe(el); });
   }
 
+  // Cabecera en dos estados: expandida arriba (lockup completo —
+  // foco y nombre — con la navegación en su propia hilera) y
+  // compacta al bajar: al pasar ~40 px se le pone la clase
+  // «compacto» y el CSS la adelgaza a una hilera (solo el foco,
+  // nav deslizable y botón chico), patrón del blog de Don Rosendo.
+  // Sin JS, la cabecera queda siempre expandida.
+  function activarCabeceraCompacta() {
+    var cabecera = document.querySelector("header.cabecera");
+    if (!cabecera) return;
+    function actualizar() {
+      var y = window.scrollY || window.pageYOffset || 0;
+      cabecera.classList.toggle("compacto", y > 40);
+    }
+    window.addEventListener("scroll", actualizar, { passive: true });
+    window.addEventListener("resize", actualizar);
+    actualizar();
+  }
+
   function iniciar() {
     var anio = document.getElementById("anio");
     if (anio) anio.textContent = new Date().getFullYear();
+    activarCabeceraCompacta();
     activarCopiar();
     activarCompartir();
     activarProgreso();

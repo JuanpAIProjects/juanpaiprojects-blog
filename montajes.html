@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/estilos.css?v=15">
+  <link rel="stylesheet" href="assets/css/estilos.css?v=16">
   <style>
     .caminos { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin: 1.8rem 0 2.6rem; }
     .camino { background: #FBF7EE; border: 2px solid var(--tinta); border-radius: 16px; padding: 1.6rem 1.7rem; }
@@ -44,15 +44,16 @@
   <header class="cabecera">
     <div class="contenedor cabecera-interna">
       <a class="marca" href="index.html" aria-label="Juanpai Projects — Inicio">
-        <span class="marca-logo"><img src="assets/img/logo-sm.jpg" alt="" width="1024" height="1024"></span>
+        <span class="marca-completa"><img src="assets/img/logo-sm.jpg" alt="" width="256" height="256"></span>
+        <span class="marca-foco" aria-hidden="true"><img src="assets/img/logo-sm.jpg" alt="" width="256" height="256"></span>
       </a>
+      <a class="boton boton-solido nav-boton" href="index.html#suscripcion">Suscribirme</a>
       <nav class="nav" aria-label="Navegación principal">
         <a class="nav-inicio" href="index.html">Inicio</a>
         <a href="archivo.html">Archivo</a>
         <a href="sobre-mi.html">Sobre mí</a>
         <a href="empieza-aqui.html">Empieza aquí</a>
         <a href="montajes.html" aria-current="page">Montajes</a>
-        <a href="index.html#suscripcion">Newsletter</a>
       </nav>
     </div>
   </header>
@@ -170,7 +171,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=14"></script>
+  <script src="assets/js/main.js?v=15"></script>
   <script>
     // Registro de montajes: se pinta desde montajes.json, en el
     // orden del archivo (la casa primero, luego cada cliente).
