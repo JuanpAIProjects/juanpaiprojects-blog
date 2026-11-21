@@ -1,5 +1,20 @@
 [
  {
+  "fecha": "2026-11-21",
+  "titulo": "Tu código ya tiene quien lo pruebe gratis: un segundo agente que caza los errores del primero",
+  "resumen": "Herramienta gratis para probar tu app con inteligencia artificial: TestSprite 4.0, el agente de pruebas independiente que fue número uno del día en Product Hunt, prueba en navegadores reales lo que programó otro agente — detectó 94% de los errores en su medición interna contra 86% de los agentes que programan — y su plan gratis (150 créditos al mes, un proyecto, sin tarjeta) hace el trabajo completo. Con el paso a paso y el texto listo para describir tu app.",
+  "url": "posts/2026-11-21-testsprite-prueba-tu-app-gratis.html",
+  "tema": "IA aplicada",
+  "tipo": "tip",
+  "lectura": "2 min",
+  "audio": "assets/audio/2026-11-21-testsprite-prueba-tu-app-gratis.mp3",
+  "audioDuracion": "2 min 29 s",
+  "video": "assets/video/2026-11-21-testsprite-prueba-tu-app-gratis.mp4",
+  "videoCover": "assets/video/2026-11-21-testsprite-prueba-tu-app-gratis-cover.jpg",
+  "videoDuracion": "36 s",
+  "videoTiktok": "assets/video/2026-11-21-testsprite-prueba-tu-app-gratis-tiktok.mp4"
+ },
+ {
   "fecha": "2026-11-20",
   "titulo": "La fiesta que se volteó: ni el IPO más grande de la historia frenó la venta",
   "resumen": "Cómo proteger tu dinero cuando la bolsa cae: Asia perdió 8.5% en una semana, su peor semana desde 2020 — Taiwán cayó 17.5%, su peor marca desde 1990 — y ni el IPO más grande de la historia frenó la venta: Anthropic abrió en 111.50 y cerró en 97.17. Con la tabla del día, el checklist de la semana de pánico y el paso a paso gratis de InteraOne.",
