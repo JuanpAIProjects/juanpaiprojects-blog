@@ -1482,7 +1482,7 @@ html.con-js .revelar.visible {
 }
 
 @media (max-width: 620px) {
-  .nav a.nav-boton { padding: 0.4rem 0.7rem; font-size: 0.78rem; }
+  .nav a.nav-boton { padding: 0.32rem 0.55rem; font-size: 0.67rem; }
   /* La línea de redes se parte en dos renglones si hace falta
      (texto e iconos), sin desborde horizontal. */
   .pieza-en { gap: 0.7rem 1rem; }
@@ -1491,13 +1491,13 @@ html.con-js .revelar.visible {
   .barra-correo { font-size: 0.85rem; gap: 0.6rem; padding-left: 0.95rem; }
   body { font-size: 16px; }
   .contenedor { width: calc(100% - 2.2rem); }
-  .cabecera-interna { gap: 0.7rem; padding: 0.6rem 0; }
+  .cabecera-interna { gap: 0.55rem; padding: 0.6rem 0; }
   .marca-logo { width: 46px; height: 37px; border-radius: 8px; }
   .marca-logo img { width: 65.9px; height: 65.9px; left: -10.9px; top: -2.9px; }
   /* Header en UNA sola fila: logo y navegación.
      "Inicio" se oculta en móvil: el logo ya enlaza a la portada. */
-  .nav { gap: 0.55rem; flex-wrap: nowrap; justify-content: flex-end; }
-  .nav a { font-size: 0.65rem; letter-spacing: 0.05em; white-space: nowrap; }
+  .nav { gap: 0.34rem; flex-wrap: nowrap; justify-content: flex-end; }
+  .nav a { font-size: 0.6rem; letter-spacing: 0.02em; white-space: nowrap; }
   .nav a.nav-inicio { display: none; }
   /* Sin la regla decorativa, título y chip caben en una línea. */
   .seccion-encabezado { justify-content: space-between; }
@@ -1516,6 +1516,18 @@ html.con-js .revelar.visible {
   .brevo .sib-form-block__button { width: 100%; text-align: center; }
   .cta-post { padding: 1.8rem 1.4rem; }
   .cta-post-fila { flex-direction: column; align-items: flex-start; }
+}
+
+/* Teléfonos angostos (≤430px): con «Montajes» la nav trae 5 piezas y el
+   botón; este ajuste compacto la mantiene en UNA sola hilera sin
+   desbordar. El logo se escala con la misma proporción de su recorte. */
+@media (max-width: 430px) {
+  .cabecera-interna { gap: 0.45rem; }
+  .marca-logo { width: 38px; height: 31px; border-radius: 7px; }
+  .marca-logo img { width: 54.4px; height: 54.4px; left: -9px; top: -2.4px; }
+  .nav { gap: 0.3rem; }
+  .nav a { font-size: 0.57rem; letter-spacing: 0.01em; }
+  .nav a.nav-boton { font-size: 0.63rem; padding: 0.3rem 0.5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
