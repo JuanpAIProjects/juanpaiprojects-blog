@@ -3,6 +3,13 @@
  "perfil": "https://www.youtube.com/@juanpaiprojects",
  "videos": [
   {
+   "fecha": "2026-11-20",
+   "titulo": "Asia perdió 8.5% en una semana: la bolsa se volteó",
+   "url": "https://www.youtube.com/shorts/8Ayat7lyw1k",
+   "videoId": "8Ayat7lyw1k",
+   "imagen": "assets/video/2026-11-20-la-fiesta-que-se-volteo-cover.jpg"
+  },
+  {
    "fecha": "2026-11-19",
    "titulo": "Anthropic captó 81,310 millones: el IPO récord de la IA",
    "url": "https://www.youtube.com/shorts/12qolr3FSJQ",
