@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-20",
+ "actualizado": "2026-11-21",
  "pronosticos": [
   {
    "tipo": "contenido",
@@ -23,6 +23,14 @@
    "pronostico": "Pronostiqué que este carrusel rendía mejor que una pieza típica de la cuenta — como 50% más — y que lo importante no serían las vistas, sino los guardados.",
    "resultado": "pendiente",
    "nota": "Es el día después del debut bursátil más grande de la historia y la pieza trae dos cosas que se guardan: el checklist de qué mirar en una semana de pánico y el paso a paso completo de una herramienta de soporte gratis y abierta."
+  },
+  {
+   "tipo": "contenido",
+   "fecha": "2026-11-21",
+   "tema": "Corrección oficial en Wall Street: la IA no se cayó, se cayó el precio que pagaban por ella — reel de Instagram",
+   "pronostico": "Pronostiqué que este reel rendía mejor que una pieza típica de la cuenta — como 50% más — y que lo que más iba a pesar eran los envíos a otras personas, no los comentarios.",
+   "resultado": "pendiente",
+   "nota": "Es el cierre de la semana en que la bolsa entró en corrección oficial, con un dato que se manda tal cual: Anthropic tocó 83.05 dólares, a cinco centavos de su precio de salida, dos días después del debut más grande de la historia."
   }
  ]
 }
