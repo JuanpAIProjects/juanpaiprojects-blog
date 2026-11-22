@@ -23,6 +23,8 @@
        fluye directo a la pregunta 1, sobre el mismo crema del cuerpo. */
     .hero-arranque { background: none; padding-bottom: 0.6rem; }
     .hero-arranque .lede { margin-bottom: 0; }
+    .tip-arranque { margin: 1.1rem 0 0; color: var(--tinta-suave); font-size: 0.98rem; line-height: 1.5; }
+    .tip-arranque strong { color: var(--verde); }
     .campo { margin: 0 0 1.9rem; }
     .campo-titulo { font-family: var(--titular); font-weight: 800; color: var(--tinta); font-size: 1.12rem; line-height: 1.3; margin: 0 0 0.35rem; }
     .campo-num { color: var(--verde); margin-right: 0.35rem; }
@@ -72,6 +74,7 @@
       <p class="kicker"><span class="kicker-linea"></span>En automático · Formulario de arranque</p>
       <h1>Cuéntanos todo, <em>en un solo paso.</em></h1>
       <p class="lede">Si ya platicamos por mensaje directo, este es tu siguiente paso: un formulario de un minuto donde nos dejas todo lo que tu sistema necesita para nacer — tu material, tus canales, tus fuentes. <strong>Todo se puede saltar</strong>, menos cómo contactarte: lo que no va hoy se resuelve después, sin trabar nada.</p>
+      <p class="tip-arranque"><strong>Tip:</strong> de preferencia llénalo desde la compu — sobre todo si vas a subir archivos.</p>
     </section>
 
     <form class="arranque-form" name="arranque-en-automatico" method="POST" action="/arranque-gracias.html"
@@ -179,7 +182,7 @@
 
       <div class="campo">
         <p class="campo-titulo"><span class="campo-num">9.</span>Adjunta tu material</p>
-        <p class="campo-ayuda">PDFs, presentaciones, documentos: súbelos aquí, en una sola pasada. Si pesan mucho o son muchos, déjalo vacío y lo resolvemos por otro lado.</p>
+        <p class="campo-ayuda">PDFs, presentaciones, documentos: súbelos aquí, en una sola pasada (desde la compu es más fácil). Si pesan mucho o son muchos, déjalo vacío y lo resolvemos por otro lado.</p>
         <input type="file" id="f-adjuntos" name="adjuntos" multiple>
       </div>
 
