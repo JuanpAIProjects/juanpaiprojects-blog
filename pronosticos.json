@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-21",
+ "actualizado": "2026-11-22",
  "pronosticos": [
   {
    "tipo": "contenido",
@@ -31,6 +31,14 @@
    "pronostico": "Pronostiqué que este reel rendía mejor que una pieza típica de la cuenta — como 50% más — y que lo que más iba a pesar eran los envíos a otras personas, no los comentarios.",
    "resultado": "pendiente",
    "nota": "Es el cierre de la semana en que la bolsa entró en corrección oficial, con un dato que se manda tal cual: Anthropic tocó 83.05 dólares, a cinco centavos de su precio de salida, dos días después del debut más grande de la historia."
+  },
+  {
+   "tipo": "contenido",
+   "fecha": "2026-11-22",
+   "tema": "Los agentes ya compran, y repiten: el gasto hecho por agentes va 80 veces arriba de septiembre — reel de Instagram",
+   "pronostico": "Pronostiqué que este reel rendía mejor que una pieza típica de la cuenta — como 50% más — y que lo que más iba a pesar eran los envíos a otras personas.",
+   "resultado": "pendiente",
+   "nota": "El dato es fresco y primario, de los pagos reales que procesa Stripe, y se le manda tal cual a quien vende en línea; la herramienta gratis de hoy también se reenvía a quien presenta una app."
   }
  ]
 }
