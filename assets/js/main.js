@@ -449,8 +449,15 @@
   function pintarArchivo(posts) {
     var el = document.getElementById("archivo-lista");
     if (!el) return;
+    // Filtros por sección: ?tema=Finanzas%20personales, ?tema=Motivación,
+    // ?tipo=noticia, ?tipo=tip (enlaces del pie y de la barra del archivo).
+    var params = new URLSearchParams(window.location.search);
+    var tema = params.get("tema");
+    var tipo = params.get("tipo");
+    if (tema) posts = posts.filter(function (p) { return p.tema === tema; });
+    if (tipo) posts = posts.filter(function (p) { return p.tipo === tipo; });
     if (!posts.length) {
-      el.innerHTML = '<p class="lista-vacia">Todavía no hay posts publicados.</p>';
+      el.innerHTML = '<p class="lista-vacia">' + (tema || tipo ? "Todavía no hay posts en esta sección." : "Todavía no hay posts publicados.") + "</p>";
       return;
     }
     var grupos = {};
