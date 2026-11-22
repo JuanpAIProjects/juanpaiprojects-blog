@@ -1,47 +1,52 @@
 {
- "entradas": [
-  {
-   "fecha": "2026-11-21",
-   "texto": "Corrección oficial: el S&P 500 cayó 3.70% y firmó su séptima caída seguida. Su peor racha desde febrero de 2020. Y Anthropic, dos días después del debut más grande de la historia, tocó $83.05: a cinco centavos de su precio de salida.",
-   "url": "https://x.com/1411751252334051329/status/2124206573295694217",
-   "imagen": "assets/video/2026-11-21-correccion-oficial-ia-cover.jpg"
-  },
-  {
-   "fecha": "2026-11-20",
-   "texto": "Asia perdió 8.5% en una semana: su peor semana desde 2020. Taiwán cayó 6.2% hoy y 17.5% en la semana, su peor marca desde 1990. Ni el debut de Anthropic, el IPO más grande de la historia, frenó la venta.",
-   "url": "https://x.com/1411751252334051329/status/2123844492000203175",
-   "imagen": "assets/video/2026-11-20-la-fiesta-que-se-volteo-cover.jpg"
-  },
-  {
-   "fecha": "2026-11-19",
-   "texto": "81,310 millones en un día: hoy debuta Anthropic y la IA ya tiene precio de bolsa. Fijó su precio en $83, arriba del rango de $70 a $78, con 980 millones de acciones. Es la salida a bolsa más grande de la historia, arriba de los $75,000 millones de SpaceX en junio.",
-   "url": "https://x.com/1411751252334051329/status/2123464317253087556",
-   "imagen": "assets/video/2026-11-19-anthropic-ipo-mas-grande-cover.jpg"
-  },
-  {
-   "fecha": "2026-11-18",
-   "texto": "Google ya llama y paga por ti. En México, ese agente todavía no es gratis. Tasks, el modo agente de Gemini, se liberó gratis el 17 de noviembre. Ejecuta encargos en segundo plano: llama a negocios, entra a webs con tu autorización y cierra compras con Google Pay, empezando por Estados Unidos.",
-   "url": "https://x.com/1411751252334051329/status/2123120000160436398",
-   "imagen": "assets/video/2026-11-18-google-llama-y-paga-por-ti-cover.jpg"
-  },
-  {
-   "fecha": "2026-11-17",
-   "texto": "Nvidia reporta hoy 108,000 millones de dólares en un trimestre, sin su fundador por primera vez en 33 años. Jensen Huang renunció el 12 de noviembre. Hoy a las 3:20 p.m. presenta Colette Kress, su directora de finanzas desde 2013, hoy interina. El trimestre cerró el 25 de octubre: los números son de la era Huang.",
-   "url": "https://x.com/juanpaiprojects/status/2122757526458384665",
-   "imagen": "assets/video/2026-11-17-nvidia-primer-reporte-sin-huang-cover.jpg"
-  },
-  {
-   "fecha": "2026-11-16",
-   "texto": "China entrenó a su agente de IA más fuerte sin una sola tarjeta de Nvidia. LongCat-2.5, de Meituan: 1.6 billones de parámetros, hardware chino y liberado abierto. En Terminal Bench marcó 88.4, justo detrás de Claude Opus 5.",
-   "url": "https://x.com/1411751252334051329/status/2122492316967407624",
-   "imagen": "assets/img/2026-11-16-juanpaiprojects-reel-cover.jpg"
-  },
-  {
-   "fecha": "2026-11-15",
-   "texto": "El jueves la IA sale a bolsa. Anthropic, la empresa detrás de Claude, sale a bolsa este jueves: 825 millones de acciones entre 70 y 78 dólares, símbolo ANT, y el libro ya va 6 veces sobresuscrito.",
-   "url": "https://x.com/juanpaiprojects"
-  }
- ],
- "perfil": "https://x.com/juanpaiprojects",
- "usuario": "@juanpaiprojects"
+  "entradas": [
+    {
+      "fecha": "2026-11-22",
+      "texto": "El gasto hecho por agentes de IA va 80 veces arriba de septiembre. Se duplicó en el último mes. Y el 56% de quienes compraron con un agente ya repitió.",
+      "url": "https://x.com/juanpaiprojects"
+    },
+    {
+      "fecha": "2026-11-21",
+      "texto": "Corrección oficial: el S&P 500 cayó 3.70% y firmó su séptima caída seguida. Su peor racha desde febrero de 2020. Y Anthropic, dos días después del debut más grande de la historia, tocó $83.05: a cinco centavos de su precio de salida.",
+      "url": "https://x.com/1411751252334051329/status/2124206573295694217",
+      "imagen": "assets/video/2026-11-21-correccion-oficial-ia-cover.jpg"
+    },
+    {
+      "fecha": "2026-11-20",
+      "texto": "Asia perdió 8.5% en una semana: su peor semana desde 2020. Taiwán cayó 6.2% hoy y 17.5% en la semana, su peor marca desde 1990. Ni el debut de Anthropic, el IPO más grande de la historia, frenó la venta.",
+      "url": "https://x.com/1411751252334051329/status/2123844492000203175",
+      "imagen": "assets/video/2026-11-20-la-fiesta-que-se-volteo-cover.jpg"
+    },
+    {
+      "fecha": "2026-11-19",
+      "texto": "81,310 millones en un día: hoy debuta Anthropic y la IA ya tiene precio de bolsa. Fijó su precio en $83, arriba del rango de $70 a $78, con 980 millones de acciones. Es la salida a bolsa más grande de la historia, arriba de los $75,000 millones de SpaceX en junio.",
+      "url": "https://x.com/1411751252334051329/status/2123464317253087556",
+      "imagen": "assets/video/2026-11-19-anthropic-ipo-mas-grande-cover.jpg"
+    },
+    {
+      "fecha": "2026-11-18",
+      "texto": "Google ya llama y paga por ti. En México, ese agente todavía no es gratis. Tasks, el modo agente de Gemini, se liberó gratis el 17 de noviembre. Ejecuta encargos en segundo plano: llama a negocios, entra a webs con tu autorización y cierra compras con Google Pay, empezando por Estados Unidos.",
+      "url": "https://x.com/1411751252334051329/status/2123120000160436398",
+      "imagen": "assets/video/2026-11-18-google-llama-y-paga-por-ti-cover.jpg"
+    },
+    {
+      "fecha": "2026-11-17",
+      "texto": "Nvidia reporta hoy 108,000 millones de dólares en un trimestre, sin su fundador por primera vez en 33 años. Jensen Huang renunció el 12 de noviembre. Hoy a las 3:20 p.m. presenta Colette Kress, su directora de finanzas desde 2013, hoy interina. El trimestre cerró el 25 de octubre: los números son de la era Huang.",
+      "url": "https://x.com/juanpaiprojects/status/2122757526458384665",
+      "imagen": "assets/video/2026-11-17-nvidia-primer-reporte-sin-huang-cover.jpg"
+    },
+    {
+      "fecha": "2026-11-16",
+      "texto": "China entrenó a su agente de IA más fuerte sin una sola tarjeta de Nvidia. LongCat-2.5, de Meituan: 1.6 billones de parámetros, hardware chino y liberado abierto. En Terminal Bench marcó 88.4, justo detrás de Claude Opus 5.",
+      "url": "https://x.com/1411751252334051329/status/2122492316967407624",
+      "imagen": "assets/img/2026-11-16-juanpaiprojects-reel-cover.jpg"
+    },
+    {
+      "fecha": "2026-11-15",
+      "texto": "El jueves la IA sale a bolsa. Anthropic, la empresa detrás de Claude, sale a bolsa este jueves: 825 millones de acciones entre 70 y 78 dólares, símbolo ANT, y el libro ya va 6 veces sobresuscrito.",
+      "url": "https://x.com/juanpaiprojects"
+    }
+  ],
+  "perfil": "https://x.com/juanpaiprojects",
+  "usuario": "@juanpaiprojects"
 }
