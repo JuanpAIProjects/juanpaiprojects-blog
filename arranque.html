@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de arranque — En automático · Juanpai Projects</title>
+  <meta name="description" content="El paso después del mensaje directo: un formulario de un minuto donde nos dejas todo lo que tu En automático necesita para nacer.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icono-app.png">
+  <script>document.documentElement.className += " con-js";</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/estilos.css?v=17">
+  <style>
+    .arranque-form { max-width: 46rem; margin: 0 0 3rem; }
+    .campo { margin: 0 0 1.9rem; }
+    .campo-titulo { font-family: var(--titular); font-weight: 800; color: var(--tinta); font-size: 1.12rem; line-height: 1.3; margin: 0 0 0.35rem; }
+    .campo-num { color: var(--verde); margin-right: 0.35rem; }
+    .campo-ayuda { color: var(--tinta-suave); font-size: 0.94rem; line-height: 1.5; margin: 0 0 0.7rem; }
+    .campo input[type="text"], .campo input[type="email"], .campo textarea {
+      width: 100%; box-sizing: border-box; padding: 0.8rem 1rem;
+      border: 2px solid var(--tinta); border-radius: 12px; background: #FBF7EE;
+      font: inherit; color: var(--tinta);
+    }
+    .campo textarea { resize: vertical; }
+    .campo input[type="file"] { font: inherit; color: var(--tinta-suave); max-width: 100%; }
+    .opciones { display: flex; flex-wrap: wrap; gap: 0.55rem; margin: 0 0 0.8rem; }
+    .opcion {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      border: 2px solid var(--tinta); border-radius: 999px; background: #FBF7EE;
+      padding: 0.5rem 0.95rem; font-weight: 600; color: var(--tinta); cursor: pointer;
+    }
+    .opcion input { accent-color: var(--verde); margin: 0; }
+    .opcion:has(input:checked) { background: var(--verde); border-color: var(--verde); color: #fff; }
+    .tres { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.7rem; }
+    .tres label, .solo label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--tinta-suave); margin: 0 0 0.35rem; }
+    .form-error { display: none; border: 2px solid var(--coral, #D73119); border-radius: 12px; padding: 1rem 1.2rem; margin: 0 0 1.5rem; color: var(--tinta); background: #FBF7EE; }
+    @media (max-width: 620px) { .tres { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-interna">
+      <a class="marca" href="index.html" aria-label="Juanpai Projects — Inicio">
+        <span class="marca-completa"><img src="assets/img/logo-sm.jpg" alt="" width="256" height="256"></span>
+        <span class="marca-foco" aria-hidden="true"><img src="assets/img/logo-sm.jpg" alt="" width="256" height="256"></span>
+      </a>
+      <a class="boton boton-solido nav-boton" href="index.html#suscripcion">Suscribirme</a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="nav-inicio" href="index.html">Inicio</a>
+        <a href="archivo.html">Archivo</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="empieza-aqui.html">Empieza aquí</a>
+        <a href="montajes.html">En automático</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="hero" style="padding-bottom: 2.2rem;">
+      <p class="kicker"><span class="kicker-linea"></span>En automático · Formulario de arranque</p>
+      <h1>Cuéntanos todo, <em>en un solo paso.</em></h1>
+      <p class="lede">Si ya platicamos por mensaje directo, este es tu siguiente paso: un formulario de un minuto donde nos dejas todo lo que tu sistema necesita para nacer — tu material, tus canales, tus fuentes. <strong>Todo se puede saltar</strong>, menos cómo contactarte: lo que no va hoy se resuelve después, sin trabar nada.</p>
+    </section>
+
+    <form class="arranque-form" name="arranque-en-automatico" method="POST" action="/arranque-gracias.html"
+          data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" id="form-arranque">
+      <input type="hidden" name="form-name" value="arranque-en-automatico">
+      <p hidden><label>No llenes este campo: <input name="bot-field"></label></p>
+
+      <div class="campo">
+        <p class="campo-titulo"><span class="campo-num">1.</span>¿Es empresa o proyecto personal? ¿De qué trata?</p>
+        <div class="opciones">
+          <label class="opcion"><input type="radio" name="tipo" value="Empresa"> Empresa</label>
+          <label class="opcion"><input type="radio" name="tipo" value="Proyecto personal"> Proyecto personal</label>
+        </div>
+        <div class="solo">
+          <label for="f-trata">En una frase: ¿qué es?</label>
+          <input type="text" id="f-trata" name="de-que-trata" placeholder="Ej.: una pastelería que vende por encargo / divulgación de biología marina">
+        </div>
+      </div>
+
+      <div class="campo">
+        <p class="campo-titulo"><span class="campo-num">2.</span>¿Qué material tuyo ya existe?</p>
+        <p class="campo-ayuda">Cursos, presentaciones, notas, grabaciones, catálogos: lo que ya tienes y el sistema puede convertir en contenido desde el día uno.</p>
+        <textarea id="f-material" name="material-existente" rows="3" placeholder="Ej.: tengo las presentaciones de mis cursos, un catálogo en PDF y fotos de mis productos"></textarea>
+      </div>
+
+      <div class="campo">
+        <p class="campo-titulo"><span class="campo-num">3.</span>¿A quién le hablas?</p>
+        <div class="tres">
+          <div>
+            <label for="f-audiencia">Tu gente, en una frase</label>
+            <input type="text" id="f-audiencia" name="audiencia" placeholder="Ej.: parejas que se van a casar">
+          </div>
+          <div>
+            <label for="f-idioma">¿En qué idioma publicas?</label>
+            <input type="text" id="f-idioma" name="idioma" placeholder="Ej.: español / inglés">
+          </div>
+          <div>
+            <label for="f-pais">¿Dónde está tu audiencia?</label>
+            <input type="text" id="f-pais" name="pais" placeholder="Ej.: México / todo el mundo">
+          </div>
+        </div>
+      </div>
+
+      <div class="campo">
+        <p class="campo-titulo"><span class="campo-num">4.</span>¿Qué canales quieres?</p>
+        <p class="campo-ayuda">Marca los que te laten. Si no sabes, marca los que ya usas y lo afinamos en la propuesta.</p>
+        <div class="opciones">
+          <label class="opcion"><input type="checkbox" name="canales" value="Instagram"> Instagram</label>
+          <label class="opcion"><input type="checkbox" name="canales" value="Facebook"> Facebook</label>
+          <label class="opcion"><input type="checkbox" name="canales" value="TikTok"> TikTok</label>
+          <label class="opcion"><input type="checkbox" name="canales" value="YouTube"> YouTube</label>
+          <label class="opcion"><input type="checkbox" name="canales" value="X"> X</label>
+          <label class="opcion"><input type="checkbox" name="canales" value="Blog"> Blog</label>
+          <label class="opcion"><input type="checkbox" name="canales" value="Newsletter"> Newsletter</label>
+        </div>
+      </div>
+
+      <div class="campo">
+        <p class="campo-titulo"><span class="campo-num">5.</span>El nombre</p>
+        <div class="opciones">
+          <label class="opcion"><input type="radio" name="nombre-estado" value="Ya tengo nombre"> Ya tengo nombre</label>
+          <label class="opcion"><input type="radio" name="nombre-estado" value="Quiero que me propongan opciones"> Quiero que me propongas opciones</label>
+          <label class="opcion"><input type="radio" name="nombre-estado" value="Para después"> Lo dejamos para después</label>
+        </div>
+        <div class="solo">
+          <label for="f-nombre">Si ya lo tienes, escríbelo aquí (y su @ si ya existe)</label>
+          <input type="text" id="f-nombre" name="nombre-y-arroba" placeholder="Ej.: Pelagic Notes · @pelagic.notes">
+        </div>
+      </div>
+
+      <div class="campo">
+        <p class="campo-titulo"><span class="campo-num">6.</span>El logo</p>
+        <div class="opciones">
+          <label class="opcion"><input type="radio" name="logo-estado" value="Lo subo aquí"> Lo subo aquí</label>
+          <label class="opcion"><input type="radio" name="logo-estado" value="Quiero propuestas"> Quiero propuestas</label>
+          <label class="opcion"><input type="radio" name="logo-estado" value="Para después"> Para después</label>
+        </div>
+        <div class="solo">
+          <label for="f-logo">Si ya tienes logo, adjúntalo</label>
+          <input type="file" id="f-logo" name="logo" accept="image/*,.pdf,.svg">
+        </div>
+      </div>
+
+      <div class="campo">
+        <p class="campo-titulo"><span class="campo-num">7.</span>Tu identidad y tu estilo</p>
+        <div class="opciones">
+          <label class="opcion"><input type="radio" name="identidad" value="Con mi nombre y mi cara"> Con mi nombre y mi cara</label>
+          <label class="opcion"><input type="radio" name="identidad" value="Anónimo, detrás de una marca"> Anónimo, detrás de una marca</label>
+        </div>
+        <div class="solo" style="margin-bottom: 0.8rem;">
+          <label for="f-estilo">¿Cómo quieres que se vea y se sienta?</label>
+          <textarea id="f-estilo" name="estilo" rows="3" placeholder="Ej.: sencillo y directo, nada corporativo; colores vivos; cero tono de anuncio"></textarea>
+        </div>
+        <div class="solo">
+          <label for="f-inspiracion">Cuentas o páginas que te inspiran (una por línea)</label>
+          <textarea id="f-inspiracion" name="inspiracion" rows="3" placeholder="Ej.: instagram.com/una-cuenta-que-te-encante"></textarea>
+        </div>
+      </div>
+
+      <div class="campo">
+        <p class="campo-titulo"><span class="campo-num">8.</span>Tus fuentes confiables</p>
+        <p class="campo-ayuda">Los enlaces de tu tema en los que sí confías: medios, autores, instituciones. Son los que el sistema sigue para no publicar humo.</p>
+        <textarea id="f-fuentes" name="fuentes" rows="3" placeholder="Una por línea"></textarea>
+      </div>
+
+      <div class="campo">
+        <p class="campo-titulo"><span class="campo-num">9.</span>Adjunta tu material</p>
+        <p class="campo-ayuda">PDFs, presentaciones, documentos: súbelos aquí, en una sola pasada. Si pesan mucho o son muchos, déjalo vacío y lo resolvemos por otro lado.</p>
+        <input type="file" id="f-adjuntos" name="adjuntos" multiple>
+      </div>
+
+      <div class="campo">
+        <p class="campo-titulo"><span class="campo-num">10.</span>¿Cómo quieres revisar?</p>
+        <div class="opciones">
+          <label class="opcion"><input type="radio" name="revision" value="Aprobar cada pieza"> Aprobar cada pieza</label>
+          <label class="opcion"><input type="radio" name="revision" value="Aprobar por semana"> Aprobar por semana</label>
+          <label class="opcion"><input type="radio" name="revision" value="Que corra solo y me avise"> Que corra solo y me avise</label>
+        </div>
+        <div class="tres" style="grid-template-columns: 1fr 1fr;">
+          <div>
+            <label for="f-tu-nombre">Tu nombre *</label>
+            <input type="text" id="f-tu-nombre" name="tu-nombre" required>
+          </div>
+          <div>
+            <label for="f-tu-contacto">¿Cómo te contactamos? *</label>
+            <input type="text" id="f-tu-contacto" name="tu-contacto" required placeholder="Tu Instagram, WhatsApp o correo">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-error" id="form-error">Algo falló al enviar. Inténtalo de nuevo en un momento, por favor.</div>
+
+      <button class="boton boton-solido" type="submit" id="form-boton" style="font-size: 1.05rem;">Enviar mi arranque →</button>
+      <p class="campo-ayuda" style="margin-top: 0.9rem;">* Lo único obligatorio. Tus datos y tu material solo se usan para armar tu propuesta; nada se publica sin tu visto bueno. Lee el <a href="aviso-privacidad.html" style="color: var(--verde); font-weight: 600;">aviso de privacidad</a>.</p>
+    </form>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie-grid">
+      <div>
+        <a class="pie-logo" href="index.html" aria-label="Juanpai Projects — Inicio">
+          <img src="assets/img/logo-sm.jpg" alt="Logotipo de Juanpai Projects" width="1024" height="1024">
+        </a>
+        <p class="pie-tag">Noticias verificadas e IA aplicada a negocios y proyectos personales. Un dato, una herramienta y el paso a paso para aplicarla, cada día. Sin humo.</p>
+      </div>
+      <div>
+        <p class="pie-titulo">El blog</p>
+        <nav class="pie-nav" aria-label="Enlaces del pie">
+          <a href="index.html">Inicio</a>
+          <a href="archivo.html">Archivo de posts</a>
+          <a href="sobre-mi.html">Sobre mí</a>
+          <a href="asi-verificamos.html">Así verificamos</a>
+          <a href="aviso-privacidad.html">Aviso de privacidad</a>
+          <a href="pronosticos.html">Pronósticos</a>
+          <a href="montajes.html">En automático: sistemas que se publican solos</a>
+          <a href="quiz.html">Quiz: tu exposición a la IA</a>
+        </nav>
+      </div>
+      <div class="pie-ig">
+        <p class="pie-titulo">Redes</p>
+        <p>El contenido de cada día sale en Instagram, en versión corta en X y en video en TikTok y YouTube; Facebook lo publica completo. La conversación pasa allá.</p>
+        <a class="boton boton-claro" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.tiktok.com/@juanpaiprojects" target="_blank" rel="noopener">TikTok · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.youtube.com/@juanpaiprojects" target="_blank" rel="noopener">YouTube · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.facebook.com/100573032979969" target="_blank" rel="noopener">Facebook · Juanpaiprojects</a>
+      </div>
+    </div>
+    <div class="contenedor pie-base">
+      <p>© <span id="anio">2026</span> Juanpai Projects. Todos los derechos reservados.</p>
+      <p>Escrito desde proyectos reales, no desde un escritorio de consultoría.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=15"></script>
+  <script>
+    // Envío sin recargar: si el envío rápido falla, el formulario
+    // se manda de la forma normal (Netlify lo recibe igual).
+    (function () {
+      var form = document.getElementById("form-arranque");
+      if (!form) return;
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var boton = document.getElementById("form-boton");
+        var error = document.getElementById("form-error");
+        if (boton) { boton.disabled = true; boton.textContent = "Enviando…"; }
+        if (error) error.style.display = "none";
+        fetch("/", { method: "POST", body: new FormData(form) })
+          .then(function (r) {
+            if (!r.ok) throw new Error("envio");
+            window.location.href = "arranque-gracias.html";
+          })
+          .catch(function () {
+            if (boton) { boton.disabled = false; boton.textContent = "Enviar mi arranque →"; }
+            if (error) error.style.display = "block";
+            form.removeEventListener("submit", arguments.callee);
+          });
+      });
+    })();
+  </script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "40091d6c8845470e86cf89aa213bc673"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
