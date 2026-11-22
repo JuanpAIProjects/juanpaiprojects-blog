@@ -15,6 +15,14 @@
   <link rel="stylesheet" href="assets/css/estilos.css?v=17">
   <style>
     .arranque-form { max-width: 46rem; margin: 0 0 3rem; }
+    /* Hero solo de texto: sin los degradados decorativos de .hero
+       (el radial coral de abajo a la izquierda se concentraba en la
+       franja vacía bajo el lede y se veía como un bloque rosa aparte,
+       con bordes rectos donde termina el hero) y sin el doble espacio
+       inferior (margen del lede + padding del hero): la introducción
+       fluye directo a la pregunta 1, sobre el mismo crema del cuerpo. */
+    .hero-arranque { background: none; padding-bottom: 0.6rem; }
+    .hero-arranque .lede { margin-bottom: 0; }
     .campo { margin: 0 0 1.9rem; }
     .campo-titulo { font-family: var(--titular); font-weight: 800; color: var(--tinta); font-size: 1.12rem; line-height: 1.3; margin: 0 0 0.35rem; }
     .campo-num { color: var(--verde); margin-right: 0.35rem; }
@@ -60,7 +68,7 @@
   </header>
 
   <main class="contenedor">
-    <section class="hero" style="padding-bottom: 2.2rem;">
+    <section class="hero hero-arranque">
       <p class="kicker"><span class="kicker-linea"></span>En automático · Formulario de arranque</p>
       <h1>Cuéntanos todo, <em>en un solo paso.</em></h1>
       <p class="lede">Si ya platicamos por mensaje directo, este es tu siguiente paso: un formulario de un minuto donde nos dejas todo lo que tu sistema necesita para nacer — tu material, tus canales, tus fuentes. <strong>Todo se puede saltar</strong>, menos cómo contactarte: lo que no va hoy se resuelve después, sin trabar nada.</p>
