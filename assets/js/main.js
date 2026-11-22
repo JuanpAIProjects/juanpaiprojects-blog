@@ -173,7 +173,7 @@
         var li = document.createElement("li");
         var h = document.createElement("span");
         h.className = "ed-hora";
-        h.textContent = acts[i].hora || "";
+        h.textContent = (acts[i].fecha && acts[i].fecha !== d.fecha ? fechaCorta(acts[i].fecha) + " · " : "") + (acts[i].hora || "");
         var tx = document.createElement("span");
         tx.textContent = acts[i].texto || "";
         li.appendChild(h);
@@ -189,7 +189,7 @@
           if (seg[j].hora) {
             var sh = document.createElement("span");
             sh.className = "ed-hora";
-            sh.textContent = seg[j].hora;
+            sh.textContent = (seg[j].fecha && seg[j].fecha !== d.fecha ? fechaCorta(seg[j].fecha) + " · " : "") + seg[j].hora;
             li2.appendChild(sh);
           }
           var cuerpo = document.createElement("span");
@@ -208,12 +208,16 @@
         }
         document.getElementById("ed-tambien").hidden = false;
       }
-      var ultima = acts.length ? (acts[0].hora || "") : "";
-      for (var k = 0; k < seg.length; k++) {
-        if (seg[k].hora && seg[k].hora > ultima) ultima = seg[k].hora;
+      var ultimaF = "", ultimaH = "";
+      function considerar(f, h) {
+        if (!h) return;
+        f = f || d.fecha;
+        if (f + " " + h > ultimaF + " " + ultimaH) { ultimaF = f; ultimaH = h; }
       }
-      if (ultima) {
-        document.getElementById("ed-actualizado").textContent = "Última actualización " + ultima;
+      for (var a = 0; a < acts.length; a++) considerar(acts[a].fecha, acts[a].hora);
+      for (var k = 0; k < seg.length; k++) considerar(seg[k].fecha, seg[k].hora);
+      if (ultimaH) {
+        document.getElementById("ed-actualizado").textContent = "Última actualización " + fechaCorta(ultimaF) + " · " + ultimaH;
       }
       caja.hidden = false;
     }).catch(function () { caja.hidden = true; });
