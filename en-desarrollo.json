@@ -1,5 +1,5 @@
 {
- "fecha": "2026-11-22",
+ "fecha": "2026-11-23",
  "titulo": "Los agentes ya compran, y repiten: su prueba de fuego es este viernes",
  "resumen": "Stripe midió que el gasto hecho por agentes de IA va unas 80 veces arriba de inicios de septiembre y que el 56% de quienes compraron con un agente ya repitió; el viernes de ofertas se mide si ese hábito gasta en serio.",
  "url": "posts/2026-11-22-agentes-ya-compran.html",
@@ -11,6 +11,13 @@
   }
  ],
  "seguimiento": [
+  {
+   "titulo": "CrowdStrike compra Zscaler: el trato récord de la ciberseguridad",
+   "estado": "Acuerdo definitivo por $43,900 millones firmado hoy; falta el voto de los accionistas de Zscaler y el visto bueno de los reguladores, con cierre no antes de la segunda mitad de 2027.",
+   "fecha": "2026-11-23",
+   "hora": "08:16",
+   "url": ""
+  },
   {
    "titulo": "La prueba de Riemann quedó certificada: falta la palabra del Instituto Clay",
    "estado": "Lean y Mathlib certificaron el sábado que el enunciado y la prueba son correctos; falta la palabra del Instituto Clay y la explicación humana del argumento.",
