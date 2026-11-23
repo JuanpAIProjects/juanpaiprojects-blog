@@ -8,6 +8,11 @@
    "fecha": "2026-11-23",
    "hora": "08:48",
    "texto": "El consejo restituyó a Huang por unanimidad, con efecto inmediato, tras concluir — con aportes de altos funcionarios de EE. UU. — que su regreso no es un riesgo de seguridad nacional; Colette Kress sigue como directora financiera y la investigación independiente sigue abierta. La acción subió más de 30% en la apertura."
+  },
+  {
+   "fecha": "2026-11-23",
+   "hora": "17:09",
+   "texto": "Al cierre se sostuvo: Nvidia terminó +31.48% en $165.05, su mejor día desde 2003; el S&P 500 subió 4.73% y cortó su racha de 7 caídas seguidas, y el Nasdaq ganó 6.51% — el mejor día de Wall Street desde abril de 2025. Anthropic cerró en $87.64 y defendió sus $83 de salida."
   }
  ],
  "seguimiento": [
@@ -34,9 +39,9 @@
   },
   {
    "titulo": "Anthropic defiende los $83",
-   "estado": "ANT cerró su segundo día en $88.91, arriba de su precio de salida; el lunes se vigila si defiende los $83.",
-   "fecha": "2026-11-21",
-   "hora": "10:16",
+   "estado": "ANT cerró hoy en $87.64 (-1.43%, mínimo $84.61): defendió su precio de salida de $83 por tercer día, en pleno rebote general.",
+   "fecha": "2026-11-23",
+   "hora": "17:09",
    "url": "posts/2026-11-19-anthropic-ipo-mas-grande.html#seguimiento"
   }
  ]
