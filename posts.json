@@ -1,5 +1,20 @@
 [
   {
+    "fecha": "2026-11-23",
+    "titulo": "43,900 millones por seguridad: la compra más grande de la ciberseguridad",
+    "resumen": "CrowdStrike compra Zscaler por 43,900 millones de dólares, todo en acciones y con prima de 34%: la compra más grande en la historia de la ciberseguridad, firmada tras la peor semana de Wall Street desde 2020. La empresa combinada superaría 10,000 millones al año en ingresos recurrentes, y la Aplicable de hoy es AI Context Flow, gratis, para que todas tus IAs lean la misma memoria.",
+    "url": "posts/2026-11-23-crowdstrike-zscaler.html",
+    "tema": "Ciberseguridad",
+    "tipo": "noticia",
+    "lectura": "2 min",
+    "audio": "assets/audio/2026-11-23-crowdstrike-zscaler.mp3",
+    "audioDuracion": "4 min 21 s",
+    "video": "assets/video/2026-11-23-crowdstrike-zscaler.mp4",
+    "videoCover": "assets/video/2026-11-23-crowdstrike-zscaler-cover.jpg",
+    "videoDuracion": "48 s",
+    "videoTiktok": "assets/video/2026-11-23-crowdstrike-zscaler-tiktok.mp4"
+  },
+  {
     "fecha": "2026-11-22",
     "titulo": "Los agentes ya compran, y repiten: 80 veces más gasto en dos meses",
     "resumen": "Cómo vender cuando tu cliente ya es una IA: el gasto hecho por agentes va 80 veces arriba de inicios de septiembre (índice 7,982) y se duplicó en el último mes; el 43% fue viajes y el 56% de quienes compraron con un agente ya repitió. Con la confirmación de Forter (órdenes +229% en un mes y ticket de $227 contra $133 humano), la prueba del viernes y el paso a paso gratis de Mockreel para tu demo en 3D.",
