@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-22",
+ "actualizado": "2026-11-23",
  "pronosticos": [
   {
    "tipo": "contenido",
@@ -39,6 +39,14 @@
    "pronostico": "Pronostiqué que este reel rendía mejor que una pieza típica de la cuenta — como 50% más — y que lo que más iba a pesar eran los envíos a otras personas.",
    "resultado": "pendiente",
    "nota": "El dato es fresco y primario, de los pagos reales que procesa Stripe, y se le manda tal cual a quien vende en línea; la herramienta gratis de hoy también se reenvía a quien presenta una app."
+  },
+  {
+   "tipo": "contenido",
+   "fecha": "2026-11-23",
+   "tema": "La compra más grande de la ciberseguridad: CrowdStrike se queda con Zscaler — carrusel de Instagram",
+   "pronostico": "Pronostiqué que este carrusel rendía mejor que una pieza típica de la cuenta — como 50% más — y que lo importante serían los guardados.",
+   "resultado": "pendiente",
+   "nota": "Es el trato más grande en la historia de su sector, anunciado hoy por las propias empresas, y la herramienta gratis de hoy es un paso a paso que se guarda: una sola memoria para todas tus inteligencias artificiales."
   }
  ]
 }
