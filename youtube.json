@@ -3,6 +3,13 @@
  "perfil": "https://www.youtube.com/@juanpaiprojects",
  "videos": [
   {
+   "fecha": "2026-11-22",
+   "titulo": "Agentes de IA gastan 80 veces más: ya compran y repiten",
+   "url": "https://www.youtube.com/shorts/za3kSd4ihWo",
+   "videoId": "za3kSd4ihWo",
+   "imagen": "assets/video/2026-11-22-agentes-ya-compran-cover.jpg"
+  },
+  {
    "fecha": "2026-11-21",
    "titulo": "Anthropic a $0.05 de su precio de salida: corrección oficial",
    "url": "https://www.youtube.com/shorts/kgQIfQDBb9M",
