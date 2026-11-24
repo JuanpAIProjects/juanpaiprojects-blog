@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Juanpai Projects</title>
+  <meta name="description" content="Escríbele a Juanpai Projects: una corrección, un tema que debería cubrir, una duda o algo de negocio. El mensaje llega completo y lo lee Juanpa.">
+  <link rel="canonical" href="https://juanpaiprojects.netlify.app/contacto.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Juanpai Projects">
+  <meta property="og:title" content="Contacto — Juanpai Projects">
+  <meta property="og:description" content="Correcciones, temas, dudas o negocio: el canal directo, sin intermediarios.">
+  <meta property="og:url" content="https://juanpaiprojects.netlify.app/contacto.html">
+  <meta property="og:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Contacto — Juanpai Projects">
+  <meta name="twitter:description" content="Correcciones, temas, dudas o negocio: el canal directo, sin intermediarios.">
+  <meta name="twitter:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icono-app.png">
+  <script>document.documentElement.className += " con-js";</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/estilos.css?v=18">
+  <style>
+    .contacto-form { max-width: 46rem; margin: 0 0 3rem; }
+    /* Hero solo de texto, como el del formulario de arranque: sin los
+       degradados decorativos de .hero y sin doble espacio inferior. */
+    .hero-contacto { background: none; padding-bottom: 0.6rem; }
+    .hero-contacto .lede { margin-bottom: 0; }
+    .campo { margin: 0 0 1.9rem; scroll-margin-top: 5.5rem; }
+    .campo-titulo { font-family: var(--titular); font-weight: 800; color: var(--tinta); font-size: 1.12rem; line-height: 1.3; margin: 0 0 0.35rem; }
+    .campo-num { color: var(--verde); margin-right: 0.35rem; }
+    .campo-ayuda { color: var(--tinta-suave); font-size: 0.94rem; line-height: 1.5; margin: 0 0 0.7rem; }
+    /* 16px fijo en los campos: por debajo de eso, iOS hace zoom
+       automático al enfocar y la página se mueve sola. */
+    .campo input[type="text"], .campo input[type="email"], .campo select, .campo textarea {
+      width: 100%; box-sizing: border-box; padding: 0.8rem 1rem;
+      border: 2px solid var(--tinta); border-radius: 12px; background: #FBF7EE;
+      font-family: inherit; font-size: 16px; line-height: 1.45; color: var(--tinta);
+      scroll-margin-top: 6rem;
+    }
+    .campo textarea { resize: vertical; }
+    .form-error { display: none; border: 2px solid var(--coral, #D73119); border-radius: 12px; padding: 1rem 1.2rem; margin: 0 0 1.5rem; color: var(--tinta); background: #FBF7EE; }
+    .form-recibido { display: none; border: 2px solid var(--verde); border-radius: 12px; padding: 1.2rem 1.4rem; margin: 0 0 3rem; background: #FBF7EE; max-width: 46rem; }
+    .form-recibido h2 { margin-top: 0; }
+    .rutas { max-width: 46rem; margin: 0 0 3rem; }
+    .rutas-botones { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+    @media (max-width: 620px) {
+      /* Enviar y las rutas, a todo lo ancho: fáciles de picar. */
+      #form-boton { display: block; width: 100%; min-height: 52px; text-align: center; }
+      .rutas-botones { flex-direction: column; align-items: stretch; }
+      .rutas-botones .boton { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-interna">
+      <a class="marca" href="index.html" aria-label="Juanpai Projects — Inicio">
+        <span class="marca-completa"><img src="assets/img/logo-sm.jpg" alt="" width="256" height="256"></span>
+        <span class="marca-foco" aria-hidden="true"><img src="assets/img/logo-sm.jpg" alt="" width="256" height="256"></span>
+      </a>
+      <a class="boton boton-solido nav-boton" href="index.html#suscripcion">Suscribirme</a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="nav-inicio" href="index.html">Inicio</a>
+        <a href="archivo.html">Archivo</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="empieza-aqui.html">Empieza aquí</a>
+        <a href="montajes.html">En automático</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="hero hero-contacto">
+      <p class="kicker"><span class="kicker-linea"></span>Contacto</p>
+      <h1>Escríbeme. <em>Lo leo yo.</em></h1>
+      <p class="lede">Una corrección, un tema que debería cubrir, una duda o algo de negocio: este es el canal directo. El mensaje me llega completo y lo leo yo — aquí no hay equipo de soporte ni respuestas automáticas con tu nombre pegado.</p>
+    </section>
+
+    <form class="contacto-form" name="contacto" method="POST" action="/contacto-gracias.html"
+          data-netlify="true" data-netlify-honeypot="bot-field" id="form-contacto">
+      <input type="hidden" name="form-name" value="contacto">
+      <p hidden><label>No llenes este campo: <input name="bot-field"></label></p>
+
+      <div class="campo">
+        <p class="campo-titulo"><span class="campo-num">1.</span>Tu nombre</p>
+        <input type="text" id="f-nombre" name="nombre" required autocomplete="name" placeholder="¿Cómo te llamas?">
+      </div>
+
+      <div class="campo">
+        <p class="campo-titulo"><span class="campo-num">2.</span>Tu correo</p>
+        <p class="campo-ayuda">A este correo te respondo. No se usa para nada más.</p>
+        <input type="email" id="f-correo" name="correo" required autocomplete="email" placeholder="tunombre@correo.com">
+      </div>
+
+      <div class="campo">
+        <p class="campo-titulo"><span class="campo-num">3.</span>¿De qué se trata?</p>
+        <p class="campo-ayuda">Si es una corrección, dime en qué post y qué dato: la verifico contra la fuente antes de tocar nada, y si procede se corrige en el mismo enlace, con su nota visible.</p>
+        <select id="f-tipo" name="tipo" required>
+          <option value="" selected disabled>Elige una opción</option>
+          <option value="Corrección">Corrección</option>
+          <option value="Tema que debería cubrir">Tema que debería cubrir</option>
+          <option value="Duda">Duda</option>
+          <option value="Negocio">Negocio</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <p class="campo-titulo"><span class="campo-num">4.</span>Tu mensaje</p>
+        <textarea id="f-mensaje" name="mensaje" rows="6" required placeholder="Cuéntame. Con el dato concreto, si es una corrección o un tema: qué pasó, dónde lo viste."></textarea>
+      </div>
+
+      <div class="form-error" id="form-error">Algo falló al enviar. Inténtalo de nuevo en un momento, por favor.</div>
+
+      <button class="boton boton-solido" type="submit" id="form-boton" style="font-size: 1.05rem;">Enviar mensaje →</button>
+      <p class="campo-ayuda" style="margin-top: 0.9rem;">Tu nombre y tu correo solo se usan para responderte. Lee el <a href="aviso-privacidad.html" style="color: var(--verde); font-weight: 600;">aviso de privacidad</a>.</p>
+    </form>
+
+    <div class="form-recibido" id="form-recibido" role="status">
+      <h2>Recibido. Lo leo yo y te respondo.</h2>
+      <p>Tu mensaje ya quedó de mi lado. Respondo al correo que dejaste; si era una corrección, primero la verifico contra la fuente — así funciona aquí: la confianza se gana dato a dato.</p>
+      <p style="margin-top: 1.2rem;"><a class="boton boton-contorno" href="index.html">Volver al inicio</a></p>
+    </div>
+
+    <section class="rutas">
+      <h2>¿Prefieres otra ruta?</h2>
+      <p>Por <a href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">Instagram</a> es donde respondo en el día a día, y el correo directo es <a href="mailto:juanpaiprojects@gmail.com">juanpaiprojects@gmail.com</a>. Y si recibes el dato diario, responder ese correo también me llega.</p>
+      <div class="rutas-botones">
+        <a class="boton boton-solido" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">Escríbeme en Instagram</a>
+        <a class="boton boton-contorno" href="mailto:juanpaiprojects@gmail.com">juanpaiprojects@gmail.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie-grid">
+      <div>
+        <a class="pie-logo" href="index.html" aria-label="Juanpai Projects — Inicio">
+          <img src="assets/img/logo-sm.jpg" alt="Logotipo de Juanpai Projects" width="1024" height="1024">
+        </a>
+        <p class="pie-tag">Noticias verificadas e IA aplicada a negocios y proyectos personales, más finanzas personales y motivación: todo es un sistema. Un dato, una herramienta y el paso a paso para aplicarla, cada día. Sin humo.</p>
+      </div>
+      <div>
+        <p class="pie-titulo">El blog</p>
+        <nav class="pie-nav" aria-label="Enlaces del pie">
+          <a href="index.html">Inicio</a>
+          <a href="archivo.html">Archivo de posts</a>
+          <a href="archivo.html?tema=Finanzas%20personales">Finanzas personales</a>
+          <a href="archivo.html?tema=Motivaci%C3%B3n">Motivación</a>
+          <a href="sobre-mi.html">Sobre mí</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="asi-verificamos.html">Así verificamos</a>
+          <a href="aviso-privacidad.html">Aviso de privacidad</a>
+          <a href="pronosticos.html">Pronósticos</a>
+          <a href="montajes.html">En automático: sistemas que se publican solos</a>
+          <a href="quiz.html">Quiz: tu exposición a la IA</a>
+        </nav>
+      </div>
+      <div class="pie-ig">
+        <p class="pie-titulo">Redes</p>
+        <p>El contenido de cada día sale en Instagram, en versión corta en X y en video en TikTok y YouTube; Facebook lo publica completo. La conversación pasa allá.</p>
+        <a class="boton boton-claro" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.tiktok.com/@juanpaiprojects" target="_blank" rel="noopener">TikTok · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.youtube.com/@juanpaiprojects" target="_blank" rel="noopener">YouTube · @juanpaiprojects</a>
+        <a class="boton boton-claro" href="https://www.facebook.com/100573032979969" target="_blank" rel="noopener">Facebook · Juanpaiprojects</a>
+      </div>
+    </div>
+    <div class="contenedor pie-base">
+      <p>© <span id="anio">2026</span> Juanpai Projects. Todos los derechos reservados.</p>
+      <p>Escrito desde proyectos reales, no desde un escritorio de consultoría.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=18"></script>
+  <script>
+    // Envío sin recargar: al confirmar Netlify, el formulario se
+    // sustituye por la confirmación en la misma página. Si el envío
+    // rápido falla, el formulario se manda de la forma normal
+    // (Netlify lo recibe igual y cae en contacto-gracias.html).
+    (function () {
+      var form = document.getElementById("form-contacto");
+      if (!form) return;
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var boton = document.getElementById("form-boton");
+        var error = document.getElementById("form-error");
+        var recibido = document.getElementById("form-recibido");
+        if (boton) { boton.disabled = true; boton.textContent = "Enviando…"; }
+        if (error) error.style.display = "none";
+        fetch("/", { method: "POST", body: new FormData(form) })
+          .then(function (r) {
+            if (!r.ok) throw new Error("envio");
+            form.style.display = "none";
+            if (recibido) { recibido.style.display = "block"; recibido.scrollIntoView({ behavior: "smooth", block: "center" }); }
+          })
+          .catch(function () {
+            if (boton) { boton.disabled = false; boton.textContent = "Enviar mensaje →"; }
+            if (error) error.style.display = "block";
+            form.removeEventListener("submit", arguments.callee);
+          });
+      });
+    })();
+  </script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "40091d6c8845470e86cf89aa213bc673"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

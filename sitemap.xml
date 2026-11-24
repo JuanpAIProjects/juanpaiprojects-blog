@@ -43,6 +43,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://juanpaiprojects.netlify.app/contacto.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://juanpaiprojects.netlify.app/asi-verificamos.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
