@@ -1,11 +1,12 @@
 {
- "actualizado": "2026-11-23",
+ "actualizado": "2026-11-24",
  "pronosticos": [
   {
    "tipo": "contenido",
    "fecha": "2026-11-18",
    "pronostico": "Pronostiqué que este carrusel rendía mejor que una pieza típica de la cuenta — como 50% más — y que lo importante no serían las vistas, sino los guardados. La razón: la Aplicable es un paso a paso que se puede copiar hoy mismo, y el dato trae letra pequeña verificable (es gratis solo en 6 países); eso es justo lo que la gente guarda para revisarlo antes de pagar una suscripción.",
-   "resultado": "pendiente",
+   "resultado": "parcial",
+   "resolucion": "Calificado el 24 nov: midió 18 vistas en Instagram (2.0× la mediana de referencia, contra el 1.5× pronosticado) y 0 guardados. Dirección correcta; la magnitud se pasó de la banda y la señal pronosticada no pesó.",
    "tema": "Google ya llama y paga por ti (en México todavía no es gratis) — carrusel de Instagram"
   },
   {
@@ -13,7 +14,8 @@
    "fecha": "2026-11-19",
    "tema": "Anthropic sale a bolsa: el IPO más grande de la historia le pone precio a la IA — reel de Instagram",
    "pronostico": "Pronostiqué que este reel rendía el doble que una pieza típica de la cuenta en Instagram, que la conversación más fuerte se daba en X — ahí la pieza salió con una pregunta para que la gente pronosticara el debut — y que lo que más iba a pesar eran los comentarios.",
-   "resultado": "pendiente",
+   "resultado": "acierto",
+   "resolucion": "Calificado el 24 nov: la conversación se dio en X y la pesaron los comentarios, como se pronosticó — el post de la primicia del debut midió 79 impresiones, con 1 comentario y 0 reacciones y 0 reposts, y la semana de X cerró con 19 comentarios contra 1 reacción y 0 reposts. La señal principal sí fue la dominante.",
    "nota": "Es el debut bursátil más grande de la historia: el precio se fijó en $83, arriba del rango esperado, y la conversación se dio en vivo, antes y después de la apertura."
   },
   {
@@ -21,7 +23,8 @@
    "fecha": "2026-11-20",
    "tema": "La fiesta que se volteó: ni el IPO más grande de la historia frenó la venta — carrusel de Instagram",
    "pronostico": "Pronostiqué que este carrusel rendía mejor que una pieza típica de la cuenta — como 50% más — y que lo importante no serían las vistas, sino los guardados.",
-   "resultado": "pendiente",
+   "resultado": "parcial",
+   "resolucion": "Calificado el 24 nov: en Instagram midió 9 vistas — la mediana de referencia, sin llegar al 1.5× — y 0 guardados; la pieza fue la ganadora de la semana en TikTok (498 vistas) y YouTube (248). Dirección correcta como pieza; la magnitud en Instagram y la señal, no.",
    "nota": "Es el día después del debut bursátil más grande de la historia y la pieza trae dos cosas que se guardan: el checklist de qué mirar en una semana de pánico y el paso a paso completo de una herramienta de soporte gratis y abierta."
   },
   {
@@ -29,7 +32,8 @@
    "fecha": "2026-11-21",
    "tema": "Corrección oficial en Wall Street: la IA no se cayó, se cayó el precio que pagaban por ella — reel de Instagram",
    "pronostico": "Pronostiqué que este reel rendía mejor que una pieza típica de la cuenta — como 50% más — y que lo que más iba a pesar eran los envíos a otras personas, no los comentarios.",
-   "resultado": "pendiente",
+   "resultado": "parcial",
+   "resolucion": "Calificado el 24 nov: midió 129 vistas en Instagram, la mejor marca de la semana en la cuenta, contra ~14 esperadas — dirección correcta, magnitud muy por encima — y 0 compartidos: la señal pronosticada no se dio (el único movimiento fue 1 guardado).",
    "nota": "Es el cierre de la semana en que la bolsa entró en corrección oficial, con un dato que se manda tal cual: Anthropic tocó 83.05 dólares, a cinco centavos de su precio de salida, dos días después del debut más grande de la historia."
   },
   {
@@ -37,7 +41,8 @@
    "fecha": "2026-11-22",
    "tema": "Los agentes ya compran, y repiten: el gasto hecho por agentes va 80 veces arriba de septiembre — reel de Instagram",
    "pronostico": "Pronostiqué que este reel rendía mejor que una pieza típica de la cuenta — como 50% más — y que lo que más iba a pesar eran los envíos a otras personas.",
-   "resultado": "pendiente",
+   "resultado": "parcial",
+   "resolucion": "Calificado el 24 nov: midió 106 vistas en Instagram contra ~14 esperadas — dirección correcta, magnitud fuera de la banda — y 0 compartidos: la señal pronosticada no pesó.",
    "nota": "El dato es fresco y primario, de los pagos reales que procesa Stripe, y se le manda tal cual a quien vende en línea; la herramienta gratis de hoy también se reenvía a quien presenta una app."
   },
   {
@@ -45,7 +50,8 @@
    "fecha": "2026-11-23",
    "tema": "La compra más grande de la ciberseguridad: CrowdStrike se queda con Zscaler — carrusel de Instagram",
    "pronostico": "Pronostiqué que este carrusel rendía mejor que una pieza típica de la cuenta — como 50% más — y que lo importante serían los guardados.",
-   "resultado": "pendiente",
+   "resultado": "fallo",
+   "resolucion": "Calificado el 24 nov: midió 2 vistas en Instagram contra ~14 esperadas y 0 guardados; en TikTok, 31 vistas contra una mediana de ~225. Ni la magnitud ni la señal: no pegó.",
    "nota": "Es el trato más grande en la historia de su sector, anunciado hoy por las propias empresas, y la herramienta gratis de hoy es un paso a paso que se guarda: una sola memoria para todas tus inteligencias artificiales."
   }
  ]
