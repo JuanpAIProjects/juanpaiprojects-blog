@@ -3,6 +3,13 @@
  "perfil": "https://www.youtube.com/@juanpaiprojects",
  "videos": [
   {
+   "fecha": "2026-11-23",
+   "titulo": "43,900 millones por seguridad: la compra más grande de la ciberseguridad",
+   "url": "https://www.youtube.com/shorts/gjHzcdLCEQk",
+   "videoId": "gjHzcdLCEQk",
+   "imagen": "assets/video/2026-11-23-crowdstrike-zscaler-cover.jpg"
+  },
+  {
    "fecha": "2026-11-22",
    "titulo": "Agentes de IA gastan 80 veces más: ya compran y repiten",
    "url": "https://www.youtube.com/shorts/za3kSd4ihWo",
