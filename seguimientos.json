@@ -74,6 +74,12 @@
     "hora": "17:10",
     "texto": "El cierre de Wall Street confirmó lo que Asia anticipó: el S&P 500 cayó 3.7% a 6,910.39 y sumó siete caídas seguidas, su peor racha desde febrero de 2020, cerrando en corrección (más de 10% abajo de su récord del 6 de octubre). El Nasdaq cayó 5.28% y borró sus ganancias de 2026. Anthropic tocó $83.05 en el día y cerró en $88.91: defendió su precio de salida de $83."
    }
-  ]
+  ],
+  "cierre": {
+   "fecha": "2026-11-20",
+   "hora": "17:10",
+   "desenlace": "Wall Street confirmó el volteo al cierre: el S&P 500 cayó 3.7% a 6,910.39, sumó siete caídas seguidas — su peor racha desde febrero de 2020 — y cerró en corrección; el Nasdaq cayó 5.28% y borró sus ganancias de 2026.",
+   "url": ""
+  }
  }
 }

@@ -197,7 +197,18 @@
           tt.className = "ed-t-titulo";
           enlazar(tt, seg[j].url, seg[j].titulo || "");
           cuerpo.appendChild(tt);
-          if (seg[j].estado) {
+          if (seg[j].cierre && seg[j].cierre.desenlace) {
+            var tc = document.createElement("span");
+            tc.className = "ed-t-cierre";
+            tc.appendChild(document.createTextNode(" — "));
+            var sello = document.createElement("span");
+            sello.className = "ed-t-sello";
+            sello.textContent = "Historia cerrada";
+            tc.appendChild(sello);
+            tc.appendChild(document.createTextNode(": "));
+            enlazar(tc, seg[j].cierre.url, seg[j].cierre.desenlace);
+            cuerpo.appendChild(tc);
+          } else if (seg[j].estado) {
             var te = document.createElement("span");
             te.className = "ed-t-estado";
             te.textContent = " — " + seg[j].estado;
@@ -237,7 +248,8 @@
     cargarJSON("seguimientos.json").then(function (d) {
       var s = d && d[m[1]];
       var acts = s && Array.isArray(s.actualizaciones) ? s.actualizaciones.slice(-8).reverse() : [];
-      if (!acts.length) return;
+      var cierre = s && s.cierre && s.cierre.desenlace ? s.cierre : null;
+      if (!acts.length && !cierre) return;
       var sec = document.createElement("section");
       sec.className = "seguimiento";
       sec.id = "seguimiento";
@@ -248,11 +260,13 @@
       var punto = document.createElement("span");
       punto.className = "uh-punto";
       badge.appendChild(punto);
-      badge.appendChild(document.createTextNode("Seguimiento"));
+      badge.appendChild(document.createTextNode(cierre ? "Seguimiento · historia cerrada" : "Seguimiento"));
       cab.appendChild(badge);
       var ult = document.createElement("span");
       ult.className = "ed-actualizado";
-      ult.textContent = "Última actualización " + fechaCorta(acts[0].fecha) + (acts[0].hora ? " · " + acts[0].hora : "");
+      var ultF = acts.length ? acts[0].fecha : cierre.fecha, ultH = acts.length ? (acts[0].hora || "") : (cierre.hora || "");
+      if (cierre && acts.length && (cierre.fecha + " " + (cierre.hora || "") > acts[0].fecha + " " + (acts[0].hora || ""))) { ultF = cierre.fecha; ultH = cierre.hora || ""; }
+      ult.textContent = "Última actualización " + fechaCorta(ultF) + (ultH ? " · " + ultH : "");
       cab.appendChild(ult);
       sec.appendChild(cab);
       var intro = document.createElement("p");
@@ -272,7 +286,27 @@
         li.appendChild(tx);
         ul.appendChild(li);
       }
-      sec.appendChild(ul);
+      if (acts.length) sec.appendChild(ul);
+      if (cierre) {
+        var pc = document.createElement("p");
+        pc.className = "seg-cierre";
+        var rot = document.createElement("span");
+        rot.className = "seg-cierre-rotulo";
+        rot.textContent = "Cierre de esta historia";
+        pc.appendChild(rot);
+        pc.appendChild(document.createTextNode(" — "));
+        if (cierre.url) {
+          var ac = document.createElement("a");
+          if (/^https?:\/\//.test(cierre.url)) { ac.href = cierre.url; ac.target = "_blank"; ac.rel = "noopener"; }
+          else { ac.href = base() + cierre.url; }
+          ac.textContent = cierre.desenlace;
+          pc.appendChild(ac);
+        } else {
+          pc.appendChild(document.createTextNode(cierre.desenlace));
+        }
+        pc.appendChild(document.createTextNode(" · " + fechaCorta(cierre.fecha) + (cierre.hora ? " · " + cierre.hora : "")));
+        sec.appendChild(pc);
+      }
       nav.parentNode.insertBefore(sec, nav);
     }).catch(function () {});
   }

@@ -598,6 +598,14 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 .seg-intro { margin-top: 0.2rem; color: var(--tinta-suave); line-height: 1.5; }
 
+.seg-cierre { margin-top: 1rem; padding-top: 0.9rem; border-top: 1px solid var(--borde); line-height: 1.5; }
+.seg-cierre-rotulo { font-weight: 700; color: var(--verde); }
+.seg-cierre a { color: var(--verde); font-weight: 600; }
+
+.ed-t-cierre { color: var(--tinta-suave); }
+.ed-t-sello { font-weight: 700; color: var(--verde); }
+.ed-t-cierre a { color: var(--verde); }
+
 .meta {
   font-size: 0.88rem;
   color: var(--tinta-tenue);
