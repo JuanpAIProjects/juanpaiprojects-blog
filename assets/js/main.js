@@ -446,6 +446,33 @@
     el.innerHTML = recientes.map(filaPost).join("");
   }
 
+  // Vacío honesto del archivo filtrado. Cuando la vista es una de
+  // las dos secciones nuevas (Finanzas personales / Motivación) y
+  // todavía no tiene posts, la vista explica qué es la sección,
+  // avisa que sus primeras piezas llegan esta semana y ofrece dos
+  // salidas: el archivo completo y la suscripción al dato diario.
+  // En cuanto exista un post con ese tema exacto, la vista lista
+  // posts como siempre y este vacío deja de verse.
+  var VACIOS_SECCION = {
+    "Finanzas personales": "El sistema para tu dinero: principios aplicables, sin humo.",
+    "Motivación": "La mentalidad que sostiene los sistemas: sustancia, nada de frases de gurú."
+  };
+
+  function vacioArchivo(tema, tipo) {
+    if (tema && VACIOS_SECCION[tema]) {
+      return (
+        '<div class="destacado">' +
+        '<p class="destacado-etiqueta">' + esc(tema) + "</p>" +
+        '<p class="destacado-resumen">' + esc(VACIOS_SECCION[tema]) + "</p>" +
+        "<p>Las primeras piezas de esta sección llegan esta semana. Mientras tanto, todo lo publicado está en el archivo completo, y el dato diario llega a tu correo cada mañana.</p>" +
+        '<p style="margin-bottom: 0;"><a class="boton boton-solido" href="' + esc(base() + "archivo.html") + '">Ver el archivo completo</a> ' +
+        '<a class="boton boton-contorno" href="' + esc(base() + "index.html#suscripcion") + '">Suscribirme al dato diario</a></p>' +
+        "</div>"
+      );
+    }
+    return '<p class="lista-vacia">' + (tema || tipo ? "Todavía no hay posts en esta sección." : "Todavía no hay posts publicados.") + "</p>";
+  }
+
   function pintarArchivo(posts) {
     var el = document.getElementById("archivo-lista");
     if (!el) return;
@@ -457,7 +484,7 @@
     if (tema) posts = posts.filter(function (p) { return p.tema === tema; });
     if (tipo) posts = posts.filter(function (p) { return p.tipo === tipo; });
     if (!posts.length) {
-      el.innerHTML = '<p class="lista-vacia">' + (tema || tipo ? "Todavía no hay posts en esta sección." : "Todavía no hay posts publicados.") + "</p>";
+      el.innerHTML = vacioArchivo(tema, tipo);
       return;
     }
     var grupos = {};
