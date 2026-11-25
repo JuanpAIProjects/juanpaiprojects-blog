@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>En automático, en vivo — Juanpai Projects</title>
+  <title>SUÉLTALO, en vivo — Juanpai Projects</title>
   <meta name="description" content="Los sistemas de contenido que monto para empresas y para proyectos personales, corriendo en vivo: juanpaiprojects y Don Rosendo, el cliente 0 de Grupo Santa Rosa. Sin promesas: enlaces vivos para verlos correr.">
   <link rel="canonical" href="https://juanpaiprojects.netlify.app/montajes.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Juanpai Projects">
-  <meta property="og:title" content="En automático, en vivo — Juanpai Projects">
-  <meta property="og:description" content="Este blog se publica solo, y no es el único. Los sistemas que hoy están corriendo en automático, con sus enlaces vivos.">
+  <meta property="og:title" content="SUÉLTALO, en vivo — Juanpai Projects">
+  <meta property="og:description" content="Este blog se publica solo, y no es el único. Los sistemas que hoy están corriendo por su cuenta, con sus enlaces vivos.">
   <meta property="og:url" content="https://juanpaiprojects.netlify.app/montajes.html">
   <meta property="og:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
   <meta property="og:locale" content="es_MX">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="En automático, en vivo — Juanpai Projects">
-  <meta name="twitter:description" content="Este blog se publica solo, y no es el único. Los sistemas que hoy están corriendo en automático, con sus enlaces vivos.">
+  <meta name="twitter:title" content="SUÉLTALO, en vivo — Juanpai Projects">
+  <meta name="twitter:description" content="Este blog se publica solo, y no es el único. Los sistemas que hoy están corriendo por su cuenta, con sus enlaces vivos.">
   <meta name="twitter:image" content="https://juanpaiprojects.netlify.app/assets/img/logo.jpg">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icono-app.png">
@@ -33,10 +33,19 @@
     .caso-enlaces { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.1rem; }
     .montaje-enlaces a { color: var(--verde); font-weight: 600; white-space: nowrap; }
     .caminos-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .abanico { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin: 1.8rem 0 2.6rem; }
+    .proyecto { background: #FBF7EE; border: 2px solid var(--tinta); border-radius: 16px; padding: 1.6rem 1.7rem; }
+    .proyecto-logo { display: block; width: 64px; height: 64px; border-radius: 14px; object-fit: cover; margin-bottom: 1rem; }
+    .proyecto-etiqueta { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--verde); margin-bottom: 0.45rem; }
+    .proyecto h3 { font-family: var(--titular); font-weight: 800; color: var(--tinta); line-height: 1.25; margin: 0 0 0.55rem; }
+    .proyecto p { color: var(--tinta-suave); line-height: 1.55; margin: 0; }
+    .proyecto-tuyo { background: transparent; border-style: dashed; }
     @media (max-width: 620px) {
       .caminos { grid-template-columns: 1fr; }
       .caminos-3 { grid-template-columns: 1fr; }
       .camino { padding: 1.35rem 1.25rem; }
+      .abanico { grid-template-columns: 1fr; }
+      .proyecto { padding: 1.35rem 1.25rem; }
       .caso-enlaces .boton { padding: 0.55rem 1rem; font-size: 0.9rem; }
     }
   </style>
@@ -55,43 +64,71 @@
         <a href="archivo.html">Archivo</a>
         <a href="sobre-mi.html">Sobre mí</a>
         <a href="empieza-aqui.html">Empieza aquí</a>
-        <a href="montajes.html" aria-current="page">En automático</a>
+        <a href="montajes.html" aria-current="page">SUÉLTALO</a>
       </nav>
     </div>
   </header>
 
   <main class="contenedor">
     <section class="hero" style="padding-bottom: 2.4rem;">
-      <p class="kicker"><span class="kicker-linea"></span>En automático · Sistemas que se publican solos</p>
+      <p class="kicker"><span class="kicker-linea"></span>SUÉLTALO · Sistemas que se publican solos</p>
       <h1>Este blog se publica solo. <em>Y no es el único.</em></h1>
-      <p class="lede">Esto no es una presentación: son sistemas de contenido publicando solos ahorita — el de esta casa y el de un cliente en México. Redes, blog y newsletter saliendo a diario sin que su dueño los empuje. Se monta en 2 días, con tus propias cuentas, y todo canaliza a donde tú cierras. Míralos trabajar; si quieres el tuyo, la puerta es un mensaje directo.</p>
+      <p class="lede">Esto no es una presentación: son sistemas de contenido publicando solos ahorita — el de esta casa y los de dos negocios reales. Redes, blog y newsletter saliendo a diario sin que su dueño los empuje. Se monta en una semana, con tus propias cuentas, y todo canaliza a donde tú cierras. Míralos trabajar; si quieres el tuyo, la puerta es un mensaje directo.</p>
     </section>
 
-    <article class="destacado" style="margin-bottom: 2.6rem;">
-      <p class="destacado-etiqueta">Cliente 0 · Corriendo desde el 20 de noviembre de 2026</p>
-      <h3>Don Rosendo, la mascota de Grupo Santa Rosa</h3>
-      <p class="destacado-resumen">Don Rosendo es el medio de eventos y hospedaje de Grupo Santa Rosa — un grupo de salones de eventos y hotel en México —: publica tips, datos y contenido del sector en su blog y sus redes, y le lleva clientes al grupo. Es el primer En automático para alguien más: <strong>quedó montado en menos de 2 días</strong> y desde entonces corre solo, a diario.</p>
-      <div class="caso-enlaces">
-        <a class="boton boton-contorno" href="https://don-rosendo.netlify.app" target="_blank" rel="noopener">Su blog</a>
-        <a class="boton boton-contorno" href="https://www.instagram.com/donrosendo.gsr" target="_blank" rel="noopener">Instagram</a>
-        <a class="boton boton-contorno" href="https://www.tiktok.com/@donrosendo.gsr" target="_blank" rel="noopener">TikTok</a>
-        <a class="boton boton-contorno" href="https://www.youtube.com/@donrosendogsr" target="_blank" rel="noopener">YouTube</a>
+    <div class="sobre-texto" style="max-width: 46rem;">
+      <h2>Míralos trabajar</h2>
+      <p>Tres sistemas corriendo en vivo, cada uno con su identidad y su voz — y un espacio libre. Entra a cualquiera y míralo publicar: si está publicando, está corriendo.</p>
+    </div>
+
+    <div class="abanico">
+      <div class="proyecto">
+        <img class="proyecto-logo" src="assets/img/logo-sm.jpg" alt="Logotipo de Juanpai Projects" width="64" height="64">
+        <span class="proyecto-etiqueta">La casa · Corriendo desde el primer día</span>
+        <h3>Este blog</h3>
+        <p>Este blog: una pieza diaria verificada, con su newsletter, su podcast y sus versiones en redes. Es el primer Suéltalo y corre solo desde el primer día. La prueba no es esta página: es todo lo demás que se publica aquí a diario.</p>
+        <div class="caso-enlaces">
+          <a class="boton boton-contorno" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">Instagram</a>
+          <a class="boton boton-contorno" href="https://www.tiktok.com/@juanpaiprojects" target="_blank" rel="noopener">TikTok</a>
+          <a class="boton boton-contorno" href="https://www.youtube.com/@juanpaiprojects" target="_blank" rel="noopener">YouTube</a>
+          <a class="boton boton-contorno" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X</a>
+        </div>
       </div>
-    </article>
+      <div class="proyecto">
+        <img class="proyecto-logo" src="assets/img/proyecto-don-rosendo.jpg" alt="Logotipo de Don Rosendo" width="64" height="64">
+        <span class="proyecto-etiqueta">Cliente 0 · Corriendo desde el 20 de noviembre de 2026</span>
+        <h3>Don Rosendo</h3>
+        <p>El medio de eventos y hospedaje de Grupo Santa Rosa: publica tips, datos y contenido del sector en su blog y sus redes, y le lleva clientes al grupo. Quedó montado en menos de una semana y desde entonces corre solo, a diario.</p>
+        <div class="caso-enlaces">
+          <a class="boton boton-contorno" href="https://don-rosendo.netlify.app" target="_blank" rel="noopener">Su blog</a>
+          <a class="boton boton-contorno" href="https://www.instagram.com/donrosendo.gsr" target="_blank" rel="noopener">Instagram</a>
+          <a class="boton boton-contorno" href="https://www.tiktok.com/@donrosendo.gsr" target="_blank" rel="noopener">TikTok</a>
+          <a class="boton boton-contorno" href="https://www.youtube.com/@donrosendogsr" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+      <div class="proyecto">
+        <img class="proyecto-logo" src="assets/img/proyecto-losmanda2.jpg" alt="Logotipo de LOS MANDA2" width="64" height="64">
+        <span class="proyecto-etiqueta">Negocio de producto · Corriendo a diario</span>
+        <h3>LOS MANDA2</h3>
+        <p>Frutas y verduras para eventos: su contenido se publica solo a diario y vende por mensaje directo. Cada entrega sale con su nota y su video, generados por el sistema.</p>
+        <div class="caso-enlaces">
+          <a class="boton boton-contorno" href="https://www.instagram.com/los_manda2/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="proyecto proyecto-tuyo">
+        <span class="proyecto-etiqueta">El siguiente</span>
+        <h3>El tuyo</h3>
+        <p>Este espacio está libre: tu empresa o tu proyecto personal, publicando solo en una semana, con tus propias cuentas — y todo canalizando a donde tú cierras.</p>
+        <div class="caso-enlaces">
+          <a class="boton boton-solido" href="https://ig.me/m/juanpaiprojects" target="_blank" rel="noopener">Escríbeme por DM</a>
+        </div>
+      </div>
+    </div>
+
+    <p style="max-width: 46rem; margin: 0 0 2.6rem;">¿Lo tuyo no es publicar, sino operar? Si tu empresa — o tu proyecto personal — necesita un sistema que ordene su operación o su día a día, <a href="https://prismaops.netlify.app" target="_blank" rel="noopener" style="color: var(--verde); font-weight: 600;">PRISMA OPS</a> lo construye — y este contenido puede vivir dentro de él.</p>
 
     <div class="sobre-texto" style="max-width: 46rem;">
-      <h2>El caso de la casa</h2>
-      <p>El primer En automático fue este blog. Cada mañana sale una pieza verificada de IA, finanzas y negocios, con su newsletter, su podcast y sus versiones en cada red — y lleva corriendo solo desde el primer día. Si estás leyendo esto, estás viendo el sistema trabajar: <strong>la prueba no es esta página, es todo lo demás que se publica aquí a diario.</strong></p>
-    </div>
-    <div class="caso-enlaces" style="margin-bottom: 2.6rem;">
-      <a class="boton boton-contorno" href="https://www.instagram.com/juanpaiprojects/" target="_blank" rel="noopener">IG · @juanpaiprojects</a>
-      <a class="boton boton-contorno" href="https://www.tiktok.com/@juanpaiprojects" target="_blank" rel="noopener">TikTok · @juanpaiprojects</a>
-      <a class="boton boton-contorno" href="https://www.youtube.com/@juanpaiprojects" target="_blank" rel="noopener">YouTube · @juanpaiprojects</a>
-      <a class="boton boton-contorno" href="https://x.com/juanpaiprojects" target="_blank" rel="noopener">X · @juanpaiprojects</a>
-    </div>
-
-    <div class="sobre-texto" style="max-width: 46rem;">
-      <h2>Qué recibes con tu En automático</h2>
+      <h2>Qué recibes con tu Suéltalo</h2>
       <p>No recibe un curso ni una asesoría: recibe su contenido <strong>corriendo</strong>.</p>
       <ul class="paper-lista">
         <li><strong>Tus redes publicando solas</strong>, con tu identidad y tu voz — nada de plantillas genéricas que se notan a leguas.</li>
@@ -123,45 +160,24 @@
       <a class="boton boton-solido" href="quiz-corre-solo.html">Hacer el quiz →</a>
     </div>
 
-    <div class="sobre-texto" style="max-width: 46rem;">
-      <h2>Sistemas corriendo</h2>
-    </div>
-
-    <div class="caminos caminos-3">
-      <div class="camino">
-        <h3>La casa</h3>
-        <p>El contenido de Juanpai Projects corre con este mismo motor: se investiga, se produce y se publica solo, todos los días.</p>
-      </div>
-      <div class="camino">
-        <h3>Don Rosendo</h3>
-        <p>Eventos y hotelería. Un personaje que publica solo a diario y convierte lo que va a pasar en su zona en contenido que cierra por WhatsApp.</p>
-      </div>
-      <div class="camino">
-        <h3>LOS MANDA2</h3>
-        <p>Un negocio de producto y entregas: su contenido corre en automático y cada entrega sale con su nota y su video, generados por el sistema.</p>
-      </div>
-    </div>
-
     <p style="max-width: 46rem; margin: 0 0 1.1rem;">Nada de esto es una maqueta: son sistemas corriendo. El tuyo puede ser el siguiente.</p>
     <div style="margin: 0 0 2.6rem;">
       <a class="boton boton-solido" href="https://ig.me/m/juanpaiprojects" target="_blank" rel="noopener">Escríbeme por DM</a>
     </div>
 
-    <p style="max-width: 46rem; margin: 0 0 2.6rem;">¿Lo quieres dentro de tu propio sistema? Si tu empresa — o tu proyecto personal — necesita más que contenido: un sistema que ordene tu operación o tu día a día, nuestro socio <a href="https://prismaops.netlify.app" target="_blank" rel="noopener" style="color: var(--verde); font-weight: 600;">PRISMA OPS</a> lo construye, y este contenido vive dentro de él.</p>
-
     <section class="seguimiento" style="margin: 0 0 2.6rem;">
       <div class="ed-cabecera">
-        <span class="ed-badge">Registro: cada En automático, con fecha</span>
+        <span class="ed-badge">Registro: cada Suéltalo, con fecha</span>
         <span class="ed-actualizado" id="montajes-actualizado"></span>
       </div>
-      <p class="seg-intro">Cada En automático queda asentado aquí con su fecha y sus enlaces vivos. Verificarlo es así de simple: si el enlace abre y está publicando, está corriendo.</p>
+      <p class="seg-intro">Cada Suéltalo queda asentado aquí con su fecha y sus enlaces vivos. Verificarlo es así de simple: si el enlace abre y está publicando, está corriendo.</p>
       <ul class="ed-lista" id="montajes-lista"></ul>
       <p class="lista-vacia" id="montajes-vacio">Cargando el registro…</p>
     </section>
 
     <div class="paper-cta" style="margin-bottom: 3rem;">
       <div>
-        <p class="kicker">En automático</p>
+        <p class="kicker">SUÉLTALO</p>
         <h2>¿Quieres uno corriendo para ti?</h2>
         <p>Sin discurso de ventas y sin compromiso: cuéntame por mensaje directo qué quieres que corra solo — tu empresa o tu proyecto personal — y vemos si encaja.</p>
       </div>
@@ -177,7 +193,7 @@
         <a class="pie-logo" href="index.html" aria-label="Juanpai Projects — Inicio">
           <img src="assets/img/logo-sm.jpg" alt="Logotipo de Juanpai Projects" width="1024" height="1024">
         </a>
-        <p class="pie-tag">Noticias verificadas e IA aplicada a negocios y proyectos personales, más finanzas personales y motivación: todo es un sistema. Un dato, una herramienta y el paso a paso para aplicarla, cada día. Sin humo.</p>
+        <p class="pie-tag">Noticias verificadas e IA aplicada a negocios y proyectos personales, más finanzas personales y motivación: todo es un sistema. Un dato, una herramienta y el paso a paso para aplicarla, cada día. Sin anestesia.</p>
       </div>
       <div>
         <p class="pie-titulo">El blog</p>
@@ -191,7 +207,7 @@
           <a href="asi-verificamos.html">Así verificamos</a>
           <a href="aviso-privacidad.html">Aviso de privacidad</a>
           <a href="pronosticos.html">Pronósticos</a>
-          <a href="montajes.html">En automático: sistemas que se publican solos</a>
+          <a href="montajes.html">SUÉLTALO: sistemas que se publican solos</a>
           <a href="quiz.html">Quiz: tu exposición a la IA</a>
         </nav>
       </div>
