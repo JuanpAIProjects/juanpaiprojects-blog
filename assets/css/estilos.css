@@ -1576,11 +1576,11 @@ html.con-js .revelar.visible {
   .marca-foco img { width: 57.3px; height: 57.3px; left: -9.5px; top: -2.5px; }
   /* Expandida en móvil: la nav va en su propia hilera, a tamaño
      legible. "Inicio" se oculta: el logo ya enlaza a la portada.
-     Con el enlace «En automático» (más largo que «Montajes»), la
-     fuente baja a 0.79rem y el gap a 0.95rem para caber desde
-     431 pt. */
+     Con el enlace «SUÉLTALO», la fuente baja a 0.79rem y el gap a
+     0.95rem para caber desde 431 pt. El padding vertical lleva el
+     toque a ~44px: sin él, el enlace medía ~21px de alto. */
   .nav { gap: 0.95rem; flex-wrap: nowrap; }
-  .nav a { font-size: 0.79rem; letter-spacing: 0.05em; white-space: nowrap; }
+  .nav a { font-size: 0.79rem; letter-spacing: 0.05em; white-space: nowrap; padding: 0.55rem 0; }
   .nav a.nav-inicio { display: none; }
   /* Compacta en móvil: una sola hilera y la nav se desliza. */
   .cabecera.compacto .cabecera-interna { gap: 0.6rem; padding: 0.4rem 0; }
@@ -1608,8 +1608,8 @@ html.con-js .revelar.visible {
 /* Teléfonos angostos (≤430px): la hilera de navegación de la
    cabecera expandida se ajusta (0.74rem, tracking 0.02em y gap
    0.8rem) para caber a 390 pt sin desbordar con el enlace
-   «En automático», más largo que el anterior; la compacta se
-   desliza igual que en el resto de móviles. */
+   «SUÉLTALO»; la compacta se desliza igual que en el resto
+   de móviles. */
 @media (max-width: 430px) {
   .marca-completa img { width: 46px; height: 46px; }
   .nav { gap: 0.8rem; }
