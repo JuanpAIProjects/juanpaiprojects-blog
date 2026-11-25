@@ -46,7 +46,9 @@
       .camino { padding: 1.35rem 1.25rem; }
       .abanico { grid-template-columns: 1fr; }
       .proyecto { padding: 1.35rem 1.25rem; }
-      .caso-enlaces .boton { padding: 0.55rem 1rem; font-size: 0.9rem; }
+      /* 44px mínimo de alto de toque en los enlaces de cada tarjeta:
+         con el padding anterior quedaban en ~38px. */
+      .caso-enlaces .boton { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 0.6rem 1rem; font-size: 0.9rem; }
     }
   </style>
 </head>

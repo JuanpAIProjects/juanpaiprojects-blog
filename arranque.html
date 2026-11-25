@@ -67,9 +67,22 @@
       /* El !important vence el estilo en línea de dos columnas de la
          pregunta 10 (nombre y contacto): en el cel van apilados. */
       .tres { grid-template-columns: 1fr !important; }
-      .opciones { gap: 0.6rem; }
-      /* Enviar a todo lo ancho: blanco grande y fácil de picar. */
-      #form-boton { display: block; width: 100%; min-height: 52px; text-align: center; }
+      /* Opciones como tarjetas a todo lo ancho: renglones grandes
+         que se pican con el pulgar sin puntería, en vez de píldoras
+         chicas envueltas en varias líneas. */
+      .opciones { flex-direction: column; align-items: stretch; gap: 0.6rem; }
+      .opcion { width: 100%; min-height: 48px; padding: 0.7rem 1rem; font-size: 1rem; border-radius: 14px; }
+      .opcion input { width: 1.3rem; height: 1.3rem; }
+      .tres label, .solo label { font-size: 0.92rem; }
+      .campo { margin-bottom: 2.1rem; }
+      /* Enviar a todo lo ancho y pegado abajo: el botón acompaña el
+         scroll (sticky) y se puede picar en cuanto se termina de
+         llenar, sin cazarlo hasta el final; su lugar en el flujo
+         sigue al final del formulario, así que no tapa ningún campo
+         de forma permanente. */
+      #form-boton { display: block; width: 100%; min-height: 52px; text-align: center;
+        position: sticky; bottom: max(0.8rem, env(safe-area-inset-bottom)); z-index: 5;
+        box-shadow: 0 6px 22px rgba(0, 52, 63, 0.28); }
     }
   </style>
 </head>
@@ -97,7 +110,7 @@
       <p class="kicker"><span class="kicker-linea"></span>SUÉLTALO · Formulario de arranque</p>
       <h1>Cuéntanos todo, <em>en un solo paso.</em></h1>
       <p class="lede">Si ya platicamos por mensaje directo, este es tu siguiente paso: un formulario de un minuto donde nos dejas todo lo que tu sistema necesita para nacer — tu material, tus canales, tus fuentes. <strong>Todo se puede saltar</strong>, menos cómo contactarte: lo que no va hoy se resuelve después, sin trabar nada.</p>
-      <p class="tip-arranque"><strong>Tip:</strong> de preferencia llénalo desde la compu — sobre todo si vas a subir archivos.</p>
+      <p class="tip-arranque"><strong>Tip:</strong> son 10 preguntas rápidas y casi todo se puede saltar: lo que no tengas a la mano lo resolvemos después, sin trabar nada.</p>
     </section>
 
     <form class="arranque-form" name="arranque-en-automatico" method="POST" action="/arranque-gracias.html"
@@ -206,7 +219,7 @@
 
       <div class="campo">
         <p class="campo-titulo"><span class="campo-num">9.</span>Adjunta tu material</p>
-        <p class="campo-ayuda">PDFs, presentaciones, documentos: súbelos aquí, en una sola pasada (desde la compu es más fácil). Si pesan mucho o son muchos, o no lo tienes en este dispositivo, déjalo vacío y me lo mandas después por DM o correo. Si todavía no tienes un artículo específico, no pasa nada: sube tu presentación o tu material y con eso arranco.</p>
+        <p class="campo-ayuda">PDFs, presentaciones, documentos: súbelos aquí, en una sola pasada. Si pesan mucho o son muchos, o no los tienes a la mano, déjalo vacío y me los mandas después por DM o correo. Si todavía no tienes un artículo específico, no pasa nada: sube tu presentación o tu material y con eso arranco.</p>
         <input type="file" id="f-adjuntos" name="adjuntos" multiple>
       </div>
 
@@ -220,7 +233,7 @@
         <div class="tres" style="grid-template-columns: 1fr 1fr;">
           <div>
             <label for="f-tu-nombre">Tu nombre *</label>
-            <input type="text" id="f-tu-nombre" name="tu-nombre" required>
+            <input type="text" id="f-tu-nombre" name="tu-nombre" required autocomplete="name">
           </div>
           <div>
             <label for="f-tu-contacto">¿Cómo te contactamos? *</label>
