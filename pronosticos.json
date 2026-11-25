@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-24",
+ "actualizado": "2026-11-25",
  "pronosticos": [
   {
    "tipo": "contenido",
@@ -61,6 +61,14 @@
    "pronostico": "Pronostiqué que la conversación más fuerte se daba en X, con cerca del doble de lecturas que un post típico de la cuenta, y que lo que más iba a pesar eran los comentarios.",
    "resultado": "pendiente",
    "nota": "Es la historia más grande de la semana con un hecho nuevo de hoy — la caída que pone a prueba el rebote — y una pregunta real que esta noche responde Dell con su reporte."
+  },
+  {
+   "tipo": "contenido",
+   "fecha": "2026-11-25",
+   "tema": "El dato que le quita espacio a la Fed: la economía creció 4.3% y la inflación subió a 3.3%",
+   "pronostico": "Pronostiqué que la conversación más fuerte se daba en X, con como 50% más de lecturas que un post típico de la cuenta, y que lo que más iba a pesar eran los comentarios.",
+   "resultado": "pendiente",
+   "nota": "Es el último dato grande antes de que la Fed decida tasas en diciembre, en una semana corta por el feriado, y trae una pregunta real: si el crecimiento aguanta las tasas altas o la inflación obliga a apretar más."
   }
  ]
 }
