@@ -1,21 +1,27 @@
 {
- "fecha": "2026-11-24",
- "titulo": "El rebote de Nvidia se pone a prueba: hoy cae tras sumar 952,000 millones en un día",
- "resumen": "Ayer el regreso de Jensen Huang le dio a Nvidia su mejor día desde 2003; hoy la acción cae en la sesión y esta noche Dell decide con números si el rebote era negocio o solo alivio.",
- "url": "",
+ "fecha": "2026-11-25",
+ "titulo": "PIB de EE. UU. se revisa a 4.3% y el PCE subyacente sube a 3.3%: la Fed se queda sin espacio",
+ "resumen": "La segunda estimación del PIB del tercer trimestre saltó a 4.3% anualizado (esperaban 3.5%) y la inflación PCE subyacente de octubre quedó en 3.3% anual (esperaban 3.2%): crecimiento fuerte con inflación pegada, en el último dato grande antes de la decisión de la Fed en diciembre.",
+ "url": "https://x.com/1411751252334051329/status/2125593093533503733",
  "actualizaciones": [
   {
-   "fecha": "2026-11-24",
-   "hora": "10:16",
-   "texto": "En la sesión de hoy Nvidia cae (rondó 152–156 dólares en la mañana) tras cerrar ayer en 165.05 con +31.48%. Qué se define hoy: el reporte de Dell tras el cierre — guía de 49,000 millones, con 19,000 millones en servidores de IA — es el primer examen del rebote."
-  },
-  {
-   "fecha": "2026-11-24",
-   "hora": "16:03",
-   "texto": "Dell reportó tras el cierre y destrozó el consenso: ingresos récord de $54,940 M (esperaban $49,320 M), ganancia ajustada de $9.45 por acción (esperaban $6.59), lista de espera de servidores de IA récord de $132,300 M y guía anual subida a $202,000 M. El primer examen del rebote salió a favor del negocio, no del alivio."
+   "fecha": "2026-11-25",
+   "hora": "08:11",
+   "texto": "Salió el dato (BEA): PIB del tercer trimestre revisado a 4.3% anualizado contra 3.5% esperado y PCE subyacente de octubre en 3.3% anual contra 3.2% esperado. El mercado ya espera un alza de la Fed en diciembre; hoy a la 1:00 p.m. sale su Beige Book."
   }
  ],
  "seguimiento": [
+  {
+   "titulo": "El rebote de Nvidia se pone a prueba: hoy cae tras sumar 952,000 millones en un día",
+   "estado": "Cerrada: el primer examen del rebote salió a favor del negocio — Dell destrozó el consenso tras el cierre del 24 nov.",
+   "fecha": "2026-11-24",
+   "hora": "16:03",
+   "url": "",
+   "cierre": {
+    "desenlace": "Dell reportó ingresos récord de $54,940 M y guía anual subida a $202,000 M: el rebote de Nvidia pasó su primer examen.",
+    "url": ""
+   }
+  },
   {
    "titulo": "Dell reporta esta noche: su guía dice si la corrección de la IA fue precio o negocio",
    "estado": "Cerrada: Dell destrozó el consenso — $54,940 M de ingresos vs $49,320 M esperados y $9.45 de ganancia ajustada vs $6.59; guía anual subida a $202,000 M.",
@@ -26,13 +32,6 @@
     "desenlace": "Dell destrozó el consenso: $54,940 M de ingresos y $9.45 de ganancia ajustada por acción; guía anual a $202,000 M y lista de espera de IA récord de $132,300 M.",
     "url": ""
    }
-  },
-  {
-   "titulo": "Mañana: PCE y PIB de Estados Unidos, el dato que mira la Fed",
-   "estado": "Salen el miércoles 25 a las 7:30 a.m. hora del centro de México; un dato caliente le da segunda pata a la corrección.",
-   "fecha": "2026-11-24",
-   "hora": "10:16",
-   "url": ""
   },
   {
    "titulo": "Black Friday del viernes 27: primera gran prueba del comercio agéntico",
