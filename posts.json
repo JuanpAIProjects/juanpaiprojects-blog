@@ -1,5 +1,20 @@
 [
   {
+    "fecha": "2026-11-26",
+    "titulo": "Un millón de satélites que son centros de datos",
+    "resumen": "La FCC autorizó a SpaceX hasta 1,000,000 de satélites Starmind que procesan datos de IA en órbita: 90 veces los ~11,000 Starlink actuales, con hitos duros en 2033, 2035, 2038 y 2040. La para llevar: tu stack de IA en cero pesos, con Gemini gratis, agentes abiertos en tu máquina y video hecho en casa.",
+    "url": "posts/2026-11-26-millon-satelites-centros-datos.html",
+    "tema": "IA y espacio",
+    "tipo": "noticia",
+    "lectura": "2 min",
+    "audio": "assets/audio/2026-11-26-millon-satelites-centros-datos.mp3",
+    "audioDuracion": "2 min 24 s",
+    "video": "assets/video/2026-11-26-millon-satelites-centros-datos.mp4",
+    "videoCover": "assets/video/2026-11-26-millon-satelites-centros-datos-cover.jpg",
+    "videoDuracion": "53 s",
+    "videoTiktok": "assets/video/2026-11-26-millon-satelites-centros-datos-tiktok.mp4"
+  },
+  {
     "fecha": "2026-11-25",
     "titulo": "El PIB subió a 4.3% y la inflación no cedió: la Fed quedó sin espacio",
     "resumen": "El PIB de EE. UU. se revisó a 4.3% anualizado y el PCE subyacente quedó en 3.3% anual, arriba del 3.2% esperado: crecimiento fuerte con inflación pegada deja a la Fed sin espacio para recortar en diciembre.",
