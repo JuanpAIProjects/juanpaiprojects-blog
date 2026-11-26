@@ -1,51 +1,43 @@
 {
- "fecha": "2026-11-25",
- "titulo": "PIB de EE. UU. se revisa a 4.3% y el PCE subyacente sube a 3.3%: la Fed se queda sin espacio",
- "resumen": "La segunda estimación del PIB del tercer trimestre saltó a 4.3% anualizado (esperaban 3.5%) y la inflación PCE subyacente de octubre quedó en 3.3% anual (esperaban 3.2%): crecimiento fuerte con inflación pegada, en el último dato grande antes de la decisión de la Fed en diciembre.",
- "url": "https://x.com/1411751252334051329/status/2125593093533503733",
+ "fecha": "2026-11-26",
+ "titulo": "Black Friday del viernes 27: primera gran prueba del comercio agéntico",
+ "resumen": "Mañana los agentes de IA enfrentan su primer examen de ventas real: Adobe proyecta $12,900 millones en línea en EE. UU. en un día y los pedidos colocados por agentes ya van muy por encima de la temporada pasada.",
+ "url": "",
  "actualizaciones": [
   {
-   "fecha": "2026-11-25",
-   "hora": "08:11",
-   "texto": "Salió el dato (BEA): PIB del tercer trimestre revisado a 4.3% anualizado contra 3.5% esperado y PCE subyacente de octubre en 3.3% anual contra 3.2% esperado. El mercado ya espera un alza de la Fed en diciembre; hoy a la 1:00 p.m. sale su Beige Book."
+   "fecha": "2026-11-26",
+   "hora": "10:16",
+   "texto": "Hoy se siembra la víspera: Adobe proyecta $12,900 M en línea mañana (+9.2%) y Forter mide los pedidos de agentes en 74× contra la misma temporada de 2025 en lo que va del mes. Qué se define mañana: si el gasto hecho por agentes se dispara en el día fuerte o se queda en promesa."
   }
  ],
  "seguimiento": [
   {
-   "titulo": "El rebote de Nvidia se pone a prueba: hoy cae tras sumar 952,000 millones en un día",
-   "estado": "Cerrada: el primer examen del rebote salió a favor del negocio — Dell destrozó el consenso tras el cierre del 24 nov.",
-   "fecha": "2026-11-24",
-   "hora": "16:03",
-   "url": "",
-   "cierre": {
-    "desenlace": "Dell reportó ingresos récord de $54,940 M y guía anual subida a $202,000 M: el rebote de Nvidia pasó su primer examen.",
-    "url": ""
-   }
-  },
-  {
-   "titulo": "Dell reporta esta noche: su guía dice si la corrección de la IA fue precio o negocio",
-   "estado": "Cerrada: Dell destrozó el consenso — $54,940 M de ingresos vs $49,320 M esperados y $9.45 de ganancia ajustada vs $6.59; guía anual subida a $202,000 M.",
-   "fecha": "2026-11-24",
-   "hora": "16:03",
-   "url": "",
-   "cierre": {
-    "desenlace": "Dell destrozó el consenso: $54,940 M de ingresos y $9.45 de ganancia ajustada por acción; guía anual a $202,000 M y lista de espera de IA récord de $132,300 M.",
-    "url": ""
-   }
-  },
-  {
-   "titulo": "Black Friday del viernes 27: primera gran prueba del comercio agéntico",
-   "estado": "Forter mide en vivo los pedidos que colocan los agentes de IA: en lo que va del mes van 74 veces arriba de la misma temporada de 2025; Adobe proyecta $12,900 M en línea el viernes. (revisado el 25 nov)",
-   "fecha": "2026-11-24",
+   "titulo": "SpaceX: la FCC autorizó 1 millón de satélites-centro de datos (Starmind)",
+   "estado": "Licencia parcial con hitos: primer satélite a más tardar en nov 2033, 10% en 2035, 50% en 2038 y el total en 2040; operar arriba de 600 km espera el plan final de basura orbital. (revisado el 26 nov)",
+   "fecha": "2026-11-26",
    "hora": "10:16",
    "url": ""
   },
   {
    "titulo": "Anthropic: el IPO récord ya cotiza bajo su precio de salida",
-   "estado": "ANT cerró en $81.91 (-6.5%), su primer cierre bajo los $83 de su IPO; el jueves abrió en $111.50 y cayó los 4 días. Su siguiente definición: la posible entrada a índices en diciembre. (revisado el 25 nov)",
-   "fecha": "2026-11-24",
-   "hora": "17:09",
+   "estado": "ANT cerró el 25 nov en $82.79 (+1.08%), su primer cierre en verde desde el debut, todavía bajo los $83 de su IPO. Su siguiente definición: la posible entrada a índices en diciembre. (revisado el 26 nov)",
+   "fecha": "2026-11-25",
+   "hora": "10:16",
    "url": "posts/2026-11-19-anthropic-ipo-mas-grande.html#seguimiento"
+  },
+  {
+   "titulo": "Nvidia/Huang: audiencia en el Senado y el CEO permanente por nombrar",
+   "estado": "La audiencia de Huang ante el Comité Bancario del Senado está fechada el 3 dic; la búsqueda del CEO permanente sigue abierta y S&P puso la calificación AA en vigilancia negativa por la dependencia de una sola persona. (revisado el 26 nov)",
+   "fecha": "2026-11-25",
+   "hora": "10:16",
+   "url": ""
+  },
+  {
+   "titulo": "La Fed decide tasas el 8–9 de diciembre",
+   "estado": "Con el PIB revisado a 4.3% y el PCE subyacente en 3.3%, el mercado espera un alza en diciembre; es el telón de fondo de las próximas dos semanas. (revisado el 26 nov)",
+   "fecha": "2026-11-25",
+   "hora": "10:16",
+   "url": ""
   }
  ]
 }

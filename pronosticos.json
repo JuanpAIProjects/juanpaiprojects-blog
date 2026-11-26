@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-25",
+ "actualizado": "2026-11-26",
  "pronosticos": [
   {
    "tipo": "contenido",
@@ -69,6 +69,14 @@
    "pronostico": "Pronostiqué que la conversación más fuerte se daba en X, con como 50% más de lecturas que un post típico de la cuenta, y que lo que más iba a pesar eran los comentarios.",
    "resultado": "pendiente",
    "nota": "Es el último dato grande antes de que la Fed decida tasas en diciembre, en una semana corta por el feriado, y trae una pregunta real: si el crecimiento aguanta las tasas altas o la inflación obliga a apretar más."
+  },
+  {
+   "tipo": "contenido",
+   "fecha": "2026-11-26",
+   "tema": "Un millón de satélites que son centros de datos: la FCC autorizó la IA en órbita de SpaceX",
+   "pronostico": "Pronostiqué que la conversación más fuerte se daba en X, con como 50% más de lecturas que un post típico de la cuenta, y que lo que más iba a pesar eran los comentarios.",
+   "resultado": "pendiente",
+   "nota": "La cifra detiene por sí sola: un millón de satélites autorizados contra los cerca de 11,000 que SpaceX tiene hoy en órbita, y la pieza cierra con la pregunta de si la IA se muda al espacio o es una promesa sobredimensionada."
   }
  ]
 }
