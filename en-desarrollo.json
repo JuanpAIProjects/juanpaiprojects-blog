@@ -1,41 +1,41 @@
 {
- "fecha": "2026-11-26",
- "titulo": "Black Friday del viernes 27: primera gran prueba del comercio agéntico",
- "resumen": "Mañana los agentes de IA enfrentan su primer examen de ventas real: Adobe proyecta $12,900 millones en línea en EE. UU. en un día y los pedidos colocados por agentes ya van muy por encima de la temporada pasada.",
- "url": "",
+ "fecha": "2026-11-27",
+ "titulo": "Black Friday: los agentes de IA van 105 veces arriba del año pasado",
+ "resumen": "La primera gran prueba del comercio hecho por agentes se está contando en vivo: los pedidos que un agente cerró solo ya van 105× contra la temporada pasada y su ticket duplica al de la compra directa; el veredicto llega con el cierre del fin de semana.",
+ "url": "posts/2026-11-27-black-friday-agentes.html",
  "actualizaciones": [
   {
-   "fecha": "2026-11-26",
+   "fecha": "2026-11-27",
    "hora": "10:16",
-   "texto": "Hoy se siembra la víspera: Adobe proyecta $12,900 M en línea mañana (+9.2%) y Forter mide los pedidos de agentes en 74× contra la misma temporada de 2025 en lo que va del mes. Qué se define mañana: si el gasto hecho por agentes se dispara en el día fuerte o se queda en promesa."
+   "texto": "Corte vivo de hoy (Forter): pedidos de agentes 105× vs 2025 en lo que va de la Cyber Week, ticket $220 vs $104 directo. Qué se define: si el múltiplo se sostiene arriba de 100× al cierre del lunes (Cyber Monday) — la predicción de la casa quedó abierta hoy con voto en el blog."
   }
  ],
  "seguimiento": [
   {
    "titulo": "SpaceX: la FCC autorizó 1 millón de satélites-centro de datos (Starmind)",
-   "estado": "Licencia parcial con hitos: primer satélite a más tardar en nov 2033, 10% en 2035, 50% en 2038 y el total en 2040; operar arriba de 600 km espera el plan final de basura orbital. (revisado el 26 nov)",
+   "estado": "Licencia parcial con hitos: primer satélite a más tardar en nov 2033, 10% en 2035, 50% en 2038 y el total en 2040; operar arriba de 600 km espera el plan final de basura orbital. (revisado el 27 nov)",
    "fecha": "2026-11-26",
    "hora": "10:16",
    "url": ""
   },
   {
-   "titulo": "Anthropic: el IPO récord ya cotiza bajo su precio de salida",
-   "estado": "ANT cerró el 25 nov en $82.79 (+1.08%), su primer cierre en verde desde el debut, todavía bajo los $83 de su IPO. Su siguiente definición: la posible entrada a índices en diciembre. (revisado el 26 nov)",
-   "fecha": "2026-11-25",
+   "titulo": "Anthropic: el IPO récord ya cotiza y llega a la bolsa mexicana",
+   "estado": "ANT sigue bajo su precio de salida de $83 y hoy El CEO reporta su llegada a la BMV, para que inversionistas mexicanos puedan comprarla; su siguiente definición es la posible entrada a índices en diciembre. (revisado el 27 nov)",
+   "fecha": "2026-11-27",
    "hora": "10:16",
    "url": "posts/2026-11-19-anthropic-ipo-mas-grande.html#seguimiento"
   },
   {
    "titulo": "Nvidia/Huang: audiencia en el Senado y el CEO permanente por nombrar",
-   "estado": "La audiencia de Huang ante el Comité Bancario del Senado está fechada el 3 dic; la búsqueda del CEO permanente sigue abierta y S&P puso la calificación AA en vigilancia negativa por la dependencia de una sola persona. (revisado el 26 nov)",
+   "estado": "La audiencia de Huang ante el Comité Bancario del Senado está fechada el 3 dic; la búsqueda del CEO permanente sigue abierta. (revisado el 27 nov)",
    "fecha": "2026-11-25",
    "hora": "10:16",
    "url": ""
   },
   {
    "titulo": "La Fed decide tasas el 8–9 de diciembre",
-   "estado": "Con el PIB revisado a 4.3% y el PCE subyacente en 3.3%, el mercado espera un alza en diciembre; es el telón de fondo de las próximas dos semanas. (revisado el 26 nov)",
-   "fecha": "2026-11-25",
+   "estado": "Con el PIB en 4.3% y la inflación que mira la Fed en 3.3%, la decisión del 8–9 dic es el telón de fondo de las próximas dos semanas; hoy los mercados reabren media jornada tras el feriado. (revisado el 27 nov)",
+   "fecha": "2026-11-27",
    "hora": "10:16",
    "url": ""
   }

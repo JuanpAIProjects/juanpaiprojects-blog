@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-26",
+ "actualizado": "2026-11-27",
  "pronosticos": [
   {
    "tipo": "contenido",
@@ -77,6 +77,24 @@
    "pronostico": "Pronostiqué que la conversación más fuerte se daba en X, con como 50% más de lecturas que un post típico de la cuenta, y que lo que más iba a pesar eran los comentarios.",
    "resultado": "pendiente",
    "nota": "La cifra detiene por sí sola: un millón de satélites autorizados contra los cerca de 11,000 que SpaceX tiene hoy en órbita, y la pieza cierra con la pregunta de si la IA se muda al espacio o es una promesa sobredimensionada."
+  },
+  {
+   "tipo": "contenido",
+   "fecha": "2026-11-27",
+   "tema": "El examen de los agentes: en el Black Friday ya van 105 veces más pedidos cerrados por agentes de IA que el año pasado",
+   "pronostico": "Pronostiqué que la conversación más fuerte se daba en X, con como 50% más de lecturas que un post típico de la cuenta, y que lo que más iba a pesar eran los comentarios.",
+   "resultado": "pendiente",
+   "nota": "Es la cobertura del día y el dato se movió hoy mismo: la cifra subió de 74 a 105 veces contra el año pasado, y la pieza abre una predicción que la audiencia responde hoy y se cierra el lunes."
+  },
+  {
+   "tipo": "evento",
+   "fecha": "2026-11-27",
+   "tema": "¿Cómo cierra el fin de semana de los agentes de IA, de Black Friday a Cyber Monday?",
+   "pronostico": "Creo que los pedidos cerrados por agentes se sostienen arriba de 100 veces contra la misma temporada del año pasado al cierre del fin de semana.",
+   "probabilidad": 70,
+   "resultado": "pendiente",
+   "vence": "2026-12-01",
+   "nota": "La base: el corte en vivo de hoy ya va en 105 veces con el día fuerte a la mitad, y el ticket del agente duplica al de la compra directa."
   }
  ]
 }
