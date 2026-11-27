@@ -324,8 +324,9 @@
   // «tipo»: predicciones de EVENTOS (con su probabilidad declarada y
   // su «resolucion» cuando el evento ya pasó) y pronósticos de
   // CONTENIDO (las entradas sin «tipo» cuentan como contenido).
-  // Marcador calculado por sección (totales y % de acierto solo
-  // sobre los ya calificados) y lista del más reciente al más viejo.
+  // Marcador calculado por sección (totales por resultado; el % de
+  // acierto solo aparece con 20+ calificados) y lista del más
+  // reciente al más viejo.
   // Sin datos, la página enseña el trato y un vacío honesto: nunca
   // una lista inventada.
   function pintarPronosticos() {
@@ -349,8 +350,11 @@
       if (calificados) {
         texto += " · " + aciertos + (aciertos === 1 ? " acierto" : " aciertos") +
           " · " + parciales + (parciales === 1 ? " parcial" : " parciales") +
-          " · " + fallos + (fallos === 1 ? " fallo" : " fallos") +
-          " · acierto en el " + Math.round((aciertos / calificados) * 100) + "% de los calificados";
+          " · " + fallos + (fallos === 1 ? " fallo" : " fallos");
+        // El % solo se enseña con muestra que pese (20+ calificados):
+        // con pocos, un 17% se lee como condena y no calibra nada.
+        // Misma regla que la franja de la portada (27 nov 2026).
+        if (calificados >= 20) texto += " · acierto en el " + Math.round((aciertos / calificados) * 100) + "% de los calificados";
         if (pendientes) texto += " · " + pendientes + " en espera de calificación";
       } else if (items.length) {
         texto += txt.sinCalificados;
