@@ -1,101 +1,109 @@
 {
- "perfil": "https://www.instagram.com/juanpaiprojects/",
- "publicaciones": [
-  {
-   "titulo": "Mi dinero se cuadra solo: la máquina del dinero, por dentro",
-   "resumen": "Episodio 1 de «El sistema, por dentro»: la máquina que ordena el dinero en cinco estaciones — un solo libro alimentado en una frase, la proyección del próximo corte, el cuadre contra el conteo físico, los fijos que se apagan al pagarlos y la foto completa del día. Contenido educativo; no es recomendación de inversión.",
-   "url": "https://www.instagram.com/p/DgNvL9fjwu4/",
-   "fecha": "2026-11-26",
-   "tipo": "Carrusel",
-   "imagen": "assets/img/2026-11-26-juanpaiprojects-reel-cover.jpg"
-  },
-  {
-   "titulo": "Creció 4.3% y la inflación no bajó: la Fed se quedó sin espacio",
-   "resumen": "El PIB de EE. UU. se revisó a 4.3% anualizado y el PCE subyacente quedó en 3.3% anual, arriba del 3.2% esperado: crecimiento fuerte con inflación pegada deja a la Fed sin espacio en diciembre. Con la hoja de decisión de una página para juzgar gastos cuando el crédito es caro.",
-   "url": "https://www.instagram.com/p/DgLKR8rDvYd/",
-   "fecha": "2026-11-25",
-   "tipo": "Carrusel",
-   "imagen": "assets/img/2026-11-25-juanpaiprojects-carrusel-1.jpg"
-  },
-  {
-   "titulo": "952,000 millones en un día. Hoy el mercado pregunta si fue euforia",
-   "resumen": "Nvidia sumó 952,000 millones de dólares en un día por el regreso de Jensen Huang y hoy la acción cae en la sesión: el precio de depender de una sola persona. Esta noche Dell decide si el rebote era negocio.",
-   "url": "https://www.instagram.com/reel/DgIlZTLPdPp/",
-   "fecha": "2026-11-24",
-   "tipo": "Reel",
-   "imagen": "assets/video/2026-11-24-nvidia-rebote-952-mil-millones-cover.jpg"
-  },
-  {
-   "titulo": "43,900 millones por seguridad: la compra más grande de la ciberseguridad",
-   "resumen": "CrowdStrike paga 43,900 millones de dólares por Zscaler, todo en acciones y con prima de 34%, tras la peor semana de Wall Street desde 2020. La para llevar: AI Context Flow, gratis, una sola memoria para todas tus IAs.",
-   "url": "https://www.instagram.com/p/DgGApO_k97-/",
-   "fecha": "2026-11-23",
-   "tipo": "Carrusel",
-   "imagen": "assets/video/2026-11-23-crowdstrike-zscaler-cover.jpg"
-  },
-  {
-   "titulo": "Los agentes ya compran, y repiten: 80 veces más gasto en dos meses",
-   "resumen": "Cómo vender cuando tu cliente ya es una IA: el gasto hecho por agentes va 80 veces arriba de inicios de septiembre, según Stripe, y el 56% de quienes compraron con un agente ya repitió. Lo aplicable: Mockreel, gratis, convierte tu grabación de pantalla en un demo en 3D.",
-   "url": "https://www.instagram.com/reel/DgDbrxxzQyC/",
-   "fecha": "2026-11-22",
-   "tipo": "Reel",
-   "imagen": "assets/video/2026-11-22-agentes-ya-compran-cover.jpg"
-  },
-  {
-   "titulo": "Corrección oficial: la IA no se cayó, se cayó el precio que pagaban por ella",
-   "resumen": "El S&P 500 cayó 3.70% y firmó su séptima caída seguida: la corrección ya es oficial. Anthropic tocó $83.05, a cinco centavos de su precio de salida, y TestSprite 4.0 prueba gratis lo que programó otro agente.",
-   "url": "https://www.instagram.com/reel/DgA2-_iP32n/",
-   "fecha": "2026-11-21",
-   "tipo": "Reel",
-   "imagen": "assets/video/2026-11-21-correccion-oficial-ia-cover.jpg"
-  },
-  {
-   "titulo": "La fiesta que se volteó: ni el IPO más grande de la historia frenó la venta",
-   "resumen": "Cómo proteger tu dinero cuando la bolsa cae: Asia perdió 8.5% en una semana, su peor semana desde 2020, y ni el IPO más grande de la historia frenó la venta. Con el paso a paso gratis de InteraOne para montar tu soporte con agentes.",
-   "url": "https://www.instagram.com/p/Df-SXZUj_vX/",
-   "fecha": "2026-11-20",
-   "tipo": "Carrusel",
-   "imagen": "assets/video/2026-11-20-la-fiesta-que-se-volteo-cover.jpg"
-  },
-  {
-   "titulo": "81,310 millones en un día: hoy la IA tiene precio de bolsa",
-   "resumen": "Anthropic debuta en Nasdaq como ANT a 83 dólares, arriba del rango de 70 a 78: captó 81,310 millones, la salida a bolsa más grande de la historia. La columna es Darío Amodei, que dejó OpenAI para fundar al rival seguro, con el remate de la participación de FTX.",
-   "url": "https://www.instagram.com/p/Df7lb-CDgf1/",
-   "fecha": "2026-11-19",
-   "tipo": "Carrusel",
-   "imagen": "assets/video/2026-11-19-anthropic-ipo-mas-grande-cover.jpg"
-  },
-  {
-   "titulo": "Google ya llama y paga por ti. En México todavía no es gratis",
-   "resumen": "Tasks, el modo agente de Gemini, ya es gratis en solo 6 países y México no está en la lista; la alternativa gratis de hoy aquí es Qwen Chat, con búsqueda, Deep Research y modo agente.",
-   "url": "https://www.instagram.com/p/Df5I30dExd-/",
-   "fecha": "2026-11-18",
-   "tipo": "Carrusel",
-   "imagen": "assets/video/2026-11-18-google-llama-y-paga-por-ti-cover.jpg"
-  },
-  {
-   "titulo": "108 mil millones en un trimestre. Y por primera vez, sin su fundador",
-   "resumen": "Nvidia presenta su tercer trimestre sin Jensen Huang: la vara es su guía de 108,000 millones de dólares y margen bruto de 74%, y la guía de enero será la primera escrita por Colette Kress.",
-   "url": "https://www.instagram.com/reel/Df2j0KDzMeB/",
-   "fecha": "2026-11-17",
-   "tipo": "Reel",
-   "imagen": "assets/video/2026-11-17-nvidia-primer-reporte-sin-huang-cover.jpg"
-  },
-  {
-   "titulo": "China entrenó a su agente más fuerte sin una sola tarjeta de Nvidia",
-   "resumen": "LongCat-2.5, de Meituan: 1.6 billones de parámetros entrenados con hardware chino y liberado abierto; marcó 88.4 en Terminal Bench, justo detrás de Claude Opus 5. Tip gratis del día: Composio conecta tu panel de Claude y se actualiza solo.",
-   "url": "https://www.instagram.com/reel/Df0DcFPPnat/",
-   "fecha": "2026-11-16",
-   "tipo": "Reel",
-   "imagen": "assets/img/2026-11-16-juanpaiprojects-reel-cover.jpg"
-  },
-  {
-   "titulo": "El jueves la IA sale a bolsa. Y tu contestador todavía suena a 1998",
-   "resumen": "Anthropic sale a bolsa el jueves, y el tip gratis para que tu buzón de voz suene a 2026 en cinco minutos con Google AI Studio.",
-   "url": "https://www.instagram.com/p/Dfxj1Pzk0of/",
-   "fecha": "2026-11-15",
-   "tipo": "Carrusel"
-  }
- ],
- "usuario": "@juanpaiprojects"
+  "perfil": "https://www.instagram.com/juanpaiprojects/",
+  "publicaciones": [
+    {
+      "titulo": "El examen de los agentes: 105 veces más pedidos que el Black Friday pasado",
+      "resumen": "Los pedidos cerrados solo por agentes van 105 veces arriba del Black Friday pasado, medidos en vivo hoy por Forter, y su ticket promedio ($220) duplica al de la compra directa ($104).",
+      "url": "https://www.instagram.com/reel/DgQTzXoPeAX/",
+      "fecha": "2026-11-27",
+      "tipo": "Reel",
+      "imagen": "assets/video/2026-11-27-black-friday-agentes-compran-cover.jpg"
+    },
+    {
+      "titulo": "Mi dinero se cuadra solo: la máquina del dinero, por dentro",
+      "resumen": "Episodio 1 de «El sistema, por dentro»: la máquina que ordena el dinero en cinco estaciones — un solo libro alimentado en una frase, la proyección del próximo corte, el cuadre contra el conteo físico, los fijos que se apagan al pagarlos y la foto completa del día. Contenido educativo; no es recomendación de inversión.",
+      "url": "https://www.instagram.com/p/DgNvL9fjwu4/",
+      "fecha": "2026-11-26",
+      "tipo": "Carrusel",
+      "imagen": "assets/img/2026-11-26-juanpaiprojects-reel-cover.jpg"
+    },
+    {
+      "titulo": "Creció 4.3% y la inflación no bajó: la Fed se quedó sin espacio",
+      "resumen": "El PIB de EE. UU. se revisó a 4.3% anualizado y el PCE subyacente quedó en 3.3% anual, arriba del 3.2% esperado: crecimiento fuerte con inflación pegada deja a la Fed sin espacio en diciembre. Con la hoja de decisión de una página para juzgar gastos cuando el crédito es caro.",
+      "url": "https://www.instagram.com/p/DgLKR8rDvYd/",
+      "fecha": "2026-11-25",
+      "tipo": "Carrusel",
+      "imagen": "assets/img/2026-11-25-juanpaiprojects-carrusel-1.jpg"
+    },
+    {
+      "titulo": "952,000 millones en un día. Hoy el mercado pregunta si fue euforia",
+      "resumen": "Nvidia sumó 952,000 millones de dólares en un día por el regreso de Jensen Huang y hoy la acción cae en la sesión: el precio de depender de una sola persona. Esta noche Dell decide si el rebote era negocio.",
+      "url": "https://www.instagram.com/reel/DgIlZTLPdPp/",
+      "fecha": "2026-11-24",
+      "tipo": "Reel",
+      "imagen": "assets/video/2026-11-24-nvidia-rebote-952-mil-millones-cover.jpg"
+    },
+    {
+      "titulo": "43,900 millones por seguridad: la compra más grande de la ciberseguridad",
+      "resumen": "CrowdStrike paga 43,900 millones de dólares por Zscaler, todo en acciones y con prima de 34%, tras la peor semana de Wall Street desde 2020. La para llevar: AI Context Flow, gratis, una sola memoria para todas tus IAs.",
+      "url": "https://www.instagram.com/p/DgGApO_k97-/",
+      "fecha": "2026-11-23",
+      "tipo": "Carrusel",
+      "imagen": "assets/video/2026-11-23-crowdstrike-zscaler-cover.jpg"
+    },
+    {
+      "titulo": "Los agentes ya compran, y repiten: 80 veces más gasto en dos meses",
+      "resumen": "Cómo vender cuando tu cliente ya es una IA: el gasto hecho por agentes va 80 veces arriba de inicios de septiembre, según Stripe, y el 56% de quienes compraron con un agente ya repitió. Lo aplicable: Mockreel, gratis, convierte tu grabación de pantalla en un demo en 3D.",
+      "url": "https://www.instagram.com/reel/DgDbrxxzQyC/",
+      "fecha": "2026-11-22",
+      "tipo": "Reel",
+      "imagen": "assets/video/2026-11-22-agentes-ya-compran-cover.jpg"
+    },
+    {
+      "titulo": "Corrección oficial: la IA no se cayó, se cayó el precio que pagaban por ella",
+      "resumen": "El S&P 500 cayó 3.70% y firmó su séptima caída seguida: la corrección ya es oficial. Anthropic tocó $83.05, a cinco centavos de su precio de salida, y TestSprite 4.0 prueba gratis lo que programó otro agente.",
+      "url": "https://www.instagram.com/reel/DgA2-_iP32n/",
+      "fecha": "2026-11-21",
+      "tipo": "Reel",
+      "imagen": "assets/video/2026-11-21-correccion-oficial-ia-cover.jpg"
+    },
+    {
+      "titulo": "La fiesta que se volteó: ni el IPO más grande de la historia frenó la venta",
+      "resumen": "Cómo proteger tu dinero cuando la bolsa cae: Asia perdió 8.5% en una semana, su peor semana desde 2020, y ni el IPO más grande de la historia frenó la venta. Con el paso a paso gratis de InteraOne para montar tu soporte con agentes.",
+      "url": "https://www.instagram.com/p/Df-SXZUj_vX/",
+      "fecha": "2026-11-20",
+      "tipo": "Carrusel",
+      "imagen": "assets/video/2026-11-20-la-fiesta-que-se-volteo-cover.jpg"
+    },
+    {
+      "titulo": "81,310 millones en un día: hoy la IA tiene precio de bolsa",
+      "resumen": "Anthropic debuta en Nasdaq como ANT a 83 dólares, arriba del rango de 70 a 78: captó 81,310 millones, la salida a bolsa más grande de la historia. La columna es Darío Amodei, que dejó OpenAI para fundar al rival seguro, con el remate de la participación de FTX.",
+      "url": "https://www.instagram.com/p/Df7lb-CDgf1/",
+      "fecha": "2026-11-19",
+      "tipo": "Carrusel",
+      "imagen": "assets/video/2026-11-19-anthropic-ipo-mas-grande-cover.jpg"
+    },
+    {
+      "titulo": "Google ya llama y paga por ti. En México todavía no es gratis",
+      "resumen": "Tasks, el modo agente de Gemini, ya es gratis en solo 6 países y México no está en la lista; la alternativa gratis de hoy aquí es Qwen Chat, con búsqueda, Deep Research y modo agente.",
+      "url": "https://www.instagram.com/p/Df5I30dExd-/",
+      "fecha": "2026-11-18",
+      "tipo": "Carrusel",
+      "imagen": "assets/video/2026-11-18-google-llama-y-paga-por-ti-cover.jpg"
+    },
+    {
+      "titulo": "108 mil millones en un trimestre. Y por primera vez, sin su fundador",
+      "resumen": "Nvidia presenta su tercer trimestre sin Jensen Huang: la vara es su guía de 108,000 millones de dólares y margen bruto de 74%, y la guía de enero será la primera escrita por Colette Kress.",
+      "url": "https://www.instagram.com/reel/Df2j0KDzMeB/",
+      "fecha": "2026-11-17",
+      "tipo": "Reel",
+      "imagen": "assets/video/2026-11-17-nvidia-primer-reporte-sin-huang-cover.jpg"
+    },
+    {
+      "titulo": "China entrenó a su agente más fuerte sin una sola tarjeta de Nvidia",
+      "resumen": "LongCat-2.5, de Meituan: 1.6 billones de parámetros entrenados con hardware chino y liberado abierto; marcó 88.4 en Terminal Bench, justo detrás de Claude Opus 5. Tip gratis del día: Composio conecta tu panel de Claude y se actualiza solo.",
+      "url": "https://www.instagram.com/reel/Df0DcFPPnat/",
+      "fecha": "2026-11-16",
+      "tipo": "Reel",
+      "imagen": "assets/img/2026-11-16-juanpaiprojects-reel-cover.jpg"
+    },
+    {
+      "titulo": "El jueves la IA sale a bolsa. Y tu contestador todavía suena a 1998",
+      "resumen": "Anthropic sale a bolsa el jueves, y el tip gratis para que tu buzón de voz suene a 2026 en cinco minutos con Google AI Studio.",
+      "url": "https://www.instagram.com/p/Dfxj1Pzk0of/",
+      "fecha": "2026-11-15",
+      "tipo": "Carrusel"
+    }
+  ],
+  "usuario": "@juanpaiprojects"
 }
