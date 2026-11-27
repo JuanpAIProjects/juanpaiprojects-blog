@@ -119,11 +119,17 @@
   // (titulo, url de destino — el hilo de X o el post del blog —, fecha
   // y hora). Sin breaking registrada, la banda no aparece: nunca se
   // rellena con el post del día (decisión de Juanpa, 18 nov 2026).
+  // Frescura: con más de 24 h la banda se apaga sola — una «última
+  // hora» de hace dos días ya no es última hora (regla de Juanpa,
+  // 27 nov 2026). La historia sigue viva en En desarrollo /
+  // En seguimiento; el archivo no se borra.
   function pintarUltimaHora() {
     var banda = document.getElementById("ultima-hora");
     if (!banda) return;
     cargarJSON("ultima-hora.json").then(function (d) {
       if (!d || !d.titulo || !d.url) { banda.hidden = true; return; }
+      var cuando = new Date(d.fecha + "T" + (d.hora || "00:00") + ":00-06:00");
+      if (!isNaN(cuando) && Date.now() - cuando.getTime() > 24 * 60 * 60 * 1000) { banda.hidden = true; return; }
       if (/^https?:\/\//.test(d.url)) {
         banda.href = d.url;
         banda.target = "_blank";
