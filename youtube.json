@@ -3,6 +3,13 @@
  "perfil": "https://www.youtube.com/@juanpaiprojects",
  "videos": [
   {
+   "fecha": "2026-11-26",
+   "titulo": "Un millón de satélites-centro de datos: la FCC autorizó Starmind",
+   "url": "https://www.youtube.com/shorts/ljqmHX4JwF0",
+   "videoId": "ljqmHX4JwF0",
+   "imagen": "assets/video/2026-11-26-millon-satelites-centros-datos-cover.jpg"
+  },
+  {
    "fecha": "2026-11-24",
    "titulo": "Nvidia: 952,000 millones en un día por una sola persona",
    "url": "https://www.youtube.com/shorts/PeRBoNwsfh8",
