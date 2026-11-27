@@ -85,9 +85,10 @@
 
     <div class="contenedor"><div class="regla-marca" aria-hidden="true"></div></div>
 
-    <!-- Franja de registro público: se pinta desde pronosticos.json y
-         posts.json (días publicando, nº de pronósticos y, cuando haya
-         calificaciones, el % de acierto). Sin datos, no aparece. -->
+    <!-- Franja de registro público: una sola línea-invitación al
+         registro, sin cifras (decisión de Juanpa, 27 nov 2026: fuera
+         el contador de días y el % de acierto; el % vuelve cuando
+         haya ~20 calificados). Las cifras viven en pronosticos.html. -->
     <section class="contenedor" aria-label="Registro público" style="padding-top: 1.8rem;">
       <div class="franja-registro" id="franja-registro" hidden></div>
     </section>
@@ -307,7 +308,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20"></script>
+  <script src="assets/js/main.js?v=21"></script>
   <!-- Brevo: textos de validación y envío del formulario de suscripción -->
   <script>
     window.REQUIRED_CODE_ERROR_MESSAGE = 'Elige un código de país';

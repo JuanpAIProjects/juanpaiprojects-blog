@@ -547,52 +547,20 @@
     }).join("");
   }
 
-  // Franja de registro público (portada): la prueba social falsable
-  // de la marca, pintada desde posts.json y pronosticos.json — días
-  // publicando (fechas distintas de posts.json), nº de pronósticos
-  // del registro y, SOLO cuando ya hay calificaciones, el % de
-  // acierto sobre los calificados (misma cuenta que pronosticos.html).
-  // Cada dato se pinta solo si existe; sin datos, la franja no
-  // aparece. Siempre enlaza al registro público completo.
+  // Franja de registro público (portada): una sola línea-invitación
+  // al registro, sin cifras. El contador de días hacía ver nuevo al
+  // blog y el % de acierto con pocos calificados se leía como
+  // «falla casi siempre» (17% = 1 de 6). Decisión de Juanpa,
+  // 27 nov 2026: fuera el % y los días de la franja; el % vuelve
+  // cuando haya ~20 pronósticos calificados. Las cifras completas
+  // viven en pronosticos.html, con su metodología.
   function pintarFranjaRegistro() {
     var franja = document.getElementById("franja-registro");
     if (!franja) return;
-    var datos = {};
-    function listo() {
-      if (datos.posts === undefined && datos.pron === undefined) return;
-      var partes = [];
-      if (datos.posts && datos.posts.length) {
-        var fechas = {};
-        datos.posts.forEach(function (post) { if (post.fecha) fechas[post.fecha] = true; });
-        var dias = Object.keys(fechas).length;
-        var primera = datos.posts[datos.posts.length - 1];
-        partes.push('<span class="fr-dato"><strong>' + dias + (dias === 1 ? " día" : " días") +
-          "</strong> publicando a diario" +
-          (primera && primera.fecha ? " desde el " + esc(fechaCorta(primera.fecha)) : "") + "</span>");
-      }
-      if (datos.pron && datos.pron.pronosticos && datos.pron.pronosticos.length) {
-        var items = datos.pron.pronosticos;
-        var n = items.length;
-        partes.push('<span class="fr-dato"><strong>' + n + "</strong> " +
-          (n === 1 ? "pronóstico" : "pronósticos") + " en el registro público</span>");
-        var aciertos = 0, calificados = 0;
-        items.forEach(function (pr) {
-          if (pr.resultado === "acierto") { aciertos++; calificados++; }
-          else if (pr.resultado === "parcial" || pr.resultado === "fallo") { calificados++; }
-        });
-        if (calificados > 0) {
-          partes.push('<span class="fr-dato"><strong>' + Math.round((aciertos / calificados) * 100) +
-            "%</strong> de acierto en " + calificados +
-            (calificados === 1 ? " pronóstico calificado" : " pronósticos calificados") + "</span>");
-        }
-      }
-      if (!partes.length) { franja.hidden = true; return; }
-      partes.push('<a class="fr-enlace" href="' + esc(base() + "pronosticos.html") + '">Ver el registro público \u2192</a>');
-      franja.innerHTML = partes.join("");
-      franja.hidden = false;
-    }
-    cargarJSON("posts.json").then(function (d) { datos.posts = Array.isArray(d) ? d : []; listo(); }).catch(function () { datos.posts = null; listo(); });
-    cargarJSON("pronosticos.json").then(function (d) { datos.pron = d; listo(); }).catch(function () { datos.pron = null; listo(); });
+    franja.innerHTML =
+      '<span class="fr-dato"><strong>Registro público</strong> — cada predicción se escribe antes y se califica a la vista</span>' +
+      '<a class="fr-enlace" href="' + esc(base() + "pronosticos.html") + '">Ver el registro público \u2192</a>';
+    franja.hidden = false;
   }
 
   // Línea compacta «La pieza de hoy también en…» (portada): los
