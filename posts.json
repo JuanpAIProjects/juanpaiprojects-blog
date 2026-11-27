@@ -2,13 +2,16 @@
   {
     "fecha": "2026-11-27",
     "titulo": "Black Friday: hoy los agentes compran en serio por primera vez",
-    "resumen": "Black Friday, primera gran prueba del comercio agéntico: los pedidos hechos por agentes de IA ya van 74 veces arriba de la temporada pasada, y hoy se proyectan 12,900 millones de dólares en ventas en línea en un solo día en EE. UU.",
+    "resumen": "Black Friday, primera gran prueba del comercio agéntico: los pedidos hechos por agentes de IA ya van 105 veces arriba de la temporada pasada (74 al corte de anoche, medido en vivo hoy por Forter), el ticket del agente es de $220 contra $104 de la compra directa, y hoy se proyectan 12,900 millones de dólares en ventas en línea en un solo día en EE. UU.",
     "url": "posts/2026-11-27-black-friday-agentes-compran.html",
     "tema": "IA y comercio",
     "tipo": "noticia",
     "lectura": "2 min",
     "audio": "assets/audio/2026-11-27-black-friday-agentes-compran.mp3",
-    "audioDuracion": "1 min 38 s"
+    "audioDuracion": "2 min 18 s",
+    "video": "assets/video/2026-11-27-black-friday-agentes-compran.mp4",
+    "videoCover": "assets/video/2026-11-27-black-friday-agentes-compran-cover.jpg",
+    "videoDuracion": "41 s"
   },
   {
     "fecha": "2026-11-26",
