@@ -1,5 +1,16 @@
 [
   {
+    "fecha": "2026-11-27",
+    "titulo": "Black Friday: hoy los agentes compran en serio por primera vez",
+    "resumen": "Black Friday, primera gran prueba del comercio agéntico: los pedidos hechos por agentes de IA ya van 74 veces arriba de la temporada pasada, y hoy se proyectan 12,900 millones de dólares en ventas en línea en un solo día en EE. UU.",
+    "url": "posts/2026-11-27-black-friday-agentes-compran.html",
+    "tema": "IA y comercio",
+    "tipo": "noticia",
+    "lectura": "2 min",
+    "audio": "assets/audio/2026-11-27-black-friday-agentes-compran.mp3",
+    "audioDuracion": "1 min 38 s"
+  },
+  {
     "fecha": "2026-11-26",
     "titulo": "Un millón de satélites que son centros de datos",
     "resumen": "La FCC autorizó a SpaceX hasta 1,000,000 de satélites Starmind que procesan datos de IA en órbita: 90 veces los ~11,000 Starlink actuales, con hitos duros en 2033, 2035, 2038 y 2040. La para llevar: tu stack de IA en cero pesos, con Gemini gratis, agentes abiertos en tu máquina y video hecho en casa.",
