@@ -3,6 +3,13 @@
  "perfil": "https://www.youtube.com/@juanpaiprojects",
  "videos": [
   {
+   "fecha": "2026-11-27",
+   "titulo": "Agentes de IA: 105× más pedidos en Black Friday",
+   "url": "https://www.youtube.com/shorts/sSycWvqmCeE",
+   "videoId": "sSycWvqmCeE",
+   "imagen": "assets/video/2026-11-27-black-friday-agentes-compran-cover.jpg"
+  },
+  {
    "fecha": "2026-11-26",
    "titulo": "Un millón de satélites-centro de datos: la FCC autorizó Starmind",
    "url": "https://www.youtube.com/shorts/ljqmHX4JwF0",
